@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/no_ideas_for_game.dir/main.cpp.o  -o no_ideas_for_game -Wl,-rpath,/home/vydra/Documents/Wo/ustjantsev-andrej-game/no-ideas-for-game/lib/BearLibTerminal/Linux64 ../lib/BearLibTerminal/Linux64/libBearLibTerminal.so 
