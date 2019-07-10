@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/BearLibTerminal/include/BearLibTerminal.h
+stdio.h
+-
+stddef.h
+-
+stdint.h
+-
+stdarg.h
+-
+stdlib.h
+-
+wchar.h
+-
+sstream
+-
+
+/home/vydra/Documents/Wo/ustjantsev-andrej-game/no-ideas-for-game/main.cpp
+BearLibTerminal.h
+-
+cmath
+-
+iostream
+-
+vector
+-
+

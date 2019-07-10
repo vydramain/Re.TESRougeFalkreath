@@ -1,0 +1,3 @@
+/home/vydra/Documents/Wo/ustjantsev-andrej-game/no-ideas-for-game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vydra/Documents/Wo/ustjantsev-andrej-game/no-ideas-for-game/cmake-build-debug/CMakeFiles/no_ideas_for_game.dir
+/home/vydra/Documents/Wo/ustjantsev-andrej-game/no-ideas-for-game/cmake-build-debug/CMakeFiles/edit_cache.dir
