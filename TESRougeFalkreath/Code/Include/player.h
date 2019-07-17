@@ -6,6 +6,7 @@
 #define TESROUGEFALKREATH_PLAYER_H
 
 #include <BearLibTerminal.h>
+#include "collisio.h"
 #include "inputKey.h"
 
 class player {
@@ -16,13 +17,13 @@ class player {
 
   void Render();
 
-  void Move();
+  void Move(collisio q, collisio w, collisio e, collisio r, collisio t, collisio y,collisio u,collisio i,collisio o);
 
  public:
   player(const inputKey &InputKey, unsigned x, unsigned y) : InputKey_(InputKey) , x_(x), y_(y) {}
 
   
-  void Update();
+  void Update(collisio q, collisio w, collisio e, collisio r, collisio t, collisio y,collisio u,collisio i,collisio o);
 };
 
 #endif  // TESROUGEFALKREATH_PLAYER_H
