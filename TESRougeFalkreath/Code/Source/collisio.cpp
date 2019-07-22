@@ -4,7 +4,6 @@
 
 #include "collisio.h"
 
-
 bool collisio::isInCollisio(unsigned x, unsigned y) {
   if ((x > x_ && x < x_s) && (y > y_ && y < y_s)) {
     return true;

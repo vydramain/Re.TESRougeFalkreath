@@ -19,9 +19,8 @@ class player {
   void Move();
 
  public:
-  player(const inputKey &InputKey, unsigned x, unsigned y) : InputKey_(InputKey) , x_(x), y_(y) {}
+  player(const inputKey &InputKey, unsigned x, unsigned y) : InputKey_(InputKey), x_(x), y_(y) {}
 
-  
   void Update();
 };
 

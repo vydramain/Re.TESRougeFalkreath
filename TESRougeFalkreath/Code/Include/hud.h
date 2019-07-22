@@ -10,32 +10,15 @@
 
 class hud {
  private:
+
   bool dialog;
-  Maps map;
 
-  void renderHud(){
-    for(unsigned i(0); i<40; i++){
-      terminal_print(60, i, "|");
-    }
-    if(dialog == true){
-      terminal_print(0,25, "________________________________________");
-      for(unsigned i(0); i<15; i++){
-        terminal_print(40, 26+i, "|");
-      }
-    }
-  }
+  void renderHud();
 
-  bool renderMap(){
-    return false;
-  }
+  bool renderMap();
+
  public:
-    hud() {
-      dialog= false;
-    }
-
-
+  hud(unsigned in);
 };
 
-
-
-#endif //TESROUGEFALKREATH_HUD_H
+#endif  // TESROUGEFALKREATH_HUD_H

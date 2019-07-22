@@ -8,6 +8,7 @@
 
 class inputKey {
  private:
+  bool is_enter_ = false;
   bool is_exit_ = false;
   bool is_locate_right_ = false;
   bool is_locate_left_ = false;
@@ -29,6 +30,7 @@ class inputKey {
   bool is_m_button_ = false;
 
  public:
+  bool IsEnter() const;
   bool IsExit() const;
   bool IsRight() const;
   bool IsLeft() const;
