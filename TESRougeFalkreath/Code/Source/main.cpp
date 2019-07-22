@@ -9,11 +9,13 @@
 
 
 int main() {
+  hud HUD(0);
+
   unsigned gameStatus;
   gameStatus= mainMenu();
 
   if(gameStatus== 1){
-    return 1;
+    
   } else{
     if(gameStatus== 2){
       return 0;

@@ -13,12 +13,13 @@ class hud {
 
   bool dialog;
 
-  void renderHud();
+
 
   bool renderMap();
 
  public:
   hud(unsigned in);
+    void renderHud();
 };
 
 #endif  // TESROUGEFALKREATH_HUD_H
