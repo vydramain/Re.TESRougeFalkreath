@@ -7,10 +7,10 @@
 bool menuChoiser(unsigned int &nonshoise){
   inputKey InputKey;
   InputKey.Update();
-  if (InputKey.IsUp() && nonshoise < 2) {
+  if (InputKey.IsUp() && nonshoise > 1) {
     nonshoise--;
   } else {
-    if (InputKey.IsDown() && nonshoise > 1) {
+    if (InputKey.IsDown() && nonshoise < 2) {
       nonshoise++;
     }
   }
@@ -34,12 +34,12 @@ unsigned mainMenu() {
     IsGo = menuChoiser(nonchoise);
 
     if (nonchoise == 1) {
-      terminal_print(20, 20, "Новая Игра <--");
-      terminal_print(20, 21, "  Выход");
+      terminal_print(16, 20, "--> Новая Игра <--");
+      terminal_print(16, 21, "      Выход");
     } else {
       if (nonchoise == 2) {
-        terminal_print(20, 20, "Новая Игра");
-        terminal_print(20, 21, "  Выход <--");
+        terminal_print(16, 20, "    Новая Игра");
+        terminal_print(16, 21, "  --> Выход <--");
       } else {
         terminal_print(20, 20, "Новая Игра");
         terminal_print(20, 21, "  Выход");
