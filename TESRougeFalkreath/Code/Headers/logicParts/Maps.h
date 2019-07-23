@@ -7,11 +7,11 @@
 
 #include <BearLibTerminal.h>
 #include <stdio.h>
-#include "./player.h"
 
 class Maps {
  private:
-  const unsigned active_x1_=15, active_y1_=10, active_x2_=45, active_y2_=30;
+  // const unsigned active_x1_=15, active_y1_=10, active_x2_=45, active_y2_=30; Активная зона длействий игрока(для
+  // меньшего дергания экрана)
   FILE *map;
   char **mapChar;
   int x_, y_;
@@ -19,9 +19,9 @@ class Maps {
   bool loadMap();
 
  public:
-  Maps(unsigned in);
-
-  void printMap(int xm, int ym);
+  Maps(unsigned in);  // номер соответствующей локации
+  ~Maps();
+  void getSize(int &x, int &y);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_

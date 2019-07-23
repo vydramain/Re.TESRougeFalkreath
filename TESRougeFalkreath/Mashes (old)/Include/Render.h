@@ -6,9 +6,9 @@
 #define TESROUGEFALKREATH_RENDER_H
 
 #include <BearLibTerminal.h>
-#include "Maps.h"
-#include "player.h"
-#include "hud.h"
+#include "../../Code/Headers/logicParts/Maps.h"
+#include "../../Code/Headers/logicParts/hud.h"
+#include "../../Code/Headers/logicParts/player.h"
 
 class Render {
 private:

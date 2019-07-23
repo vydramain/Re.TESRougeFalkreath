@@ -1,46 +1,27 @@
 
 #include <BearLibTerminal.h>
-#include "./inputKey.h"
-#include "./Render.h"
+#include "../Headers/logicParts/inputKey.h"
+#include "./inGameLogic.h"
+#include "./renderGame.h"
 
 unsigned headMenu();
 
 int main() {
-  Render render;
   unsigned gameStatus;
-  gameStatus= headMenu();
+  gameStatus = headMenu();
+  inGameLogic core;
+  // renderGame render;
 
-  if(gameStatus== 1){
-      Maps map(0);
-      inputKey inputKey;
-      player GG(inputKey, 30, 20);
-      hud HUD;
-    render.goRender(map, GG, HUD);
-      while(true){
-        terminal_refresh();
-        inputKey.Update();
-        if(inputKey.IsExit()){
-          break;
-        }
-      }
-
-  } else{
-    if(gameStatus== 2){
+  if (gameStatus == 1) {  //Старт игры
+    core.inGameFT();
+  } else {
+    if (gameStatus == 2) {
       return 0;
     }
   }
 }
 
-
-
-
-
-
-
-
-
-
-bool menuChoiser(unsigned int &nonshoise){
+bool menuChoiser(unsigned int &nonshoise) {
   inputKey InputKey;
   InputKey.Update();
   if (InputKey.IsUp() && nonshoise > 1) {
@@ -57,7 +38,7 @@ bool menuChoiser(unsigned int &nonshoise){
   }
 }
 
-unsigned headMenu(){
+unsigned headMenu() {
   bool IsGo(false);
   unsigned nonchoise(0);  // 0 - Процесс выбора 1 - Новая игра 2 - Выход
 

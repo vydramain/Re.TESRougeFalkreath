@@ -2,7 +2,7 @@
 // Created by vydra on 7/15/19.
 //
 
-#include "inputKey.h"
+#include "../../Headers/logicParts/inputKey.h"
 
 bool inputKey::IsEnter() const {
   return is_enter_;
@@ -65,7 +65,7 @@ bool inputKey::IsButtonM() const {
   return is_m_button_;
 }
 void inputKey::Update() {
-    is_enter_ = false;
+  is_enter_ = false;
   is_exit_ = false;
   is_locate_right_ = false;
   is_locate_left_ = false;
@@ -88,8 +88,8 @@ void inputKey::Update() {
 
   while (terminal_has_input()) {
     auto key = terminal_read();
-    if(key == TK_ENTER){
-        is_enter_ =true;
+    if (key == TK_ENTER) {
+      is_enter_ = true;
     }
     if (key == TK_CLOSE) {
       is_exit_ = true;

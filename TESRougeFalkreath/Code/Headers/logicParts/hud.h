@@ -6,14 +6,14 @@
 #define TESROUGEFALKREATH_CODE_INCLUDE_HUD_H_
 
 #include <BearLibTerminal.h>
-#include "Maps.h"
+#include "./player.h"
 
 class hud {
  private:
   bool dialog;
+
  public:
-  hud();
-    void renderHud();
+  hud(player GG);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_HUD_H_
