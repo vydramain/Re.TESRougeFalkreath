@@ -62,3 +62,33 @@ void Maps::getSize(int &x, int &y) {
   x = x_;
   y = y_;
 }
+
+
+
+//////////////////////////////////////////////////////////////рендер
+void Maps::renderMap(int xm, int ym){
+    terminal_color(0xffa0a0a0);
+    for (int ii(0); ii < 40; ii++) {
+        for (int i(0); i < 60; i++) {
+            terminal_color(0xff989898);
+            if(ym-20+ii< 0){
+              terminal_put(i,ii,' ');
+            }else {
+              if (xm - 30 + i < 0) {
+                terminal_put(i, ii, ' ');
+              }else{
+                if(ym-20+ii> y_){
+                  terminal_put(i, ii, ' ');
+                }else{
+                  if(xm - 30 + i > x_) {
+                    terminal_put(i, ii, ' ');
+                  } else{
+              terminal_put(i, ii, mapChar[ym - 20 + ii][xm - 30 + i]);
+            }}}}
+
+
+
+        }
+
+    }
+}

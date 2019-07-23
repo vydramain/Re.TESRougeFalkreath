@@ -22,6 +22,12 @@ class Maps {
   Maps(unsigned in);  // номер соответствующей локации
   ~Maps();
   void getSize(int &x, int &y);
+
+
+
+  //////////////////////////////////////////////////////////////рендер
+  void renderMap(int xm, int ym);           //запрашивает координаты игрока
+
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_

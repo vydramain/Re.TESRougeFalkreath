@@ -14,6 +14,13 @@ class hud {
 
  public:
   hud(player GG);
+
+
+
+
+
+  ///////////////////////////////// рендер
+  void renderHud();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_HUD_H_

@@ -30,6 +30,9 @@ class player {
   player(unsigned xm, unsigned ym) : x_m(xm), y_m(ym) {}
   void getTerrain(unsigned &xm, unsigned &ym);
   void getLocation(unsigned &x, unsigned &y);
+
+  //////////////////////////////////////////////////////////////рендер
+  void renderPlayer();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_PLAYER_H
