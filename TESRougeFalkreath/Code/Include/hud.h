@@ -11,13 +11,9 @@
 class hud {
  private:
   bool dialog;
-
-  bool renderMap();
-  void renderHud();
-
  public:
-  hud(unsigned in);
-  void render();
+  hud();
+    void renderHud();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_HUD_H_

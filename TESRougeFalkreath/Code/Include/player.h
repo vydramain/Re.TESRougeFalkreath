@@ -13,16 +13,19 @@ class player {
   char symbol = 'i';
   const inputKey &InputKey_;
   unsigned x_ = 0, y_ = 0; // для отображения на экране
-  unsigned x_m= 0, y_m= 0; // для размещения на карте
+  unsigned x_m= 30, y_m= 20; // для размещения на карте
 
-  void Render();
 
   void Move();
 
  public:
   player(const inputKey &InputKey, unsigned x, unsigned y) : InputKey_(InputKey), x_(x), y_(y) {}
+  void render();
+  void getTerrain(unsigned &xm, unsigned &ym);
+  void getLocation(unsigned &x, unsigned &y);
 
-  void Update();
+
+
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_PLAYER_H

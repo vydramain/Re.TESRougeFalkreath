@@ -1,21 +1,29 @@
 
 #include <BearLibTerminal.h>
 #include "./inputKey.h"
-#include "./player.h"
-#include "./collisio.h"
-#include "./Maps.h"
-#include "./hud.h"
+#include "./Render.h"
 
 unsigned headMenu();
 
 int main() {
-  hud HUD(0);
-
+  Render render;
   unsigned gameStatus;
   gameStatus= headMenu();
 
   if(gameStatus== 1){
-    
+      Maps map(0);
+      inputKey inputKey;
+      player GG(inputKey, 30, 20);
+      hud HUD;
+    render.goRender(map, GG, HUD);
+      while(true){
+        terminal_refresh();
+        inputKey.Update();
+        if(inputKey.IsExit()){
+          break;
+        }
+      }
+
   } else{
     if(gameStatus== 2){
       return 0;

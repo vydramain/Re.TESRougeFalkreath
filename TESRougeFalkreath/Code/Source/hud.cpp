@@ -6,9 +6,8 @@
 #include <BearLibTerminal.h>
 #include "./Maps.h"
 
-hud::hud(unsigned in) {
+hud::hud() {
   dialog = false;
-  Maps map(unsigned in);
 }
 
 void hud::renderHud() {
@@ -22,7 +21,4 @@ void hud::renderHud() {
     }
   }
 }
-bool hud::renderMap(unsigned x, unsigned y) {
 
-
-}

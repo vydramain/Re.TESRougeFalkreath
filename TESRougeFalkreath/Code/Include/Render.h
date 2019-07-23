@@ -13,7 +13,7 @@
 class Render {
 private:
 public:
-    goRender(Maps &map, player &gg, hud &interface);
+    bool goRender(Maps map, player gg, hud interface);
 };
 
 
