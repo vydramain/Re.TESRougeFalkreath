@@ -10,11 +10,16 @@
 
 class hud {
  private:
-  bool dialog;
+
 
  public:
   hud(player GG);
+  bool dialog;
+ bool askDoorMark;
+  bool askDoor();
 
+  bool askArmorMark;
+  bool askArmor();
 
 
 

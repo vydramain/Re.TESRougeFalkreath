@@ -15,7 +15,7 @@ class renderGame {
 
  public:
   renderGame() {}
-  void goRender(Maps map, player gg, hud interface);
+  void goRender(Maps &map, player &gg, hud &interface);
 
 };
 

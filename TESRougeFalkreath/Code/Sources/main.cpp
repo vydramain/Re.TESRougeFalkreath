@@ -33,7 +33,7 @@ bool menuChoiser(unsigned int &nonshoise) {
       nonshoise++;
     }
   }
-  if (InputKey.IsEnter()) {
+  if ((InputKey.IsButtonE() && nonshoise!= 0) || InputKey.IsExit()){
     return true;
   } else {
     return false;
@@ -51,6 +51,8 @@ unsigned headMenu() {
   while (IsGo == false) {
     terminal_clear();
     IsGo = menuChoiser(nonchoise);
+      terminal_print(50,1,"Перемещение: Стрелки");
+      terminal_print(50,2,"Действие: Клавиша У");
 
     if (nonchoise == 1) {
       terminal_print(16, 20, "--> Новая Игра <--");

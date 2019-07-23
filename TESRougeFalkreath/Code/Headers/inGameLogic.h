@@ -14,16 +14,19 @@
 class inGameLogic {
  private:
   int mapX, mapY;
-  const inputKey &InputKey_;
+  inputKey &InputKey_;
   renderGame render;
 
 
   void update();
 
  public:
-  inGameLogic(const inputKey &InputKey) : InputKey_(InputKey) {}
+  inGameLogic(inputKey &InputKey) : InputKey_(InputKey) {}
+  void actionPlayer(hud &HUD, Maps &map, player &GG, int &xGG, int &yGG);
+  bool movePlayer(player &GG, Maps &map, int &xGG, int &yGG);
 
   void inGameFT();
+  //int action();
 };
 
 #endif  // TESROUGEFALKREATH_INGAMELOGIC_H

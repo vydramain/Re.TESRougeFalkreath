@@ -7,7 +7,7 @@
 
 Maps::Maps(unsigned in) {
   if (in == 0) {
-    map = fopen("Maps/Falkreath.bin", "rt");
+    map = fopen("Maps/Falkreath.bin", "r");
   } else {
   }
 
@@ -38,8 +38,8 @@ Maps::~Maps() {
 
 bool Maps::loadMap() {
   fseek(map, 0, SEEK_SET);
-  fscanf(map, "%u", &x_);
-  fscanf(map, "%u", &y_);
+  fscanf(map, "%u ", &x_);
+  fscanf(map, "%u ", &y_);
 
   mapChar = new char *[y_];
   for (int i(0); i < y_; i++) {
@@ -50,8 +50,7 @@ bool Maps::loadMap() {
   } else {
     for (int ii(0); ii < y_; ii++) {
       for (int i(0); i < x_; i++) {
-        fscanf(map, "%c", &mapChar[ii][i]);
-        // mapChar[ii][i]= fgetc(map);
+        mapChar[ii][i] = fgetc(map);
       }
     }
     return true;
@@ -63,32 +62,83 @@ void Maps::getSize(int &x, int &y) {
   y = y_;
 }
 
+char Maps::getSymbol(int xM, int yM) {
+  if (xM < 0 || yM < 0) {
+    return ']';
+  } else {
+    if (x_ < xM || y_ < yM) {
+      return ']';
+    } else {
+      return mapChar[yM][xM];
+    }
+  }
+}
 
+void Maps::symColor(char mapSym) {
+  if (mapSym == '~') {
+    terminal_color(0xff009fff);
+  } else {
+    if (mapSym == ';' || mapSym == '+' || mapSym == '-' || mapSym == '?' || mapSym == ':' || mapSym == 'J' ||
+        mapSym == '`' || mapSym == '9' || mapSym == '|') {
+      terminal_color(0xff009f00);
+    } else {
+      if (mapSym == ']' || mapSym == '}' || mapSym == '{' || mapSym == '[' || mapSym == '_') {
+        terminal_color(0xff7f7f7f);
+      } else {
+        if (mapSym == 'W' || mapSym == 'w' || mapSym == 'V') {
+          terminal_color(0xffe8d384);
+        } else {
+          if (mapSym == '"' || mapSym == '=' || mapSym == '>' || mapSym == '^' || mapSym == 'v' || mapSym == '<') {
+            terminal_color(0xff91846f);
+          } else {
+            if (mapSym == 'Q' || mapSym == 'P' || mapSym == '6' || mapSym == ')' || mapSym == '(' || mapSym == 'Q' ||
+                mapSym == 'j') {
+              terminal_color(0xff6f6f6f);
+            } else {
+              if (mapSym == 'L') {
+                terminal_color(0xff1aff00);
+              } else {
+                if (mapSym == 'A') {
+                  terminal_color(0xFFFF0000);
+                } else {
+                  if (mapSym == 't') {
+                    terminal_color(0xFFABABAB);
+                  } else {
+                    terminal_color(0x77a0a0a0);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 //////////////////////////////////////////////////////////////рендер
-void Maps::renderMap(int xm, int ym){
-    terminal_color(0xffa0a0a0);
-    for (int ii(0); ii < 40; ii++) {
-        for (int i(0); i < 60; i++) {
-            terminal_color(0xff989898);
-            if(ym-20+ii< 0){
-              terminal_put(i,ii,' ');
-            }else {
-              if (xm - 30 + i < 0) {
-                terminal_put(i, ii, ' ');
-              }else{
-                if(ym-20+ii> y_){
-                  terminal_put(i, ii, ' ');
-                }else{
-                  if(xm - 30 + i > x_) {
-                    terminal_put(i, ii, ' ');
-                  } else{
+void Maps::renderMap(int xm, int ym) {
+  for (int ii(0); ii < 40; ii++) {
+    for (int i(0); i < 60; i++) {
+      terminal_color(0xaaffffff);
+      if (ym - 20 + ii < 0) {
+        terminal_put(i, ii, ' ');
+      } else {
+        if (xm - 30 + i < 0) {
+          terminal_put(i, ii, ' ');
+        } else {
+          if (ym - 20 + ii > y_) {
+            terminal_put(i, ii, ' ');
+          } else {
+            if (xm - 30 + i > x_) {
+              terminal_put(i, ii, ' ');
+            } else {
+              symColor(mapChar[ym - 20 + ii][xm - 30 + i]);
               terminal_put(i, ii, mapChar[ym - 20 + ii][xm - 30 + i]);
-            }}}}
-
-
-
+            }
+          }
         }
-
+      }
     }
+  }
 }

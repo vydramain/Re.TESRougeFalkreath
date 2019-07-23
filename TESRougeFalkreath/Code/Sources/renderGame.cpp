@@ -4,15 +4,14 @@
 
 #include "../Headers/renderGame.h"
 
-void renderGame::goRender(Maps map, player gg, hud interface) {
+void renderGame::goRender(Maps &map, player &gg, hud &interface) {
     terminal_clear();
     unsigned xm, ym;
     gg.getTerrain(xm, ym);
     map.renderMap(xm, ym);
-    interface.renderHud();
     gg.renderPlayer();
     terminal_color(0xffffffff);
-
+    interface.renderHud();
 
     terminal_refresh();
 

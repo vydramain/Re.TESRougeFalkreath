@@ -17,6 +17,7 @@ class Maps {
   int x_, y_;
 
   bool loadMap();
+  void symColor( char mapSym);
 
  public:
   Maps(unsigned in);  // номер соответствующей локации
@@ -27,7 +28,7 @@ class Maps {
 
   //////////////////////////////////////////////////////////////рендер
   void renderMap(int xm, int ym);           //запрашивает координаты игрока
-
+  char getSymbol(int xM, int yM);           //возвращает символ из определённой координаты
 };
 
 #endif  // TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_
