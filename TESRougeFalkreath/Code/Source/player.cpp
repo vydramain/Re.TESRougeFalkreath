@@ -12,15 +12,19 @@ void player::Render() {
 void player::Move() {
   if (InputKey_.IsUp()) {
     y_--;
+    y_m--;
   }
   if (InputKey_.IsDown()) {
     y_++;
+    y_m++;
   }
   if (InputKey_.IsLeft()) {
     x_--;
+    x_m--;_
   }
   if (InputKey_.IsRight()) {
     x_++;
+    x_m++;
   }
 }
 

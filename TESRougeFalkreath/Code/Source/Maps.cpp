@@ -13,7 +13,12 @@ Maps::Maps(unsigned in) {
   if (!map) {
     terminal_print(0, 0, "Карта не найдена!");
   } else {
-    loadMap();
+    bool result= loadMap();
+    if(result== 0){
+        terminal_print(0, 0, "Ошбика при загрузке карты! loadMap_err");
+    } else{
+        terminal_print(0, 0, "Карта загружена...");
+    }
   }
 }
 
@@ -27,7 +32,6 @@ bool Maps::loadMap() {
     mapChar[i] = new char[x_];
   }
   if (!mapChar) {
-    terminal_print(0, 0, "Ошбика при загрузке карты! loadMap_err");
     return false;
   } else {
     for (unsigned ii(0); ii < y_; ii++) {
@@ -35,7 +39,6 @@ bool Maps::loadMap() {
         fscanf(map, "%c", &mapChar[ii][i]);
       }
     }
-    terminal_print(0, 0, "Карта загружена...");
     return true;
   }
 }

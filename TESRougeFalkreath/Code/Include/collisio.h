@@ -5,7 +5,6 @@
 #ifndef TESROUGEFALKREATH_CODE_INCLUDE_COLLISIO_H_
 #define TESROUGEFALKREATH_CODE_INCLUDE_COLLISIO_H_
 
-
 class collisio {
  private:
   unsigned x_, y_;

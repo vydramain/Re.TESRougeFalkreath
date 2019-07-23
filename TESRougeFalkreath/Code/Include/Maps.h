@@ -11,6 +11,7 @@
 
 class Maps {
  private:
+  const unsigned active_x1_=15, active_y1_=10, active_x2_=45, active_y2_=30;
   FILE *map;
   char **mapChar;
   unsigned x_, y_;

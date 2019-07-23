@@ -2,8 +2,9 @@
 // Created by vydra on 7/21/19.
 //
 
-#include "hud.h"
+#include "./hud.h"
 #include <BearLibTerminal.h>
+#include "./Maps.h"
 
 hud::hud(unsigned in) {
   dialog = false;
@@ -21,6 +22,7 @@ void hud::renderHud() {
     }
   }
 }
-/*bool hud::renderMap() {
+bool hud::renderMap(unsigned x, unsigned y) {
 
-}*/
+
+}

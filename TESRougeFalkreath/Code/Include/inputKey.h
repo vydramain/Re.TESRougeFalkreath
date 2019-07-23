@@ -2,8 +2,8 @@
 // Created by vydra on 7/15/19.
 //
 
-#ifndef TESROUGEFALKREATH_INPUTKEY_H
-#define TESROUGEFALKREATH_INPUTKEY_H
+#ifndef TESROUGEFALKREATH_CODE_INCLUDE_INPUTKEY_H_
+#define TESROUGEFALKREATH_CODE_INCLUDE_INPUTKEY_H_
 #include <BearLibTerminal.h>
 
 class inputKey {
@@ -53,4 +53,4 @@ class inputKey {
   void Update();
 };
 
-#endif  // TESROUGEFALKREATH_INPUTKEY_H
+#endif  // TESROUGEFALKREATH_CODE_INCLUDE_INPUTKEY_H_
