@@ -14,6 +14,8 @@ int main() {
 
   if (gameStatus == 1) {  //Старт игры
     core.inGameFT();
+
+    while(true) {}
   } else {
     if (gameStatus == 2) {
       return 0;

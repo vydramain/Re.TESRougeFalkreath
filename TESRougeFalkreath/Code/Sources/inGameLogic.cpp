@@ -3,3 +3,7 @@
 //
 
 #include "../Headers/inGameLogic.h"
+
+void inGameLogic::update() {
+
+}
