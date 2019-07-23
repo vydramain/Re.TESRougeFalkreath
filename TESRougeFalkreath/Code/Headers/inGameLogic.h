@@ -6,22 +6,25 @@
 #define TESROUGEFALKREATH_INGAMELOGIC_H
 
 #include <logicParts/inputKey.h>
+#include <logicParts/player.h>
 #include "./logicParts/Maps.h"
 
 class inGameLogic {
  private:
   int mapX, mapY;
-
+  const inputKey &InputKey_;
 
   void update();
 
  public:
-  inGameLogic(inputKey &inputKey_) : inputKey(inputKey_) {}
+  inGameLogic(const inputKey &InputKey) : InputKey_(InputKey) {}
 
   void inGameFT() {  //первый запуск
+
     Maps startMap(0);
     startMap.getSize(mapX, mapY);
-
+    player GG(40, 20);
+    
   }
 };
 
