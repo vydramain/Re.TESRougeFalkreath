@@ -2,8 +2,8 @@
 // Created by vydra on 7/21/19.
 //
 
-#ifndef TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_
-#define TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_
 
 #include <BearLibTerminal.h>
 #include <stdio.h>
@@ -31,4 +31,4 @@ class Maps {
   char getSymbol(int xM, int yM);           //возвращает символ из определённой координаты
 };
 
-#endif  // TESROUGEFALKREATH_CODE_INCLUDE_MAPS_H_
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_

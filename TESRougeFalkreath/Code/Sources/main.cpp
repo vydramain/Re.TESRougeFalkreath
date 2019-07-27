@@ -7,11 +7,10 @@
 unsigned headMenu();
 
 int main() {
-    inputKey InputKey;
+  inputKey InputKey;
   unsigned gameStatus;
   gameStatus = headMenu();
   inGameLogic core(InputKey);
-
 
   if (gameStatus == 1) {  //Старт игры
     core.inGameFT();
@@ -33,7 +32,7 @@ bool menuChoiser(unsigned int &nonshoise) {
       nonshoise++;
     }
   }
-  if ((InputKey.IsButtonE() && nonshoise!= 0) || InputKey.IsExit()){
+  if ((InputKey.IsButtonE() && nonshoise != 0) || InputKey.IsExit()) {
     return true;
   } else {
     return false;
@@ -51,8 +50,8 @@ unsigned headMenu() {
   while (IsGo == false) {
     terminal_clear();
     IsGo = menuChoiser(nonchoise);
-      terminal_print(50,1,"Перемещение: Стрелки");
-      terminal_print(50,2,"Действие: Клавиша У");
+    terminal_print(50, 1, "Перемещение: Стрелки");
+    terminal_print(50, 2, "Действие: Клавиша У");
 
     if (nonchoise == 1) {
       terminal_print(16, 20, "--> Новая Игра <--");
