@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>
+    ru:bearlibterminal:reference:configuration    [divergence]
+  </title>
+
+  <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2016-10-31T02:34:49+0300">
+<meta name="keywords" content="ru,bearlibterminal,reference,configuration">
+<link rel="search" type="application/opensearchdescription+xml" href="http://foo.wyrd.name/lib/exe/opensearch.php" title="divergence">
+<link rel="start" href="http://foo.wyrd.name/">
+<link rel="contents" href="http://foo.wyrd.name/ru:bearlibterminal:reference:configuration?do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="http://foo.wyrd.name/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://foo.wyrd.name/feed.php?mode=list&amp;ns=ru:bearlibterminal:reference">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://foo.wyrd.name/_export/xhtml/ru:bearlibterminal:reference:configuration">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://foo.wyrd.name/_export/raw/ru:bearlibterminal:reference:configuration">
+<link rel="canonical" href="http://foo.wyrd.name/ru:bearlibterminal:reference:configuration">
+<link rel="stylesheet" type="text/css" href="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/css.css">
+<link rel="stylesheet" type="text/css" href="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/shCore.css">
+<link rel="stylesheet" type="text/css" href="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/shThemeDefault.css">
+<script type="text/javascript">/*<![CDATA[*/var NS='ru:bearlibterminal:reference';var JSINFO = {"id":"ru:bearlibterminal:reference:configuration","namespace":"ru:bearlibterminal:reference"};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/js.php"></script>
+<script type="text/javascript" src="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/shCore.js"></script>
+<script type="text/javascript" src="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/shAutoloader.js"></script>
+<script type="text/javascript" src="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/shBrushXml.js"></script>
+  <link rel="shortcut icon" href="http://foo.wyrd.name/lib/tpl/raw/images/favicon.ico">
+
+  </head>
+
+<body>
+<div class="dokuwiki">
+
+  
+  <!--
+  <h1><a href="/start"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[H]">divergence</a></h1>
+  -->
+
+  <div class="navi">
+      </div>
+  
+  <div class="plugin_translation"><ul><li><div class="li"><a href="http://foo.wyrd.name/en:bearlibterminal:reference:configuration" class="wikilink1" title="en">en</a></div></li><li><div class="li"><a href="http://foo.wyrd.name/ru:bearlibterminal:reference:configuration" class="wikilink1 cur" title="ru">ru</a></div></li></ul></div>
+  <div class="stylehead">
+
+    
+    
+    
+  </div>
+  
+  
+  <div class="page">
+    <!-- wikipage start -->
+    
+<p>
+</p><h2><a href="http://foo.wyrd.name/ru:bearlibterminal">BearLibTerminal</a> / <a href="http://foo.wyrd.name/ru:bearlibterminal:reference">API</a> / Конфигурация</h2>
+<p></p>
+<div class="level2">
+
+</div>
+
+<h3 id="функции">Функции</h3>
+<div class="level3">
+
+<p>
+Конфигурирование и работа с настройками выполняется при помощи функций <a href="#set" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">set</a> и <a href="#get" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">get</a>, а также посредством <a href="#конфигурационный_файл" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">конфигурационного файла</a>.
+</p>
+
+</div>
+
+<h4 id="set">set</h4>
+<div class="level4">
+
+<p>
+Это, вероятно, самая сложная функция в <abbr title="Application Programming Interface">API</abbr>. Конфигурирование опций библиотеки, управление шрифтами и тайлсетами и даже конфигурационным файлом производится с ее помощью:
+</p>
+
+<p>
+</p><div><div id="highlighter_719218" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">terminal_set(</code><code class="cpp string">"window: size=80x25; font: ./UbuntuMono-R.ttf, size=12"</code><code class="cpp plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+<p>
+Функция возвращает булево значение, индицирующее успех выполнения.
+</p>
+
+<p>
+Можно указывать несколько опций за один вызов. Однако, эта функция 
+работает похожим на транзакцию образом: в случае ошибки все изменения 
+откатываются (или просто не применяются) и функция возвращает false.
+</p>
+
+</div>
+
+<h5 id="формат_конфигурационной_строки">Формат конфигурационной строки</h5>
+<div class="level5">
+
+<p>
+Строка, передаваемая в функцию, описывает набор параметров в виде пар имя-значение, разделенных точкой с запятой:
+</p>
+<pre class="code">window.title='foo'; window.size=80x25;</pre>
+
+<p>
+Параметры могут быть сгруппированы:
+</p>
+<pre class="code">window: title='foo', size=80x25;</pre>
+
+<p>
+Лишние пробелы, запятые и точки с запятой игнорируются. Все переносы 
+строк также игнорируются (на данный момент, даже внутри значений, но это
+ может измениться).
+</p>
+
+<p>
+Экранирование строковых значений кавычками опционально и требуется 
+только если значение содержит служебные символы (запятая или точка с 
+запятой) или если необходимо сохранить пробелы в начале или конце. 
+Кавычки внутри строки экранируются в Pascal-стиле (удвоением символа):
+</p>
+<pre class="code">window.title='I''m feeling lucky!';</pre>
+
+<p>
+Экранирование спецсимволов (таких как \n или \t) не поддерживается.
+</p>
+
+</div>
+
+<h5 id="конфигурация_библиотеки">Конфигурация библиотеки</h5>
+<div class="level5">
+
+<p>
+Ряд параметров непосредственно влияют на вид окна и поведение библиотеки:
+</p>
+<div class="table sectionedit1"><table class="inline">
+	<tbody><tr class="row0">
+		<th class="col0">Группа </th><th class="col1">Опция </th><th class="col2">По умолчанию </th><th class="col3">Краткое описание </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0">terminal </td><td class="col1">encoding </td><td class="col2">utf8 </td><td class="col3">Кодировка/кодовая
+ страница, используемая для однобайтных строк; по умолчанию это “utf-8”,
+ что может быть изменено на какю-нибудь кодовую страницу ANSI, например 
+windows-1251. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0" rowspan="6">window </td><td class="col1">size </td><td class="col2">80×25 </td><td class="col3">Размер окна в знакоместах. </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">cellsize </td><td class="col1">auto </td><td class="col2">Размер знакоместа в пикселях или “auto”, если размер должен быть выведен исходя из выбранного шрифта. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">title</td><td class="col1">'BearLibTerminal' </td><td class="col2">Заголовок окна. </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">icon </td><td class="col1">- </td><td class="col2">Имя файла *.ico с иконкой; в версии для Windows, стандартная иконка встроена в библиотеку. </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">resizeable </td><td class="col1">false </td><td class="col2">Флаг,
+ контролирующий возможность переразмерения окна пользователем, при 
+изменении размера окна будет сгенерировано событие TK_RESIZED. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">fullscreen </td><td class="col1">false </td><td class="col2">Флаг, позволяющий программно перевести окно в полноэкранный режим. </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0" rowspan="6">input </td><td class="col1">precise-mouse </td><td class="col2">false </td><td class="col3">Флаг
+ контролирующий точность регистрации передвижения мыши: когда он 
+выставлен в “true”, можно отследить любое перемещение курсора мыши, 
+неважно насколько малое. По умолчанию событие TK_MOUSE_MOVE генерируется
+ только если курсор мыши перемещается на другое знакоместо. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">mouse-cursor </td><td class="col1">true </td><td class="col2">Флаг, ответственный за отображение системного указателя мыши. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0">cursor-symbol </td><td class="col1">0x5F </td><td class="col2">Код символа/тайла, используемого функцией read_str в качестве курсора ввода. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">cursor-blink-rate </td><td class="col1">500 </td><td class="col2">Скорость мерцания курсора ввода в функции read str в миллисекундах. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">filter</td><td class="col1">- </td><td class="col2">События, не попавшие в этот список, будут обработаны библиотекой автоматически и не будут возвращены функцией read. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">alt-functions </td><td class="col1">true </td><td class="col2">Если
+ задействовано, библиотека перехватывает и обрабатывает некоторые 
+Alt-комбинации, например Alt+Enter (переключение в полноэкранный режим) и
+ Alt+Плюс/Минус/Ноль (масштаб окна). </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0" rowspan="2">output </td><td class="col1">postformatting </td><td class="col2">true </td><td class="col3">Флаг, задействующий обработку специальных “тегов” функцией print. </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0">vsync </td><td class="col1">true </td><td class="col2">Флаг, контролирующий использование вертикальной синхронизации при выводе сцены. </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0" rowspan="3">log </td><td class="col1">file</td><td class="col2">'bearlibterminal.log' </td><td class="col3">Имя файла лога. </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0">level </td><td class="col1">error </td><td class="col2">Уровень логгирования: “none”, “fatal”, “error”, “warning”, “info”, “debug” или “trace”. </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0">mode </td><td class="col1">truncate </td><td class="col2">Режим
+ записи в файл: “truncate” начнет запись в файл заново (очистив 
+предыдущее содержимое), “append” будет дописывать в конец файла. </td>
+	</tr>
+</tbody></table></div>
+<a name="font_and_tileset_management"></a>
+</div>
+
+<h5 id="управление_шрифтами_и_тайлсетами">Управление шрифтами и тайлсетами</h5>
+<div class="level5">
+
+<p>
+Помимо нескольких фиксированных групп параметров библиотеки, может быть 
+сконфигурировано неопределенное количество групп параметров, описывающих
+ отдельный шрифт, тайл или тайлсет (см. <a href="http://foo.wyrd.name/ru:bearlibterminal:design#tiles_and_slots" class="wikilink1" title="ru:bearlibterminal:design">дизайн: тайлы и слоты</a>) в следующем формате:
+</p>
+<pre class="code">[name ](font|offset): resource, param=value, ...;</pre>
+
+<p>
+Например:
+</p>
+<pre class="code">font: UbuntuMono-R.ttf, size=12;
+runic font: runic.png, size=8x16, codepage=437;
+0x5E: curcumflex.png;
+0xE000: tileset.png, size=16x16, spacing=2x1;</pre>
+
+</div>
+
+<h5 id="name">name</h5>
+<div class="level5">
+
+<p>
+Строка, опциональное и произвольное наименование альтернативного шрифта,
+ например 'italic' или 'runic'. Такие именованные шрифты будут доступны в
+ функции print посредством тега <code>[font=name]</code>:
+</p><div><div id="highlighter_714765" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">terminal_print(2, 1, </code><code class="cpp string">"Its eyes are [font=italic]glowing[/font]."</code><code class="cpp plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+</div>
+
+<h5 id="offset">offset</h5>
+<div class="level5">
+
+<p>
+Число, код одиночного тайла или точка отсчета для кодов в тайлсете (при 
+offset равном 0xE000 первый тайл будет иметь код 0xE000, второй 0xE001 и
+ т. д.).
+</p>
+
+<p>
+Все “символы”, “тайлы” и “спрайты” находятся в одном кодовом 
+пространстве: библиотека оперирует кодами символов Юникода и не 
+учитывает что именно изображено на соответствующей коду символа 
+картинке, будь то буква, пиктограмма или фон для экрана меню. Таким 
+образом, можно осознанно или нечаянно переопределить внешний вид 
+символов:
+</p><div><div id="highlighter_45010" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">terminal_set(</code><code class="cpp string">"0x40: at.png, align=center"</code><code class="cpp plain">); </code><code class="cpp comments">// Replace '@' (ASCII code 0x40) with a better version.</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+<p>
+Если такое переопределение нежелательно, то рекомендуется использовать 
+для пиктограмм и прочей несимвольной графики специально выделенный блок 
+Юникода: <a href="https://en.wikipedia.org/wiki/Private_Use_Areas" class="urlextern" title="https://en.wikipedia.org/wiki/Private_Use_Areas" rel="nofollow">Unicode Private Use Area</a> (коды 0xE000-0xEFFF).
+</p>
+
+</div>
+
+<h5 id="resource">resource</h5>
+<div class="level5">
+
+<p>
+Строка, описывающая источник данных шрифта или тайлсета. Это может быть 
+имя файла шрифта или картинки или дескриптор блока памяти в формате <code>адрес:размер</code>:
+</p><div><div id="highlighter_120482" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">terminal_setf(</code><code class="cpp string">"font: %p:%d, size=8x16, codepage=437"</code><code class="cpp plain">, buffer, size);</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+<p>
+Также возможно загрузить тайлсет непосредственно из блока BGRA пикселей в
+ памяти. В этом случае необходимо указать размер изображения посредством
+ параметра 'raw-size':
+</p><div><div id="highlighter_916872" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">terminal_setf(</code><code class="cpp string">"0xE000: %p:%d, raw-size=%dx%d"</code><code class="cpp plain">, pixels, W*H*4, W, H);</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+</div>
+
+<h5 id="params">params</h5>
+<div class="level5">
+
+<p>
+Состав параметров в группе и их смысл отличается в зависимости от типа шрифта/тайлсета:
+</p>
+<div class="table sectionedit2"><table class="inline">
+	<tbody><tr class="row0">
+		<th class="col0">Тип </th><th class="col1">Параметр </th><th class="col2">По умолчанию </th><th class="col3">Краткое описание </th>
+	</tr>
+	<tr class="row1">
+		<td class="col0" rowspan="9">Bitmap </td><td class="col1">size </td><td class="col2"> </td><td class="col3">Размер отдельного тайла в наборе; по умолчанию изображение рассматривается как один большой спрайт. </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0">resize </td><td class="col1"> </td><td class="col2">Размер, до которого необходимо переразмерить тайлы (или спрайт). </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0">resize-filter </td><td class="col1">bilinear </td><td class="col2">Фильтр переразмерения: “nearest”, “bilinear” или “bicubic”. </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">resize-mode </td><td class="col1">stretch </td><td class="col2">Формат переразмерения: “stretch” (растянуть), “fit” (вписать по наибольшей стороне) или “crop” (вписать по наименьшей стороне). </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0">raw-size </td><td class="col1"> </td><td class="col2">Размер исходного изображения в случае загрузке из памяти (по указателю на массив пикселей). </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0">codepage </td><td class="col1">ascii </td><td class="col2">Кодовая страница тайлсета, используемая в основном для загрузки шрифтов; по умолчанию “ascii”. </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0">align </td><td class="col1">center </td><td class="col2">Выравнивание тайла в ячейке: “center”, “top-left”, “bottom-left”, “top-right” или “bottom-right”.</td>
+	</tr>
+	<tr class="row8">
+		<td class="col0">spacing </td><td class="col1">1<code>x</code>1 </td><td class="col2">Размер ячейки выравнивания, в знакоместах. </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0">transparent </td><td class="col1">auto </td><td class="col2">Цвет фона для форматов/изображений, не поддерживающих прозрачность. </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0" rowspan="6">TrueType </td><td class="col1">size </td><td class="col2"> </td><td class="col3">Размер шрифта или тайла, под который будет подогнан размер шрифта; это обязательный параметр. </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0">size-reference </td><td class="col1">'@' </td><td class="col2">Символ, используемый в качестве основы при подгонке размера шрифта под размер тайла. </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0">mode </td><td class="col1">normal </td><td class="col2">Режим растеризации шрифта: “monochrome”, “normal” или “lcd”. </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0">codepage </td><td class="col1"> </td><td class="col2">Инвертированная кодовая таблица для загрузки только конкретных глифов. </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0">align </td><td class="col1">center </td><td class="col2">Выравнивание тайла в ячейке, то же самое, что и для растровых тайлсетов. </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0">spacing </td><td class="col1">1<code>x</code>1 </td><td class="col2">Размер ячейки выравнивания, то же самое, что и для растровых тайлсетов. </td>
+	</tr>
+</tbody></table></div>
+
+<p>
+Параметры шрифта/тайлсета устанавливаются и заменяются все разом. Все 
+необходимые параметры конкретного тайлсета должны быть указаны в одном 
+вызове функции <strong>set</strong>.
+</p>
+
+<p>
+Примеры описания растровых шрифтов/тайлсетов:
+</p>
+<pre class="code">font: somefont.png, size=8x16, codepage=1251;
+0xE000: walls.bmp, size=32x32, spacing=4x2;
+0xE100: background.jpg, resize=640x400, resize-filter=bicubic, align=top-left;</pre>
+
+<p>
+Примеры описания TrueType шрифтов/тайлсетов:
+</p>
+<pre class="code">font: somefont.ttf, size=12;
+0xE000: otherfont.ttf, size=8x16, codepage=1251;
+0xE100: fontawesome.ttf, size=32x32, spacing=4x2, codepage=fontawesome-cp.txt;</pre>
+
+<p>
+Для того, чтобы выгрузить тайлсет, необходимо установить его “основное значение” в “none”:
+</p>
+<pre class="code">0xE000: none</pre>
+
+</div>
+
+<h5 id="обновление_конфигурационного_файла">Обновление конфигурационного файла</h5>
+<div class="level5">
+
+<p>
+С помощью функции <strong>set</strong> возможно добавление, изменение и удаление параметров из <a href="#конфигурационный_файл" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">конфигурационного файла</a> библиотеки, путем указания их в виде <code>ini.section.property</code>:
+</p>
+<pre class="code">ini.game.tile-size = 16</pre>
+
+<p>
+В приведенном примере, библиотека обновит значение параметра “tile-size” в секции “game” конфигурационного файла:
+</p>
+
+<p>
+Если указанного параметра или секции в файле нет, они будут добавлены. 
+Для того, чтобы удалить параметр из файла, нужно указать пустое 
+значение. Как следствие, программно установить пустое значение 
+невозможно; вместо этого используйте осмысленное значение по умолчанию 
+для соответствущего параметра.
+</p>
+
+</div>
+
+<h4 id="get">get</h4>
+<div class="level4">
+
+<p>
+Эта функция возвращает значение параметра (опция библиотеки или из 
+конфигурационного файла). Если такой параметр не найден, возвращается 
+переданное в функцию значение-заглушка:
+</p>
+
+<p>
+</p><div><div id="highlighter_155994" class="syntaxhighlighter nogutter  cpp"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">char</code><code class="cpp plain">* tile_size = terminal_get(</code><code class="cpp string">"ini.game.tile-size"</code><code class="cpp plain">, </code><code class="cpp string">"24"</code><code class="cpp plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p></p>
+
+<p>
+На данный момент только опции библиотеки и параметры из 
+конфигурационного файла могут быть прочитаны таким образом. Чтение 
+свойств шрифтов и тайлсетов пока не поддерживается.
+</p>
+
+<p>
+В интерфейсе С/С++, память возвращаемой строки принадлежит библиотеке и 
+указатель на нее останется валидным до следующего вызова <strong>get</strong>
+ с тем же именем параметра. Возвращаемое значение всегда будет 
+корректной строкой, даже если значение-заглушка не было указано (в этом 
+случае будет возвращена пустая строка).
+</p>
+
+</div>
+
+<h3 id="конфигурационный_файл">Конфигурационный файл</h3>
+<div class="level3">
+
+<p>
+С версии 0.12, возможно использование специального конфигурационного 
+файла для задания некоторой начальной конфигурации библиотеки, а также в
+ качестве хранилища произвольных параметров приложения.
+</p>
+
+<p>
+Файл должен быть в обычном <a href="http://en.wikipedia.org/wiki/INI_file" class="urlextern" title="http://en.wikipedia.org/wiki/INI_file" rel="nofollow">INI-формате</a> с некоторыми особенностями:
+</p>
+<ul>
+<li class="level1"><div class="li"> Для комментирования могут использоваться символы <code>#</code> и <code>;</code>. Строки, начинающиеся с пробела/табуляции также игнорируются.</div>
+</li>
+<li class="level1"><div class="li"> Имена секций и свойств нечуствительны к регистру (но библиотека сохранит регистр при модификации значений).</div>
+</li>
+<li class="level1"><div class="li"> Допускается повтор секций.</div>
+</li>
+<li class="level1"><div class="li"> Библиотека не понимает привычное экранирование посредством слеша: “\n” это строка из двух обычных символов.</div>
+</li>
+<li class="level1"><div class="li"> Пробелы вокруг имени свойства и его значения игнорируются.</div>
+</li>
+<li class="level1"><div class="li"> Строка может содержать группу параметров в стиле вызова <strong>set</strong> (см. <a href="#формат_конфигурационной_строки" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">формат конфигурационной строки</a>).</div>
+</li>
+</ul>
+
+<p>
+Примером конфигурационного файла может быть:
+</p>
+<pre class="code"># Комментарий
+; Еще один комментарий
+  Это строка тоже будет считаться комментарием
+
+[BearLibTerminal]
+log: file=bt.log, level=trace
+font: UbuntuMono-R.ttf, size=12
+window.title='Configuration file example'
+
+[Palette]
+lush = dark 80,255,37
+
+[Game]
+tile-size = 16 ; Все после точки с запятой игнорируется.</pre>
+
+<p>
+Имя конфигурационного файла не задано жестко, библиотека постарается 
+найти подходящий файл. Если не получится обнаружить файл, названный так 
+же, как и приложение (game.ini для game.exe), будет использован первый 
+попавшийся INI-файл. Файлы в текущей директории имеют больший приоритет,
+ но поиск производится и в директории с исполняемым файлом приложения.
+</p>
+
+<p>
+Если конфигурационный файл был найден в процессе инициализации 
+библиотеки (terminal_open), то параметры некоторых специальных секций 
+могут быть использованы для начальной настройки.
+</p>
+
+</div>
+
+<h4 id="bearlibterminal">[BearLibTerminal]</h4>
+<div class="level4">
+
+<p>
+Параметры из секции “BearLibTerminal” применяются в качестве общей конфигурации, как будто бы они были указаны в вызове функции <a href="#set" title="ru:bearlibterminal:reference:configuration ↵" class="wikilink1">set</a>.
+ Параметры логгирования применяются первыми, остальные параметры 
+группируются и каждая группа применяется отдельно (таким образом, если в
+ процессе возникает ошибка, это не приводит к отмене всей конфигурации).
+</p>
+
+</div>
+
+<h4 id="palette">[Palette]</h4>
+<div class="level4">
+
+<p>
+Параметры секции “Palette” будут добавлены к списку именованных цветов. Значения цвета разбираются функцией <a href="http://foo.wyrd.name/ru:bearlibterminal:reference#color_from_name" class="wikilink1" title="ru:bearlibterminal:reference">color from name</a>.
+</p>
+
+</div>
+
+<script type="text/javascript">
+  SyntaxHighlighter.autoloader(
+    'applescript /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushAppleScript.js',
+    'actionscript3 as3 /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushAS3.js',
+    'bash shell /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushBash.js',
+    'coldfusion cf /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushColdFusion.js',
+    'cpp c /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushCpp.js',
+    'c# c-sharp csharp /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushCSharp.js',
+    'css /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushCss.js',
+    'delphi pascal /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushDelphi.js',
+    'diff patch pas /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushDiff.js',
+    'erl erlang /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushErlang.js',
+    'groovy /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushGroovy.js',
+    'java /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushJava.js',
+    'jfx javafx /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushJavaFX.js',
+    'js jscript javascript /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushJScript.js',
+    'lua /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushLua.js',
+    'perl pl /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushPerl.js',
+    'php /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushPhp.js',
+    'text plain /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushPlain.js',
+    'ps powershell /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushPowerShell.js',
+    'py python /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushPython.js',
+    'ruby rails ror rb /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushRuby.js',
+    'sass scss /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushSass.js',
+    'scala /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushScala.js',
+    'sql /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushSql.js',
+    'vb vbnet /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushVb.js',
+    'xml xhtml xslt html /lib/plugins/syntaxhighlighter3/sxh3/scripts/shBrushXml.js'
+  );
+  SyntaxHighlighter.all();
+</script>
+
+    <!-- wikipage stop -->
+  </div>
+
+  <div class="clearer"></div>
+
+  
+  <div class="stylefoot">
+
+    
+    <div class="bar" id="bar__bottom">
+        <form class="button btn_source" method="post" action="/ru:bearlibterminal:reference:configuration"><div class="no"><input type="hidden" name="do" value="edit"><input type="hidden" name="rev" value="0"><input type="submit" value="Show pagesource" class="button" accesskey="v" title="Show pagesource [V]"></div></form>        <form class="button btn_revs" method="get" action="/ru:bearlibterminal:reference:configuration"><div class="no"><input type="hidden" name="do" value="revisions"><input type="submit" value="Old revisions" class="button" accesskey="o" title="Old revisions [O]"></div></form>                        <form class="button btn_media" method="get" action="/ru:bearlibterminal:reference:configuration"><div class="no"><input type="hidden" name="do" value="media"><input type="hidden" name="ns" value="ru:bearlibterminal:reference"><input type="submit" value="Media Manager" class="button" title="Media Manager"></div></form>                        <form class="button btn_login" method="get" action="/ru:bearlibterminal:reference:configuration"><div class="no"><input type="hidden" name="do" value="login"><input type="hidden" name="sectok" value="ed64ffb76967d3127f157e140a699c46"><input type="submit" value="Login" class="button" title="Login"></div></form>        <form class="button btn_index" method="get" action="/ru:bearlibterminal:reference:configuration"><div class="no"><input type="hidden" name="do" value="index"><input type="submit" value="Sitemap" class="button" accesskey="x" title="Sitemap [X]"></div></form>        <a class="nolink" href="#dokuwiki__top"><input type="button" class="button" value="Back to top" onclick="window.scrollTo(0, 0)" title="Back to top"></a>&nbsp;
+    </div>
+
+  </div>
+
+  
+</div>
+
+<div class="no"><img src="BearLibTerminal(%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)_files/indexer.gif" alt="" width="2" height="1"></div>
+
+
+</body></html>

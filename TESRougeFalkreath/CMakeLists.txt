@@ -9,9 +9,14 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 find_package(BearLibTerminal REQUIRED)
 include_directories(SYSTEM ${BLT_INCLUDE_DIRS})
 
+<<<<<<< HEAD
 set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/Code/Include)
 set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/Code/Source)
 #set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/Code/Source/Maps)
+=======
+set(PROJECT_HEADERS_DIR "Code/Headers")
+set(PROJECT_SOURCES_DIR "Code/Sources")
+>>>>>>> NMaster
 
 file(GLOB_RECURSE HEADRES ${PROJECT_HEADRES_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
@@ -25,6 +30,12 @@ target_link_libraries(${PROJECT_NAME} ${BLT_LIBRARIES})
 file(COPY ${BLT_LIBRARY} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 # Add linting before compilation
+<<<<<<< HEAD
 #include(CppLint)
 #ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
 #add_dependencies(${PROJECT_NAME} lint)
+=======
+include(CppLint)
+ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
+add_dependencies(${PROJECT_NAME} lint)
+>>>>>>> NMaster
