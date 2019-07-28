@@ -28,7 +28,7 @@ class player {
                                                                                   3 -вниз,
                                                                                   4 -никуда не напрвален.*/
 
-  player(unsigned xm, unsigned ym) : x_m(xm), y_m(ym) {}
+  explicit player(unsigned xm, unsigned ym) : x_m(xm), y_m(ym) {}
   void getTerrain(unsigned &xm, unsigned &ym);
   void getLocation(unsigned &x, unsigned &y);
   void putTerrain(unsigned xm, unsigned ym);

@@ -2,11 +2,15 @@
 // Created by vydra on 7/21/19.
 //
 
-#include "../../Headers/logicParts/Maps.h"
-#include <stdio.h>
+#include "logicParts/World/Map.h"
 
-Maps::Maps(unsigned in) {
-  if (in == 0) {
+Map::Map(unsigned mapNumber) {
+  if(mapNumber == 0{
+    currentMap_.loadMap("Maps/Falkreath.bin");
+  }
+}
+
+/*  if (in == 0) {
     map = fopen("Maps/Falkreath.bin", "r");
   } else {
   }
@@ -27,7 +31,7 @@ Maps::Maps(unsigned in) {
   }
 }
 
-Maps::~Maps() {
+Map::~Map() {
   for (int ii = 0; ii < y_; ii++) {
     delete[] mapChar[ii];
   }
@@ -36,7 +40,7 @@ Maps::~Maps() {
   y_ = 0;
 };
 
-bool Maps::loadMap() {
+bool Map::loadMap() {
   fseek(map, 0, SEEK_SET);
   fscanf(map, "%u ", &x_);
   fscanf(map, "%u ", &y_);
@@ -57,12 +61,12 @@ bool Maps::loadMap() {
   }
 }
 
-void Maps::getSize(int &x, int &y) {
+void Map::getSize(int &x, int &y) {
   x = x_;
   y = y_;
 }
 
-char Maps::getSymbol(int xM, int yM) {
+char Map::getSymbol(int xM, int yM) {
   if (xM < 0 || yM < 0) {
     return ']';
   } else {
@@ -74,7 +78,7 @@ char Maps::getSymbol(int xM, int yM) {
   }
 }
 
-void Maps::symColor(char mapSym) {
+void Map::symColor(char mapSym) {
   if (mapSym == '~') {
     terminal_color(0xff009fff);
   } else {
@@ -117,7 +121,7 @@ void Maps::symColor(char mapSym) {
 }
 
 //////////////////////////////////////////////////////////////рендер
-void Maps::renderMap(int xm, int ym) {
+void Map::renderMap(int xm, int ym) {
   for (int ii(0); ii < 40; ii++) {
     for (int i(0); i < 60; i++) {
       terminal_color(0xaaffffff);
@@ -141,4 +145,4 @@ void Maps::renderMap(int xm, int ym) {
       }
     }
   }
-}
+}*/

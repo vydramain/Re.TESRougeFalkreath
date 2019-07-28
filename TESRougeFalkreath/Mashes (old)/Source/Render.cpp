@@ -4,7 +4,7 @@
 
 #include "Render.h"
 #include <BearLibTerminal.h>
-#include "../../Code/Headers/logicParts/Maps.h"
+#include "logicParts/World/Map.h"
 #include "../../Code/Headers/logicParts/hud.h"
 #include "../../Code/Headers/logicParts/player.h"
 

@@ -4,7 +4,7 @@
 
 #include "../../Headers/logicParts/hud.h"
 #include <BearLibTerminal.h>
-#include "../../Headers/logicParts/Maps.h"
+#include "logicParts/World/Map.h"
 
 hud::hud(player GG) {
   dialog = false;

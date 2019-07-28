@@ -3,12 +3,19 @@
 //
 
 #include "../Headers/inGameLogic.h"
-#include <stdlib.h>
-#include "./logicParts/hud.h"
+
+inGameLogic::inGameLogic(const inputKey& InputKey) {
+  World currentWorld();
+}
+
+
+
+
+
 
 // int inGameLogic::action(){}
-void inGameLogic::update() {}
-void inGameLogic::actionPlayer(hud &HUD, Maps &map, player &GG, int &xGG, int &yGG) {
+/*void inGameLogic::update() {}
+void inGameLogic::actionPlayer(hud &HUD, Map &map, player &GG, int &xGG, int &yGG) {
   int xGG_m, yGG_m;  // Дополнительные маркеры
   if (GG.course == 0) {
     xGG_m = xGG;
@@ -51,7 +58,7 @@ void inGameLogic::actionPlayer(hud &HUD, Maps &map, player &GG, int &xGG, int &y
   }
 }
 
-bool inGameLogic::movePlayer(player &GG, Maps &map, int &xGG, int &yGG) {
+bool inGameLogic::movePlayer(player &GG, Map &map, int &xGG, int &yGG) {
   if (InputKey_.IsUp()) {
     GG.course = 0;
     if (map.getSymbol(xGG, yGG - 1) == ' ' || map.getSymbol(xGG, yGG - 1) == '.') {
@@ -84,7 +91,7 @@ bool inGameLogic::movePlayer(player &GG, Maps &map, int &xGG, int &yGG) {
 }
 void inGameLogic::inGameFT() {  //первый запуск
   int xGG = 37, yGG = 25, schet = 0;
-  Maps startMap(0);
+  Map startMap(0);
   startMap.getSize(mapX, mapY);
   player GG(xGG, yGG);
   hud HUD(GG);
@@ -104,4 +111,4 @@ void inGameLogic::inGameFT() {  //первый запуск
     terminal_print(65, 30, "Шагов: ");
     terminal_refresh();
   }
-}
+}*/

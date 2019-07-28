@@ -4,7 +4,7 @@
 
 #include "../Headers/renderGame.h"
 
-void renderGame::goRender(Maps &map, player &gg, hud &interface) {
+void renderGame::goRender(Map &map, player &gg, hud &interface) {
   terminal_clear();
   unsigned xm, ym;
   gg.getTerrain(xm, ym);

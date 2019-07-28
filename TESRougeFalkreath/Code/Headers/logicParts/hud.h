@@ -11,7 +11,7 @@
 class hud {
  private:
  public:
-  hud(player GG);
+  explicit hud(player GG);
   bool dialog;
   bool askDoorMark;
   bool askDoor();

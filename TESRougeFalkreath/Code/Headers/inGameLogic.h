@@ -5,25 +5,24 @@
 #ifndef TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_
 #define TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_
 
-#include <logicParts/inputKey.h>
-#include <logicParts/player.h>
-#include "./logicParts/Maps.h"
-#include "./renderGame.h"
+#include <inputKey.h>
+#include "logicParts/World.h"
 
 class inGameLogic {
  private:
-  int mapX, mapY;
   const inputKey &InputKey_;
-  renderGame render;
 
-  void update();
+  //void update();
 
  public:
-  inGameLogic(const inputKey &InputKey) : InputKey_(InputKey) {}
-  void actionPlayer(hud &HUD, Maps &map, player &GG, int &xGG, int &yGG);
-  bool movePlayer(player &GG, Maps &map, int &xGG, int &yGG);
-
-  void inGameFT();
+  explicit inGameLogic(const inputKey &InputKey) : InputKey_(InputKey) {}
+  
+  
+  
+  
+  //void actionPlayer(hud &HUD, Map &map, player &GG, int &xGG, int &yGG);
+  //bool movePlayer(player &GG, Map &map, int &xGG, int &yGG);
+  //void inGameFT();
   // int action();
 };
 

@@ -1,8 +1,8 @@
 
 #include <BearLibTerminal.h>
-#include "../Headers/logicParts/inputKey.h"
 #include "./inGameLogic.h"
 #include "./renderGame.h"
+#include "inputKey.h"
 
 unsigned headMenu();
 

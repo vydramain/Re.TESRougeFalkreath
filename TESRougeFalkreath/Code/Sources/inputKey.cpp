@@ -2,7 +2,7 @@
 // Created by vydra on 7/15/19.
 //
 
-#include "../../Headers/logicParts/inputKey.h"
+#include "inputKey.h"
 
 bool inputKey::IsEnter() const {
   return is_enter_;
