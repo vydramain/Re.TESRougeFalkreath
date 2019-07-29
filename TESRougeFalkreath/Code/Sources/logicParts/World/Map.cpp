@@ -5,9 +5,20 @@
 #include "logicParts/World/Map.h"
 
 Map::Map(unsigned mapNumber) {
-  if(mapNumber == 0{
-    currentMap_.loadMap("Maps/Falkreath.bin");
+  if (mapNumber == 0) {
+    mapName_ = "Falkreath";
+    if (!currentMap_.loadMap("Maps/Falkreath.bin", mapXSize_, mapYSize_, mapChar_)) {
+      errsMap = true;
+    }
   }
+}
+
+Map::~Map() {
+  for (int i(0); i < mapYSize_; i++) {
+    delete mapChar_[i];
+  }
+  delete mapChar_;
+  delete mapName_;
 }
 
 /*  if (in == 0) {

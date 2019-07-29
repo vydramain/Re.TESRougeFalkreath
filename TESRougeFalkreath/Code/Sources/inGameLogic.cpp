@@ -4,14 +4,24 @@
 
 #include "../Headers/inGameLogic.h"
 
-inGameLogic::inGameLogic(const inputKey& InputKey) {
-  World currentWorld();
+inGameLogic::inGameLogic(const inputKey &InputKey, bool NewGame) : InputKey_(InputKey) {
+  if (NewGame) {
+    currentLocation_.loadWorld(0);
+    createPlayer();
+  }
 }
 
-
-
-
-
+void inGameLogic::createPlayer() {
+  char *GGName;
+  unsigned nation;
+  render.inputQuestion("Введите имя игрока: ", GGName);
+  GG_.pullName(GGName);
+  const char *listMenu[10] = {"Норд",        "Бретон",      "Радгард", "Имперец",    "Высокий Эльф",
+                              "Тёмный эльф", "Лесной эльф", "Орк",     "Аргонианин", "Каджит"};
+  nation = render.inputChoose(listMenu, 10, "Раса: ");
+  GG_.pullNation(nation);
+  GG_.pullTerrain(30, 20);
+}
 
 // int inGameLogic::action(){}
 /*void inGameLogic::update() {}

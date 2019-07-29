@@ -3,3 +3,7 @@
 //
 
 #include "logicParts/World.h"
+
+void World::loadWorld(unsigned mapNumber) {
+  Map currentMap(mapNumber);
+}

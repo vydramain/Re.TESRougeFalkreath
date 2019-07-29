@@ -2,7 +2,7 @@
 # clang-format -i --style=file <file>
 BasedOnStyle: Google
 FixNamespaceComments: false
-ColumnLimit: 120
+ColumnLimit: 140
 UseTab: Never
 SpaceAfterTemplateKeyword: false
 SpaceAfterCStyleCast: true

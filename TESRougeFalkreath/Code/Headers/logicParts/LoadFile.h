@@ -2,22 +2,24 @@
 // Created by vydra on 7/28/19.
 //
 
-#ifndef TESROUGEFALKREATH_LOADFILE_H
-#define TESROUGEFALKREATH_LOADFILE_H
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_LOADFILE_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_LOADFILE_H_
 
 #include <stdio.h>
 
 class LoadFile {
  private:
-    FILE* currentFile_;
+  FILE *currentFile_;
 
-   public:
-    explicit LoadFile() {}
+ public:
+  explicit LoadFile() {}
+  virtual ~LoadFile();
 
-    bool loadMap(const char* address);
-
+  bool loadMap(const char *address, int &mapXSize, int &mapYSize, char **map);  // Все переменные кроме
+                                                                                               // адреса должны
+                                                                                               // изменяться внутри
+                                                                                               // функции
+  bool loadPlayer();
 };
 
-
-
-#endif //TESROUGEFALKREATH_LOADFILE_H
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_LOADFILE_H_

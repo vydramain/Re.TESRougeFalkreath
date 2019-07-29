@@ -2,11 +2,10 @@
 // Created by vydra on 7/21/19.
 //
 
-#ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_
-#define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_
 
 #include "./logicParts/LoadFile.h"
-
 
 class Map {
  private:
@@ -14,22 +13,14 @@ class Map {
   // Активная зона длействий игрока(для меньшего дергания экрана)
 
   LoadFile currentMap_;
-  char **mapChar;
+  bool errsMap = false;
+  const char* mapName_;
+  char** mapChar_;
   int mapXSize_, mapYSize_;
-
-  //bool loadMap();
-  //void symColor( char mapSym);
 
  public:
   explicit Map(unsigned mapNumber);  // номер соответствующей локации
-  ~Map();
-  //void getSize(int &x, int &y);
-
-
-
-  //////////////////////////////////////////////////////////////рендер
-  //void renderMap(int xm, int ym);           //запрашивает координаты игрока
-  //char getSymbol(int xM, int yM);           //возвращает символ из определённой координаты
+  virtual ~Map();
 };
 
-#endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAPS_H_
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_

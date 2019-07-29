@@ -2,20 +2,17 @@
 // Created by vydra on 7/28/19.
 //
 
-#ifndef TESROUGEFALKREATH_WORLD_H
-#define TESROUGEFALKREATH_WORLD_H
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_H_
 
 #include "logicParts/World/Map.h"
 
 class World {
- private:
-  Map currentMap_;
-
  public:
-  explicit World(const Map &inputMap) : currentMap_(inputMap) {}
+  explicit World() {}
+  virtual ~World();
 
+  void loadWorld(unsigned mapNumber);
 };
 
-
-
-#endif //TESROUGEFALKREATH_WORLD_H
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_H_
