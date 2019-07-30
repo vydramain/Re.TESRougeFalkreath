@@ -1,5 +1,5 @@
 
-#include <BearLibTerminal.h>
+
 #include "./inGameLogic.h"
 #include "./inputKey.h"
 #include "./renderGame.h"
@@ -17,6 +17,7 @@ int main() {
     renderGame *renderPlay = new renderGame(true);
     inGameLogic game(InputKey, true);
     game.createPlayer(*renderPlay);
+    renderPlay->clearALL();
     game.play(*renderPlay);
 
     delete renderPlay;

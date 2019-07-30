@@ -7,6 +7,7 @@
 
 #include <inputKey.h>
 #include "./renderGame.h"
+#include "logicParts/map.h"
 #include "logicParts/player.h"
 
 class inGameLogic {
@@ -15,18 +16,15 @@ class inGameLogic {
   player GG_;
   map CurrentMap_;
 
-  bool movePlayer();
-  void actionPlayer();
-  void Update();
+  bool movePlayer(renderGame &Render);
+  void actionPlayer(renderGame &Render);
+  void Update(renderGame &Render);
 
  public:
   explicit inGameLogic(inputKey &InputKey, bool NewGame);
+  virtual ~inGameLogic() = default;
   void createPlayer(renderGame &Render);
   void play(renderGame &Render);
-  // void actionPlayer(hud &HUD, map &map, player &GG, int &xGG, int &yGG);
-  // bool movePlayer(player &GG, map &map, int &xGG, int &yGG);
-  // void inGameFT();
-  // int action();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_

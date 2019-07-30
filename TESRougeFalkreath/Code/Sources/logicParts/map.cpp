@@ -7,10 +7,10 @@
 map::map() {}
 
 map::~map() {
-  // for (int i(0); i < mapYSize_; i++) {
-  //    delete mapChar_[i];
-  //  }
-  //  delete mapChar_;
+  for (int i(0); i < mapYSize_; i++) {
+    delete mapChar_[i];
+  }
+  delete mapChar_;
 }
 
 map& map::operator=(const map& old) {

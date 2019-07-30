@@ -7,11 +7,11 @@
 renderGame::renderGame(bool gameMode) {
   if (gameMode) {
     terminal_open();
-    terminal_set("window: title='TES Falkreath', fullscreen: true, size=100x40; font: ./Fonts/Ubuntu-C.ttf, size=12");
+    terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
     terminal_refresh();
   } else {
     terminal_open();
-    terminal_set("window: title='TES Falkreath', size=20x26; font: ./Fonts/Ubuntu-C.ttf, size=12");
+    terminal_set("window: title='TES Falkreath', size=20x26; font: ./Fonts/Ubuntu-C.ttf, size=11");
     terminal_refresh();
   }
 }
@@ -20,9 +20,17 @@ renderGame::~renderGame() {
   terminal_close();
 }
 
+void renderGame::clearALL() {
+  for (unsigned i(0); i < 20; i++) {
+    terminal_layer(i);
+    terminal_clear();
+  }
+}
+
 void renderGame::goRender(const map &currentMap, const player &GG) {
   showMap(currentMap, GG.mapX_, GG.mapY_);
   showPlayer(GG);
+  showHud(GG);
   terminal_refresh();
 }
 
@@ -173,8 +181,9 @@ void renderGame::symColor(char mapSym) {
 }
 
 void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
-  for (int ii(0); ii < 40; ii++) {
-    for (int i(0); i < 66; i++) {
+  terminal_layer(10);
+  for (int ii(0); ii < mapBorderY; ii++) {
+    for (int i(0); i < mapBorderX; i++) {
       terminal_color(0xaaffffff);
       if (yPlayer - 20 + ii < 0) {
         terminal_put(i, ii, ' ');
@@ -199,6 +208,127 @@ void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
 }
 
 void renderGame::showPlayer(const player &GG) {
+  terminal_layer(1);
   terminal_color(0xffffffff);
-  terminal_put_ext(GG.screenX_, GG.screenY_, 0, -1, GG.naked);
+  terminal_put_ext(GG.screenX_, GG.screenY_, -2, -1, GG.naked);
+}
+
+void renderGame::showHud(const player &GG) {
+  terminal_layer(10);
+  for (int i(0); i < screenBorderY; i++) {
+    terminal_print(mapBorderX, i, "|");
+  }
+  terminal_print(mapBorderX + 1, 1, "Имя:");
+  terminal_print(mapBorderX + 1, 2, "Расса:");
+  terminal_print(mapBorderX + 1, 3, "Статус:");
+  terminal_print(mapBorderX + 1, 4, "ОЗ:");
+  terminal_print(mapBorderX + 1, 5, "OМ:");
+  terminal_print(mapBorderX + 1, 6, "ОД:");
+  terminal_print(mapBorderX + 1, 7, "ОС:");
+
+  terminal_print(mapBorderX + 1, mapBorderY - 3, "Управление - Стрелки");
+  terminal_print(mapBorderX + 1, mapBorderY - 2, "Использовать - E");
+  terminal_print(mapBorderX + 1, mapBorderY - 1, "Осмотреть - Q");  // Временно
+
+  if (GG.playerNation_ == 1) {
+    strcpy(nationality, "Норд");
+  } else {
+    if (GG.playerNation_ == 2) {
+      strcpy(nationality, "Бретонец");
+    } else {
+      if (GG.playerNation_ == 3) {
+        strcpy(nationality, "Редгард");
+      } else {
+        if (GG.playerNation_ == 4) {
+          strcpy(nationality, "Имперец");
+        } else {
+          if (GG.playerNation_ == 5) {
+            strcpy(nationality, "Высокий Эльф");
+          } else {
+            if (GG.playerNation_ == 6) {
+              strcpy(nationality, "Тёмный Эльф");
+            } else {
+              if (GG.playerNation_ == 7) {
+                strcpy(nationality, "Лесной Эльф");
+              } else {
+                if (GG.playerNation_ == 8) {
+                  strcpy(nationality, "Орк");
+                } else {
+                  if (GG.playerNation_ == 9) {
+                    strcpy(nationality, "Аргонианин");
+                  } else {
+                    if (GG.playerNation_ == 10) {
+                      strcpy(nationality, "Каджит");
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  terminal_print(mapBorderX + 1 + 5, 1, GG.playerName_);
+  terminal_print(mapBorderX + 1 + 7, 2, nationality);
+  terminal_print(mapBorderX + 1 + 8, 3, "Могильщик");
+
+  if (confirmAsk_ || explanationAsk_) {
+    showDialog();
+  }
+}
+
+void renderGame::showDialog() {
+  terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
+  for (int i(0); i < mapBorderX; i++) {
+    terminal_put(i, mapBorderY - 10, '_');
+  }
+  if (question_ != 0) {
+    if (question_ == 1) {
+      terminal_print(1, mapBorderY - 7, "Открыть дверь?");
+    } else {
+      if (question_ == 2) {
+        terminal_print(1, mapBorderY - 7, "Спрятаться в зелени?");
+      }
+    }
+  } else {
+    if (explanation_ != 0) {
+      if (explanation_ == 1) {
+        terminal_print(1, mapBorderY - 7, "Это дверь.");
+        terminal_print(1, mapBorderY - 6, "Похоже, изготовлена из многовековой ели.");
+      }
+      if (explanation_ == 2) {
+        terminal_print(1, mapBorderY - 7, "Это хвойное растение.");
+        terminal_print(1, mapBorderY - 6, "Похоже на ель.");
+      }
+      if (explanation_ == 3) {
+        terminal_print(1, mapBorderY - 7, "Камень.");
+        terminal_print(1, mapBorderY - 6, "Мне через него не перебраться.");
+      }
+      if (explanation_ == 4) {
+        terminal_print(1, mapBorderY - 7, "Гладкая каменная стена....");
+        terminal_print(1, mapBorderY - 6, "          ...из хорошего булыжника.");
+      }
+      if (explanation_ == 5) {
+        terminal_print(1, mapBorderY - 7, "Пшеница... ");
+        terminal_print(1, mapBorderY - 6, "Несозревшая...");
+      }
+      if (explanation_ == 6) {
+        terminal_print(1, mapBorderY - 7, "Ствол... ");
+        terminal_print(1, mapBorderY - 6, "Просто ствол дерева...");
+      }
+      if (explanation_ == 7) {
+        terminal_print(1, mapBorderY - 7, "Забор деревянный.");
+        terminal_print(1, mapBorderY - 6, "Добротный.");
+      }
+      if (explanation_ == 8) {
+        terminal_print(1, mapBorderY - 7, "Могила...     ...впервые вижу эти руны...");
+        terminal_print(1, mapBorderY - 6, "  ...скорее всего они из Атморы.");
+      }
+      if (explanation_ == 9) {
+        terminal_print(1, mapBorderY - 7, "Вода... Не хочу мокнуть.");
+        terminal_print(1, mapBorderY - 6, "  Я туда не полезу");
+      }
+    }
+  }
 }

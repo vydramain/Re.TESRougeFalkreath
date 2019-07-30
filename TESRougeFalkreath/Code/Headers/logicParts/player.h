@@ -17,7 +17,7 @@ class player {
   char naked = 'i';  // игрок без брони
 
   unsigned screenX_ = 0, screenY_ = 0;  // для отображения на экране
-  unsigned mapX_ = 0, mapY_ = 0;            // для размещения на карте
+  unsigned mapX_ = 0, mapY_ = 0;        // для размещения на карте
   unsigned course = 1;  //  направление в котором последний раз двигался персонаж
                         // 0 -вврех,
                         // 1 -влево,
@@ -25,6 +25,7 @@ class player {
                         // 3 -вниз.
 
   char playerName_[12];
+  unsigned status_;
   unsigned playerNation_;  // Расы:
                            // 1. Норд
                            // 2. Бретон

@@ -3,7 +3,7 @@
 //
 
 #include "../Headers/inGameLogic.h"
-void inGameLogic::actionPlayer() {
+void inGameLogic::actionPlayer(renderGame &Render) {
   int xGG_m, yGG_m;  // Дополнительные маркеры
   if (GG_.course == 0) {
     xGG_m = GG_.mapX_;
@@ -21,70 +21,140 @@ void inGameLogic::actionPlayer() {
     yGG_m = GG_.mapY_;
     xGG_m = GG_.mapX_ + 1;
   }
-
-  for (int i(0); i < yGG_m; i++) {
-    xGG_m++;
-  }
-  /*
   if (InputKey_.IsButtonE()) {
-    if (HUD.askDoorMark) {
-      xGG = xGG_m;
-      yGG = yGG_m;
-      HUD.dialog = false;
-      HUD.askDoorMark = false;
-
-    } else {
-      if (map.getSymbol(xGG_m, yGG_m) == 'v' || map.getSymbol(xGG_m, yGG_m) == '^' || map.getSymbol(xGG_m, yGG_m) == '<' ||
-          map.getSymbol(xGG_m, yGG_m) == '>') {
-        HUD.askDoorMark = HUD.askDoor();
+    if (CurrentMap_.getSymbol(xGG_m, yGG_m) == 'v' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '^' ||
+        CurrentMap_.getSymbol(xGG_m, yGG_m) == '<' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '>') {
+      if (Render.confirmAsk_) {
+        GG_.mapX_ = xGG_m;
+        GG_.mapY_ = yGG_m;
+        Render.confirmAsk_ = false;
+        Render.question_ = 0;
       } else {
-        if (HUD.askArmorMark) {
-          HUD.dialog = false;
-          HUD.askArmorMark = false;
+        Render.confirmAsk_ = true;
+        Render.question_ = 1;
+      }
+    } else {
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == ';' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '+' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '-' || CurrentMap_.getSymbol(xGG_m, yGG_m) ==  '?' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == ':' || CurrentMap_.getSymbol(xGG_m, yGG_m) == 'J' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '`') {
+        if (Render.confirmAsk_) {
+          GG_.mapX_ = xGG_m;
+          GG_.mapY_ = yGG_m;
+          Render.confirmAsk_ = false;
+          Render.question_ = 0;
         } else {
-          if (map.getSymbol(xGG_m, yGG_m) == 'A') {
-            HUD.askArmorMark = HUD.askArmor();
-          }
+          Render.confirmAsk_ = true;
+          Render.question_ = 2;
         }
       }
     }
-  }*/
+  } else {
+    if (InputKey_.IsButtonQ()) {
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == 'v' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '^' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '<' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '>') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 1;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == ';' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '+' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '-' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '?' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == ':' || CurrentMap_.getSymbol(xGG_m, yGG_m) == 'J' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '`') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 2;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == '#') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 3;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == '_' || CurrentMap_.getSymbol(xGG_m, yGG_m) == ']') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 4;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == 'L') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 5;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == '"' || CurrentMap_.getSymbol(xGG_m, yGG_m) == '|' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == '=') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 6;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == 'W' || CurrentMap_.getSymbol(xGG_m, yGG_m) == 'w' ||
+          CurrentMap_.getSymbol(xGG_m, yGG_m) == 'V') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 7;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == 't') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 8;
+      }
+      if (CurrentMap_.getSymbol(xGG_m, yGG_m) == '~') {
+        Render.explanationAsk_ = true;
+        Render.explanation_ = 9;
+      }
+    }
+  }
 }
 
-bool inGameLogic::movePlayer() {
+bool inGameLogic::movePlayer(renderGame &Render) {
   if (InputKey_.IsUp()) {
     GG_.course = 0;
-    if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == '.') {
+    if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == '.' ||
+        CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == 'L') {
       GG_.mapY_--;
+      Render.confirmAsk_ = false;
+      Render.question_ = 0;
+      Render.explanationAsk_ = false;
+      Render.explanation_ = 0;
       return true;
     }
   }
   if (InputKey_.IsDown()) {
     GG_.course = 3;
-    if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '.') {
-      GG_.mapY_++;
-      return true;
+
+    if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '.' ||
+        CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == 'L' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '_') {
+      if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_) != '_') {
+        GG_.mapY_++;
+        Render.confirmAsk_ = false;
+        Render.question_ = 0;
+        Render.explanationAsk_ = false;
+        Render.explanation_ = 0;
+        return true;
+      }
     }
   }
   if (InputKey_.IsLeft()) {
     GG_.course = 1;
-    if (CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '.') {
+    if (CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '.' ||
+        CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == 'L' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '_') {
       GG_.mapX_--;
+      Render.confirmAsk_ = false;
+      Render.question_ = 0;
+      Render.explanationAsk_ = false;
+      Render.explanation_ = 0;
       return true;
     }
   }
   if (InputKey_.IsRight()) {
     GG_.course = 2;
-    if (CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '.') {
+    if (CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '.' ||
+        CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == 'L' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '_') {
       GG_.mapX_++;
+      Render.confirmAsk_ = false;
+      Render.question_ = 0;
+      Render.explanationAsk_ = false;
+      Render.explanation_ = 0;
       return true;
     }
   }
   return false;
 }
 
-void inGameLogic::Update() {
-  movePlayer();
+void inGameLogic::Update(renderGame &Render) {
+  movePlayer(Render);
+  actionPlayer(Render);
 }
 
 inGameLogic::inGameLogic(inputKey &InputKey, bool NewGame) : InputKey_(InputKey) {
@@ -95,7 +165,7 @@ inGameLogic::inGameLogic(inputKey &InputKey, bool NewGame) : InputKey_(InputKey)
 
 void inGameLogic::createPlayer(renderGame &Render) {
   Render.inputQuestion("Введите имя игрока: ", 20, GG_.playerName_);
-  const char *listMenu[10] = {"Норд",        "Бретон",      "Радгард", "Имперец",    "Высокий Эльф",
+  const char *listMenu[10] = {"Норд",        "Бретонец",    "Редгард", "Имперец",    "Высокий Эльф",
                               "Тёмный эльф", "Лесной эльф", "Орк",     "Аргонианин", "Каджит"};
   GG_.playerNation_ = Render.inputChoose(listMenu, 10, "Раса: ", 6);
   GG_.pullTerrain(30, 20);
@@ -104,7 +174,7 @@ void inGameLogic::createPlayer(renderGame &Render) {
 void inGameLogic::play(renderGame &Render) {
   do {
     InputKey_.Update();
-    Update();
+    Update(Render);
     Render.goRender(CurrentMap_, GG_);
     if (InputKey_.IsExit()) {
       break;
