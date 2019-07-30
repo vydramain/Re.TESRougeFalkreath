@@ -6,7 +6,7 @@
 #define TESROUGEFALKREATH_RENDER_H
 
 #include <BearLibTerminal.h>
-#include "logicParts/World/Map.h"
+#include "logicParts/map.h"
 #include "../../Code/Headers/logicParts/hud.h"
 #include "../../Code/Headers/logicParts/player.h"
 

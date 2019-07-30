@@ -8,15 +8,21 @@ unsigned headMenu();
 
 int main() {
   inputKey InputKey;
-  renderGame render;
-  unsigned gameStatus(2);
-  gameStatus = render.headMenu();
+  renderGame *renderMenu = new renderGame(false);
+  unsigned gameStatus(0);
+  gameStatus = renderMenu->headMenu();
+  delete renderMenu;
 
   if (gameStatus == 1) {  // Новая игра
-    // inGameLogic game(InputKey, true);
+    renderGame *renderPlay = new renderGame(true);
+    inGameLogic game(InputKey, true);
+    game.createPlayer(*renderPlay);
+    game.play(*renderPlay);
+
+    delete renderPlay;
     return 0;
   } else {
-    if (gameStatus == 2) {
+    if (gameStatus == 5 || gameStatus == 0) {
       return 0;
     }
   }

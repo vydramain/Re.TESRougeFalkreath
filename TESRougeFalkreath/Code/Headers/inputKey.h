@@ -31,9 +31,9 @@ class inputKey {
 
  public:
   inputKey() {}
-  inputKey(const inputKey& old);
+  // inputKey(const inputKey& old);
   ~inputKey() {}
-  inputKey & operator= (const inputKey& old);
+  // inputKey & operator= (const inputKey& old);
 
   bool IsEnter() const;
   bool IsExit() const;

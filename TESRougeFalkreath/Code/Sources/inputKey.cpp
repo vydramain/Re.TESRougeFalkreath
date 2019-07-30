@@ -3,7 +3,7 @@
 //
 
 #include "./inputKey.h"
-
+/*
 inputKey::inputKey(const inputKey& old) {
   is_enter_ = old.is_enter_;
   is_exit_ = old.is_exit_;
@@ -51,7 +51,7 @@ inputKey& inputKey::operator=(const inputKey& old) {
     is_m_button_ = old.is_m_button_;
   }
   return *this;
-}
+}*/
 
 bool inputKey::IsEnter() const {
   return is_enter_;

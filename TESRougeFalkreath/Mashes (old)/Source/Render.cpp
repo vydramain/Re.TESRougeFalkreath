@@ -4,9 +4,9 @@
 
 #include "Render.h"
 #include <BearLibTerminal.h>
-#include "logicParts/World/Map.h"
 #include "../../Code/Headers/logicParts/hud.h"
 #include "../../Code/Headers/logicParts/player.h"
+#include "logicParts/map.h"
 
 bool Render::goRender(Maps map, player gg, hud interface) {
   terminal_clear();
