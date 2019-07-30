@@ -6,12 +6,15 @@
 #define TESROUGEFALKREATH_CODE_HEADERS_RENDERGAME_H_
 
 #include <BearLibTerminal.h>
-#include "./inGameLogic.h"
+#include "./inputKey.h"
 
 class renderGame {
  private:
  public:
-  explicit renderGame();
+  renderGame() {}
+  renderGame(const renderGame &old) {}
+  ~renderGame() {}
+  renderGame &operator= (const renderGame &old) {return *this;}
 
   void goRender();
   bool menuChoiser(unsigned &nonshoise, unsigned pointMuch);

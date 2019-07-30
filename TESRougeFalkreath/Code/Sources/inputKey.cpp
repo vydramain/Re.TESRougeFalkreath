@@ -4,6 +4,55 @@
 
 #include "./inputKey.h"
 
+inputKey::inputKey(const inputKey& old) {
+  is_enter_ = old.is_enter_;
+  is_exit_ = old.is_exit_;
+  is_locate_right_ = old.is_locate_right_;
+  is_locate_left_ = old.is_locate_left_;
+  is_locate_up_ = old.is_locate_up_;
+  is_locate_down_ = old.is_locate_down_;
+  is_ctrl_button_ = old.is_ctrl_button_;
+  is_alt_button_ = old.is_alt_button_;
+  is_esc_button_ = old.is_esc_button_;
+  is_i_button_ = old.is_i_button_;
+  is_e_button_ = old.is_e_button_;
+  is_q_button_ = old.is_q_button_;
+  is_w_button_ = old.is_w_button_;
+  is_a_button_ = old.is_a_button_;
+  is_s_button_ = old.is_s_button_;
+  is_d_button_ = old.is_d_button_;
+  is_f_button_ = old.is_f_button_;
+  is_o_button_ = old.is_o_button_;
+  is_p_button_ = old.is_p_button_;
+  is_m_button_ = old.is_m_button_;
+}
+
+inputKey& inputKey::operator=(const inputKey& old) {
+  if (this != &old) {
+    is_enter_ = old.is_enter_;
+    is_exit_ = old.is_exit_;
+    is_locate_right_ = old.is_locate_right_;
+    is_locate_left_ = old.is_locate_left_;
+    is_locate_up_ = old.is_locate_up_;
+    is_locate_down_ = old.is_locate_down_;
+    is_ctrl_button_ = old.is_ctrl_button_;
+    is_alt_button_ = old.is_alt_button_;
+    is_esc_button_ = old.is_esc_button_;
+    is_i_button_ = old.is_i_button_;
+    is_e_button_ = old.is_e_button_;
+    is_q_button_ = old.is_q_button_;
+    is_w_button_ = old.is_w_button_;
+    is_a_button_ = old.is_a_button_;
+    is_s_button_ = old.is_s_button_;
+    is_d_button_ = old.is_d_button_;
+    is_f_button_ = old.is_f_button_;
+    is_o_button_ = old.is_o_button_;
+    is_p_button_ = old.is_p_button_;
+    is_m_button_ = old.is_m_button_;
+  }
+  return *this;
+}
+
 bool inputKey::IsEnter() const {
   return is_enter_;
 }

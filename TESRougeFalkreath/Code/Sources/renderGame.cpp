@@ -28,26 +28,27 @@ unsigned renderGame::headMenu() {
   unsigned nonchoise(0);  // 0 - Процесс выбора 1 - Новая игра 2 - Выход
 
   terminal_open();
-  terminal_set("window: title='TES Falkreath', size=80x40; font: ./Fonts/Ubuntu-C.ttf, size=12");
+  terminal_set("window: title='TES Falkreath', size=20x26; font: ./Fonts/Ubuntu-C.ttf, size=12");
   terminal_refresh();
 
   while (IsGo == false) {
     terminal_clear();
     IsGo = menuChoiser(nonchoise, 2);
     if (nonchoise == 1) {
-      terminal_print(16, 20, "--> Новая Игра <--");
-      terminal_print(16, 21, "      Выход");
+      terminal_print(1, 12, "--> Новая Игра <--");
+      terminal_print(1, 13, "      Выход");
     } else {
       if (nonchoise == 2) {
-        terminal_print(16, 20, "    Новая Игра");
-        terminal_print(16, 21, "  --> Выход <--");
+        terminal_print(1, 12, "    Новая Игра");
+        terminal_print(1, 13, "  --> Выход <--");
       } else {
-        terminal_print(20, 20, "Новая Игра");
-        terminal_print(20, 21, "  Выход");
+        terminal_print(5, 12, "Новая Игра");
+        terminal_print(5, 13, "  Выход");
       }
     }
     terminal_refresh();
   }
+  terminal_close();
   return nonchoise;
 }
 

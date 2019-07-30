@@ -6,13 +6,13 @@
 
 inGameLogic::inGameLogic(const inputKey &InputKey, bool NewGame) : InputKey_(InputKey) {
   if (NewGame) {
-    currentLocation_.loadWorld(0);
+    World currentLocation(0);
     createPlayer();
   }
 }
 
 void inGameLogic::createPlayer() {
-  char *GGName;
+  char  *GGName = nullptr;
   unsigned nation;
   render.inputQuestion("Введите имя игрока: ", GGName);
   GG_.pullName(GGName);

@@ -28,7 +28,7 @@ set(STYLE_FILTER ${STYLE_FILTER}-build/include_subdir,)
 set(STYLE_FILTER ${STYLE_FILTER}-runtime/references,)
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/int,)
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/explicit,)
-#set(STYLE_FILTER ${STYLE_FILTER}-runtime/printf,)
+set(STYLE_FILTER ${STYLE_FILTER}-runtime/printf,)
 
 set(STYLE_FILTER ${STYLE_FILTER}-legal/copyright,)
 

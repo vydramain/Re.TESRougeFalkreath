@@ -30,6 +30,11 @@ class inputKey {
   bool is_m_button_ = false;
 
  public:
+  inputKey() {}
+  inputKey(const inputKey& old);
+  ~inputKey() {}
+  inputKey & operator= (const inputKey& old);
+
   bool IsEnter() const;
   bool IsExit() const;
   bool IsRight() const;

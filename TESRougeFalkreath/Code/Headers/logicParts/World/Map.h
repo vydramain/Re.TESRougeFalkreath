@@ -5,6 +5,7 @@
 #ifndef TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_
 #define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_
 
+#include <string.h>
 #include "./logicParts/LoadFile.h"
 
 class Map {
@@ -14,13 +15,14 @@ class Map {
 
   LoadFile currentMap_;
   bool errsMap = false;
-  const char* mapName_;
+  char* mapName_;
   char** mapChar_;
   int mapXSize_, mapYSize_;
 
  public:
   explicit Map(unsigned mapNumber);  // номер соответствующей локации
   virtual ~Map();
+  Map& operator=(const Map& old);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_WORLD_MAP_H_

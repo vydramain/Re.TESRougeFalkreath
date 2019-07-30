@@ -12,15 +12,14 @@
 
 class inGameLogic {
  private:
-  const inputKey& InputKey_;
+  const inputKey &InputKey_;
   renderGame render;
-  World currentLocation_;
   player GG_;
 
   // void update();
 
  public:
-  explicit inGameLogic(const inputKey& InputKey, bool NewGame);
+  explicit inGameLogic(const inputKey &InputKey, bool NewGame);
 
   void createPlayer();
   // void actionPlayer(hud &HUD, Map &map, player &GG, int &xGG, int &yGG);

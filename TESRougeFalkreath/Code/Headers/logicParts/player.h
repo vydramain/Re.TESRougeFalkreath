@@ -38,8 +38,6 @@ class player {
                         //  3 -вниз.
 
  public:
-  explicit player() {}
-  virtual ~player();
   void startPlayer(bool category);
   void pullName(char *Name);
   void pullNation(unsigned nation);
