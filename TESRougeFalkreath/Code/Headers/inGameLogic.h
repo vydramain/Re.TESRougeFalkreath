@@ -7,6 +7,7 @@
 
 #include <inputKey.h>
 #include "./renderGame.h"
+#include "logicParts/item.h"
 #include "logicParts/map.h"
 #include "logicParts/player.h"
 
@@ -15,6 +16,7 @@ class inGameLogic {
   inputKey &InputKey_;
   player GG_;
   map CurrentMap_;
+  //  items CurrentItems_;
 
   bool movePlayer(renderGame &Render);
   void actionPlayer(renderGame &Render);

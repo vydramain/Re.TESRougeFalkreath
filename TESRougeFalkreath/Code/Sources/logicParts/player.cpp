@@ -23,3 +23,5 @@ void player::pullTerrain(unsigned xm, unsigned ym) {
   screenX_ = mapX_;
   screenY_ = mapY_;
 }
+
+// void player::putItem(items *Item) {}

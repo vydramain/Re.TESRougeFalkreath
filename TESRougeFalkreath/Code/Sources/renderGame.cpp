@@ -168,7 +168,11 @@ void renderGame::symColor(char mapSym) {
                   if (mapSym == 't') {
                     terminal_color(0xffb2b2b2);
                   } else {
-                    terminal_color(0xff4c4c4c);
+                    if (mapSym == 'A' || mapSym == 'Y' || mapSym == 'T') {
+                      terminal_color(0xffffaaaa);
+                    } else {
+                      terminal_color(0xff4c4c4c);
+                    }
                   }
                 }
               }
@@ -210,7 +214,25 @@ void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
 void renderGame::showPlayer(const player &GG) {
   terminal_layer(1);
   terminal_color(0xffffffff);
-  terminal_put_ext(GG.screenX_, GG.screenY_, -2, -1, GG.naked);
+  terminal_put_ext(GG.screenX_, GG.screenY_, 0, -1, GG.naked);
+  if (GG.status_ == 1) {
+    terminal_layer(2);
+    terminal_color(0xffff6666);
+    terminal_put_ext(GG.screenX_, GG.screenY_, 0, 2, 'A');
+  } else {
+    if (GG.status_ == 2) {
+      terminal_layer(2);
+      terminal_color(0xffff6666);
+      terminal_put_ext(GG.screenX_, GG.screenY_, 1, 2, 'Y');
+    } else {
+      if (GG.status_ == 1) {
+        terminal_layer(2);
+        terminal_color(0xffff6666);
+        terminal_put_ext(GG.screenX_, GG.screenY_, 0, 3, 'T');
+      }
+    }
+  }
+  terminal_color(0xffffffff);
 }
 
 void renderGame::showHud(const player &GG) {
@@ -271,7 +293,29 @@ void renderGame::showHud(const player &GG) {
   }
   terminal_print(mapBorderX + 1 + 5, 1, GG.playerName_);
   terminal_print(mapBorderX + 1 + 7, 2, nationality);
-  terminal_print(mapBorderX + 1 + 8, 3, "Могильщик");
+  terminal_print(mapBorderX + 1 + 8, 3, "Неизвестный");
+
+  char hp[5], mp[5], ap[5], sp[3];
+  sprintf(hp, "%d", GG.HP_);
+  sprintf(mp, "%d", GG.MP_);
+  sprintf(ap, "%d", GG.AP_);
+  sprintf(sp, "%d", GG.SP_);
+  terminal_print(mapBorderX + 1 + 5, 4, hp);
+  terminal_print(mapBorderX + 1 + 5, 5, mp);
+  terminal_print(mapBorderX + 1 + 5, 6, ap);
+  terminal_print(mapBorderX + 1 + 5, 7, sp);
+
+  terminal_print(mapBorderX + 1, 9, "________________________________");
+  terminal_print(mapBorderX + 1, mapBorderY - 5, "________________________________");
+
+  terminal_print(mapBorderX + 1, 11, "Инвентарь:");
+  terminal_print(mapBorderX + 1, 12, "---");
+  terminal_print(mapBorderX + 1, 13, "---");
+  terminal_print(mapBorderX + 1, 14, "---");
+  terminal_print(mapBorderX + 1, 15, "---");
+  terminal_print(mapBorderX + 1, 16, "---");
+  terminal_print(mapBorderX + 1, 17, "---");
+  terminal_print(mapBorderX + 1, 18, "---");
 
   if (confirmAsk_ || explanationAsk_) {
     showDialog();
@@ -289,6 +333,14 @@ void renderGame::showDialog() {
     } else {
       if (question_ == 2) {
         terminal_print(1, mapBorderY - 7, "Спрятаться в зелени?");
+      } else {
+        if (question_ == 10) {
+          terminal_print(1, mapBorderY - 7, "Надеть броню?");
+        } else {
+          if (question_ == 11) {
+            terminal_print(1, mapBorderY - 7, "У тебя уже есть броня! (жадина)");
+          }
+        }
       }
     }
   } else {

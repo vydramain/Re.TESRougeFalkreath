@@ -7,6 +7,7 @@
 
 #include <BearLibTerminal.h>
 #include <string.h>
+#include "./item.h"
 #include "./loadFile.h"
 
 class player {
@@ -25,7 +26,7 @@ class player {
                         // 3 -вниз.
 
   char playerName_[12];
-  unsigned status_;
+  unsigned status_ = 0;
   unsigned playerNation_;  // Расы:
                            // 1. Норд
                            // 2. Бретон
@@ -37,14 +38,20 @@ class player {
                            // 8. Орк
                            // 9. Аргонианин
                            // 10. Каджит
-  unsigned HP;
-  unsigned MP;
-  unsigned AP;
-  unsigned SP;
+  unsigned HP_;
+  unsigned MP_;
+  unsigned AP_;
+  unsigned SP_;
+  int attack_;
+  float block_;
+  unsigned armorSlot_;
+  unsigned weaponSlot_;
+  //  items inventory[6];
 
   player();
   void startPlayer(bool category);
   void pullTerrain(unsigned xm, unsigned ym);
+  //  void putItem(items *Item);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_PLAYER_H_

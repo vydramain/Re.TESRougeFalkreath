@@ -49,3 +49,7 @@ char map::getSymbol(int xGG, int yGG) {
     }
   }
 }
+
+void map::changeSymbol(int xGG, int yGG) {
+  mapChar_[yGG][xGG] = '.';
+}

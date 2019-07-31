@@ -31,6 +31,7 @@ class renderGame {
   unsigned question_ = 0;  // 0 - Нет вопроса
                            // 1 - Открыть Дверь?
                            // 2 - Спрятаться в зелени?
+                           // 10 - Надеть броню?
 
   bool explanationAsk_ = false;
   unsigned explanation_ = 0;  // 0 - Нет объяснения

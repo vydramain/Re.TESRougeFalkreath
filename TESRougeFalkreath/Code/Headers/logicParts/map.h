@@ -27,6 +27,7 @@ class map {
 
   bool choiseMap(unsigned mapNumber);
   char getSymbol(int xGG, int yGG);
+  void changeSymbol(int xGG, int yGG);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_MAP_H_
