@@ -13,17 +13,18 @@ int main() {
   gameStatus = renderMenu->headMenu();
   delete renderMenu;
 
-  if (gameStatus == 1) {  // Новая игра
-    renderGame *renderPlay = new renderGame(true);
-    inGameLogic game(InputKey, true);
-    game.createPlayer(*renderPlay);
-    renderPlay->clearALL();
-    game.play(*renderPlay);
+  switch (gameStatus) {  // Новая игра
+    case 1: {
+      renderGame *renderPlay = new renderGame(true);
+      inGameLogic game(InputKey, true);
+      game.createPlayer(*renderPlay);
+      renderPlay->clearALL();
+      game.play(*renderPlay);
 
-    delete renderPlay;
-    return 0;
-  } else {
-    if (gameStatus == 5 || gameStatus == 0) {
+      delete renderPlay;
+      return 0;
+    }
+    default: {
       return 0;
     }
   }

@@ -17,7 +17,7 @@ class renderGame {
   const int mapBorderY = 40;
   const int mapBorderX = 66;
 
-  char nationality[13];
+  char nationality[32];
 
  public:
   renderGame() {}

@@ -6,6 +6,9 @@
 #define TESROUGEFALKREATH_CODE_HEADERS_LOGICPARTS_ITEMS_ARMOR_H_
 
 #include <logicParts/item.h>
+
+
+
 /*
 class armor {  // : public items {
  public:

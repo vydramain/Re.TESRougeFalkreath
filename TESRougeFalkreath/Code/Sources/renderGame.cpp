@@ -64,51 +64,57 @@ unsigned renderGame::headMenu() {
   while (IsGo == false) {
     terminal_clear();
     IsGo = menuChoiser(nonchoise, 5);
-    if (nonchoise == 1) {
-      terminal_print(1, 8, "--> Новая Игра <--");
-      terminal_print(4, 9, "  Загрузка  ");
-      terminal_print(4, 10, " Сохранения ");
-      terminal_print(4, 11, "Конфигурация");
-      terminal_print(4, 12, " Конец Игры ");
-    } else {
-      if (nonchoise == 2) {
+    switch (nonchoise) {
+      case 1: {
+        terminal_print(1, 8, "--> Новая Игра <--");
+        terminal_print(4, 9, "  Загрузка  ");
+        terminal_print(4, 10, " Сохранения ");
+        terminal_print(4, 11, "Конфигурация");
+        terminal_print(4, 12, " Конец Игры ");
+        break;
+      }
+      case 2: {
         terminal_print(4, 8, " Новая Игра ");
         terminal_print(0, 9, "--> (неработает) <--");
         terminal_print(4, 10, " Сохранения ");
         terminal_print(4, 11, "Конфигурация");
         terminal_print(4, 12, " Конец Игры ");
-      } else {
-        if (nonchoise == 3) {
-          terminal_print(4, 8, " Новая Игра ");
-          terminal_print(4, 9, "  Загрузка  ");
-          terminal_print(0, 10, "--> (неработает) <--");
-          terminal_print(4, 11, "Конфигурация");
-          terminal_print(4, 12, " Конец Игры ");
-        } else {
-          if (nonchoise == 4) {
-            terminal_print(4, 8, " Новая Игра ");
-            terminal_print(4, 9, "  Загрузка  ");
-            terminal_print(4, 10, " Сохранения ");
-            terminal_print(0, 11, "--> (неработает) <--");
-            terminal_print(4, 12, " Конец Игры ");
-          } else {
-            if (nonchoise == 5) {
-              terminal_print(4, 8, " Новая Игра ");
-              terminal_print(4, 9, "  Загрузка  ");
-              terminal_print(4, 10, " Сохранения ");
-              terminal_print(4, 11, "Конфигурация");
-              terminal_print(1, 12, "--> Конец Игры <--");
-            } else {
-              terminal_print(4, 8, " Новая Игра ");
-              terminal_print(4, 9, "  Загрузка  ");
-              terminal_print(4, 10, " Сохранения ");
-              terminal_print(4, 11, "Конфигурация");
-              terminal_print(4, 12, " Конец Игры ");
-            }
-          }
-        }
+        break;
+      }
+      case 3: {
+        terminal_print(4, 8, " Новая Игра ");
+        terminal_print(4, 9, "  Загрузка  ");
+        terminal_print(0, 10, "--> (неработает) <--");
+        terminal_print(4, 11, "Конфигурация");
+        terminal_print(4, 12, " Конец Игры ");
+        break;
+      }
+      case 4: {
+        terminal_print(4, 8, " Новая Игра ");
+        terminal_print(4, 9, "  Загрузка  ");
+        terminal_print(4, 10, " Сохранения ");
+        terminal_print(0, 11, "--> (неработает) <--");
+        terminal_print(4, 12, " Конец Игры ");
+        break;
+      }
+      case 5: {
+        terminal_print(4, 8, " Новая Игра ");
+        terminal_print(4, 9, "  Загрузка  ");
+        terminal_print(4, 10, " Сохранения ");
+        terminal_print(4, 11, "Конфигурация");
+        terminal_print(1, 12, "--> Конец Игры <--");
+        break;
+      }
+      default: {
+        terminal_print(4, 8, " Новая Игра ");
+        terminal_print(4, 9, "  Загрузка  ");
+        terminal_print(4, 10, " Сохранения ");
+        terminal_print(4, 11, "Конфигурация");
+        terminal_print(4, 12, " Конец Игры ");
+        break;
       }
     }
+
     terminal_refresh();
   }
   return nonchoise;
@@ -252,45 +258,53 @@ void renderGame::showHud(const player &GG) {
   terminal_print(mapBorderX + 1, mapBorderY - 2, "Использовать - E");
   terminal_print(mapBorderX + 1, mapBorderY - 1, "Осмотреть - Q");  // Временно
 
-  if (GG.playerNation_ == 1) {
-    strcpy(nationality, "Норд");
-  } else {
-    if (GG.playerNation_ == 2) {
+  switch (GG.playerNation_) {
+    case 1: {
+      strcpy(nationality, "Норд");
+      break;
+    }
+    case 2: {
       strcpy(nationality, "Бретонец");
-    } else {
-      if (GG.playerNation_ == 3) {
-        strcpy(nationality, "Редгард");
-      } else {
-        if (GG.playerNation_ == 4) {
-          strcpy(nationality, "Имперец");
-        } else {
-          if (GG.playerNation_ == 5) {
-            strcpy(nationality, "Высокий Эльф");
-          } else {
-            if (GG.playerNation_ == 6) {
-              strcpy(nationality, "Тёмный Эльф");
-            } else {
-              if (GG.playerNation_ == 7) {
-                strcpy(nationality, "Лесной Эльф");
-              } else {
-                if (GG.playerNation_ == 8) {
-                  strcpy(nationality, "Орк");
-                } else {
-                  if (GG.playerNation_ == 9) {
-                    strcpy(nationality, "Аргонианин");
-                  } else {
-                    if (GG.playerNation_ == 10) {
-                      strcpy(nationality, "Каджит");
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      break;
+    }
+    case 3: {
+      strcpy(nationality, "Редгард");
+      break;
+    }
+    case 4: {
+      strcpy(nationality, "Имперец");
+      break;
+    }
+    case 5: {
+      strcpy(nationality, "Высокий Эльф");
+      break;
+    }
+    case 6: {
+      strcpy(nationality, "Тёмный Эльф");
+      break;
+    }
+    case 7: {
+      strcpy(nationality, "Лесной Эльф");
+      break;
+    }
+    case 8: {
+      strcpy(nationality, "Орк");
+      break;
+    }
+    case 9: {
+      strcpy(nationality, "Аргонианин");
+      break;
+    }
+    case 10: {
+      strcpy(nationality, "Каджит");
+      break;
+    }
+    default: {
+      strcpy(nationality, " ");
+      break;
     }
   }
+
   terminal_print(mapBorderX + 1 + 5, 1, GG.playerName_);
   terminal_print(mapBorderX + 1 + 7, 2, nationality);
   terminal_print(mapBorderX + 1 + 8, 3, "Неизвестный");

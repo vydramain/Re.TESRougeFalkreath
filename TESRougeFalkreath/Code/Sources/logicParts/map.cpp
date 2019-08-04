@@ -29,25 +29,29 @@ map& map::operator=(const map& old) {
 }
 
 bool map::choiseMap(unsigned mapNumber) {
-  if (mapNumber == 0) {
-    if (!currentMap_.loadMap("Maps/Falkreath.bin", mapXSize_, mapYSize_, mapName_, mapChar_)) {
-      errsMap = true;
-      return true;
+  switch (mapNumber) {
+    case 0: {
+      if (!currentMap_.loadMap("Maps/Falkreath.bin", mapXSize_, mapYSize_, mapName_, mapChar_)) {
+        errsMap = true;
+        return true;
+      } else {
+        errsMap = false;
+        return false;
+      }
     }
+    default:
+      return false;
   }
-  return false;
 }
 
 char map::getSymbol(int xGG, int yGG) {
   if (xGG < 0 || xGG > mapXSize_) {
     return ' ';
-  } else {
-    if (yGG < 0 || yGG > mapYSize_) {
-      return ' ';
-    } else {
-      return mapChar_[yGG][xGG];
-    }
   }
+  if (yGG < 0 || yGG > mapYSize_) {
+    return ' ';
+  }
+  return mapChar_[yGG][xGG];
 }
 
 void map::changeSymbol(int xGG, int yGG) {

@@ -194,100 +194,112 @@ inGameLogic::inGameLogic(inputKey &InputKey, bool NewGame) : InputKey_(InputKey)
 }
 
 void inGameLogic::createPlayer(renderGame &Render) {
+  GG_.pullTerrain(30, 20);
   Render.inputQuestion("Введите имя игрока: ", 20, GG_.playerName_);
   const char *listMenu[10] = {"Норд",        "Бретонец",    "Редгард", "Имперец",    "Высокий Эльф",
                               "Тёмный эльф", "Лесной эльф", "Орк",     "Аргонианин", "Каджит"};
   GG_.playerNation_ = Render.inputChoose(listMenu, 10, "Раса: ", 6);
-  if (GG_.playerNation_ == 1) {
-    GG_.attack_ = 50;
-    GG_.block_ = 0.35;
-    GG_.HP_ = 100;
-    GG_.MP_ = 70;
-    GG_.AP_ = 110;
-    GG_.SP_ = 2;
-  } else {
-    if (GG_.playerNation_ == 2) {
+  switch (GG_.playerNation_) {
+    case 1: {
+      GG_.attack_ = 50;
+      GG_.block_ = 0.35;
+      GG_.HP_ = 100;
+      GG_.MP_ = 70;
+      GG_.AP_ = 110;
+      GG_.SP_ = 2;
+      break;
+    }
+    case 2: {
       GG_.attack_ = 30;
       GG_.block_ = 0.15;
       GG_.HP_ = 90;
       GG_.MP_ = 120;
       GG_.AP_ = 100;
       GG_.SP_ = 1;
-    } else {
-      if (GG_.playerNation_ == 3) {
-        GG_.attack_ = 45;
-        GG_.block_ = 0.3;
-        GG_.HP_ = 90;
-        GG_.MP_ = 60;
-        GG_.AP_ = 140;
-        GG_.SP_ = 1;
-      } else {
-        if (GG_.playerNation_ == 4) {
-          GG_.attack_ = 40;
-          GG_.block_ = 0.2;
-          GG_.HP_ = 100;
-          GG_.MP_ = 100;
-          GG_.AP_ = 100;
-          GG_.SP_ = 1;
-        } else {
-          if (GG_.playerNation_ == 5) {
-            GG_.attack_ = 25;
-            GG_.block_ = 0.1;
-            GG_.HP_ = 80;
-            GG_.MP_ = 150;
-            GG_.AP_ = 60;
-            GG_.SP_ = 2;
-          } else {
-            if (GG_.playerNation_ == 6) {
-              GG_.attack_ = 30;
-              GG_.block_ = 0.15;
-              GG_.HP_ = 100;
-              GG_.MP_ = 130;
-              GG_.AP_ = 70;
-              GG_.SP_ = 1;
-            } else {
-              if (GG_.playerNation_ == 7) {
-                GG_.attack_ = 40;
-                GG_.block_ = 0.2;
-                GG_.HP_ = 90;
-                GG_.MP_ = 110;
-                GG_.AP_ = 150;
-                GG_.SP_ = 1;
-              } else {
-                if (GG_.playerNation_ == 8) {
-                  GG_.attack_ = 50;
-                  GG_.block_ = 0.3;
-                  GG_.HP_ = 110;
-                  GG_.MP_ = 80;
-                  GG_.AP_ = 110;
-                  GG_.SP_ = 1;
-                } else {
-                  if (GG_.playerNation_ == 9) {
-                    GG_.attack_ = 35;
-                    GG_.block_ = 0.2;
-                    GG_.HP_ = 80;
-                    GG_.MP_ = 70;
-                    GG_.AP_ = 90;
-                    GG_.SP_ = 4;
-                  } else {
-                    if (GG_.playerNation_ == 10) {
-                      GG_.attack_ = 65;
-                      GG_.block_ = 0.05;
-                      GG_.HP_ = 80;
-                      GG_.MP_ = 80;
-                      GG_.AP_ = 150;
-                      GG_.SP_ = 4;
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      break;
+    }
+    case 3: {
+      GG_.attack_ = 45;
+      GG_.block_ = 0.3;
+      GG_.HP_ = 90;
+      GG_.MP_ = 60;
+      GG_.AP_ = 140;
+      GG_.SP_ = 1;
+      break;
+    }
+    case 4: {
+      GG_.attack_ = 40;
+      GG_.block_ = 0.2;
+      GG_.HP_ = 100;
+      GG_.MP_ = 100;
+      GG_.AP_ = 100;
+      GG_.SP_ = 1;
+      break;
+    }
+    case 5: {
+      GG_.attack_ = 25;
+      GG_.block_ = 0.1;
+      GG_.HP_ = 80;
+      GG_.MP_ = 150;
+      GG_.AP_ = 60;
+      GG_.SP_ = 2;
+      break;
+    }
+    case 6: {
+      GG_.attack_ = 30;
+      GG_.block_ = 0.15;
+      GG_.HP_ = 100;
+      GG_.MP_ = 130;
+      GG_.AP_ = 70;
+      GG_.SP_ = 1;
+      break;
+    }
+    case 7: {
+      GG_.attack_ = 40;
+      GG_.block_ = 0.2;
+      GG_.HP_ = 90;
+      GG_.MP_ = 110;
+      GG_.AP_ = 150;
+      GG_.SP_ = 1;
+      break;
+    }
+    case 8: {
+      GG_.attack_ = 50;
+      GG_.block_ = 0.3;
+      GG_.HP_ = 110;
+      GG_.MP_ = 80;
+      GG_.AP_ = 110;
+      GG_.SP_ = 1;
+      break;
+    }
+    case 9: {
+      GG_.attack_ = 35;
+      GG_.block_ = 0.2;
+      GG_.HP_ = 80;
+      GG_.MP_ = 70;
+      GG_.AP_ = 90;
+      GG_.SP_ = 4;
+      break;
+    }
+    case 10: {
+      GG_.attack_ = 65;
+      GG_.block_ = 0.05;
+      GG_.HP_ = 80;
+      GG_.MP_ = 80;
+      GG_.AP_ = 150;
+      GG_.SP_ = 4;
+      break;
+    }
+    default: {
+      GG_.attack_ = 0;
+      GG_.block_ = 0;
+      GG_.HP_ = 0;
+      GG_.MP_ = 0;
+      GG_.AP_ = 0;
+      GG_.SP_ = 0;
+      break;
     }
   }
-  GG_.pullTerrain(30, 20);
 }
 
 void inGameLogic::play(renderGame &Render) {
