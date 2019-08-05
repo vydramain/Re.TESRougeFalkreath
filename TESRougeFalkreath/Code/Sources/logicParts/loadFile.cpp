@@ -4,7 +4,14 @@
 
 #include "logicParts/loadFile.h"
 
-bool loadFile::loadMap(const char *address, int &mapXSize_, int &mapYSize_, char *mapName_, char **&mapChar_) {
+bool loadFile::loadMap(const char *address, int &mapXSize_, int &mapYSize_, char **&mapChar_) {
+  if (mapChar_) {
+    for (int i(0); i < mapYSize_; i++) {
+      delete mapChar_[i];
+    }
+    delete mapChar_;
+  }
+
   currentFile_ = fopen(address, "r");
   if (!currentFile_) {
     fclose(currentFile_);
@@ -24,9 +31,6 @@ bool loadFile::loadMap(const char *address, int &mapXSize_, int &mapYSize_, char
         if (feof(currentFile_)) {
           return false;
         } else {
-          for (unsigned i(0); i < 10; i++) {
-            mapName_[i] = getc(currentFile_);
-          }
           mapChar_ = new char *[mapYSize_];
           for (int i(0); i < mapYSize_; i++) {
             mapChar_[i] = new char[mapYSize_];
@@ -50,10 +54,11 @@ bool loadFile::loadMap(const char *address, int &mapXSize_, int &mapYSize_, char
                   return false;
                 } else {
                   mapChar_[i][ii] = getc(currentFile_);
-                }
+                 }
               }
             }
-            fclose(currentFile_);
+            fcloseall();
+            // fclose(currentFile_);
             return true;
           }
         }

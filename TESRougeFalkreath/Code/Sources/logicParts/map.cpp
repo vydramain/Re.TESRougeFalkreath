@@ -18,7 +18,7 @@ map& map::operator=(const map& old) {
     errsMap = old.errsMap;
     mapXSize_ = old.mapXSize_;
     mapYSize_ = old.mapYSize_;
-    strcpy(mapName_, old.mapName_);
+    mapName_ = old.mapName_;
     for (int i(0); i < mapYSize_; i++) {
       for (int ii(0); ii < mapXSize_; ii++) {
         mapChar_[i][ii] = old.mapChar_[i][ii];
@@ -31,7 +31,18 @@ map& map::operator=(const map& old) {
 bool map::choiseMap(unsigned mapNumber) {
   switch (mapNumber) {
     case 0: {
-      if (!currentMap_.loadMap("Maps/Falkreath.bin", mapXSize_, mapYSize_, mapName_, mapChar_)) {
+      mapName_ = 0;
+      if (!currentMap_.loadMap("Maps/Falkreath.bin", mapXSize_, mapYSize_, mapChar_)) {
+        errsMap = true;
+        return true;
+      } else {
+        errsMap = false;
+        return false;
+      }
+    }
+    case 1: {
+      mapName_ = 1;
+      if (!currentMap_.loadMap("Maps/WestForest.bin", mapXSize_, mapYSize_, mapChar_)) {
         errsMap = true;
         return true;
       } else {

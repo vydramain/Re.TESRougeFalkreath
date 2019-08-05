@@ -4,6 +4,12 @@
 
 #include "../Headers/renderGame.h"
 
+renderGame::renderGame() {
+  terminal_open();
+  terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
+  terminal_refresh();
+}
+
 renderGame::renderGame(bool gameMode) {
   if (gameMode) {
     terminal_open();
@@ -20,6 +26,28 @@ renderGame::~renderGame() {
   terminal_close();
 }
 
+/*
+void renderGame::WOW() {
+  terminal_layer(15);
+  terminal_print(1, 0, "WOW!!");
+  terminal_refresh();
+}
+
+void renderGame::clearWOW() {
+  terminal_layer(15);
+  terminal_clear_area(1, 0, 6, 0);
+  terminal_refresh();
+}
+*/
+
+void renderGame::createPlayerScreen(char *NameOfGG, unsigned &Race) {
+  inputQuestion("Введите имя игрока: ", 20, NameOfGG);
+  const char *listMenu[10] = {"Норд",        "Бретонец",    "Редгард", "Имперец",    "Высокий Эльф",
+                              "Тёмный эльф", "Лесной эльф", "Орк",     "Аргонианин", "Каджит"};
+  Race = inputChoose(listMenu, 10, "Раса: ", 6);
+  terminal_clear();
+}
+
 void renderGame::clearALL() {
   for (unsigned i(0); i < 20; i++) {
     terminal_layer(i);
@@ -30,7 +58,7 @@ void renderGame::clearALL() {
 void renderGame::goRender(const map &currentMap, const player &GG) {
   showMap(currentMap, GG.mapX_, GG.mapY_);
   showPlayer(GG);
-  showHud(GG);
+  showHud(currentMap, GG);
   terminal_refresh();
 }
 
@@ -147,45 +175,64 @@ unsigned renderGame::inputChoose(const char **listMenu, const unsigned &menuPoin
 }
 
 void renderGame::symColor(char mapSym) {
-  if (mapSym == '~') {
-    terminal_color(0xcc00ffff);
-  } else {
-    if (mapSym == ';' || mapSym == '+' || mapSym == '-' || mapSym == '?' || mapSym == ':' || mapSym == 'J' || mapSym == '`') {
+  switch (mapSym) {
+    case '~': {
+      terminal_color(0xcc00ffff);
+      break;
+    }
+    case ';':
+    case '+':
+    case '-':
+    case '?':
+    case ':':
+    case 'J':
+    case '`':
+    case 'x':
+    case '9': {
       terminal_color(0xff26cf26);
-    } else {
-      if (mapSym == ']' || mapSym == '_') {
-        terminal_color(0xff7f7f7f);
-      } else {
-        if (mapSym == 'W' || mapSym == 'w' || mapSym == 'V') {
-          terminal_color(0xffe3c347);
-        } else {
-          if (mapSym == '"' || mapSym == '|' || mapSym == '=' || mapSym == '>' || mapSym == '^' || mapSym == 'v' || mapSym == '<') {
-            terminal_color(0xffba7300);
-          } else {
-            if (mapSym == '#') {
-              terminal_color(0xff666666);
-            } else {
-              if (mapSym == 'L') {
-                terminal_color(0xffabff00);
-              } else {
-                if (mapSym == 'A') {
-                  terminal_color(0xccFF0000);
-                } else {
-                  if (mapSym == 't') {
-                    terminal_color(0xffb2b2b2);
-                  } else {
-                    if (mapSym == 'A' || mapSym == 'Y' || mapSym == 'T') {
-                      terminal_color(0xffffaaaa);
-                    } else {
-                      terminal_color(0xff4c4c4c);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      break;
+    }
+    case '[':
+    case ']':
+    case '_': {
+      terminal_color(0xff7f7f7f);
+      break;
+    }
+    case 'W':
+    case 'w':
+    case 'V': {
+      terminal_color(0xffe3c347);
+      break;
+    }
+    case '"':
+    case '|':
+    case '=':
+    case '>':
+    case '^':
+    case 'v':
+    case '<': {
+      terminal_color(0xffba7300);
+      break;
+    }
+    case '#': {
+      terminal_color(0xff666666);
+      break;
+    }
+    case 'L': {
+      terminal_color(0xffabff00);
+      break;
+    }
+    case 't': {
+      terminal_color(0xffb2b2b2);
+      break;
+    }
+    case 'Z': {
+      terminal_color(0xffffff00);
+      break;
+    }
+    default: {
+      terminal_color(0xff4c4c4c);
+      break;
     }
   }
 }
@@ -195,16 +242,16 @@ void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
   for (int ii(0); ii < mapBorderY; ii++) {
     for (int i(0); i < mapBorderX; i++) {
       terminal_color(0xaaffffff);
-      if (yPlayer - 20 + ii < 0) {
+      if (yPlayer - 20 + ii <= 0) {
         terminal_put(i, ii, ' ');
       } else {
-        if (xPlayer - 30 + i < 0) {
+        if (xPlayer - 30 + i <= 0) {
           terminal_put(i, ii, ' ');
         } else {
           if (yPlayer - 20 + ii >= currentLocation.mapYSize_) {
             terminal_put(i, ii, ' ');
           } else {
-            if (xPlayer - 30 + i >= currentLocation.mapXSize_ - 1) {
+            if (xPlayer - 30 + i >= currentLocation.mapXSize_) {
               terminal_put(i, ii, ' ');
             } else {
               symColor(currentLocation.mapChar_[yPlayer - 20 + ii][xPlayer - 30 + i]);
@@ -220,28 +267,14 @@ void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
 void renderGame::showPlayer(const player &GG) {
   terminal_layer(1);
   terminal_color(0xffffffff);
-  terminal_put_ext(GG.screenX_, GG.screenY_, 0, -1, GG.naked);
-  if (GG.status_ == 1) {
-    terminal_layer(2);
-    terminal_color(0xffff6666);
-    terminal_put_ext(GG.screenX_, GG.screenY_, 0, 2, 'A');
-  } else {
-    if (GG.status_ == 2) {
-      terminal_layer(2);
-      terminal_color(0xffff6666);
-      terminal_put_ext(GG.screenX_, GG.screenY_, 1, 2, 'Y');
-    } else {
-      if (GG.status_ == 1) {
-        terminal_layer(2);
-        terminal_color(0xffff6666);
-        terminal_put_ext(GG.screenX_, GG.screenY_, 0, 3, 'T');
-      }
-    }
+  if (GG.status_ == 2) {
+    terminal_color(0xff00ff00);
   }
+  terminal_put_ext(GG.screenX_, GG.screenY_, 0, -1, GG.naked);
   terminal_color(0xffffffff);
 }
 
-void renderGame::showHud(const player &GG) {
+void renderGame::showHud(const map &CurrentMap, const player &GG) {
   terminal_layer(10);
   for (int i(0); i < screenBorderY; i++) {
     terminal_print(mapBorderX, i, "|");
@@ -331,67 +364,77 @@ void renderGame::showHud(const player &GG) {
   terminal_print(mapBorderX + 1, 17, "---");
   terminal_print(mapBorderX + 1, 18, "---");
 
-  if (confirmAsk_ || explanationAsk_) {
-    showDialog();
+  if (GG.confirmAsk_ || GG.explanationAsk_) {
+    showDialog(CurrentMap, GG);
   }
 }
 
-void renderGame::showDialog() {
+void renderGame::showDialog(const map &CurrentMap, const player &GG) {
   terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
   for (int i(0); i < mapBorderX; i++) {
     terminal_put(i, mapBorderY - 10, '_');
   }
-  if (question_ != 0) {
-    if (question_ == 1) {
+  if (GG.question_ != 0) {
+    if (GG.question_ == 1) {
       terminal_print(1, mapBorderY - 7, "Открыть дверь?");
     } else {
-      if (question_ == 2) {
+      if (GG.question_ == 2) {
         terminal_print(1, mapBorderY - 7, "Спрятаться в зелени?");
       } else {
-        if (question_ == 10) {
-          terminal_print(1, mapBorderY - 7, "Надеть броню?");
+        if (GG.question_ == 3) {
+          terminal_print(1, mapBorderY - 7, "Перестать прятаться?");
         } else {
-          if (question_ == 11) {
-            terminal_print(1, mapBorderY - 7, "У тебя уже есть броня! (жадина)");
+          if (GG.question_ == 4) {
+            if (CurrentMap.mapName_ == 0) {
+              terminal_print(1, mapBorderY - 7, "Отправиться в Восточный Лес?");
+            }
+          } else {
+            if (GG.question_ == 10) {
+              terminal_print(1, mapBorderY - 7, "Надеть броню?");
+            } else {
+              if (GG.question_ == 11) {
+                terminal_print(1, mapBorderY - 7, "У тебя уже есть броня! (жадина)");
+              }
+            }
           }
         }
       }
     }
   } else {
-    if (explanation_ != 0) {
-      if (explanation_ == 1) {
+    if (GG.explanation_ != 0) {
+      if (GG.explanation_ == 1) {
         terminal_print(1, mapBorderY - 7, "Это дверь.");
         terminal_print(1, mapBorderY - 6, "Похоже, изготовлена из многовековой ели.");
       }
-      if (explanation_ == 2) {
+      if (GG.explanation_ == 2) {
         terminal_print(1, mapBorderY - 7, "Это хвойное растение.");
         terminal_print(1, mapBorderY - 6, "Похоже на ель.");
       }
-      if (explanation_ == 3) {
+      if (GG.explanation_ == 3) {
         terminal_print(1, mapBorderY - 7, "Камень.");
         terminal_print(1, mapBorderY - 6, "Мне через него не перебраться.");
       }
-      if (explanation_ == 4) {
+      if (GG.explanation_ == 4) {
         terminal_print(1, mapBorderY - 7, "Гладкая каменная стена....");
         terminal_print(1, mapBorderY - 6, "          ...из хорошего булыжника.");
       }
-      if (explanation_ == 5) {
+      if (GG.explanation_ == 5) {
         terminal_print(1, mapBorderY - 7, "Пшеница... ");
         terminal_print(1, mapBorderY - 6, "Несозревшая...");
       }
-      if (explanation_ == 6) {
+      if (GG.explanation_ == 6) {
         terminal_print(1, mapBorderY - 7, "Ствол... ");
         terminal_print(1, mapBorderY - 6, "Просто ствол дерева...");
       }
-      if (explanation_ == 7) {
+      if (GG.explanation_ == 7) {
         terminal_print(1, mapBorderY - 7, "Забор деревянный.");
         terminal_print(1, mapBorderY - 6, "Добротный.");
       }
-      if (explanation_ == 8) {
+      if (GG.explanation_ == 8) {
         terminal_print(1, mapBorderY - 7, "Могила...     ...впервые вижу эти руны...");
         terminal_print(1, mapBorderY - 6, "  ...скорее всего они из Атморы.");
       }
-      if (explanation_ == 9) {
+      if (GG.explanation_ == 9) {
         terminal_print(1, mapBorderY - 7, "Вода... Не хочу мокнуть.");
         terminal_print(1, mapBorderY - 6, "  Я туда не полезу");
       }

@@ -17,8 +17,10 @@ class map {
 
  public:
   bool errsMap = false;
-  char mapName_[10];
-  char** mapChar_;
+  unsigned mapName_ = 0;  // Номер карты:
+                          // 0 - Фолкрит
+                          // 1 - Восточный Лес
+  char** mapChar_ = nullptr;
   int mapXSize_, mapYSize_;
 
   explicit map();  // номер соответствующей локации

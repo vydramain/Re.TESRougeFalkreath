@@ -10,6 +10,8 @@ player::player() {
   }
 }
 
+player::~player() {}
+
 void player::startPlayer(bool category) {
   if (category == false) {  // создание нового персонажа
   } else {                  // загрузка сохранения

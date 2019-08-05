@@ -25,8 +25,36 @@ class player {
                         // 2 -вправо,
                         // 3 -вниз.
 
+  bool confirmAsk_ = false;
+  unsigned question_ = 0;  // 0 - Нет вопроса
+                           // 1 - Открыть Дверь?
+                           // 2 - Спрятаться в зелени?
+                           // 3 - Выйти из зелени?
+                           // 4 - Отправиться в Восточный Лес?
+                           // 10 - Надеть броню?
+
+  bool explanationAsk_ = false;
+  unsigned explanation_ = 0;  // 0 - Нет объяснения
+                              // 1 - Это дверь. Похоже, из многовековой ели.
+                              // 2 - Это хвойное растение. Похоже на ель.
+                              // 3 - Камень. Мне через него не перебраться.
+                              // 4 - Гладкая каменная стена... ...из хорошего булыжника.
+                              // 5 - Пшеница... Несозревшая...
+                              // 6 - Ствол... Просто ствол дерева...
+                              // 7 - Забор деревянный. Добротный.
+                              // 8 - Могила...     ...впервые вижу эти руны... ...скорее всего они из Атморы.
+                              // 9 - Вода.
+
   char playerName_[12];
-  unsigned status_ = 0;
+  unsigned HP_;
+  unsigned MP_;
+  unsigned AP_;
+  unsigned SP_;
+  unsigned status_ = 0;  // Cостояние игрока:
+                         // 0. Мёртв
+                         // 1.Обычное состояние
+                         // 2.Спрятался
+
   unsigned playerNation_;  // Расы:
                            // 1. Норд
                            // 2. Бретон
@@ -38,10 +66,6 @@ class player {
                            // 8. Орк
                            // 9. Аргонианин
                            // 10. Каджит
-  unsigned HP_;
-  unsigned MP_;
-  unsigned AP_;
-  unsigned SP_;
   int attack_;
   float block_;
   unsigned armorSlot_;
@@ -49,6 +73,7 @@ class player {
   //  items inventory[6];
 
   player();
+  ~player();
   void startPlayer(bool category);
   void pullTerrain(unsigned xm, unsigned ym);
   //  void putItem(items *Item);

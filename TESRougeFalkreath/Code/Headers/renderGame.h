@@ -20,31 +20,18 @@ class renderGame {
   char nationality[32];
 
  public:
-  renderGame() {}
+  renderGame();
   explicit renderGame(bool gameMode);
   renderGame(const renderGame &old) {}
   ~renderGame();
   renderGame &operator=(const renderGame &old) {
     return *this;
   }
-  bool confirmAsk_ = false;
-  unsigned question_ = 0;  // 0 - Нет вопроса
-                           // 1 - Открыть Дверь?
-                           // 2 - Спрятаться в зелени?
-                           // 10 - Надеть броню?
 
-  bool explanationAsk_ = false;
-  unsigned explanation_ = 0;  // 0 - Нет объяснения
-                              // 1 - Это дверь. Похоже, из многовековой ели.
-                              // 2 - Это хвойное растение. Похоже на ель.
-                              // 3 - Камень. Мне через него не перебраться.
-                              // 4 - Гладкая каменная стена... ...из хорошего булыжника.
-                              // 5 - Пшеница... Несозревшая...
-                              // 6 - Ствол... Просто ствол дерева...
-                              // 7 - Забор деревянный. Добротный.
-                              // 8 - Могила...     ...впервые вижу эти руны... ...скорее всего они из Атморы.
-                              // 9 - Вода.
+  void createPlayerScreen(char *NameOfGG, unsigned &race);
 
+  // void WOW();
+  // void clearWOW();
   void clearALL();
   void goRender(const map &currentMap, const player &GG);
   bool menuChoiser(unsigned &nonshoise, unsigned pointMuch);
@@ -55,8 +42,8 @@ class renderGame {
   void symColor(char mapSym);
   void showMap(const map &currentLocation, int, int);
   void showPlayer(const player &GG);
-  void showHud(const player &GG);
-  void showDialog();
+  void showHud(const map &CurrentMap, const player &GG);
+  void showDialog(const map &CurrentMap, const player &GG);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_RENDERGAME_H_

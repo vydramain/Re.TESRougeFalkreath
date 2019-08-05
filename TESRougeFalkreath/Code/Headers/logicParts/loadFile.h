@@ -14,7 +14,7 @@ class loadFile {
  public:
   virtual ~loadFile() = default;
 
-  bool loadMap(const char *address, int &mapXSize_, int &mapYSize_, char *mapName_, char **&mapChar_);
+  bool loadMap(const char *address, int &mapXSize_, int &mapYSize_, char **&mapChar_);
   bool loadPlayer() {
     return false;
   }
