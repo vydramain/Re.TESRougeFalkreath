@@ -22,8 +22,6 @@ void player::startPlayer(bool category) {
 void player::pullTerrain(unsigned xm, unsigned ym) {
   mapX_ = xm;
   mapY_ = ym;
-  screenX_ = mapX_;
-  screenY_ = mapY_;
 }
 
 // void player::putItem(items *Item) {}

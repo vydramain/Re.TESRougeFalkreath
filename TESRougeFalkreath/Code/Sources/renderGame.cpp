@@ -152,7 +152,7 @@ bool renderGame::inputQuestion(const char *zagolovok, unsigned zagolovokSize, ch
   terminal_clear();
   terminal_print(1, 1, zagolovok);
   terminal_refresh();
-  terminal_read_str(1 + zagolovokSize, 1, GGName, 12);
+  terminal_read_str(1 + zagolovokSize, 1, GGName, 10);
   return true;
 }
 
