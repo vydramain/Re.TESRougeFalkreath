@@ -55,10 +55,11 @@ void renderGame::clearALL() {
   }
 }
 
-void renderGame::goRender(const map &currentMap, const player &GG) {
+void renderGame::goRender(const map &currentMap, const player &GG, const npcs &NPCS) {
   showMap(currentMap, GG.mapX_, GG.mapY_);
+  showNPCS(NPCS, GG.mapX_, GG.mapY_);
   showPlayer(GG);
-  showHud(currentMap, GG);
+  showHud(currentMap, GG, NPCS);
   terminal_refresh();
 }
 
@@ -266,16 +267,50 @@ void renderGame::showMap(const map &currentLocation, int xPlayer, int yPlayer) {
 
 void renderGame::showPlayer(const player &GG) {
   terminal_layer(1);
-  terminal_color(0xffffffff);
+  terminal_color(0xFFFFFFFF);
   if (GG.status_ == 2) {
     terminal_color(0xff00ff00);
   }
   terminal_put_ext(GG.screenX_, GG.screenY_, 0, -1, GG.naked);
-  terminal_color(0xffffffff);
 }
 
-void renderGame::showHud(const map &CurrentMap, const player &GG) {
+void renderGame::showNPCS(const npcs &NPC, int xPlayer, int yPlayer) {
+  terminal_layer(9);
+  for (int ii(0); ii < mapBorderY; ii++) {
+    for (int i(0); i < mapBorderX; i++) {
+      if (yPlayer - 20 + ii == NPC.mapY_ && xPlayer - 30 + i == NPC.mapX_) {
+        switch (NPC.status_) {
+          case 1: {
+            terminal_color(0xffeeee00);
+            terminal_put_ext(i, ii, 0, 0, NPC.naked);
+            break;
+          }
+          case 2: {
+            terminal_color(0xffe00000);
+            terminal_put_ext(xPlayer - 30 + i, yPlayer - 20 + ii, 0, 0, NPC.naked);
+            break;
+          }
+          case 3: {
+            // terminal_color(0xff00ffff);
+            // terminal_put_ext(xPlayer - 30 + i, yPlayer - 20 + ii, 0, 0, NPC.naked);
+          }
+          case 4: {
+            // terminal_color(0xff6060ff);
+            // terminal_put_ext(xPlayer - 30 + i, yPlayer - 20 + ii, 0, 0, NPC.naked);
+          }
+          default: {
+            terminal_color(0xff222222);
+            terminal_put_ext(xPlayer - 30 + i, yPlayer - 20 + ii, 0, 0, NPC.naked);
+          }
+        }
+      }
+    }
+  }
+}
+
+void renderGame::showHud(const map &CurrentMap, const player &GG, const npcs &NPC) {
   terminal_layer(10);
+  terminal_color(0xffffffff);
   for (int i(0); i < screenBorderY; i++) {
     terminal_print(mapBorderX, i, "|");
   }
@@ -340,7 +375,17 @@ void renderGame::showHud(const map &CurrentMap, const player &GG) {
 
   terminal_print(mapBorderX + 1 + 5, 1, GG.playerName_);
   terminal_print(mapBorderX + 1 + 7, 2, nationality);
-  terminal_print(mapBorderX + 1 + 8, 3, "Неизвестный");
+  switch (GG.status_) {
+    case 1:
+      terminal_print(mapBorderX + 1 + 8, 3, "Здоров");
+      break;
+    case 2:
+      terminal_print(mapBorderX + 1 + 8, 3, "Спрятался");
+      break;
+    default:
+      terminal_print(mapBorderX + 1 + 8, 3, "Мёртв");
+      break;
+  }
 
   char hp[5], mp[5], ap[5], sp[3];
   sprintf(hp, "%d", GG.HP_);
@@ -355,21 +400,16 @@ void renderGame::showHud(const map &CurrentMap, const player &GG) {
   terminal_print(mapBorderX + 1, 9, "________________________________");
   terminal_print(mapBorderX + 1, mapBorderY - 5, "________________________________");
 
-  terminal_print(mapBorderX + 1, 11, "Инвентарь:");
-  terminal_print(mapBorderX + 1, 12, "---");
-  terminal_print(mapBorderX + 1, 13, "---");
-  terminal_print(mapBorderX + 1, 14, "---");
-  terminal_print(mapBorderX + 1, 15, "---");
-  terminal_print(mapBorderX + 1, 16, "---");
-  terminal_print(mapBorderX + 1, 17, "---");
-  terminal_print(mapBorderX + 1, 18, "---");
+  terminal_print(mapBorderX + 1, 11, "Задания:");
+  terminal_print(mapBorderX + 1, 16, "Экипировка:");
+  terminal_print(mapBorderX + 1, 22, "Сумка:");
 
   if (GG.confirmAsk_ || GG.explanationAsk_) {
-    showDialog(CurrentMap, GG);
+    showDialog(CurrentMap, GG, NPC);
   }
 }
 
-void renderGame::showDialog(const map &CurrentMap, const player &GG) {
+void renderGame::showDialog(const map &CurrentMap, const player &GG, const npcs &NPC) {
   terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
   for (int i(0); i < mapBorderX; i++) {
     terminal_put(i, mapBorderY - 10, '_');
@@ -437,6 +477,57 @@ void renderGame::showDialog(const map &CurrentMap, const player &GG) {
       if (GG.explanation_ == 9) {
         terminal_print(1, mapBorderY - 7, "Вода... Не хочу мокнуть.");
         terminal_print(1, mapBorderY - 6, "  Я туда не полезу");
+      }
+      if (GG.explanation_ == 10) {
+        terminal_print(1, mapBorderY - 7, "Это... ");
+        terminal_printf(8, mapBorderY - 7, NPC.npcName_);
+        terminal_print(1, mapBorderY - 6, "Он ");
+        switch (NPC.npcNation_) {
+          case 1: {
+            terminal_print(4, mapBorderY - 6, "Норд");
+            break;
+          }
+          case 2: {
+            terminal_print(4, mapBorderY - 6, "Бретонец");
+            break;
+          }
+          case 3: {
+            terminal_print(4, mapBorderY - 6, "Редгард");
+            break;
+          }
+          case 4: {
+            terminal_print(4, mapBorderY - 6, "Имперец");
+            break;
+          }
+          case 5: {
+            terminal_print(4, mapBorderY - 6, "Высокий Эльф");
+            break;
+          }
+          case 6: {
+            terminal_print(4, mapBorderY - 6, "Тёмный Эльф");
+            break;
+          }
+          case 7: {
+            terminal_print(4, mapBorderY - 6, "Лесной Эльф");
+            break;
+          }
+          case 8: {
+            terminal_print(4, mapBorderY - 6, "Орк");
+            break;
+          }
+          case 9: {
+            terminal_print(4, mapBorderY - 6, "Аргонианин");
+            break;
+          }
+          case 10: {
+            terminal_print(4, mapBorderY - 6, "Каджит");
+            break;
+          }
+          default: {
+            terminal_print(4, mapBorderY - 6, " ");
+            break;
+          }
+        }
       }
     }
   }

@@ -17,6 +17,7 @@ int main() {
     case 1: {
       inGameLogic game(InputKey, true);
       game.createPlayer(30, 20);
+      game.createNpc("Асгольд", 2, 43, 9);
       game.play();
       return 0;
     }

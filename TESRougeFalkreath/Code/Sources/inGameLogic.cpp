@@ -78,6 +78,18 @@ void inGameLogic::actionPlayer() {
               GG_.confirmAsk_ = true;
               GG_.question_ = 4;
             }
+          } else {
+            if (xGG_m == Norman_.mapX_ && yGG_m == Norman_.mapY_) {
+              if (GG_.confirmAsk_) {
+                CurrentMap_.choiseMap(1);
+                locatePlayer(30, 20);
+                GG_.confirmAsk_ = false;
+                GG_.question_ = 0;
+              } else {
+                GG_.confirmAsk_ = true;
+                GG_.question_ = 5;
+              }
+            }
           }
         }
       }
@@ -128,6 +140,10 @@ void inGameLogic::actionPlayer() {
       GG_.explanationAsk_ = true;
       GG_.explanation_ = 9;
     }
+    if (xGG_m == Norman_.mapX_ && yGG_m == Norman_.mapY_) {
+      GG_.explanationAsk_ = true;
+      GG_.explanation_ = 10;
+    }
   }
 }
 
@@ -137,20 +153,21 @@ bool inGameLogic::movePlayer() {
       GG_.course = 0;
       if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == '.' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == 'L') {
-        GG_.mapY_--;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapY_ != GG_.mapY_ - 1 || Norman_.mapX_ != GG_.mapX_) {
+          GG_.mapY_--;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
     if (InputKey_.IsDown()) {
       GG_.course = 3;
-
       if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == ' ' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '.' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == 'L' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '_') {
-        if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_) != '_') {
+        if (CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_) != '_' || (Norman_.mapY_ != GG_.mapY_ + 1 || Norman_.mapX_ != GG_.mapX_)) {
           GG_.mapY_++;
           GG_.confirmAsk_ = false;
           GG_.question_ = 0;
@@ -164,24 +181,28 @@ bool inGameLogic::movePlayer() {
       GG_.course = 1;
       if (CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '.' ||
           CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == 'L' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '_') {
-        GG_.mapX_--;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapX_ != GG_.mapX_ - 1 || Norman_.mapY_ != GG_.mapY_) {
+          GG_.mapX_--;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
     if (InputKey_.IsRight()) {
       GG_.course = 2;
       if (CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == ' ' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '.' ||
           CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == 'L' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '_') {
-        GG_.mapX_++;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapX_ != GG_.mapX_ + 1 || Norman_.mapY_ != GG_.mapY_) {
+          GG_.mapX_++;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
   }
@@ -193,12 +214,14 @@ bool inGameLogic::movePlayer() {
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == ':' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == 'J' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == '`' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == '9' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ - 1) == 'x') {
-        GG_.mapY_--;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapY_ != GG_.mapY_ - 1 || Norman_.mapX_ != GG_.mapX_) {
+          GG_.mapY_--;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
     if (InputKey_.IsDown()) {
@@ -209,12 +232,14 @@ bool inGameLogic::movePlayer() {
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == ':' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == 'J' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '`' || CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == '9' ||
           CurrentMap_.getSymbol(GG_.mapX_, GG_.mapY_ + 1) == 'x') {
-        GG_.mapY_++;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapY_ != GG_.mapY_ + 1 || Norman_.mapX_ != GG_.mapX_) {
+          GG_.mapY_++;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
     if (InputKey_.IsLeft()) {
@@ -224,12 +249,14 @@ bool inGameLogic::movePlayer() {
           CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == ':' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == 'J' ||
           CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '`' || CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == '9' ||
           CurrentMap_.getSymbol(GG_.mapX_ - 1, GG_.mapY_) == 'x') {
-        GG_.mapX_--;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapX_ != GG_.mapX_ - 1 || Norman_.mapY_ != GG_.mapY_) {
+          GG_.mapX_--;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
     if (InputKey_.IsRight()) {
@@ -239,12 +266,14 @@ bool inGameLogic::movePlayer() {
           CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == ':' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == 'J' ||
           CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '`' || CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == '9' ||
           CurrentMap_.getSymbol(GG_.mapX_ + 1, GG_.mapY_) == 'x') {
-        GG_.mapX_++;
-        GG_.confirmAsk_ = false;
-        GG_.question_ = 0;
-        GG_.explanationAsk_ = false;
-        GG_.explanation_ = 0;
-        return true;
+        if (Norman_.mapX_ != GG_.mapX_ + 1 || Norman_.mapY_ != GG_.mapY_) {
+          GG_.mapX_++;
+          GG_.confirmAsk_ = false;
+          GG_.question_ = 0;
+          GG_.explanationAsk_ = false;
+          GG_.explanation_ = 0;
+          return true;
+        }
       }
     }
   }
@@ -369,6 +398,221 @@ void inGameLogic::createPlayer(unsigned x, unsigned y) {
   }
 }
 
+void inGameLogic::createNpc(const char *Name, unsigned Nationality, unsigned x, unsigned y) {
+  Norman_.pullTerrain(x, y);
+  Norman_.status_ = 1;
+  Norman_.npcNation_ = Nationality;
+  strcpy(Norman_.npcName_, Name);
+  switch (Norman_.npcNation_) {
+    case 1: {
+      Norman_.attack_ = 50;
+      Norman_.block_ = 0.35;
+      Norman_.HP_ = 100;
+      Norman_.MP_ = 70;
+      Norman_.AP_ = 110;
+      Norman_.SP_ = 2;
+      break;
+    }
+    case 2: {
+      Norman_.attack_ = 30;
+      Norman_.block_ = 0.15;
+      Norman_.HP_ = 90;
+      Norman_.MP_ = 120;
+      Norman_.AP_ = 100;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 3: {
+      Norman_.attack_ = 45;
+      Norman_.block_ = 0.3;
+      Norman_.HP_ = 90;
+      Norman_.MP_ = 60;
+      Norman_.AP_ = 140;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 4: {
+      Norman_.attack_ = 40;
+      Norman_.block_ = 0.2;
+      Norman_.HP_ = 100;
+      Norman_.MP_ = 100;
+      Norman_.AP_ = 100;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 5: {
+      Norman_.attack_ = 25;
+      Norman_.block_ = 0.1;
+      Norman_.HP_ = 80;
+      Norman_.MP_ = 150;
+      Norman_.AP_ = 60;
+      Norman_.SP_ = 2;
+      break;
+    }
+    case 6: {
+      Norman_.attack_ = 30;
+      Norman_.block_ = 0.15;
+      Norman_.HP_ = 100;
+      Norman_.MP_ = 130;
+      Norman_.AP_ = 70;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 7: {
+      Norman_.attack_ = 40;
+      Norman_.block_ = 0.2;
+      Norman_.HP_ = 90;
+      Norman_.MP_ = 110;
+      Norman_.AP_ = 150;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 8: {
+      Norman_.attack_ = 50;
+      Norman_.block_ = 0.3;
+      Norman_.HP_ = 110;
+      Norman_.MP_ = 80;
+      Norman_.AP_ = 110;
+      Norman_.SP_ = 1;
+      break;
+    }
+    case 9: {
+      Norman_.attack_ = 35;
+      Norman_.block_ = 0.2;
+      Norman_.HP_ = 80;
+      Norman_.MP_ = 70;
+      Norman_.AP_ = 90;
+      Norman_.SP_ = 4;
+      break;
+    }
+    case 10: {
+      Norman_.attack_ = 65;
+      Norman_.block_ = 0.05;
+      Norman_.HP_ = 80;
+      Norman_.MP_ = 80;
+      Norman_.AP_ = 150;
+      Norman_.SP_ = 4;
+      break;
+    }
+    default: {
+      Norman_.attack_ = 0;
+      Norman_.block_ = 0;
+      Norman_.HP_ = 0;
+      Norman_.MP_ = 0;
+      Norman_.AP_ = 0;
+      Norman_.SP_ = 0;
+      break;
+    }
+  }
+}
+
+void inGameLogic::createNpc(const char *Name, unsigned Nationality, unsigned x, unsigned y, unsigned current) {
+  arrayNpcs_[current].pullTerrain(x, y);
+  arrayNpcs_[current].status_ = 1;
+  strcpy(arrayNpcs_[current].npcName_, Name);
+  switch (arrayNpcs_[current].npcNation_) {
+    case 1: {
+      arrayNpcs_[current].attack_ = 50;
+      arrayNpcs_[current].block_ = 0.35;
+      arrayNpcs_[current].HP_ = 100;
+      arrayNpcs_[current].MP_ = 70;
+      arrayNpcs_[current].AP_ = 110;
+      arrayNpcs_[current].SP_ = 2;
+      break;
+    }
+    case 2: {
+      arrayNpcs_[current].attack_ = 30;
+      arrayNpcs_[current].block_ = 0.15;
+      arrayNpcs_[current].HP_ = 90;
+      arrayNpcs_[current].MP_ = 120;
+      arrayNpcs_[current].AP_ = 100;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 3: {
+      arrayNpcs_[current].attack_ = 45;
+      arrayNpcs_[current].block_ = 0.3;
+      arrayNpcs_[current].HP_ = 90;
+      arrayNpcs_[current].MP_ = 60;
+      arrayNpcs_[current].AP_ = 140;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 4: {
+      arrayNpcs_[current].attack_ = 40;
+      arrayNpcs_[current].block_ = 0.2;
+      arrayNpcs_[current].HP_ = 100;
+      arrayNpcs_[current].MP_ = 100;
+      arrayNpcs_[current].AP_ = 100;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 5: {
+      arrayNpcs_[current].attack_ = 25;
+      arrayNpcs_[current].block_ = 0.1;
+      arrayNpcs_[current].HP_ = 80;
+      arrayNpcs_[current].MP_ = 150;
+      arrayNpcs_[current].AP_ = 60;
+      arrayNpcs_[current].SP_ = 2;
+      break;
+    }
+    case 6: {
+      arrayNpcs_[current].attack_ = 30;
+      arrayNpcs_[current].block_ = 0.15;
+      arrayNpcs_[current].HP_ = 100;
+      arrayNpcs_[current].MP_ = 130;
+      arrayNpcs_[current].AP_ = 70;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 7: {
+      arrayNpcs_[current].attack_ = 40;
+      arrayNpcs_[current].block_ = 0.2;
+      arrayNpcs_[current].HP_ = 90;
+      arrayNpcs_[current].MP_ = 110;
+      arrayNpcs_[current].AP_ = 150;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 8: {
+      arrayNpcs_[current].attack_ = 50;
+      arrayNpcs_[current].block_ = 0.3;
+      arrayNpcs_[current].HP_ = 110;
+      arrayNpcs_[current].MP_ = 80;
+      arrayNpcs_[current].AP_ = 110;
+      arrayNpcs_[current].SP_ = 1;
+      break;
+    }
+    case 9: {
+      arrayNpcs_[current].attack_ = 35;
+      arrayNpcs_[current].block_ = 0.2;
+      arrayNpcs_[current].HP_ = 80;
+      arrayNpcs_[current].MP_ = 70;
+      arrayNpcs_[current].AP_ = 90;
+      arrayNpcs_[current].SP_ = 4;
+      break;
+    }
+    case 10: {
+      arrayNpcs_[current].attack_ = 65;
+      arrayNpcs_[current].block_ = 0.05;
+      arrayNpcs_[current].HP_ = 80;
+      arrayNpcs_[current].MP_ = 80;
+      arrayNpcs_[current].AP_ = 150;
+      arrayNpcs_[current].SP_ = 4;
+      break;
+    }
+    default: {
+      arrayNpcs_[current].attack_ = 0;
+      arrayNpcs_[current].block_ = 0;
+      arrayNpcs_[current].HP_ = 0;
+      arrayNpcs_[current].MP_ = 0;
+      arrayNpcs_[current].AP_ = 0;
+      arrayNpcs_[current].SP_ = 0;
+      break;
+    }
+  }
+}
+
 void inGameLogic::locatePlayer(unsigned x, unsigned y) {
   GG_.pullTerrain(x, y);
   GG_.status_ = 1;
@@ -392,7 +636,7 @@ void inGameLogic::play() {
     // }
 
     Render.clearALL();
-    Render.goRender(CurrentMap_, GG_);
+    Render.goRender(CurrentMap_, GG_, Norman_);
 
     if (InputKey_.IsExit()) {
       break;

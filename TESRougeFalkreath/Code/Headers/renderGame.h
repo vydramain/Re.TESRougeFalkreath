@@ -9,6 +9,7 @@
 #include "./inputKey.h"
 #include "logicParts/map.h"
 #include "logicParts/player.h"
+#include "logicParts/npcs.h"
 
 class renderGame {
  private:
@@ -33,7 +34,7 @@ class renderGame {
   // void WOW();
   // void clearWOW();
   void clearALL();
-  void goRender(const map &currentMap, const player &GG);
+  void goRender(const map &currentMap, const player &GG, const npcs &NPCS);
   bool menuChoiser(unsigned &nonshoise, unsigned pointMuch);
   unsigned headMenu();
   bool inputQuestion(const char *zagolovok, unsigned zagolovokSize, char *GGName);
@@ -42,8 +43,9 @@ class renderGame {
   void symColor(char mapSym);
   void showMap(const map &currentLocation, int, int);
   void showPlayer(const player &GG);
-  void showHud(const map &CurrentMap, const player &GG);
-  void showDialog(const map &CurrentMap, const player &GG);
+  void showNPCS(const npcs &NPC,  int xPlayer, int yPlayer);
+  void showHud(const map &CurrentMap, const player &GG, const npcs &NPC);
+  void showDialog(const map &CurrentMap, const player &GG, const npcs &NPC);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_RENDERGAME_H_

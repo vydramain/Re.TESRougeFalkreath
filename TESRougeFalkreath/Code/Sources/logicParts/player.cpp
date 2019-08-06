@@ -5,7 +5,7 @@
 #include "../../Headers/logicParts/player.h"
 
 player::player() {
-  for (unsigned i(0); i < 12; i++) {
+  for (unsigned i(0); i < 24; i++) {
     playerName_[i] = 0;
   }
 }

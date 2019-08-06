@@ -10,6 +10,7 @@
 #include <inputKey.h>
 #include <ctime>
 #include "./renderGame.h"
+#include "logicParts/npcs.h"
 #include "logicParts/item.h"
 #include "logicParts/map.h"
 #include "logicParts/player.h"
@@ -20,6 +21,9 @@ class inGameLogic {
   renderGame Render;
   player GG_;
   map CurrentMap_;
+  npcs *arrayNpcs_;
+  npcs Norman_;
+
   //  items CurrentItems_;
 
   bool movePlayer();
@@ -29,8 +33,12 @@ class inGameLogic {
  public:
   explicit inGameLogic(inputKey &InputKey, bool NewGame);
   virtual ~inGameLogic() = default;
+
   void createPlayer(unsigned x, unsigned y);
+  void createNpc(const char *Name, unsigned Nationality, unsigned x, unsigned y);
+  void createNpc(const char *Name, unsigned Nationality, unsigned x, unsigned y, unsigned current);  // Для будущего
   void locatePlayer(unsigned x, unsigned y);
+
   void play();
 };
 

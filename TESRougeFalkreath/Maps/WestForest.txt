@@ -1,0 +1,101 @@
+101 100
+IlIlIlIlIlQQQQ                   ;.                                                      .__+;__    
+lllllllllldQQf                .__+;__                          :                          -=++;`    
+yllllllll>4QQQ                 -=++;`                         :+               j6/         ;++.     
+]Ill>  -^  j?P6                 ;++.         ajaaaa         -+++++`           jQQQ6a_jQQ/  +`=:   _a
+]v||_.       _Q6aa              +\cjaaaaaaQjQQQQQQ?QQ6/      -++;            ]QQ4QQQQQQQQQajQQQQQQQQ
+?k>=;         QQQQQQ6aa/     __aQQQQQQWQWQQQQQQQQf)WQQQQ/    :==+           _QQf ?4QQP?4QQQQQQQQQQQQ
+?4-:=;_       )4QD$$QQQQ/ aaQQQQQQQQQQQQQQPP?'    "??4QQQ6   -` -       aaajQQQ\ _.)?   )4QP?PQ???')
+.] -=+-          )+==TQQQQQQQQQP      .._.            )4QQ6           _QQQQQQQ':|=++:               
+.] :=++          :++|- 4QQQQP??       ;+++=;.           ?QQf         _QQQQQ')  .++++.  :_+_         
+.]  ++-          -;+;_  ?P'           :++++;`   :        4QQa/      _QQP  )'   :=+++.  -=+;         
+.]  =`=    .       - -                -;=++:.   +:        QQQQQ/   _QQQ          ---`  :++;         
+.]                                        `-`-==+++;      4QQQQQa aQQQ'  :_+_          --=+        ;
+.]     .  ..   .                  .            =++`    ... 4P?4QQQQQP'   -=+;                      =
+.]      .. ......                .             +;+:    ;++:    ?QQQ' :_+_:=+;                      +
+.]  . .      .  .  ...          .              - -`    :+:    ..)Q'  -=+;--++   :                  `
+.]  .  .       a . ...         .                       -;::   ;+=:   :++;      -=;          :_+_    
+.]          _jQQ               .        .                     :+:    --=+       -:          -=+;    
+.]          ]P               ..         .                     -;::                    .     :++;    
+.]         _Q'          .   .      _.    .                                           .;_    --=+    
+.]j6      _P':                    :;++   .. .  .  .          .                        +:            
+.]4Q/   aj? +|=`                   ++      ....    .        _;.           ...          `            
+.] QQQQP?   .;:     .              =`=            ..        :+                                      
+?? Q               .;                              .         -     :          .... .     .          
+.  Q/            __;+__.     .=;_                                 -=;             .                 
+.  Qf      _;.    =+++-      -=++_       .                         -:                     .         
+.  4f     =+;`    .++;        ++++;.    .;_          ...  ..             .                .         
+.   4a/   -=:. a  ---=    .=;_-=|+;`     +:               .   .         ..                          
+.  : 4Q     <mQQa/     aa -=+- -:=:.      `                  ..                    _6      .        
+. ++|`)6a   jQQQQQQaaaajQ6 +;_   `-`             .  .         .         .         _QQ'     .        
+.  ;saWWQf  QQQQQQQQWQWQQQ6- -        /       ...            .... .  . .     _/   QQ;;;.    . .  .  
+.  jQP ?)4QaQQQQ?')4QQQQQQQ/     jQQQQQ6      . .        .=;_  . . .        _QQ/ ]QQ=+|`      ...   
+. _Q.;    :?QQQQQ/    )WQQQQQQ/ jQQQQQQQ6 4    .         -=+-              _QQQQaQQf=++`            
+. jQ++;  ==+`  )4Q/    ]QQQQQQQjQQQQQQQQQ      ..   ...   +;_   _jQa      _QQQQQQQQf +=:        . _ 
+. Qf=+;   ;:     4Q/    4QQQQQQQQQQQ?QQQQ6 '        ;+++_ - -  aQQQf     _QQQQQQQQQf            :++|
+. Q  -            Qf     )?4?  4QQQ' QQQQQQ6        :+++- _QQQQQQQQ/  a/aQQQQQQ$QQP        :_+_ .++;
+..Q'              46         a ]QQQ  QQQQQQQ/       -;+;__QQQQQQQQQ /]QQQQQQQ4(;.'        .-=+; :=+;
+. Q/              )Q         ) jQQP  4QQQQQQ6         - -jQQQQQQQQQQQQQQQQQQP :+         _;;++;   --
+.  '               Qf  :       jQQ'  ]QQQQQQQ6     .     )QQQQQQQQQQQQQQQQQ?   -         :+--=+     
+.     .  . .       ]6_:+_             QQQQQQQQ      .     )WQQQQQQQQQQQQQ?'       :       -         
+.                  )Qc=++        :    )WQQQQQQ     ..       ')"44QQQQQQQf   _    ==:          aaaaaa
+.]QQQQQQQf          Qf=+:       =+`    ]QQQQQQ                  jQQQQQQP  _QQQ6aa/=+`       _QQQWQWQ
+.]QQQQQQQ(          4k--=       -=      QQQQQQ/                  ???QQQ6  QQQQQQQQ/=       jQQQQQQQQ
+.]QQQQQQQc          ]6                  QQQQQQQ                      ]QQ6 QQP?4QQQQ      _jQQ?      
+.]QQQQQQQf          ]Q       .          QQQQQQQf     . . .      .     QQQ QQ6   )WQf    _QQP'       
+.=QQQQQQQf          ]P    :   ..        QQQQQQQL      .  . .   ...   jQQ' ]QQ    )WQ6  jQQP         
+.]QQQQQQQf .        ]f   :+`     .      4QQQQQDt_:               .  jQQP   QQf    )WQQjQQP          
+.]QQQQQQQL_;_       ]f   -=       .     )QQQQQQ=;+;             .   QQP    4Q6     )WQQQQ/  .=;_    
+.]QQQQQQQf:+`       Qf.;         .      ]QQQQQQ'`-:            .   _QQ'    ]QQ       ?QQP   -=+-    
+.)??????4'--        Qf.+ _              QQQQQ?                     ]QQ     ]QQ               +;_    
+.       Q .         Qf:++-;`   ..       QQQQ'    _QQQ/       .     ]QQ     jQP   ...  :;;.   - -  ..
+       ]P;+.        Q';+++-   .         QQQf    _QQQQf       .    _QQQ     QQf   ;++: =+;`    ... . 
+???????Q/+++       _Q |+_+;`            QQQf   _QQQQQf     ..    _QQQ\    ]QQ    :+:  :=:. ....     
+.......P6-+`       ]Q =+;__  .          QQQf  :]QQQQP   . .      QQQ^|;   QQf  _.-;::  `-`.. .      
+.......f)6         QP:|=|;-   .        jQQQf ==mQQQP   ..       ]QQ' -:  ]QQ' :;+=       .          
+.......f )4a/      Q':;-++_   .        QQQQfagcQQQQ     .       ]QQ       QQf  ++        .          
+.. .. .f    ?    _QQ |=++++:           QQQQQQQQQQQP    .        QQQ   .   4QQ  =`=:;;.  ..          
+.......f       _jQQP-;:++++:           QQQQQQQQQQQ    .        aQQ'  .;_   QQf    ==;`   .          
+.... ..f       jQQP   -  --`           QQQQQQQQQQQf           jQQQ    +:   ]QQ    :+:..   .         
+???????'       QQ             .       jQQQQQQQQQQQf    .     jQQQ'     ` _  QQ6    `:;;_ ..         
+    :          ]Q/          .        _QQQQQQQQQQQQf     .    QQf        _QQ6JQQ6     =+`  .         
+   ==|`         Qf        ..         jQQQQ?(;;TWQQ'      .   QQf   .    jQQQQQQQ6    --    .        
+.  .;:          Qf                   QQQQf ==;`         .    4QQ  _;.  ]QQ?QQQQQP           .  ..   
+`              ]Q'    .              $QQQ  :+:.        .. .=;)QQ/ :+   jQP  )?)?         . .......  
+ :    .       aQQ     .  ..    .    .)??'   `-`        .  -=+-]QQ6a/   QQf  .;=+:     ......     .. 
+:+   _;_.    ]QQf       .        .__;|__.            .     +;_ 4QQQQQQjQQ :++|=:     .            . 
+;+.  -=;     QQ'                   ==+=-           .       - -  ?4QQQQQQ6 ==++;::   .             . 
+++++;-``    ]Qf .                  .++;       .  .  .      :;;.    )?4QQ' :+=:+     .             ..
++++-       jQQ ;++;                :;-=      .             =+;`   _.       `-`     .               .
+++|.     _QQQD+++-            . .           .       ...    :=:.  ;;++              .      .=;_      
+;-=:     QQQQk=++.        .               . .       ;++:    `-` :;|+               ..     -=+=      
+   :   _QQP?Qk:-+:      .                 .         :+:        .=++`=         ...   .      +++|     
+       ]QQ jQf   :      .           .               -;::       -=+-+          ;++:  ..     -=|      
+       jQ']QQQ         ..         . .      .                    +;_.      .   :+:    .      =`+     
+  aaaaQQf QQQQ/                  .        .           .         - -        .  -;::   ..         .   
+QQQQWQQQ ]QQQQf         .      .     . .         . .. .       .             .         .         ;.  
+QQP????  ]QQQQf    :    .             ..... .          .   . .              .         ..     .__+;__
+)       _QQQQQf   :+           ..         .  .             .    ...          .         .      +++++:
+        ]QQQQQf  .;+.     ...   .              .                ;++:   ...   ..        .      :++++;
+    a  ajQQQQQ'-+++++|;   .  .  .                        :      :+:    ;++:   ..      .      -==++++
+/  jQQQQQQQQQQ/  =+++-      . .           .       .      +:     -;::   :+:      .    ..      ;=+++|;
+6  4QQQQQQQQQQQ/ ;+++.               ;.__=:      ..     _+;            -;::     ...  .:;;.    =+++++
+Q  ]QQQQQQQQQQQQ6|;-+:               :++++;;:_    .   =++++++`                     .. =+;`    :+++++
+Q   ?4QQQQQQQQQQQw   :              -==++++;;:     .   -+++;`        .    :;;.        :+:. : .;+++|=
+P /  ]QQQQQQQQQQQQ/                 ;=;|=|;=;_    .    .=++;        _;_.  =+;`         `-`==+`.+++_;
+  QQajQQQQQQQQQQQQ6      aaaa/        +++++--          :+`=+        -=;   :=:.            .;:.-.+:++
+ )WQQQQQQQQQQQQQQQQQQQQQQQQWQQ6/     :+++++++:    .    -   -.   .=;_-``    `-`       _.         - ;-
+ QWQQQQQQQQQQQQQQQQQQQQQQQQQQQQQf   .;++++++.     .             -=+-                :;+=            
+_QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ    .+++_;|=;                   +;_              :  ++    _.       
+ QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQf  .-.+:+++++                   - -            -++; =`=  :;++    a/
+ )WQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ6     - ;-=++             _Q6/           _.     ;=        ++    jQQ
+  jQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ/                      _QP4Q/         :;+=              =`=   )QP
+   QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ/                     jP  QQ/  _aQQ/  ++                      Q6
+   4QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ         _ aaa    _ajQ'  )WQQQQQ?4Q  =`=               _QQa/ ]Q
+    4QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ6 a/ ajQQQQQQQQa/jQQP'    )????   4Q/      _.       _ajQP4QQ/]Q
+    4QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQjQQQQPP???' )4QQQ'                Qf     :;++      QQQ?   4QQP
+     4QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQP??'         ??'      .          ]Q      ++      ]Q       )' 
+     ?QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ/                    _;.          Q6/    =`=  a/ QP    :     
+        ?'_?QQQQQQQQQQQQQQQQQQQQQQQQQQQf      .: .          :+_          )4QajQQQQQQQQQQP    =+=`   
+            _?4QQQQQQQQQQQQQQQQQQQQQQQQf     ;;+++`          +:            4QQ?P????? ??     .;:    
+              4QQQQQQQQQQQQQQQQQQQQQQQQf    +++;;=            `                                     
