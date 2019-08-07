@@ -72,7 +72,10 @@ class player {
   float block_;
   unsigned armorSlot_;
   unsigned weaponSlot_;
-  //  items inventory[6];
+
+  unsigned quest = 0;  // Задания:
+                        // 0. - Нет заданий
+                        // 1. - Найти пасхалку!
 
   player();
   ~player();

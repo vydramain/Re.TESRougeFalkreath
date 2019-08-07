@@ -39,6 +39,9 @@ class inGameLogic {
   void createNpc(const char *Name, unsigned Nationality, unsigned x, unsigned y, unsigned current);  // Для будущего
   void locatePlayer(unsigned x, unsigned y);
 
+  void loadKOSTILNPC();
+  void elimKOSTILNPC();
+
   void play();
 };
 

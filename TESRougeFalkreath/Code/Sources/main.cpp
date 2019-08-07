@@ -16,9 +16,11 @@ int main() {
   switch (gameStatus) {  // Новая игра
     case 1: {
       inGameLogic game(InputKey, true);
-      game.createPlayer(30, 20);
+      game.createPlayer(49, 20);
       game.createNpc("Асгольд", 2, 43, 9);
+      game.loadKOSTILNPC();
       game.play();
+      game.elimKOSTILNPC();
       return 0;
     }
     default: {

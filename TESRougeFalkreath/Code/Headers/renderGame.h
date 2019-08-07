@@ -29,6 +29,8 @@ class renderGame {
     return *this;
   }
 
+  unsigned questRender = 0;
+
   void createPlayerScreen(char *NameOfGG, unsigned &race);
 
   // void WOW();
@@ -46,6 +48,8 @@ class renderGame {
   void showNPCS(const npcs &NPC,  int xPlayer, int yPlayer);
   void showHud(const map &CurrentMap, const player &GG, const npcs &NPC);
   void showDialog(const map &CurrentMap, const player &GG, const npcs &NPC);
+
+  unsigned npcDialog(const npcs &NPC);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_RENDERGAME_H_

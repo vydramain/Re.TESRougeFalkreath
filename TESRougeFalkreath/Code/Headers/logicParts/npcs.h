@@ -19,7 +19,7 @@ class npcs {
                                   // 3 -вниз.
 
   char npcName_[24];
-  char **npcPhrases_;
+  char ***npcPhrases_;
   char ***npcAnswers_;
   unsigned countPhrases_;
   unsigned countAnswers_;
@@ -60,7 +60,7 @@ class npcs {
   void pullTerrain(unsigned xm, unsigned ym);
 
   void makeDiaog(unsigned count);
-  void addDialog(const char *phrase, unsigned countLetters, unsigned number);
+  void addDialog(const char *phraseUp, const char *phraseDown, unsigned countLettersUp, unsigned countLettersDown, unsigned number);
   void elimDialog();
 
   void makeAnswer(unsigned countAnswers, unsigned countVariables);

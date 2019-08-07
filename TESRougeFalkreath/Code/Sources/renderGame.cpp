@@ -401,11 +401,49 @@ void renderGame::showHud(const map &CurrentMap, const player &GG, const npcs &NP
   terminal_print(mapBorderX + 1, mapBorderY - 5, "________________________________");
 
   terminal_print(mapBorderX + 1, 11, "Задания:");
-  terminal_print(mapBorderX + 1, 16, "Экипировка:");
-  terminal_print(mapBorderX + 1, 22, "Сумка:");
+  if (GG.quest == 1) {
+    terminal_print(mapBorderX + 1, 13, "Найти пасхалку.");
+  }
+  terminal_print(mapBorderX + 1, 20, "Экипировка:");
+  terminal_print(mapBorderX + 1, 26, "Сумка:");
 
   if (GG.confirmAsk_ || GG.explanationAsk_) {
     showDialog(CurrentMap, GG, NPC);
+  }
+}
+
+unsigned renderGame::npcDialog(const npcs &NPC) {
+  bool IsGo(false);
+  unsigned i = 0, choise = 0;
+  bool endDia = true;
+  terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
+  while (endDia && i < NPC.countAnswers_ && i < NPC.countPhrases_) {  //  Объединить в  одну функцию создание диалогов
+    terminal_printf(1, mapBorderY - 7, NPC.npcPhrases_[i][0]);  // Запихать диалоги в Файл и читать их из файла!
+    terminal_printf(1, mapBorderY - 6, NPC.npcPhrases_[i][1]);
+
+    do {
+      for (unsigned I = 0; I < NPC.countVariables_; I++) {
+        terminal_printf(5, mapBorderY - 5 - I, NPC.npcAnswers_[i][I]);
+        if (i == choise - 1) {
+          terminal_print(1, mapBorderY - 5 - I, "--> ");
+        }
+      }
+      terminal_refresh();
+      IsGo = menuChoiser(choise, 2);
+    } while (IsGo == false);
+
+    if (0 == choise - 1) {
+      i++;
+    } else {
+      if (1 == choise - 1) {
+        endDia = false;
+      }
+    }
+  }
+  if (i == NPC.countPhrases_ - 1) {
+    return 1;
+  } else {
+    return 0;
   }
 }
 
@@ -429,11 +467,15 @@ void renderGame::showDialog(const map &CurrentMap, const player &GG, const npcs 
               terminal_print(1, mapBorderY - 7, "Отправиться в Восточный Лес?");
             }
           } else {
-            if (GG.question_ == 10) {
-              terminal_print(1, mapBorderY - 7, "Надеть броню?");
+            if (GG.question_ == 5) {
+              questRender = npcDialog(NPC);
             } else {
-              if (GG.question_ == 11) {
-                terminal_print(1, mapBorderY - 7, "У тебя уже есть броня! (жадина)");
+              if (GG.question_ == 10) {
+                terminal_print(1, mapBorderY - 7, "Надеть броню?");
+              } else {
+                if (GG.question_ == 11) {
+                  terminal_print(1, mapBorderY - 7, "У тебя уже есть броня! (жадина)");
+                }
               }
             }
           }

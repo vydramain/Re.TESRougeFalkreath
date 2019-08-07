@@ -81,8 +81,9 @@ void inGameLogic::actionPlayer() {
           } else {
             if (xGG_m == Norman_.mapX_ && yGG_m == Norman_.mapY_) {
               if (GG_.confirmAsk_) {
-                CurrentMap_.choiseMap(1);
-                locatePlayer(30, 20);
+                if (Render.questRender == 1) {
+                  GG_.quest = Render.questRender;
+                }
                 GG_.confirmAsk_ = false;
                 GG_.question_ = 0;
               } else {
@@ -616,6 +617,28 @@ void inGameLogic::createNpc(const char *Name, unsigned Nationality, unsigned x, 
 void inGameLogic::locatePlayer(unsigned x, unsigned y) {
   GG_.pullTerrain(x, y);
   GG_.status_ = 1;
+}
+
+void inGameLogic::loadKOSTILNPC() {
+  Norman_.makeDiaog(4);
+  Norman_.addDialog("Приветствую тебя, кем ты не был! Я - Асгольд!", "Я самый первый хоть на что-нибудь способный NPC!", 45, 48, 0);
+  Norman_.addDialog("Ты находшься в Фолкрите!", "Славном городе на юго-западе Скайрима!", 24, 38, 1);
+  Norman_.addDialog("Впринципе занятся тут толком то и не чем...", "В Восточный Лес ходить не советую... Там АБОРТ обитает.", 43, 55, 2);
+  Norman_.addDialog("Но можешь погулять по Фолкриту и посмотреть, что тут есть!", "Пасхалка тут хоть и глупая, но есть.^^", 58, 38, 3);
+  Norman_.makeAnswer(4, 2);
+  Norman_.addAnswer("Где я?", 6, 0, 0);
+  Norman_.addAnswer("[закончить диалог]", 18, 0, 1);
+  Norman_.addAnswer("Есть тут чем заняться?", 22, 1, 0);
+  Norman_.addAnswer("[закончить диалог]", 18, 1, 1);
+  Norman_.addAnswer("Печально...", 11, 2, 0);
+  Norman_.addAnswer("[закончить диалог]", 18, 2, 1);
+  Norman_.addAnswer("Поищу. Если найду. напишу о ней в обратной связи", 11, 3, 0);
+  Norman_.addAnswer("[закончить диалог]", 11, 3, 1);
+}
+
+void inGameLogic::elimKOSTILNPC() {
+  Norman_.elimDialog();
+  Norman_.elimAnswer();
 }
 
 void inGameLogic::play() {
