@@ -308,7 +308,7 @@ void renderGame::showNPCS(const npcs &NPC, int xPlayer, int yPlayer) {
   }
 }
 
-void renderGame::showHud(const map &CurrentMap, const player &GG, const npcs &NPC) {
+void renderGame::showHud(const map &CurrentMap, const player &GG, npcs NPC) {
   terminal_layer(10);
   terminal_color(0xffffffff);
   for (int i(0); i < screenBorderY; i++) {
@@ -412,20 +412,36 @@ void renderGame::showHud(const map &CurrentMap, const player &GG, const npcs &NP
   }
 }
 
-unsigned renderGame::npcDialog(const npcs &NPC) {
+unsigned renderGame::npcDialog(npcs NPC) {
+  NPC.makeDiaog(4);
+  NPC.addDialog("Приветствую тебя, кем ты не был! Я - Асгольд!", "Я самый первый хоть на что-нибудь способный NPC!", 45, 48, 0);
+  NPC.addDialog("Ты находшься в Фолкрите!", "Славном городе на юго-западе Скайрима!", 24, 38, 1);
+  NPC.addDialog("Впринципе занятся тут толком то и не чем...", "В Восточный Лес ходить не советую... Там АБОРТ обитает.", 43, 55, 2);
+  NPC.addDialog("Но можешь погулять по Фолкриту и посмотреть, что тут есть!", "Пасхалка тут хоть и глупая, но есть.^^", 58, 38, 3);
+  NPC.makeAnswer(4, 2);
+  NPC.addAnswer("Где я?", 6, 0, 0);
+  NPC.addAnswer("-закончить диалог-", 18, 0, 1);
+  NPC.addAnswer("Есть тут чем заняться?", 22, 1, 0);
+  NPC.addAnswer("-закончить диалог-", 18, 1, 1);
+  NPC.addAnswer("Печально...", 11, 2, 0);
+  NPC.addAnswer("-закончить диалог-", 18, 2, 1);
+  NPC.addAnswer("Поищу. Если найду. напишу о ней в обратной связи", 48, 3, 0);
+  NPC.addAnswer("-закончить диалог-", 18, 3, 1);
+
   bool IsGo(false);
   unsigned i = 0, choise = 0;
   bool endDia = true;
-  terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
-  while (endDia && i < NPC.countAnswers_ && i < NPC.countPhrases_) {  //  Объединить в  одну функцию создание диалогов
-    terminal_printf(1, mapBorderY - 7, NPC.npcPhrases_[i][0]);  // Запихать диалоги в Файл и читать их из файла!
-    terminal_printf(1, mapBorderY - 6, NPC.npcPhrases_[i][1]);
+  terminal_clear_area(0, mapBorderY - 9, mapBorderX, mapBorderY);
+  while (endDia && (i < NPC.countAnswers_ && i < NPC.countPhrases_)) {  //  Объединить в  одну функцию создание диалогов
+    terminal_print(1, mapBorderY - 7, NPC.npcPhrases_[i][0]);  // Запихать диалоги в Файл и читать их из файла!
+    terminal_print(1, mapBorderY - 6, NPC.npcPhrases_[i][1]);
 
     do {
+      terminal_clear_area(0, mapBorderY - 4, mapBorderX, mapBorderY);
       for (unsigned I = 0; I < NPC.countVariables_; I++) {
-        terminal_printf(5, mapBorderY - 5 - I, NPC.npcAnswers_[i][I]);
-        if (i == choise - 1) {
-          terminal_print(1, mapBorderY - 5 - I, "--> ");
+        terminal_print(10, mapBorderY - 4 + I, NPC.npcAnswers_[i][I]);
+        if (I == choise - 1) {
+          terminal_print(1, mapBorderY - 4 + I, "--> ");
         }
       }
       terminal_refresh();
@@ -440,14 +456,18 @@ unsigned renderGame::npcDialog(const npcs &NPC) {
       }
     }
   }
-  if (i == NPC.countPhrases_ - 1) {
+
+  NPC.elimDialog();
+  NPC.elimAnswer();
+
+  if (i == NPC.countPhrases_) {
     return 1;
   } else {
     return 0;
   }
 }
 
-void renderGame::showDialog(const map &CurrentMap, const player &GG, const npcs &NPC) {
+void renderGame::showDialog(const map &CurrentMap, const player &GG, npcs NPC) {
   terminal_clear_area(0, mapBorderY - 10, mapBorderX, mapBorderY);
   for (int i(0); i < mapBorderX; i++) {
     terminal_put(i, mapBorderY - 10, '_');
@@ -469,6 +489,7 @@ void renderGame::showDialog(const map &CurrentMap, const player &GG, const npcs 
           } else {
             if (GG.question_ == 5) {
               questRender = npcDialog(NPC);
+              terminal_clear_area(0, mapBorderY - 9, mapBorderX, mapBorderY);
             } else {
               if (GG.question_ == 10) {
                 terminal_print(1, mapBorderY - 7, "Надеть броню?");

@@ -46,10 +46,10 @@ class renderGame {
   void showMap(const map &currentLocation, int, int);
   void showPlayer(const player &GG);
   void showNPCS(const npcs &NPC,  int xPlayer, int yPlayer);
-  void showHud(const map &CurrentMap, const player &GG, const npcs &NPC);
-  void showDialog(const map &CurrentMap, const player &GG, const npcs &NPC);
+  void showHud(const map &CurrentMap, const player &GG, npcs NPC);
+  void showDialog(const map &CurrentMap, const player &GG, npcs NPC);
 
-  unsigned npcDialog(const npcs &NPC);
+  unsigned npcDialog(npcs);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_RENDERGAME_H_

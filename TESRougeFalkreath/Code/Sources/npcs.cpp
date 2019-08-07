@@ -32,10 +32,14 @@ void npcs::makeDiaog(unsigned count) {
 }
 
 void npcs::addDialog(const char *phraseUp, const char *phraseDown, unsigned countLettersUp, unsigned countLettersDown, unsigned number) {
-  npcPhrases_[number][0] = new char[countLettersUp];
-  npcPhrases_[number][1] = new char[countLettersDown];
-  strcpy(npcPhrases_[number][0], phraseUp);
-  strcpy(npcPhrases_[number][1], phraseDown);
+  npcPhrases_[number][0] = new char[countLettersUp * 2];
+  npcPhrases_[number][1] = new char[countLettersDown * 2];
+  for (unsigned i(0); i < countLettersUp*2; i++) {
+    npcPhrases_[number][0][i] = phraseUp[i];
+  }
+  for (unsigned i(0); i < countLettersDown*2; i++) {
+    npcPhrases_[number][1][i] = phraseDown[i];
+  }
 }
 
 void npcs::elimDialog() {
@@ -54,11 +58,14 @@ void npcs::makeAnswer(unsigned countAnswers, unsigned countVariables) {
     npcAnswers_[i] = new char *[countVariables];
   }
   countAnswers_ = countAnswers;
+  countVariables_ = countVariables;
 }
 
 void npcs::addAnswer(const char *phrase, unsigned countLetters, unsigned numberAnswer, unsigned numberVariable) {
-  npcAnswers_[numberAnswer][numberVariable] = new char[countLetters];
-  strcpy(npcAnswers_[numberAnswer][numberVariable], phrase);
+  npcAnswers_[numberAnswer][numberVariable] = new char[countLetters * 2];
+  for (unsigned i(0); i < countLetters*2; i++) {
+    npcAnswers_[numberAnswer][numberVariable][i] = phrase[i];
+  }
 }
 
 void npcs::elimAnswer() {

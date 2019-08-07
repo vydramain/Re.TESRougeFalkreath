@@ -18,9 +18,9 @@ int main() {
       inGameLogic game(InputKey, true);
       game.createPlayer(49, 20);
       game.createNpc("Асгольд", 2, 43, 9);
-      game.loadKOSTILNPC();
+
       game.play();
-      game.elimKOSTILNPC();
+
       return 0;
     }
     default: {
