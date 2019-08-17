@@ -12,7 +12,6 @@ include_directories(SYSTEM ${BLT_INCLUDE_DIRS})
 
 set(PROJECT_HEADERS_DIR "Code/Headers")
 set(PROJECT_SOURCES_DIR "Code/Sources")
-#>>>>>>> NMaster
 
 file(GLOB_RECURSE HEADRES ${PROJECT_HEADRES_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
@@ -29,4 +28,3 @@ file(COPY ${BLT_LIBRARY} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 include(CppLint)
 ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
 add_dependencies(${PROJECT_NAME} lint)
-#>>>>>>> NMaster
