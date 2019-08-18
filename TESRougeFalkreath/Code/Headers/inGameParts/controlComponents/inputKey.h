@@ -2,8 +2,9 @@
 // Created by vydra on 7/15/19.
 //
 
-#ifndef TESROUGEFALKREATH_CODE_HEADERS_INPUTKEY_H_
-#define TESROUGEFALKREATH_CODE_HEADERS_INPUTKEY_H_
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_INPUTKEY_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_INPUTKEY_H_
+
 #include <BearLibTerminal.h>
 
 class inputKey {
@@ -30,7 +31,8 @@ class inputKey {
   bool is_m_button_ = false;
 
  public:
-  inputKey() {}
+  explicit inputKey() {}
+
   // inputKey(const inputKey& old);
   ~inputKey() {}
   // inputKey & operator= (const inputKey& old);
@@ -55,7 +57,8 @@ class inputKey {
   bool IsButtonD() const;
   bool IsButtonF() const;
   bool IsButtonM() const;
+
   void Update();
 };
 
-#endif  // TESROUGEFALKREATH_CODE_HEADERS_INPUTKEY_H_
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_INPUTKEY_H_

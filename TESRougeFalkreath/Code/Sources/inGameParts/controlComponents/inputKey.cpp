@@ -2,7 +2,7 @@
 // Created by vydra on 7/15/19.
 //
 
-#include "./inputKey.h"
+#include "inGameParts/controlComponents/inputKey.h"
 /*
 inputKey::inputKey(const inputKey& old) {
   is_enter_ = old.is_enter_;

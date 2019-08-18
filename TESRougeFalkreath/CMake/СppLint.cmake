@@ -25,10 +25,11 @@ set(STYLE_FILTER ${STYLE_FILTER}-build/include_subdir,)
 #set(STYLE_FILTER ${STYLE_FILTER}-readability/todo,)
 #set(STYLE_FILTER ${STYLE_FILTER}-readability/namespace,)
 
-set(STYLE_FILTER ${STYLE_FILTER}-runtime/references,)
+#set(STYLE_FILTER ${STYLE_FILTER}-runtime/references,)
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/int,)
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/explicit,)
-set(STYLE_FILTER ${STYLE_FILTER}-runtime/printf,)
+#set(STYLE_FILTER ${STYLE_FILTER}-runtime/printf,)
+
 set(STYLE_FILTER ${STYLE_FILTER}-legal/copyright,)
 
 # Add a target that runs cpplint.py
@@ -54,7 +55,7 @@ function(add_style_check_target CUSTOM_TARGET_NAME TARGET_NAME PROJECT_HEADERS_D
             "${CMAKE_SOURCE_DIR}/misc/cpplint/cpplint.py"
             "--filter=${STYLE_FILTER}"
             "--counting=detailed"
-            "--linelength=140"
+            "--linelength=120"
             ${SOURCES_LIST}
             DEPENDS ${SOURCES_LIST}
             COMMENT "Linting ${TARGET_NAME}"

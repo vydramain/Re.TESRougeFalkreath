@@ -1,4 +1,4 @@
-ifeq ($(OS),Windows_NT)	
+ifeq ($(OS),Windows_NT)
 	FLAGS = -DCMAKE_SH="CMAKE_SH-NOTFOUND" -G "MinGW Makefiles"
 else
 	FLAGS = ""
@@ -12,14 +12,13 @@ mkdir_build:
 	[ -d ./cmake-build-debug ] | mkdir -p cmake-build-debug
 
 build:
-	cd cmake-build-debug;cmake --build . --target TESRougeFalkreath
+	cd cmake-build-debug;cmake --build . --target trex_step_4
 
 exec:
-	./cmake-build-debug/TESRougeFalkreath
+	./cmake-build-debug/trex_step_4
 
 clean:
 	rm -rf cmake-build-debug
 
 reload: mkdir_build
 	cd cmake-build-debug;cmake $(FLAGS) ..
-
