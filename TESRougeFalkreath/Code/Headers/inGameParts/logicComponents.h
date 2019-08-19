@@ -1,5 +1,11 @@
 #ifndef TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_H_
 #define TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_H_
 
+class logicComponents {
+ private:
+ public:
+  explicit logicComponents();
+  virtual ~logicComponents() = default;
+};
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_H_

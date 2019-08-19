@@ -1,4 +1,4 @@
-#include "inGameParts/controlComponents/playMap.h"
+#include "controlComponents/playMap.h"
 
 playMap::playMap() {
     ph = nullptr;

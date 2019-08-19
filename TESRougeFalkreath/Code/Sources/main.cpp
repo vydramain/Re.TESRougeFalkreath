@@ -1,12 +1,8 @@
-
-#include <stdio.h>
-#include "inGameParts/renderGame.h"
+#include "inGameLogic.h"
 
 int main() {
-  renderGame j(1);
-  // j.mainMenu(0);
-  terminal_print(10,10,"e[q");
-  terminal_refresh();
-  while(true){}
+  inGameLogic GAME(1);
+  GAME.mainMenu();
+
   return 0;
 }

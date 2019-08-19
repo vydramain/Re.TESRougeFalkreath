@@ -1,4 +1,4 @@
-#include "inGameParts/controlComponents/loadFile.h"
+#include "controlComponents/loadFile.h"
 
 loadFile::loadFile() {
     currentFile_ = nullptr;
