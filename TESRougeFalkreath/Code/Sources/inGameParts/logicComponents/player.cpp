@@ -20,6 +20,7 @@ player::player(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     name_[i] = NAME[i];
   }
+  nationality_ = RACE;
 
   status_ = 1;
 }

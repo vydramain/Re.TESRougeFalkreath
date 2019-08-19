@@ -3,6 +3,11 @@
 
 class playMap {
  private:
+  unsigned mapName_;  // Номер карты:
+                      // 1 - Фолкрит
+                      // 2 - Восточный Лес
+                      // 3 - Южные Скальные Сосны
+
   struct knot {
     char layer0;  // Карта
     char layer1;  // Предмет
@@ -39,11 +44,11 @@ class playMap {
 
  public:
   explicit playMap();
-  explicit playMap(unsigned, unsigned);
+  explicit playMap(unsigned, unsigned, unsigned);  // Имя, x,y
 
   ~playMap();
 
-  bool changeKnot(unsigned, unsigned, char, char, char, char);
+  bool changeKnot(unsigned, unsigned, char, char, char, char);  // x,y, lay0,lay1,lay2,lay3
   bool pullKnot(unsigned, unsigned, char &, char &, char &, char &);
 };
 

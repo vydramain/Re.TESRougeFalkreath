@@ -14,12 +14,12 @@
 
 class inGameLogic {
  private:
-  logicComponents *LOGICA_;
-  renderGame *RENDER_;
+  logicComponents *LOGICA_ = nullptr;
+  renderGame *RENDER_ = nullptr;
 
-  inputKey *INPUT_;
-  loadFile *LOADFILE_;
-  playMap *MAP_;
+  inputKey *INPUT_ = nullptr;
+  loadFile *LOADFILE_ = nullptr;
+  playMap *MAP_ = nullptr;
 
  public:
   explicit inGameLogic();
@@ -27,6 +27,12 @@ class inGameLogic {
   ~inGameLogic();
 
   unsigned mainMenu();
+  bool newGame();
+  bool loadGame();
+  bool setGame();
+
+  bool createPlayer();
+  bool createMap();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_

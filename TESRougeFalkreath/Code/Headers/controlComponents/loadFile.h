@@ -16,7 +16,7 @@ public:
     explicit loadFile(const char*);
     ~loadFile();
 
-    bool loadMap(unsigned &,unsigned &, char **&);
+    bool loadMap(unsigned &,unsigned &, char **&);  // x,y,карта в char массиве
 
 
 };
