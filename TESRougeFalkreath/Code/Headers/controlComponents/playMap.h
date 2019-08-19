@@ -49,7 +49,19 @@ class playMap {
   ~playMap();
 
   bool changeKnot(unsigned, unsigned, char, char, char, char);  // x,y, lay0,lay1,lay2,lay3
+  bool changeKnot0(unsigned, unsigned, char);
+  bool changeKnot1(unsigned, unsigned, char);
+  bool changeKnot2(unsigned, unsigned, char);
+  bool changeKnot3(unsigned, unsigned, char);
+
   bool pullKnot(unsigned, unsigned, char &, char &, char &, char &);
+  bool pullKnot0(unsigned, unsigned, char &);
+  bool pullKnot1(unsigned, unsigned, char &);
+  bool pullKnot2(unsigned, unsigned, char &);
+  bool pullKnot3(unsigned, unsigned, char &);
+
+  void viewSize(unsigned& X, unsigned& Y);
+
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_PLAYMAP_H_

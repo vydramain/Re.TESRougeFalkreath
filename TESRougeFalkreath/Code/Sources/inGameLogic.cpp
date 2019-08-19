@@ -5,26 +5,35 @@ inGameLogic::inGameLogic() {
   LOGICA_ = new logicComponents();
 
   INPUT_ = new inputKey();
+  DETERM_ = new inputDeterminant();
 }
 inGameLogic::inGameLogic(unsigned renderMode) {
   RENDER_ = new renderGame(renderMode);
   LOGICA_ = new logicComponents();
 
   INPUT_ = new inputKey();
+  DETERM_ = new inputDeterminant();
 }
 inGameLogic::~inGameLogic() {
   delete RENDER_;
   delete LOGICA_;
 
   delete INPUT_;
-  if(LOADFILE_){delete LOADFILE_;}
-  if(MAP_){delete MAP_;}
+  delete DETERM_;
+
+  if (LOADFILE_) {
+    delete LOADFILE_;
+  }
+  if (MAP_) {
+    delete MAP_;
+  }
 }
 
 unsigned inGameLogic::mainMenu() {
   bool isGO = false;
   unsigned nonshoise(0);
   do {
+    RENDER_->clearALL();
     RENDER_->mainMenu(nonshoise);
     terminal_refresh();
     INPUT_->Update();
@@ -51,12 +60,26 @@ unsigned inGameLogic::mainMenu() {
 bool inGameLogic::newGame() {
   createPlayer();
   createMap();
+  bool isExit = false;
+  unsigned typeACT = 0;
+  unsigned ACT = 0;
+  do {
+    INPUT_->Update();
+    if (INPUT_->IsExit()) {
+      return 1;
+    }
+      if(INPUT_->IsButtonEsc()){
+        isExit = true;
+      }
 
-  // bool isExit = false;
-  // do {
+    DETERM_->whatMustToDo(INPUT_, typeACT, ACT);
+    DETERM_->whatMustToGo(INPUT_, typeACT, ACT);
 
-  // } while (!isExit);
-  return 0;
+    LOGICA_->Update(typeACT, ACT);
+    RENDER_->Update(LOGICA_);
+
+  } while (!isExit);
+  return false;
 }
 
 bool inGameLogic::createPlayer() {
@@ -101,7 +124,7 @@ bool inGameLogic::createMap() {
 
   LOADFILE_ = new loadFile("Maps/Falkreath.bin");
   LOADFILE_->loadMap(mapX, mapY, mapChar);
-  delete  LOADFILE_;
+  delete LOADFILE_;
 
   return LOGICA_->loadMap(0, mapX, mapY, mapChar);
 }

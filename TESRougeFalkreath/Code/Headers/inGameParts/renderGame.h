@@ -2,6 +2,7 @@
 #define TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_RENDERGAME_H_
 
 #include <BearLibTerminal.h>
+#include "inGameParts/logicComponents.h"
 
 #define HUDLAYER 13
 #define SCREENMODE1X 100
@@ -9,6 +10,8 @@
 
 class renderGame {
  private:
+  unsigned mapBorderX_ = 66, mapBorderY_ = 40;
+
  public:
   explicit renderGame();
   explicit renderGame(unsigned);
@@ -25,6 +28,13 @@ class renderGame {
 
   bool mainMenu(unsigned);  // Выделенный элемент
   bool raceMenu(unsigned);  // Аналог верхнего
+
+  void symColor(char);
+  void showArea(logicComponents* COMPONENTSAREA);
+  void showPlayer(logicComponents* COMPONENTSAREA);
+  void showHud(logicComponents *COMPONENTS);
+
+  bool Update(logicComponents *COMPONENTS);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_RENDERGAME_H_

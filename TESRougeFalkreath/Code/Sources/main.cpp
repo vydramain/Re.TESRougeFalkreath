@@ -7,7 +7,9 @@ int main() {
     nextPUNCT = GAME.mainMenu();
     switch (nextPUNCT) {
       case 1: {
-        GAME.newGame();
+        if(GAME.newGame() == true){
+          nextPUNCT = 4;
+        }
         break;
       }
       case 2: {

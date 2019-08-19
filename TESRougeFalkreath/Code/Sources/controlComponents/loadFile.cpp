@@ -35,11 +35,11 @@ bool loadFile::loadMap(unsigned &mapXSize_, unsigned &mapYSize_, char **&mapChar
     if (currentFile_) {
         fscanf(currentFile_, "%d", &mapXSize_);
         if (feof(currentFile_)) {
-            return 1;
+            return true;
         } else {
             fscanf(currentFile_, "%d", &mapYSize_);
             if (feof(currentFile_)) {
-                return 1;
+                return true;
             } else {
                 mapChar_ = new char *[mapYSize_];
                 for (unsigned i(0); i < mapYSize_; i++) {
@@ -50,7 +50,7 @@ bool loadFile::loadMap(unsigned &mapXSize_, unsigned &mapYSize_, char **&mapChar
                         delete mapChar_[i];
                     }
                     delete mapChar_;
-                    return 1;
+                    return true;
                 } else {
                     for (unsigned i(0); i < mapYSize_; i++) {
                         for (unsigned ii(0); ii < mapXSize_; ii++) {
@@ -59,17 +59,17 @@ bool loadFile::loadMap(unsigned &mapXSize_, unsigned &mapYSize_, char **&mapChar
                                     delete mapChar_[iii];
                                 }
                                 delete mapChar_;
-                                return 1;
+                                return true;
                             } else {
                                 mapChar_[i][ii] = getc(currentFile_);
                             }
                         }
                     }
-                    return 0;
+                    return false;
                 }
             }
         }
     } else {
-        return 1;
+        return true;
     }
 }

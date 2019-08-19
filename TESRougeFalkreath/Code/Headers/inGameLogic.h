@@ -6,6 +6,7 @@
 #define TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_
 
 #include "controlComponents/inputKey.h"
+#include "controlComponents/inputDeterminant.h"
 #include "controlComponents/playMap.h"
 #include "controlComponents/loadFile.h"
 #include "inGameParts/logicComponents.h"
@@ -18,6 +19,7 @@ class inGameLogic {
   renderGame *RENDER_ = nullptr;
 
   inputKey *INPUT_ = nullptr;
+  inputDeterminant *DETERM_ = nullptr;
   loadFile *LOADFILE_ = nullptr;
   playMap *MAP_ = nullptr;
 
