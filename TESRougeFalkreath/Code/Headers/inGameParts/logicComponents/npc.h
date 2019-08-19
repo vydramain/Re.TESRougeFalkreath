@@ -40,9 +40,9 @@ class npc {
                           // 9. Аргонианин
                           // 10. Каджит
  public:
-  explicit player();
-  explicit player(char*, unsigned, unsigned, unsigned);
-  ~player();
+  explicit npc();
+  explicit npc(char*, unsigned, unsigned, unsigned);
+  ~npc();
 
   bool changeName(char*);
   bool changeLocation(unsigned, unsigned);

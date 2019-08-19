@@ -12,10 +12,10 @@ mkdir_build:
 	[ -d ./cmake-build-debug ] | mkdir -p cmake-build-debug
 
 build:
-	cd cmake-build-debug;cmake --build . --target trex_step_4
+	cd cmake-build-debug;cmake --build . --target TESRougeFalkreath
 
 exec:
-	./cmake-build-debug/trex_step_4
+	./cmake-build-debug/TESRougeFalkreath
 
 clean:
 	rm -rf cmake-build-debug

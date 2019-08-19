@@ -24,6 +24,8 @@ player::player(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
   status_ = 1;
 }
 
+player::~player() {}
+
 bool player::changeName(char* NAME) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     name_[i] = NAME[i];

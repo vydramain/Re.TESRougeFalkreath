@@ -1,8 +1,6 @@
 #include "inGameParts/logicComponents/npc.h"
 
-#include "inGameParts/logicComponents/player.h"
-
-player::player() {
+npc::npc() {
   areaPlaceX_ = 0;
   areaPlaceY_ = 0;
 
@@ -15,7 +13,7 @@ player::player() {
   MP_ = 0;
 }
 
-player::player(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
+npc::npc(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
   areaPlaceX_ = X;
   areaPlaceY_ = Y;
 
@@ -26,30 +24,32 @@ player::player(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
   status_ = 1;
 }
 
-bool player::changeName(char* NAME) {
+npc::~npc() {}
+
+bool npc::changeName(char* NAME) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     name_[i] = NAME[i];
   }
   return 0;
 }
 
-bool player::changeLocation(unsigned X, unsigned Y) {
+bool npc::changeLocation(unsigned X, unsigned Y) {
   areaPlaceX_ = X;
   areaPlaceY_ = Y;
   return 0;
 }
 
-bool player::changeStatus(unsigned STATUS) {
+bool npc::changeStatus(unsigned STATUS) {
   status_ = STATUS;
   return 0;
 }
 
-bool player::changeCourse(unsigned CURSE) {
+bool npc::changeCourse(unsigned CURSE) {
   course_ = CURSE;
   return 0;
 }
 
-bool player::changeNationality(unsigned N) {
+bool npc::changeNationality(unsigned N) {
   switch (N) {
     case 1: {  // Норд
       nationality_ = 1;
@@ -131,37 +131,37 @@ bool player::changeNationality(unsigned N) {
   }
 }
 
-bool player::changePoints(unsigned H, unsigned A, unsigned M) {
+bool npc::changePoints(unsigned H, unsigned A, unsigned M) {
   HP_ += H;
   AP_ += A;
   MP_ += M;
   return 0;
 }
 
-void player::viewName(char* NAME) {
+void npc::viewName(char* NAME) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     NAME[i] = name_[i];
   }
 }
 
-void player::viewLocation(unsigned& X, unsigned& Y) {
+void npc::viewLocation(unsigned& X, unsigned& Y) {
   X = areaPlaceX_;
   Y = areaPlaceY_;
 }
 
-void player::viewStatus(unsigned& STATUS) {
+void npc::viewStatus(unsigned& STATUS) {
   STATUS = status_;
 }
 
-void player::viewCourse(unsigned& CURSE) {
+void npc::viewCourse(unsigned& CURSE) {
   CURSE = course_;
 }
 
-void player::viewNationality(unsigned& N) {
+void npc::viewNationality(unsigned& N) {
   N = nationality_;
 }
 
-void player::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
+void npc::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
   H = HP_;
   A = AP_;
   M = MP_;
