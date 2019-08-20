@@ -68,9 +68,9 @@ bool inGameLogic::newGame() {
     if (INPUT_->IsExit()) {
       return 1;
     }
-      if(INPUT_->IsButtonEsc()){
-        isExit = true;
-      }
+    if (INPUT_->IsButtonEsc()) {
+      isExit = true;
+    }
 
     DETERM_->whatMustToDo(INPUT_, typeACT, ACT);
     DETERM_->whatMustToGo(INPUT_, typeACT, ACT);
@@ -124,7 +124,6 @@ bool inGameLogic::createMap() {
 
   LOADFILE_ = new loadFile("Maps/Falkreath.bin");
   LOADFILE_->loadMap(mapX, mapY, mapChar);
-  delete LOADFILE_;
 
   return LOGICA_->loadMap(0, mapX, mapY, mapChar);
 }

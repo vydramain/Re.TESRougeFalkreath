@@ -13,14 +13,13 @@ player::player() {
   MP_ = 0;
 }
 
-player::player(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
+player::player(char* NAME, unsigned X, unsigned Y) {
   areaPlaceX_ = X;
   areaPlaceY_ = Y;
 
   for (unsigned i(0); i < NAMESPACE; i++) {
     name_[i] = NAME[i];
   }
-  nationality_ = RACE;
 
   status_ = 1;
 }

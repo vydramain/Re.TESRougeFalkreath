@@ -175,29 +175,20 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
   for (unsigned ii(0); ii < mapBorderY_; ii++) {
     for (unsigned i(0); i < mapBorderX_; i++) {
       terminal_color(0xaaffffff);
-      if (playerY - 20 + ii <= 0) {
+      if (playerY - 20 + ii >= mapY - 1) {
         terminal_put(i, ii, ' ');
       } else {
-        if (playerX - 30 + i <= 0) {
+        if (playerX - 30 + i >= mapX - 1) {
           terminal_put(i, ii, ' ');
         } else {
-          if (playerY - 20 + ii >= mapY-1) {
-            terminal_put(i, ii, ' ');
-          } else {
-            if (playerX - 30 + i >= mapX-1) {
-              terminal_put(i, ii, ' ');
-            } else {
-              AREA->pullKnot0(playerX - 30 + i, playerY - 20 + ii, temp);
-              symColor(temp);
-              terminal_put(i, ii, temp);
-            }
-          }
+          AREA->pullKnot0(playerX - 30 + i, playerY - 20 + ii, temp);
+          symColor(temp);
+          terminal_put(i, ii, temp);
         }
       }
     }
   }
 }
-
 void renderGame::showPlayer(logicComponents* COMPONENTS) {
   char playerName[24];
   unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus;
@@ -227,9 +218,22 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 1, "Имя:");
   terminal_print(mapBorderX_ + 1, 2, "Расса:");
   terminal_print(mapBorderX_ + 1, 3, "Статус:");
+
+  char hp[5], mp[5], ap[5];
+  sprintf(hp, "%d", playerHP);
+  sprintf(ap, "%d", playerAP);
+  sprintf(mp, "%d", playerMP);
+  terminal_color(0xFFFF4444);
   terminal_print(mapBorderX_ + 1, 4, "ОЗ:");
+  terminal_print(mapBorderX_ + 1 + 5, 4, hp);
+  terminal_color(0xFF44ff44);
   terminal_print(mapBorderX_ + 1, 5, "ОД:");
+  terminal_print(mapBorderX_ + 1 + 5, 5, ap);
+  terminal_color(0xFF6666FF);
   terminal_print(mapBorderX_ + 1, 6, "OМ:");
+  terminal_print(mapBorderX_ + 1 + 5, 6, mp);
+
+  terminal_color(0xFFFFFFFF);
   terminal_print(mapBorderX_ + 1, 11, "Задания:");
   terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
   terminal_print(mapBorderX_ + 1, 26, "Сумка:");
@@ -283,25 +287,19 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   }
 
   switch (playerStatus) {
-    case 1:
+    case 1: {
       terminal_print(mapBorderX_ + 1 + 8, 3, "Здоров");
       break;
-    case 2:
+    }
+    case 2: {
       terminal_print(mapBorderX_ + 1 + 8, 3, "Спрятался");
       break;
-    default:
+    }
+    default: {
       terminal_print(mapBorderX_ + 1 + 8, 3, "Мёртв");
       break;
+    }
   }
-
-  char hp[5], mp[5], ap[5];
-  sprintf(hp, "%d", playerHP);
-  sprintf(ap, "%d", playerAP);
-  sprintf(mp, "%d", playerMP);
-  terminal_print(mapBorderX_ + 1 + 5, 4, hp);
-  terminal_print(mapBorderX_ + 1 + 5, 5, ap);
-  terminal_print(mapBorderX_ + 1 + 5, 6, mp);
-
   terminal_print(mapBorderX_ + 1, 9, "________________________________");
   terminal_print(mapBorderX_ + 1, mapBorderY_ - 5, "________________________________");
 

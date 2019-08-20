@@ -41,7 +41,7 @@ class player {
                           // 10. Каджит
  public:
   explicit player();
-  explicit player(char*, unsigned, unsigned, unsigned);  // создаём рабочего персонажа
+  explicit player(char*, unsigned, unsigned);  // создаём рабочего персонажа
   ~player();
 
   bool changeName(char*);

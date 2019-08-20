@@ -12,7 +12,9 @@ logicComponents::~logicComponents() {
 }
 
 bool logicComponents::createPlayer(char* Name, unsigned Race) {
-  PLAYER_ = new player(Name, 30, 20, Race);
+  PLAYER_ = new player(Name, 30, 20);
+  PLAYER_->changeNationality(Race);
+  PLAYER_->changeStatus(1);
   return PLAYER_;
 }
 
@@ -27,17 +29,18 @@ bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, un
   PLAYER_->viewPoints(HP, AP, MP);
   PLAYER_->viewNationality(NATIONALITY);
   PLAYER_->viewName(NAME);
+  PLAYER_->viewStatus(STATUS);
   return false;
 }
 
 bool logicComponents::actPLayer(unsigned typeACT, unsigned ACT) {
+  char lay0, lay1, lay2, lay3;
+  unsigned playerX, playerY;
   switch (typeACT) {
     case 0: {
       return 0;
     }
     case 1: {
-      char lay0, lay1, lay2, lay3;
-      unsigned playerX, playerY;
       switch (ACT) {
         case 0: {
           PLAYER_->viewLocation(playerX, playerY);
@@ -81,7 +84,20 @@ bool logicComponents::actPLayer(unsigned typeACT, unsigned ACT) {
       }
     }
     case 2: {
-      return 0;
+      unsigned playerCourse;
+      PLAYER_->viewLocation(playerX, playerY);
+      PLAYER_->viewCourse(playerCourse);
+
+
+      switch (ACT){ case 0:{
+
+
+      }
+        default:{
+          return 0;
+        }
+      }
+
     }
     default: {
       return 1;
