@@ -35,6 +35,36 @@ void renderGame::clearALL() {
   }
 }
 
+void renderGame::clearAREA(unsigned inX, unsigned inY, unsigned outX, unsigned outY) {
+  for (unsigned i(0); i < 20; i++) {
+    terminal_layer(i);
+    terminal_clear_area(inX, inY, outX, outY);
+  }
+}
+
+bool renderGame::viewPhrase(const char* fstString, const char* scdString, unsigned inX, unsigned inY, unsigned outX, unsigned outY) {
+  clearAREA(inX, inY, outX + 1, outY);
+  terminal_layer(HUDLAYER);
+  for (unsigned ii(0); ii < (outY - inY); ii++) {
+    for (unsigned i(0); i < (outX - inX); i++) {
+      terminal_put(inX + i, inY + ii, ' ');
+    }
+  }
+
+  for (unsigned ii(0); ii < (outY - inY); ii++) {
+    terminal_put(inX, inY + 1 + ii, '|');
+    terminal_put(outX, inY + ii, '|');
+  }
+  for (unsigned i(0); i < (outX - inX); i++) {
+    terminal_put(inX + i, inY, '-');
+    terminal_put(inX + 1 + i, outY, '-');
+  }
+
+  terminal_print(inX + 2, inY + 2, fstString);
+  terminal_print(inX + 2, inY + 3, scdString);
+  return false;
+}
+
 bool renderGame::viewWord(const char* Request, char* Word, unsigned RequestChars, unsigned WordChars, unsigned inX, unsigned inY,
                           unsigned outX, unsigned outY) {
   terminal_layer(HUDLAYER);
@@ -55,7 +85,7 @@ bool renderGame::viewWord(const char* Request, char* Word, unsigned RequestChars
 
   terminal_print(inX + 2, inY + 2, Request);
   terminal_read_str(2 + RequestChars, 2, Word, WordChars);
-  return true;
+  return false;
 }
 
 bool renderGame::viewChoise(const char* title, const char** punctsChoise, unsigned punctsCount, unsigned punctsHighlighted, unsigned inX,
@@ -193,7 +223,7 @@ void renderGame::showPlayer(logicComponents* COMPONENTS) {
   char playerName[24];
   unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus;
   COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName);
-  terminal_layer(1);
+  terminal_layer(4);
   terminal_color(0xFFFFFFFF);
   if (playerStatus == 2) {
     terminal_color(0xff00ff00);
@@ -308,11 +338,109 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 26, "Сумка:");
 }
 
+void renderGame::showLogWindow(logicComponents* COMPONENTS) {
+  bool mark;
+  COMPONENTS->conditionLogWindow(mark);
+  if (mark) {
+    unsigned act;
+    COMPONENTS->conditionOldAct(act);
+    playMap* AREA = COMPONENTS->secret();
+    unsigned itemX, itemY, Course;
+    COMPONENTS->conditionPlayer(itemX, itemY, Course);
+    switch (Course) {
+      case 0: {
+        itemY -= 1;
+        break;
+      }
+      case 1: {
+        itemY += 1;
+        break;
+      }
+      case 2: {
+        itemX -= 1;
+        break;
+      }
+      case 3: {
+        itemX += 1;
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+
+    char lay0;
+    AREA->pullKnot0(itemX, itemY, lay0);
+    switch (act) {
+      case 6: {
+        if (lay0 == '#') {
+          viewPhrase("Камень... Высокий...", "Я на него не смогу забраться.", 0, 30, 65, 39);
+        } else {
+          if (lay0 == '<' || lay0 == '>' || lay0 == 'v' || lay0 == '^') {
+            viewPhrase("Это дверь.", "Похоже, изготовлена из многовековой ели.", 0, 30, 65, 39);
+          } else {
+            if (lay0 == ';' || lay0 == '+' || lay0 == '-' || lay0 == '?' || lay0 == ':' || lay0 == 'J' || lay0 == '`' || lay0 == '9' ||
+                lay0 == 'x') {
+              viewPhrase("Это хвойное растение.", "Похоже на ель.", 0, 30, 65, 39);
+            } else {
+              if (lay0 == '[' || lay0 == ']' || lay0 == '_') {
+                viewPhrase("Гладкая каменная стена....", "          ...из хорошего булыжника.", 0, 30, 65, 39);
+              } else {
+                if (lay0 == 'L') {
+                  viewPhrase("Пшеница...", "Несозревшая", 0, 30, 65, 39);
+                } else {
+                  if (lay0 == '"' || lay0 == '|' || lay0 == '=') {
+                    viewPhrase("Ствол.", "Просто ствол дерева.", 0, 30, 65, 39);
+                  } else {
+                    if (lay0 == 'W' || lay0 == 'w' || lay0 == 'V') {
+                      viewPhrase("Забор деревянный.", "Добротный.", 0, 30, 65, 39);
+                    } else {
+                      if (lay0 == 't') {
+                        viewPhrase("Могила...", "     ...впервые вижу эти руны...", 0, 30, 65, 39);
+                      } else {
+                        if (lay0 == '~') {
+                          viewPhrase("Вода... Не хочу мокнуть.", "  Я туда не полезу", 0, 30, 65, 39);
+                        } else {
+                          if (lay0 == 'Z') {
+                            viewPhrase("Восточные ворота Фолкрита.", "Ворота в Скайрим...", 0, 30, 65, 39);
+                          } else {
+                            if (lay0 != ' ' && lay0 != '.') {
+                              viewPhrase("Я не знаю что это...", "Вроде на камень смахивает придорожный.", 0, 30, 65, 39);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        break;
+      }
+      case 5: {
+        if (lay0 == '<' || lay0 == '>' || lay0 == 'v' || lay0 == '^') {
+          viewPhrase("Открыть дверь?", "", 0, 30, 65, 39);
+        }
+        if(lay0 == 'Z'){
+          viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
+        }
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
+}
+
 bool renderGame::Update(logicComponents* COMPONENTS) {
   clearALL();
   showArea(COMPONENTS);
   showPlayer(COMPONENTS);
   showHud(COMPONENTS);
+  showLogWindow(COMPONENTS);
 
   terminal_refresh();
 

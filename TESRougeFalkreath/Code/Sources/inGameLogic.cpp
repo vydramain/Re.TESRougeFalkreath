@@ -60,9 +60,9 @@ unsigned inGameLogic::mainMenu() {
 bool inGameLogic::newGame() {
   createPlayer();
   createMap();
+  createECS();
   bool isExit = false;
-  unsigned typeACT = 0;
-  unsigned ACT = 0;
+  inputCommand_ containerCommand;
   do {
     INPUT_->Update();
     if (INPUT_->IsExit()) {
@@ -71,15 +71,23 @@ bool inGameLogic::newGame() {
     if (INPUT_->IsButtonEsc()) {
       isExit = true;
     }
+    containerCommand = DETERM_->determineInputKey(INPUT_);
 
-    DETERM_->whatMustToDo(INPUT_, typeACT, ACT);
-    DETERM_->whatMustToGo(INPUT_, typeACT, ACT);
-
-    LOGICA_->Update(typeACT, ACT);
+    LOGICA_->Update(containerCommand);
     RENDER_->Update(LOGICA_);
+
+    reloadMap();
 
   } while (!isExit);
   return false;
+}
+
+bool inGameLogic::putPlayer() {
+  playMap *Map;
+  unsigned mapName;
+  Map = LOGICA_->secret();
+  Map->viewName(mapName);
+  return LOGICA_->putPlayer(mapName);
 }
 
 bool inGameLogic::createPlayer() {
@@ -126,4 +134,43 @@ bool inGameLogic::createMap() {
   LOADFILE_->loadMap(mapX, mapY, mapChar);
 
   return LOGICA_->loadMap(0, mapX, mapY, mapChar);
+}
+
+bool inGameLogic::createECS() {
+  return LOGICA_->createECS();
+}
+
+bool inGameLogic::reloadMap() {
+  bool status;
+  LOGICA_->conditionChangeArea(status);
+  if(status){
+    playMap *Map;
+    unsigned mapX, mapY, mapName;
+    char** mapChar = nullptr;
+    Map = LOGICA_->secret();
+    Map->viewName(mapName);
+    if(mapName == 0){
+      if(LOADFILE_){
+        delete LOADFILE_;
+      }
+      LOADFILE_ = new loadFile("Maps/WestForest.bin");
+      LOADFILE_->loadMap(mapX, mapY, mapChar);
+
+      LOGICA_->changeChangeArea(false);
+      LOGICA_->putPlayer(1);
+      return LOGICA_->loadMap(1, mapX, mapY, mapChar);
+    } else{
+      if(LOADFILE_){
+        delete LOADFILE_;
+      }
+      LOADFILE_ = new loadFile("Maps/Falkreath.bin");
+      LOADFILE_->loadMap(mapX, mapY, mapChar);
+
+      LOGICA_->changeChangeArea(false);
+      LOGICA_->putPlayer(0);
+      return LOGICA_->loadMap(0, mapX, mapY, mapChar);
+    }
+  }
+  LOGICA_->changeChangeArea(false);
+  return false;
 }

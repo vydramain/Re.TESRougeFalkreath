@@ -16,7 +16,7 @@ set(PROJECT_SOURCES_DIR "Code/Sources")
 file(GLOB_RECURSE HEADRES ${PROJECT_HEADRES_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 
-add_executable(TESRougeFalkreath ${HEADERS} ${SOURCES} Code/Sources/controlComponents/inputDeterminant.cpp Code/Headers/controlComponents/inputDeterminant.h)
+add_executable(TESRougeFalkreath ${HEADERS} ${SOURCES} Code/Sources/controlComponents/inputDeterminant.cpp Code/Headers/controlComponents/inputDeterminant.h Code/Headers/controlComponents/inputCommand.h Code/Sources/controlComponents/myECS.cpp Code/Headers/controlComponents/myECS.h)
 
 include_directories(${PROJECT_HEADERS_DIR})
 

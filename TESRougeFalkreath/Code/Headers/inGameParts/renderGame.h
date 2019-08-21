@@ -18,13 +18,14 @@ class renderGame {
   ~renderGame();
 
   void clearALL();
+  void clearAREA(unsigned, unsigned, unsigned, unsigned);
 
+  bool viewPhrase(const char*,const char*,unsigned, unsigned, unsigned, unsigned);
   bool viewWord(const char*, char*, unsigned, unsigned, unsigned, unsigned, unsigned,
-                 unsigned);  // Что вводишь, возврат того, что вводишь, размер первого слова, размер второго слова, координаты
-                                   // квадрата, где производится ввод
-  bool viewChoise(
-      const char*, const char**, unsigned, unsigned, unsigned, unsigned, unsigned,
-       unsigned);  // Заголовок, список из меню, колличество пунктов для выбора, выбранный пункт, координаты квадрата для выбора
+                unsigned);  // Что вводишь, возврат того, что вводишь, размер первого слова, размер второго слова, координаты
+                            // квадрата, где производится ввод
+  bool viewChoise(const char*, const char**, unsigned, unsigned, unsigned, unsigned, unsigned,
+                  unsigned);  // Заголовок, список из меню, колличество пунктов для выбора, выбранный пункт, координаты квадрата для выбора
 
   bool mainMenu(unsigned);  // Выделенный элемент
   bool raceMenu(unsigned);  // Аналог верхнего
@@ -32,9 +33,10 @@ class renderGame {
   void symColor(char);
   void showArea(logicComponents* COMPONENTSAREA);
   void showPlayer(logicComponents* COMPONENTSAREA);
-  void showHud(logicComponents *COMPONENTS);
+  void showHud(logicComponents* COMPONENTS);
+  void showLogWindow(logicComponents* COMPONENTS);
 
-  bool Update(logicComponents *COMPONENTS);
+  bool Update(logicComponents* COMPONENTS);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_RENDERGAME_H_

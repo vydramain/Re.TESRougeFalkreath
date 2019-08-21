@@ -12,14 +12,32 @@ logicComponents::~logicComponents() {
 }
 
 bool logicComponents::createPlayer(char* Name, unsigned Race) {
-  PLAYER_ = new player(Name, 30, 20);
+  PLAYER_ = new player(Name, 73, 14);
   PLAYER_->changeNationality(Race);
   PLAYER_->changeStatus(1);
   return PLAYER_;
 }
 
+bool logicComponents::putPlayer(unsigned map) {
+  if(map == 0) {
+    return PLAYER_->changeLocation(73, 14);
+  }else{
+    if(map == 1){
+      return PLAYER_->changeLocation(4,16);
+    } else{
+      return true;
+    }
+  }
+}
+
 bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y) {
-  PLAYER_->viewLocation(X,Y);
+  PLAYER_->viewLocation(X, Y);
+  return false;
+}
+
+bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course) {
+  PLAYER_->viewLocation(X, Y);
+  PLAYER_->viewCourse(Course);
   return false;
 }
 
@@ -33,79 +51,10 @@ bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, un
   return false;
 }
 
-bool logicComponents::actPLayer(unsigned typeACT, unsigned ACT) {
-  char lay0, lay1, lay2, lay3;
-  unsigned playerX, playerY;
-  switch (typeACT) {
-    case 0: {
-      return 0;
-    }
-    case 1: {
-      switch (ACT) {
-        case 0: {
-          PLAYER_->viewLocation(playerX, playerY);
-          PLAYER_->changeCourse(0);
-          MAP_->pullKnot(playerX, playerY - 1, lay0, lay1, lay2, lay3);
-          if ((lay0 == ' ' || lay0 == '.') && lay1 == ' ' && lay2 == ' ' && lay3 == ' ') {
-            PLAYER_->changeLocation(playerX, playerY - 1);
-          }
-          return 0;
-        }
-        case 1: {
-          PLAYER_->viewLocation(playerX, playerY);
-          PLAYER_->changeCourse(1);
-          MAP_->pullKnot(playerX, playerY + 1, lay0, lay1, lay2, lay3);
-          if ((lay0 == ' ' || lay0 == '.') && lay1 == ' ' && lay2 == ' ' && lay3 == ' ') {
-            PLAYER_->changeLocation(playerX, playerY + 1);
-          }
-          return 0;
-        }
-        case 2: {
-          PLAYER_->viewLocation(playerX, playerY);
-          PLAYER_->changeCourse(2);
-          MAP_->pullKnot(playerX - 1, playerY, lay0, lay1, lay2, lay3);
-          if ((lay0 == ' ' || lay0 == '.') && lay1 == ' ' && lay2 == ' ' && lay3 == ' ') {
-            PLAYER_->changeLocation(playerX - 1, playerY);
-          }
-          return 0;
-        }
-        case 3: {
-          PLAYER_->viewLocation(playerX, playerY);
-          PLAYER_->changeCourse(3);
-          MAP_->pullKnot(playerX + 1, playerY, lay0, lay1, lay2, lay3);
-          if ((lay0 == ' ' || lay0 == '.') && lay1 == ' ' && lay2 == ' ' && lay3 == ' ') {
-            PLAYER_->changeLocation(playerX + 1, playerY);
-          }
-          return 0;
-        }
-        default: {
-          return 1;
-        }
-      }
-    }
-    case 2: {
-      unsigned playerCourse;
-      PLAYER_->viewLocation(playerX, playerY);
-      PLAYER_->viewCourse(playerCourse);
-
-
-      switch (ACT){ case 0:{
-
-
-      }
-        default:{
-          return 0;
-        }
-      }
-
-    }
-    default: {
-      return 1;
-    }
-  }
-}
-
 bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const unsigned& mapY, char** mapChar) {
+  if(MAP_){
+    delete MAP_;
+  }
   MAP_ = new playMap(Name, mapX, mapY);
   unsigned ggX, ggY;
   PLAYER_->viewLocation(ggX, ggY);
@@ -125,10 +74,38 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
   }
 }
 
-bool logicComponents::Update(unsigned typeACT, unsigned ACT) {
-  if (actPLayer(typeACT, ACT)) {
+bool logicComponents::createECS() {
+  if(MAP_ && PLAYER_){
+  ECS_ = new myECS(MAP_, PLAYER_);return false;} else{
     return true;
   }
+}
 
+void logicComponents::changeLogWindow(bool Log) {
+  logWindow = Log;
+}
+
+void logicComponents::conditionLogWindow(bool& Log) {
+  Log = logWindow;
+}
+
+void logicComponents::changeOldAct(unsigned Act) {
+  PLAYER_->changeOldAct(Act);
+}
+
+void logicComponents::conditionOldAct(unsigned& Act) {
+  PLAYER_->conditionOldAct(Act);
+}
+
+bool logicComponents::Update(const inputCommand_& containerCommand) {
+  changeLogWindow(ECS_->EcsUpdate(containerCommand));
   return false;
+}
+
+void logicComponents::changeChangeArea(bool IN) {
+  PLAYER_->changeChangeArea(IN);
+}
+
+void logicComponents::conditionChangeArea(bool& IN) {
+  PLAYER_->conditionChangeArea(IN);
 }

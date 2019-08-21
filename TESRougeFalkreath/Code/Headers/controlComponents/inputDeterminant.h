@@ -5,31 +5,21 @@
 #ifndef TESROUGEFALKREATH_INPUTDETERMINANT_H
 #define TESROUGEFALKREATH_INPUTDETERMINANT_H
 
+#include "controlComponents/inputCommand.h"
 #include "controlComponents/inputKey.h"
 
 class inputDeterminant {
  private:
-  bool conditionStandby_;
-
-  bool conditionAction_;     // - 0
-  bool conditionView_;       // - 1
-  bool conditionDialog_;     // - 2
-  bool conditionBite_;       // - 3
-  bool conditionCast_;       // - 4
-  bool conditionClimb_;      // - 5
-  bool conditionInventory_;  // - 6
-
-  bool moveUp_;     // - 0
-  bool moveDown_;   // - 1
-  bool moveLeft_;   // - 2
-  bool moveRight_;  // - 3
+  bool conditionPlayerConfirm_;
+  bool conditionPlayerAct_;
+  bool conditionPlayerDialog_;
+  bool conditionPlayerInventory_;
 
  public:
   explicit inputDeterminant();
   ~inputDeterminant();
 
-  bool whatMustToDo(const inputKey *INPUT, unsigned &typeACT, unsigned &ACT);
-  bool whatMustToGo(const inputKey *INPUT, unsigned &typeACT, unsigned &ACT);
+  inputCommand_ determineInputKey(inputKey *INPUT);
 };
 
 #endif  // TESROUGEFALKREATH_INPUTDETERMINANT_H

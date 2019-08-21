@@ -60,8 +60,9 @@ class playMap {
   bool pullKnot2(unsigned, unsigned, char &);
   bool pullKnot3(unsigned, unsigned, char &);
 
-  void viewSize(unsigned& X, unsigned& Y);
-
+  void setName(unsigned Name);
+  void viewName(unsigned& Name);
+  void viewSize(unsigned &X, unsigned &Y);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_PLAYMAP_H_

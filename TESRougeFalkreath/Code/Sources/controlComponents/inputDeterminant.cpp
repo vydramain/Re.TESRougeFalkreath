@@ -5,115 +5,83 @@
 #include "controlComponents/inputDeterminant.h"
 
 inputDeterminant::inputDeterminant() {
-  conditionStandby_ = true;
-  conditionBite_ = false;
-  conditionCast_ = false;
-  conditionClimb_ = false;
-  conditionInventory_ = false;
-  conditionAction_ = false;
-  conditionDialog_ = false;
-  conditionView_ = false;
-
-  moveUp_ = false;
-  moveDown_ = false;
-  moveLeft_ = false;
-  moveRight_ = false;
+  conditionPlayerConfirm_ = false;
+  conditionPlayerAct_ = false;
+  conditionPlayerDialog_ = false;
+  conditionPlayerInventory_ = false;
 }
 
 inputDeterminant::~inputDeterminant() {}
 
-bool inputDeterminant::whatMustToDo(const inputKey *INPUT, unsigned &typeACT, unsigned &ACT) {
-  if (conditionStandby_) {
-    if (INPUT->IsButtonE()) {
-      conditionAction_ = true;
-      typeACT = 2;
-      ACT = 0;
-    } else {
-      if (INPUT->IsButtonQ()) {
-        conditionView_ = true;
-        typeACT = 2;
-        ACT = 1;
-      } else {
-        if (INPUT->IsButtonD()) {
-          conditionDialog_ = true;
-          typeACT = 2;
-          ACT = 2;
-        } else {
-          if (INPUT->IsButtonW()) {
-            conditionBite_ = true;
-            typeACT = 2;
-            ACT = 3;
-          } else {
-            if (INPUT->IsButtonS()) {
-              conditionCast_ = true;
-              typeACT = 2;
-              ACT = 4;
-            } else {
-              if (INPUT->IsButtonA()) {
-                conditionClimb_ = true;
-                typeACT = 2;
-                ACT = 5;
-              } else {
-                if (INPUT->IsButtonI()) {
-                  conditionInventory_ = true;
-                  typeACT = 2;
-                  ACT = 6;
-                } else {
-                  typeACT = 0;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    return false;
-  }
-  return true;
-}
+inputCommand_ inputDeterminant::determineInputKey(inputKey* INPUT) {
+  inputCommand_ container;
+  if (INPUT->IsUp()) {
+    container.moveInCommand(1);  // вверх
 
-bool inputDeterminant::whatMustToGo(const inputKey *INPUT, unsigned &typeACT, unsigned &ACT) {
-  if (conditionStandby_) {
-    if (INPUT->IsUp()) {
-      moveUp_ = true;
-      typeACT = 1;
-      ACT = 0;
+  } else {
+    if (INPUT->IsDown()) {
+      container.moveInCommand(2);  // вниз
+
     } else {
-      if (INPUT->IsDown()) {
-        moveDown_ = true;
-        typeACT = 1;
-        ACT = 1;
+      if (INPUT->IsLeft()) {
+        container.moveInCommand(3);  // влево
       } else {
-        if (INPUT->IsLeft()) {
-          moveLeft_ = true;
-          typeACT = 1;
-          ACT = 2;
-        } else {
-          if (INPUT->IsRight()) {
-            moveRight_ = true;
-            typeACT = 1;
-            ACT = 3;
-          } else {
-            typeACT = 0;
-          }
+        if (INPUT->IsRight()) {
+          container.moveInCommand(4);  // вправо
         }
       }
     }
-    return false;
+  }
+
+  if (conditionPlayerAct_) {
+    if (INPUT->IsEnter()) {
+      conditionPlayerAct_ = false;
+      container.actInCommand(1);  // подтверждение действия
+    }
   } else {
-    if (INPUT->IsUp()) {
-      moveUp_ = true;
-      typeACT = 1;
-      ACT = 0;
+    if (conditionPlayerConfirm_) {
+      unsigned act;
+      container.moveOutCommand(act);
+      if (act != 0) {
+        conditionPlayerConfirm_ = false;
+      }
     } else {
-      if (INPUT->IsDown()) {
-        moveDown_ = true;
-        typeACT = 1;
-        ACT = 1;
+      if (conditionPlayerDialog_) {
+        // unsigned act;
+        // container.moveOutCommand(act);
+        // if (act != 0) {
+        //   conditionPlayerConfirm_ = false;
+        // }
       } else {
-        typeACT = 0;
+        if (conditionPlayerInventory_) {
+          // if (INPUT->IsButtonI()) {
+          //   conditionPlayerInventory_ = false;
+          //   container.actInCommand(0);
+          // }
+        }
       }
     }
-    return false;
   }
+
+  if (INPUT->IsButtonE()) {
+    conditionPlayerAct_ = true;
+    container.actInCommand(5);  // действие с объектом
+  } else {
+    if (INPUT->IsButtonQ()) {
+      conditionPlayerConfirm_ = true;
+      container.actInCommand(6);  // Осмотр предмета
+    } else {
+      if (INPUT->IsButtonD()) {
+        // conditionPlayerDialog_ = true;
+        // container.actInCommand(3);
+      } else {
+        if (INPUT->IsButtonI()) {
+          // conditionPlayerInventory_ = true;
+          // container.actInCommand(4);
+        }
+      }
+    }
+  }
+
+  return container;
 }

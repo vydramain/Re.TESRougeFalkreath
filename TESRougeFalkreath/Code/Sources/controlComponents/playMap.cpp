@@ -286,6 +286,14 @@ bool playMap::pullKnot3(unsigned X, unsigned Y, char &lay) {
   }
 }
 
+void playMap::setName(unsigned Name) {
+  mapName_ = Name;
+}
+
+void playMap::viewName(unsigned &Name) {
+  Name = mapName_;
+}
+
 void playMap::viewSize(unsigned &X, unsigned &Y) {
   X = countX_;
   Y = countY_;

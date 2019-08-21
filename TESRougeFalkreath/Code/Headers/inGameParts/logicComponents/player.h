@@ -39,6 +39,9 @@ class player {
                           // 8. Орк
                           // 9. Аргонианин
                           // 10. Каджит
+
+  unsigned oldAct;
+  bool changeArea;
  public:
   explicit player();
   explicit player(char*, unsigned, unsigned);  // создаём рабочего персонажа
@@ -57,6 +60,12 @@ class player {
   void viewStatus(unsigned&);
   void viewNationality(unsigned&);
   void viewPoints(unsigned&, unsigned&, unsigned&);
+
+  void changeOldAct(unsigned);
+  void conditionOldAct(unsigned &);
+
+  void changeChangeArea(bool);
+  void conditionChangeArea(bool&);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_PLAYER_H_

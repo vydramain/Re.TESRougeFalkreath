@@ -11,6 +11,8 @@ player::player() {
   HP_ = 0;
   AP_ = 0;
   MP_ = 0;
+
+  changeArea = false;
 }
 
 player::player(char* NAME, unsigned X, unsigned Y) {
@@ -22,6 +24,7 @@ player::player(char* NAME, unsigned X, unsigned Y) {
   }
 
   status_ = 1;
+  changeArea = false;
 }
 
 player::~player() {}
@@ -165,4 +168,20 @@ void player::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
   H = HP_;
   A = AP_;
   M = MP_;
+}
+
+void player::changeOldAct(unsigned Act) {
+  oldAct = Act;
+}
+
+void player::conditionOldAct(unsigned& Act) {
+  Act = oldAct;
+}
+
+void player::changeChangeArea(bool IN) {
+  changeArea = IN;
+}
+
+void player::conditionChangeArea(bool& IN) {
+  IN = changeArea;
 }
