@@ -11,7 +11,7 @@ struct inputCommand_ {
   unsigned act;
 
  public:
-  inputCommand_(){
+  inputCommand_() {
     move = 0;
     act = 0;
   }

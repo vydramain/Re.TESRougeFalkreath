@@ -129,7 +129,7 @@ bool playMap::changeKnot(unsigned X, unsigned Y, char lay0, char lay1, char lay2
     for (unsigned i(1); i < X; i++) {
       pb = pb->next2;
     }
-  pb->rewriteKnot(lay0, lay1, lay2, lay3);
+    pb->rewriteKnot(lay0, lay1, lay2, lay3);
     return 0;
   } else {
     return 1;

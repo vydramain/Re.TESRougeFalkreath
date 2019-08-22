@@ -6,7 +6,7 @@ logicComponents::~logicComponents() {
   if (PLAYER_) {
     delete PLAYER_;
   }
-  if(COIN_){
+  if (COIN_) {
     delete[] COIN_;
   }
   if (MAP_) {
@@ -75,10 +75,10 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
 bool logicComponents::createCoin() {
   srand(time(nullptr));
   unsigned R;
-  unsigned X[16] = {3,8,31,57,68,64,39,72,45,61,39,16,26,35,62,77};
-  unsigned Y[16] = {28,46,10,6,5,21,22,72,45,52,77,72,66,81,94,26};
-    COIN_ = new septim[10];
-  for(unsigned i(0); i < 20; i++){
+  unsigned X[16] = {3, 8, 31, 57, 68, 64, 39, 72, 45, 61, 39, 16, 26, 35, 62, 77};
+  unsigned Y[16] = {28, 46, 10, 6, 5, 21, 22, 72, 45, 52, 77, 72, 66, 81, 94, 26};
+  COIN_ = new septim[10];
+  for (unsigned i(0); i < 20; i++) {
     R = rand() % 16;
     COIN_[i].placeSeptim(X[R], Y[R], MAP_);
     COIN_[i].priceSeptim(R);
@@ -88,9 +88,9 @@ bool logicComponents::createCoin() {
 
 unsigned logicComponents::findCoin(unsigned X, unsigned Y) {
   unsigned coinX, coinY;
-  for(unsigned i (0); i < 16; i++){
+  for (unsigned i(0); i < 16; i++) {
     COIN_[i].conditionPlaceSeptim(coinX, coinY);
-    if (coinX == X && coinY == Y){
+    if (coinX == X && coinY == Y) {
       return i++;
     }
   }

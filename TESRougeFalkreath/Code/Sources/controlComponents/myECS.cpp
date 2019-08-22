@@ -9,7 +9,7 @@ myECS::myECS() {
   MAP_ = nullptr;
 }
 
-myECS::myECS(playMap* Map, player* Player, septim *Coin) {
+myECS::myECS(playMap* Map, player* Player, septim* Coin) {
   MAP_ = Map;
   PLAYER_ = Player;
   COIN_ = Coin;
@@ -39,16 +39,16 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   char layer0, layer1, layer2, layer3;
   MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
 
-  unsigned coinPrice (0);
-  if(layer3 == '$'){
+  unsigned coinPrice(0);
+  if (layer3 == '$') {
     unsigned coinX, coinY;
-    for(unsigned i (0); i < 16; i++){
+    for (unsigned i(0); i < 16; i++) {
       COIN_[i].conditionPlaceSeptim(coinX, coinY);
-      if (coinX == playerX && coinY == playerY){
+      if (coinX == playerX && coinY == playerY) {
         COIN_[i].conditionPriceSeptim(coinPrice);
       }
     }
-    PLAYER_->changeCoinsCount(wallet+coinPrice);
+    PLAYER_->changeCoinsCount(wallet + coinPrice);
     MAP_->changeKnot3(playerX, playerY, ' ');
   }
 
@@ -129,7 +129,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
             PLAYER_->changeChangeArea(true);
           }
           if (layer0 == 'Q') {
-PLAYER_->changeEndGame(true);
+            PLAYER_->changeEndGame(true);
           }
           lastReturn_ = false;
           return false;

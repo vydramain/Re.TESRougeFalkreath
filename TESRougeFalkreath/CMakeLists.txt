@@ -1,22 +1,21 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.12)
 project(TESRougeFalkreath)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wextra -Wzero-as-null-pointer-constant -Winit-self -Wswitch-default -Wfloat-equal -Wno-unused-parameter -fPIC -march=native")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 -Wall -Werror -Wextra -Wzero-as-null-pointer-constant -Winit-self -Wswitch-default -Wfloat-equal -Wno-unused-parameter -fPIC -march=native")
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
 find_package(BearLibTerminal REQUIRED)
 include_directories(SYSTEM ${BLT_INCLUDE_DIRS})
 
+set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/Code/Headers)
+set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/Code/Sources)
 
-set(PROJECT_HEADERS_DIR "Code/Headers")
-set(PROJECT_SOURCES_DIR "Code/Sources")
-
-file(GLOB_RECURSE HEADRES ${PROJECT_HEADRES_DIR}/*.h)
+file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 
-add_executable(TESRougeFalkreath ${HEADERS} ${SOURCES} Code/Sources/controlComponents/inputDeterminant.cpp Code/Headers/controlComponents/inputDeterminant.h Code/Headers/controlComponents/inputCommand.h Code/Sources/controlComponents/myECS.cpp Code/Headers/controlComponents/myECS.h Code/Sources/inGameParts/logicComponents/items/septim.cpp Code/Headers/inGameParts/logicComponents/items/septim.h)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
 include_directories(${PROJECT_HEADERS_DIR})
 

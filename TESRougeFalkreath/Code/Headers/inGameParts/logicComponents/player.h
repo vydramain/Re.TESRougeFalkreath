@@ -64,7 +64,7 @@ class player {
   void viewStatus(unsigned &);
   void viewNationality(unsigned &);
   void viewPoints(unsigned &, unsigned &, unsigned &);
-  void viewCoinsCount(unsigned&);
+  void viewCoinsCount(unsigned &);
 
   void changeOldAct(unsigned);
   void conditionOldAct(unsigned &);
@@ -73,7 +73,7 @@ class player {
   void conditionChangeArea(bool &);
 
   void changeEndGame(bool);
-  void conditionEndGame(bool&);
+  void conditionEndGame(bool &);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_PLAYER_H_

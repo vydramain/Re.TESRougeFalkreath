@@ -39,6 +39,6 @@ void septim::conditionPriceSeptim(unsigned& Price) {
 }
 
 void septim::conditionPlaceSeptim(unsigned& X, unsigned& Y) {
-   X = itemX_;
-   Y = itemY_;
+  X = itemX_;
+  Y = itemY_;
 }

@@ -79,7 +79,7 @@ bool inGameLogic::newGame() {
     RENDER_->Update(LOGICA_);
 
     reloadMap();
-    if (checkEnd()){
+    if (checkEnd()) {
       deathScreen();
       isExit = true;
     }
@@ -90,7 +90,7 @@ bool inGameLogic::newGame() {
 }
 
 bool inGameLogic::putPlayer() {
-  playMap *Map;
+  playMap* Map;
   unsigned mapName;
   Map = LOGICA_->secret();
   Map->viewName(mapName);
@@ -165,14 +165,14 @@ bool inGameLogic::checkEnd() {
 bool inGameLogic::reloadMap() {
   bool status;
   LOGICA_->conditionChangeArea(status);
-  if(status){
-    playMap *Map;
+  if (status) {
+    playMap* Map;
     unsigned mapX, mapY, mapName;
     char** mapChar = nullptr;
     Map = LOGICA_->secret();
     Map->viewName(mapName);
-    if(mapName == 0){
-      if(LOADFILE_){
+    if (mapName == 0) {
+      if (LOADFILE_) {
         delete LOADFILE_;
       }
       LOADFILE_ = new loadFile("Maps/WestForest.bin");
@@ -181,8 +181,8 @@ bool inGameLogic::reloadMap() {
       LOGICA_->changeChangeArea(false);
       LOGICA_->putPlayer(1);
       return LOGICA_->loadMap(1, mapX, mapY, mapChar);
-    } else{
-      if(LOADFILE_){
+    } else {
+      if (LOADFILE_) {
         delete LOADFILE_;
       }
       LOADFILE_ = new loadFile("Maps/Falkreath.bin");

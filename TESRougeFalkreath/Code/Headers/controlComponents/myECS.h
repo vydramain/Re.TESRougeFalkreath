@@ -17,6 +17,7 @@ class myECS {
   septim *COIN_;
 
   bool lastReturn_;
+
  public:
   myECS();
   myECS(playMap *, player *, septim *);

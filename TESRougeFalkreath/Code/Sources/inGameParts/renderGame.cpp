@@ -12,7 +12,7 @@ renderGame::renderGame(unsigned gameMode) {
   switch (gameMode) {
     case 1: {
       terminal_open();
-      terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
+      terminal_set("window: title='TES Falkreath', cellsize=12x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-R.ttf, size=12");
       terminal_refresh();
 
       stepMeter_ = 0;
@@ -492,7 +492,7 @@ void renderGame::showLogWindow(logicComponents* COMPONENTS) {
         if (lay0 == 'Z') {
           viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
         }
-        if(lay0 == 'Q') {
+        if (lay0 == 'Q') {
           viewPhrase("Покинуть Фолкрит?", " Обратного пути не будет...", 0, 30, 65, 39);
         }
         break;

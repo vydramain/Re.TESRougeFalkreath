@@ -11,6 +11,7 @@
 class septim : public item {
  private:
   unsigned price;
+
  public:
   septim();
   septim(unsigned Count);
