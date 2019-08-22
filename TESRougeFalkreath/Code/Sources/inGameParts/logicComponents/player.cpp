@@ -14,6 +14,7 @@ player::player() {
   wallet_ = 0;
 
   changeArea = false;
+  endGame = false;
 }
 
 player::player(char* NAME, unsigned X, unsigned Y) {
@@ -26,7 +27,9 @@ player::player(char* NAME, unsigned X, unsigned Y) {
 
   wallet_ = 0;
   status_ = 1;
+
   changeArea = false;
+  endGame = false;
 }
 
 player::~player() {}
@@ -195,4 +198,12 @@ void player::changeChangeArea(bool IN) {
 
 void player::conditionChangeArea(bool& IN) {
   IN = changeArea;
+}
+
+void player::changeEndGame(bool IN) {
+  endGame = IN;
+}
+
+void player::conditionEndGame(bool& IN) {
+  IN = endGame;
 }

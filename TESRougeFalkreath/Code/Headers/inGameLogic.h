@@ -42,7 +42,10 @@ class inGameLogic {
 
   bool deleteCoin();
 
+  bool checkEnd();
   bool reloadMap();
+
+  bool deathScreen();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_

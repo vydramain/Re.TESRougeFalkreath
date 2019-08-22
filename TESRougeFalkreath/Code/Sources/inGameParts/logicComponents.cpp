@@ -7,7 +7,7 @@ logicComponents::~logicComponents() {
     delete PLAYER_;
   }
   if(COIN_){
-    delete COIN_;
+    delete[] COIN_;
   }
   if (MAP_) {
     delete MAP_;
@@ -138,4 +138,8 @@ void logicComponents::changeChangeArea(bool IN) {
 
 void logicComponents::conditionChangeArea(bool& IN) {
   PLAYER_->conditionChangeArea(IN);
+}
+
+void logicComponents::conditionEnd(bool& IN) {
+  PLAYER_->conditionEndGame(IN);
 }

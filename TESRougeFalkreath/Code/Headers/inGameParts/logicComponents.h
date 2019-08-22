@@ -48,6 +48,8 @@ class logicComponents {
   void changeChangeArea(bool);
   void conditionChangeArea(bool&);
 
+  void conditionEnd(bool&);
+
   playMap* secret() {
     return MAP_;
   }

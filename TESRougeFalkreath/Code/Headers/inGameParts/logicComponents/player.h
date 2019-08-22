@@ -43,6 +43,7 @@ class player {
 
   unsigned oldAct;
   bool changeArea;
+  bool endGame;
 
  public:
   explicit player();
@@ -70,6 +71,9 @@ class player {
 
   void changeChangeArea(bool);
   void conditionChangeArea(bool &);
+
+  void changeEndGame(bool);
+  void conditionEndGame(bool&);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_PLAYER_H_

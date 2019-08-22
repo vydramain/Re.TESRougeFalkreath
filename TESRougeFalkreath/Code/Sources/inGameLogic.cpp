@@ -72,12 +72,17 @@ bool inGameLogic::newGame() {
     if (INPUT_->IsButtonEsc()) {
       isExit = true;
     }
+
     containerCommand = DETERM_->determineInputKey(INPUT_);
 
     LOGICA_->Update(containerCommand);
     RENDER_->Update(LOGICA_);
 
     reloadMap();
+    if (checkEnd()){
+      deathScreen();
+      isExit = true;
+    }
 
   } while (!isExit);
   deleteCoin();
@@ -151,6 +156,12 @@ bool inGameLogic::deleteCoin() {
   return false;
 }
 
+bool inGameLogic::checkEnd() {
+  bool end;
+  LOGICA_->conditionEnd(end);
+  return end;
+}
+
 bool inGameLogic::reloadMap() {
   bool status;
   LOGICA_->conditionChangeArea(status);
@@ -183,5 +194,11 @@ bool inGameLogic::reloadMap() {
     }
   }
   LOGICA_->changeChangeArea(false);
+  return false;
+}
+
+bool inGameLogic::deathScreen() {
+  RENDER_->deathScreen(LOGICA_);
+  terminal_read();
   return false;
 }

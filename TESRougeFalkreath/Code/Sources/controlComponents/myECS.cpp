@@ -39,7 +39,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   char layer0, layer1, layer2, layer3;
   MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
 
-  unsigned coinPrice;
+  unsigned coinPrice (0);
   if(layer3 == '$'){
     unsigned coinX, coinY;
     for(unsigned i (0); i < 16; i++){
@@ -127,6 +127,9 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
           }
           if (layer0 == 'Z') {
             PLAYER_->changeChangeArea(true);
+          }
+          if (layer0 == 'Q') {
+PLAYER_->changeEndGame(true);
           }
           lastReturn_ = false;
           return false;

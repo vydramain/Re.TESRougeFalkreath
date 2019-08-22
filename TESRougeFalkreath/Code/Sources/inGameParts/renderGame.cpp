@@ -122,6 +122,36 @@ bool renderGame::viewChoise(const char* title, const char** punctsChoise, unsign
   return false;
 }
 
+bool renderGame::deathScreen(logicComponents* COMPONENTS) {
+  clearALL();
+  char playerName[24];
+  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
+  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
+  if (playerStatus == 0) {
+    viewPhrase("Как это не печально но вы были убиты...", "Может в следующий раз ты поступишь умнее...", 0, 0, 99, 39);
+  }
+  if (playerStatus == 1) {
+    terminal_layer(1);
+    viewPhrase("Вы отправились в дальнее путешествие...", "Вы покинули Фолкрит навсегда...", 0, 0, 99, 5);
+    viewPhrase("Никто из нынешних жителей Фолкрита никогда не увидит больше вас...", "", 0, 7, 99, 11);
+    viewPhrase("Но и вспоминать они вас не будут...", "Никто о вас не знал вас. Вы - очередной безымянный путешественник.", 0, 13, 99, 18);
+    if (playerWallet > 60) {
+      viewPhrase("Однако, жители после вашего ухода перестали доверять друг другу.",
+                 "Никто больше не приветствовал друг друга со счастливой улыбкой.", 0, 20, 99, 25);
+      viewPhrase("И особенно не жаловали путешественников...", " ", 0, 27, 99, 31);
+    } else {
+      if (playerWallet == 0) {
+        viewPhrase("Фолкрит остался всё таким же, каким и был до этого...", "Тихим и прекрасным местом...", 0, 20, 99, 25);
+        viewPhrase("Зелёной сокровищницей, скрывающей внутри себя хвойные и смолистые драгоценности.", "", 0, 27, 99, 31);
+      } else {
+        viewPhrase("И вы хорошо знаете удел искателя приключений.", "", 0, 20, 99, 24);
+      }
+    }
+  }
+  terminal_refresh();
+  return false;
+}
+
 bool renderGame::mainMenu(unsigned highLight) {
   const char Title[26] = {"Главное меню:"};
   const char* Puncts[4] = {"Новая игра", "Загрузить игру", "Конфигурация", "Выход"};
@@ -197,6 +227,10 @@ void renderGame::symColor(char mapSym) {
       terminal_color(0xffffff00);
       break;
     }
+    case 'Q': {
+      terminal_color(0xff44eedd);
+      break;
+    }
     default: {
       terminal_color(0xff4c4c4c);
       break;
@@ -237,7 +271,6 @@ void renderGame::showPlayer(logicComponents* COMPONENTS) {
   char playerName[24];
   unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
   COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
-
   terminal_layer(4);
   terminal_color(0xFFFFFFFF);
   if (playerStatus == 2) {
@@ -294,6 +327,7 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   char wallet[9];
   sprintf(wallet, "%d", playerWallet);
   terminal_print(mapBorderX_ + 1 + 8, 26, wallet);
+
   terminal_print(mapBorderX_ + 1, 27, "Сумка:");
 
   terminal_print(mapBorderX_ + 1 + 5, 1, playerName);
@@ -358,13 +392,6 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
       break;
     }
   }
-  terminal_print(mapBorderX_ + 1, 9, "________________________________");
-  terminal_print(mapBorderX_ + 1, mapBorderY_ - 5, "________________________________");
-
-  terminal_print(mapBorderX_ + 1, 11, "Задания:");
-  terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
-  terminal_print(mapBorderX_ + 1, 26, "Сумка:");
-
   if ((oldPlayerX_ != playerX) || (oldPlayerY_ != playerY)) {
     oldPlayerX_ = playerX;
     oldPlayerY_ = playerY;
@@ -438,8 +465,13 @@ void renderGame::showLogWindow(logicComponents* COMPONENTS) {
                           if (lay0 == 'Z') {
                             viewPhrase("Восточные ворота Фолкрита.", "Ворота в Скайрим...", 0, 30, 65, 39);
                           } else {
-                            if (lay0 != ' ' && lay0 != '.') {
-                              viewPhrase("Я не знаю что это...", "Вроде на камень смахивает придорожный.", 0, 30, 65, 39);
+                            if (lay0 == 'Q') {
+                              viewPhrase("Покинуть Фолкрит ради новых приключений?",
+                                         "Отправившись однажды, вы больше никогда не сможете вернуться.", 0, 30, 65, 39);
+                            } else {
+                              if (lay0 != ' ' && lay0 != '.') {
+                                viewPhrase("Я не знаю что это...", "Вроде на камень смахивает придорожный.", 0, 30, 65, 39);
+                              }
                             }
                           }
                         }
@@ -460,6 +492,9 @@ void renderGame::showLogWindow(logicComponents* COMPONENTS) {
         if (lay0 == 'Z') {
           viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
         }
+        if(lay0 == 'Q') {
+          viewPhrase("Покинуть Фолкрит?", " Обратного пути не будет...", 0, 30, 65, 39);
+        }
         break;
       }
       default: {
@@ -475,7 +510,6 @@ bool renderGame::Update(logicComponents* COMPONENTS) {
   showPlayer(COMPONENTS);
   showHud(COMPONENTS);
   showLogWindow(COMPONENTS);
-
   terminal_refresh();
 
   return false;

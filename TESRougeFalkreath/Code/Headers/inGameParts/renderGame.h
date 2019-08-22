@@ -23,12 +23,14 @@ class renderGame {
   void clearALL();
   void clearAREA(unsigned, unsigned, unsigned, unsigned);
 
-  bool viewPhrase(const char*,const char*,unsigned, unsigned, unsigned, unsigned);
+  bool viewPhrase(const char*, const char*, unsigned, unsigned, unsigned, unsigned);
   bool viewWord(const char*, char*, unsigned, unsigned, unsigned, unsigned, unsigned,
                 unsigned);  // Что вводишь, возврат того, что вводишь, размер первого слова, размер второго слова, координаты
                             // квадрата, где производится ввод
   bool viewChoise(const char*, const char**, unsigned, unsigned, unsigned, unsigned, unsigned,
                   unsigned);  // Заголовок, список из меню, колличество пунктов для выбора, выбранный пункт, координаты квадрата для выбора
+
+  bool deathScreen(logicComponents* COMPONENTS);
 
   bool mainMenu(unsigned);  // Выделенный элемент
   bool raceMenu(unsigned);  // Аналог верхнего
