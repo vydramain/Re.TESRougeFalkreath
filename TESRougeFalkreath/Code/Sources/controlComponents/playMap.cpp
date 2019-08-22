@@ -63,7 +63,7 @@ playMap::playMap(unsigned Name, unsigned X, unsigned Y) {
   countX_ = X;
   countY_ = Y;
   ph = nullptr;
-  for (unsigned i(0); i < countY_; i++) {
+  for (unsigned i(0); i <= countY_; i++) {
     if (ph != nullptr) {
       pb = ph;
       while (pb->next1 != nullptr) {
@@ -80,8 +80,8 @@ playMap::playMap(unsigned Name, unsigned X, unsigned Y) {
       ph = p;
     }
   }
-  for (unsigned i(0); i < countY_; i++) {
-    for (unsigned ii(0); ii < countX_; ii++) {
+  for (unsigned i(0); i <= countY_; i++) {
+    for (unsigned ii(0); ii <= countX_; ii++) {
       if (ph != nullptr) {
         pb = ph;
         for (unsigned I(1); I < i; I++) {

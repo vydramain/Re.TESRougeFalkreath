@@ -270,7 +270,7 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1 + 10, mapBorderY_ - 2, meter);
 
   terminal_print(mapBorderX_ + 1, 1, "Имя:");
-  terminal_print(mapBorderX_ + 1, 2, "Расса:");
+  terminal_print(mapBorderX_ + 1, 2, "Раса:");
   terminal_print(mapBorderX_ + 1, 3, "Статус:");
 
   char hp[5], mp[5], ap[5];

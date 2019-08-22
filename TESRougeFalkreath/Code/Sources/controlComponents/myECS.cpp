@@ -38,7 +38,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   char layer0, layer1, layer2, layer3;
   MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
   if(layer3 == '$'){
-    PLAYER_->changeChangeArea(wallet+1);
+    PLAYER_->changeCoinsCount(wallet+1);
     MAP_->changeKnot3(playerX, playerY, ' ');
   }
 

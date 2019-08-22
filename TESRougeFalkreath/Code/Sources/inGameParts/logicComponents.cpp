@@ -1,7 +1,6 @@
 #include "inGameParts/logicComponents.h"
 
-logicComponents::logicComponents() {
-}
+logicComponents::logicComponents() {}
 
 logicComponents::~logicComponents() {
   if (PLAYER_) {
@@ -20,12 +19,12 @@ bool logicComponents::createPlayer(char* Name, unsigned Race) {
 }
 
 bool logicComponents::putPlayer(unsigned map) {
-  if(map == 0) {
+  if (map == 0) {
     return PLAYER_->changeLocation(73, 14);
-  }else{
-    if(map == 1){
-      return PLAYER_->changeLocation(4,16);
-    } else{
+  } else {
+    if (map == 1) {
+      return PLAYER_->changeLocation(4, 16);
+    } else {
       return true;
     }
   }
@@ -43,7 +42,7 @@ bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course
 }
 
 bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY,
-                                      unsigned& STATUS, char* NAME, unsigned &WALLET) {
+                                      unsigned& STATUS, char* NAME, unsigned& WALLET) {
   PLAYER_->viewLocation(X, Y);
   PLAYER_->viewPoints(HP, AP, MP);
   PLAYER_->viewNationality(NATIONALITY);
@@ -54,20 +53,14 @@ bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, un
 }
 
 bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const unsigned& mapY, char** mapChar) {
-  if(MAP_){
+  if (MAP_) {
     delete MAP_;
   }
   MAP_ = new playMap(Name, mapX, mapY);
-  unsigned ggX, ggY;
-  PLAYER_->viewLocation(ggX, ggY);
   if (MAP_) {
     for (unsigned ii(0); ii < mapY; ii++) {
       for (unsigned i(0); i < mapX; i++) {
-        if (ii == ggY && i == ggX) {
-          MAP_->changeKnot(i, ii, mapChar[ii][i], ' ', ' ', 'i');
-        } else {
-          MAP_->changeKnot(i, ii, mapChar[ii][i], ' ', ' ', ' ');
-        }
+        MAP_->changeKnot(i, ii, mapChar[ii][i], ' ', ' ', ' ');
       }
     }
     COIN_ = new septim(30, 20, MAP_);
@@ -78,8 +71,10 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
 }
 
 bool logicComponents::createECS() {
-  if(MAP_ && PLAYER_){
-  ECS_ = new myECS(MAP_, PLAYER_);return false;} else{
+  if (MAP_ && PLAYER_) {
+    ECS_ = new myECS(MAP_, PLAYER_);
+    return false;
+  } else {
     return true;
   }
 }
