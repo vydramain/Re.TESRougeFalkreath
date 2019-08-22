@@ -39,33 +39,37 @@ class player {
                           // 8. Орк
                           // 9. Аргонианин
                           // 10. Каджит
+  unsigned wallet_;
 
   unsigned oldAct;
   bool changeArea;
+
  public:
   explicit player();
-  explicit player(char*, unsigned, unsigned);  // создаём рабочего персонажа
+  explicit player(char *, unsigned, unsigned);  // создаём рабочего персонажа
   ~player();
 
-  bool changeName(char*);
+  bool changeName(char *);
   bool changeLocation(unsigned, unsigned);
   bool changeCourse(unsigned);
   bool changeStatus(unsigned);
   bool changeNationality(unsigned);
   bool changePoints(unsigned, unsigned, unsigned);
+  bool changeCoinsCount(unsigned);
 
-  void viewName(char*);
-  void viewLocation(unsigned&, unsigned&);
-  void viewCourse(unsigned&);
-  void viewStatus(unsigned&);
-  void viewNationality(unsigned&);
-  void viewPoints(unsigned&, unsigned&, unsigned&);
+  void viewName(char *);
+  void viewLocation(unsigned &, unsigned &);
+  void viewCourse(unsigned &);
+  void viewStatus(unsigned &);
+  void viewNationality(unsigned &);
+  void viewPoints(unsigned &, unsigned &, unsigned &);
+  void viewCoinsCount(unsigned&);
 
   void changeOldAct(unsigned);
   void conditionOldAct(unsigned &);
 
   void changeChangeArea(bool);
-  void conditionChangeArea(bool&);
+  void conditionChangeArea(bool &);
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_PLAYER_H_

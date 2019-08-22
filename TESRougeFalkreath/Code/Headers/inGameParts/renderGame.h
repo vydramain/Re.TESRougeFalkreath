@@ -12,6 +12,9 @@ class renderGame {
  private:
   unsigned mapBorderX_ = 66, mapBorderY_ = 40;
 
+  unsigned stepMeter_;
+  unsigned oldPlayerX_, oldPlayerY_;
+
  public:
   explicit renderGame();
   explicit renderGame(unsigned);
@@ -33,6 +36,7 @@ class renderGame {
   void symColor(char);
   void showArea(logicComponents* COMPONENTSAREA);
   void showPlayer(logicComponents* COMPONENTSAREA);
+  void showItems(logicComponents* COMPONENTSAREA);
   void showHud(logicComponents* COMPONENTS);
   void showLogWindow(logicComponents* COMPONENTS);
 

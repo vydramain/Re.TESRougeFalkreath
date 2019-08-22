@@ -9,25 +9,78 @@ class playMap {
                       // 3 - Южные Скальные Сосны
 
   struct knot {
-    char layer0;  // Карта
-    char layer1;  // Предмет
-    char layer2;  // Непись
-    char layer3;  // Игрок
+    char *layer0;  // Карта
+    char *layer1;  // Предмет
+    char *layer2;  // Непись
+    char *layer3;  // Игрок
     knot *next1;
     knot *next2;
 
     knot() {
-      layer0 = ' ';
-      layer1 = ' ';
-      layer2 = ' ';
-      layer3 = ' ';
+      layer0 = nullptr;  // new char(' ');
+      layer1 = nullptr;  // new char(' ');
+      layer2 = nullptr;  // new char(' ');
+      layer3 = nullptr;  // new char(' ');
       next1 = nullptr;
       next2 = nullptr;
     }
 
     ~knot() {
-      next1 = nullptr;
-      next2 = nullptr;
+      delete layer0;
+      delete layer1;
+      delete layer2;
+      delete layer3;
+    }
+
+    void rewriteKnot(char lay0, char lay1, char lay2, char lay3) {
+      delete layer0;
+      delete layer1;
+      delete layer2;
+      delete layer3;
+
+      layer0 = new char(lay0);
+      layer1 = new char(lay1);
+      layer2 = new char(lay2);
+      layer3 = new char(lay3);
+    }
+    void rewriteKnot0(char lay) {
+      delete layer0;
+
+      layer0 = new char(lay);
+    }
+    void rewriteKnot1(char lay) {
+      delete layer1;
+
+      layer1 = new char(lay);
+    }
+    void rewriteKnot2(char lay) {
+      delete layer2;
+
+      layer2 = new char(lay);
+    }
+    void rewriteKnot3(char lay) {
+      delete layer3;
+
+      layer3 = new char(lay);
+    }
+
+    void viewKnot(char &lay0, char &lay1, char &lay2, char &lay3) {
+      lay0 = *layer0;
+      lay1 = *layer1;
+      lay2 = *layer2;
+      lay3 = *layer3;
+    }
+    void viewKnot0(char &lay) {
+      lay = *layer0;
+    }
+    void viewKnot1(char &lay) {
+      lay = *layer1;
+    }
+    void viewKnot2(char &lay) {
+      lay = *layer2;
+    }
+    void viewKnot3(char &lay) {
+      lay = *layer3;
     }
   };
 
@@ -61,7 +114,7 @@ class playMap {
   bool pullKnot3(unsigned, unsigned, char &);
 
   void setName(unsigned Name);
-  void viewName(unsigned& Name);
+  void viewName(unsigned &Name);
   void viewSize(unsigned &X, unsigned &Y);
 };
 

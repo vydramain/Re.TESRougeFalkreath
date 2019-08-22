@@ -3,6 +3,7 @@
 
 #include <controlComponents/inputCommand.h>
 #include <controlComponents/myECS.h>
+#include <inGameParts/logicComponents/items/septim.h>
 #include "controlComponents/playMap.h"
 #include "inGameParts/logicComponents/item.h"
 #include "inGameParts/logicComponents/npc.h"
@@ -12,6 +13,7 @@ class logicComponents {
  private:
   player* PLAYER_ = nullptr;
   playMap* MAP_ = nullptr;
+  septim* COIN_ = nullptr;
 
   myECS *ECS_ = nullptr;
 
@@ -25,7 +27,7 @@ class logicComponents {
   bool loadPlayer();
   bool conditionPlayer(unsigned& X, unsigned& Y);
   bool conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course);
-  bool conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY, unsigned& STATUS, char* NAME);
+  bool conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY, unsigned& STATUS, char* NAME, unsigned &WALLET);
 
   bool loadMap(const unsigned&, const unsigned&, const unsigned&, char**);  // Имя карты, x, y, char
 

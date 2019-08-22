@@ -4,6 +4,8 @@ renderGame::renderGame() {
   terminal_open();
   terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
   terminal_refresh();
+
+  stepMeter_ = 0;
 }
 
 renderGame::renderGame(unsigned gameMode) {
@@ -12,6 +14,8 @@ renderGame::renderGame(unsigned gameMode) {
       terminal_open();
       terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
       terminal_refresh();
+
+      stepMeter_ = 0;
       break;
     }
     default: {
@@ -19,6 +23,8 @@ renderGame::renderGame(unsigned gameMode) {
       terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
       terminal_refresh();
       terminal_print(0, 0, "Ошибка_renderGame:_Нестандарная_gameMode_переменная_");
+
+      stepMeter_ = 0;
       break;
     }
   }
@@ -184,6 +190,10 @@ void renderGame::symColor(char mapSym) {
       break;
     }
     case 'Z': {
+      terminal_color(0xff888800);
+      break;
+    }
+    case '$': {
       terminal_color(0xffffff00);
       break;
     }
@@ -200,18 +210,22 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
   AREA->viewSize(mapX, mapY);
   unsigned playerX, playerY;
   COMPONENTS->conditionPlayer(playerX, playerY);
-  terminal_layer(1);
   char temp;
   for (unsigned ii(0); ii < mapBorderY_; ii++) {
     for (unsigned i(0); i < mapBorderX_; i++) {
       terminal_color(0xaaffffff);
-      if (playerY - 20 + ii >= mapY - 1) {
+      if (playerY - 20 + ii > mapY - 2) {
         terminal_put(i, ii, ' ');
       } else {
-        if (playerX - 30 + i >= mapX - 1) {
+        if (playerX - 30 + i > mapX - 2) {
           terminal_put(i, ii, ' ');
         } else {
+          terminal_layer(1);
           AREA->pullKnot0(playerX - 30 + i, playerY - 20 + ii, temp);
+          symColor(temp);
+          terminal_put(i, ii, temp);
+          terminal_layer(3);
+          AREA->pullKnot3(playerX - 30 + i, playerY - 20 + ii, temp);
           symColor(temp);
           terminal_put(i, ii, temp);
         }
@@ -221,8 +235,9 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
 }
 void renderGame::showPlayer(logicComponents* COMPONENTS) {
   char playerName[24];
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus;
-  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName);
+  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
+  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
+
   terminal_layer(4);
   terminal_color(0xFFFFFFFF);
   if (playerStatus == 2) {
@@ -233,9 +248,8 @@ void renderGame::showPlayer(logicComponents* COMPONENTS) {
 
 void renderGame::showHud(logicComponents* COMPONENTS) {
   char playerName[24];
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus;
-  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName);
-
+  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
+  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
   terminal_layer(5);
   terminal_color(0xffffffff);
   for (unsigned i(0); i < mapBorderY_; i++) {
@@ -244,6 +258,16 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
 
   terminal_print(mapBorderX_ + 1, 9, "________________________________");
   terminal_print(mapBorderX_ + 1, mapBorderY_ - 5, "________________________________");
+
+  char coorX[5], coorY[5], meter[9];
+  terminal_print(mapBorderX_ + 1, mapBorderY_ - 3, "Координаты:");
+  sprintf(coorX, "%d", playerX);
+  sprintf(coorY, "%d", playerY);
+  sprintf(meter, "%d", stepMeter_);
+  terminal_print(mapBorderX_ + 1 + 12, mapBorderY_ - 3, coorX);
+  terminal_print(mapBorderX_ + 1 + 16, mapBorderY_ - 3, coorY);
+  terminal_print(mapBorderX_ + 1, mapBorderY_ - 2, "Действий:");
+  terminal_print(mapBorderX_ + 1 + 10, mapBorderY_ - 2, meter);
 
   terminal_print(mapBorderX_ + 1, 1, "Имя:");
   terminal_print(mapBorderX_ + 1, 2, "Расса:");
@@ -266,7 +290,11 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_color(0xFFFFFFFF);
   terminal_print(mapBorderX_ + 1, 11, "Задания:");
   terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
-  terminal_print(mapBorderX_ + 1, 26, "Сумка:");
+  terminal_print(mapBorderX_ + 1, 26, "Кошель:");
+  char wallet[9];
+  sprintf(wallet, "%d", playerWallet);
+  terminal_print(mapBorderX_ + 1 + 8, 26, wallet);
+  terminal_print(mapBorderX_ + 1, 27, "Сумка:");
 
   terminal_print(mapBorderX_ + 1 + 5, 1, playerName);
   switch (playerNationality) {
@@ -336,6 +364,12 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 11, "Задания:");
   terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
   terminal_print(mapBorderX_ + 1, 26, "Сумка:");
+
+  if ((oldPlayerX_ != playerX) || (oldPlayerY_ != playerY)) {
+    oldPlayerX_ = playerX;
+    oldPlayerY_ = playerY;
+    stepMeter_++;
+  }
 }
 
 void renderGame::showLogWindow(logicComponents* COMPONENTS) {
@@ -423,7 +457,7 @@ void renderGame::showLogWindow(logicComponents* COMPONENTS) {
         if (lay0 == '<' || lay0 == '>' || lay0 == 'v' || lay0 == '^') {
           viewPhrase("Открыть дверь?", "", 0, 30, 65, 39);
         }
-        if(lay0 == 'Z'){
+        if (lay0 == 'Z') {
           viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
         }
         break;

@@ -129,10 +129,7 @@ bool playMap::changeKnot(unsigned X, unsigned Y, char lay0, char lay1, char lay2
     for (unsigned i(1); i < X; i++) {
       pb = pb->next2;
     }
-    pb->layer0 = lay0;
-    pb->layer1 = lay1;
-    pb->layer2 = lay2;
-    pb->layer3 = lay3;
+  pb->rewriteKnot(lay0, lay1, lay2, lay3);
     return 0;
   } else {
     return 1;
@@ -148,7 +145,7 @@ bool playMap::changeKnot0(unsigned X, unsigned Y, char lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->layer0 = lay;
+    pb->rewriteKnot0(lay);
     return 0;
   } else {
     return 1;
@@ -164,7 +161,7 @@ bool playMap::changeKnot1(unsigned X, unsigned Y, char lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->layer1 = lay;
+    pb->rewriteKnot1(lay);
     return 0;
   } else {
     return 1;
@@ -180,7 +177,7 @@ bool playMap::changeKnot2(unsigned X, unsigned Y, char lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->layer2 = lay;
+    pb->rewriteKnot2(lay);
     return 0;
   } else {
     return 1;
@@ -196,7 +193,7 @@ bool playMap::changeKnot3(unsigned X, unsigned Y, char lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->layer3 = lay;
+    pb->rewriteKnot3(lay);
     return 0;
   } else {
     return 1;
@@ -212,10 +209,7 @@ bool playMap::pullKnot(unsigned X, unsigned Y, char &lay0, char &lay1, char &lay
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    lay0 = pb->layer0;
-    lay1 = pb->layer1;
-    lay2 = pb->layer2;
-    lay3 = pb->layer3;
+    pb->viewKnot(lay0, lay1, lay2, lay3);
     return 0;
   } else {
     return 1;
@@ -231,7 +225,7 @@ bool playMap::pullKnot0(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    lay = pb->layer0;
+    pb->viewKnot0(lay);
     return 0;
   } else {
     return 1;
@@ -247,7 +241,7 @@ bool playMap::pullKnot1(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    lay = pb->layer1;
+    pb->viewKnot1(lay);
     return 0;
   } else {
     return 1;
@@ -263,7 +257,7 @@ bool playMap::pullKnot2(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    lay = pb->layer2;
+    pb->viewKnot2(lay);
     return 0;
   } else {
     return 1;
@@ -279,7 +273,7 @@ bool playMap::pullKnot3(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    lay = pb->layer3;
+    pb->viewKnot3(lay);
     return 0;
   } else {
     return 1;

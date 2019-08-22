@@ -28,13 +28,19 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
     PLAYER_->changeOldAct(act);
   }
 
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerCourse, playerStatus;
+  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerCourse, playerStatus, wallet;
   PLAYER_->viewLocation(playerX, playerY);
   PLAYER_->viewPoints(playerHP, playerAP, playerMP);
   PLAYER_->viewCourse(playerCourse);
   PLAYER_->viewStatus(playerStatus);
+  PLAYER_->viewCoinsCount(wallet);
 
   char layer0, layer1, layer2, layer3;
+  MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
+  if(layer3 == '$'){
+    PLAYER_->changeChangeArea(wallet+1);
+    MAP_->changeKnot3(playerX, playerY, ' ');
+  }
 
   if (move != 0) {
     switch (move) {
@@ -78,7 +84,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
         break;
       }
     }
-    lastreturn_ = false;
+    lastReturn_ = false;
     return false;
   } else {
     if (act != 0) {
@@ -109,27 +115,27 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
           if (layer0 == '<' || layer0 == '>' || layer0 == 'v' || layer0 == '^') {
             PLAYER_->changeLocation(playerX, playerY);
           }
-          if(layer0 == 'Z'){
+          if (layer0 == 'Z') {
             PLAYER_->changeChangeArea(true);
           }
-          lastreturn_ = false;
+          lastReturn_ = false;
           return false;
         }
         case 5: {
-          lastreturn_ = true;
+          lastReturn_ = true;
           return true;
         }
         case 6: {
-          lastreturn_ = true;
+          lastReturn_ = true;
           return true;
         }
         default: {
-          lastreturn_ = false;
+          lastReturn_ = false;
           return false;
         }
       }
     } else {
-      if (lastreturn_) {
+      if (lastReturn_) {
         return true;
       } else {
         return false;

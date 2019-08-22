@@ -11,6 +11,7 @@ player::player() {
   HP_ = 0;
   AP_ = 0;
   MP_ = 0;
+  wallet_ = 0;
 
   changeArea = false;
 }
@@ -23,6 +24,7 @@ player::player(char* NAME, unsigned X, unsigned Y) {
     name_[i] = NAME[i];
   }
 
+  wallet_ = 0;
   status_ = 1;
   changeArea = false;
 }
@@ -141,6 +143,11 @@ bool player::changePoints(unsigned H, unsigned A, unsigned M) {
   return 0;
 }
 
+bool player::changeCoinsCount(unsigned Count) {
+  wallet_ = Count;
+  return false;
+}
+
 void player::viewName(char* NAME) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     NAME[i] = name_[i];
@@ -168,6 +175,10 @@ void player::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
   H = HP_;
   A = AP_;
   M = MP_;
+}
+
+void player::viewCoinsCount(unsigned& Count) {
+  Count = wallet_;
 }
 
 void player::changeOldAct(unsigned Act) {

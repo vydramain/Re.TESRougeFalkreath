@@ -14,8 +14,7 @@ class myECS {
   playMap *MAP_;
   player *PLAYER_;
 
-  bool lastreturn_;
-
+  bool lastReturn_;
  public:
   myECS();
   myECS(playMap *, player *);

@@ -1,6 +1,7 @@
 #include "inGameParts/logicComponents.h"
 
-logicComponents::logicComponents() {}
+logicComponents::logicComponents() {
+}
 
 logicComponents::~logicComponents() {
   if (PLAYER_) {
@@ -42,12 +43,13 @@ bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course
 }
 
 bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY,
-                                      unsigned& STATUS, char* NAME) {
+                                      unsigned& STATUS, char* NAME, unsigned &WALLET) {
   PLAYER_->viewLocation(X, Y);
   PLAYER_->viewPoints(HP, AP, MP);
   PLAYER_->viewNationality(NATIONALITY);
   PLAYER_->viewName(NAME);
   PLAYER_->viewStatus(STATUS);
+  PLAYER_->viewCoinsCount(WALLET);
   return false;
 }
 
@@ -68,6 +70,7 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
         }
       }
     }
+    COIN_ = new septim(30, 20, MAP_);
     return true;
   } else {
     return MAP_;
