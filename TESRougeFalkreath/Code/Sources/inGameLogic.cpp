@@ -60,6 +60,7 @@ unsigned inGameLogic::mainMenu() {
 bool inGameLogic::newGame() {
   createPlayer();
   createMap();
+  createCoin();
   createECS();
   bool isExit = false;
   inputCommand_ containerCommand;
@@ -79,6 +80,7 @@ bool inGameLogic::newGame() {
     reloadMap();
 
   } while (!isExit);
+  deleteCoin();
   return false;
 }
 
@@ -136,8 +138,17 @@ bool inGameLogic::createMap() {
   return LOGICA_->loadMap(0, mapX, mapY, mapChar);
 }
 
+bool inGameLogic::createCoin() {
+  return LOGICA_->createCoin();
+}
+
 bool inGameLogic::createECS() {
   return LOGICA_->createECS();
+}
+
+bool inGameLogic::deleteCoin() {
+  LOGICA_->deleteCoin();
+  return false;
 }
 
 bool inGameLogic::reloadMap() {

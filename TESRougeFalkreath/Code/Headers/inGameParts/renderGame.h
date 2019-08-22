@@ -36,7 +36,6 @@ class renderGame {
   void symColor(char);
   void showArea(logicComponents* COMPONENTSAREA);
   void showPlayer(logicComponents* COMPONENTSAREA);
-  void showItems(logicComponents* COMPONENTSAREA);
   void showHud(logicComponents* COMPONENTS);
   void showLogWindow(logicComponents* COMPONENTS);
 

@@ -37,7 +37,10 @@ class inGameLogic {
   bool putPlayer();
   bool createPlayer();
   bool createMap();
+  bool createCoin();
   bool createECS();
+
+  bool deleteCoin();
 
   bool reloadMap();
 };

@@ -6,6 +6,9 @@ logicComponents::~logicComponents() {
   if (PLAYER_) {
     delete PLAYER_;
   }
+  if(COIN_){
+    delete COIN_;
+  }
   if (MAP_) {
     delete MAP_;
   }
@@ -63,16 +66,45 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
         MAP_->changeKnot(i, ii, mapChar[ii][i], ' ', ' ', ' ');
       }
     }
-    COIN_ = new septim(30, 20, MAP_);
     return true;
   } else {
     return MAP_;
   }
 }
 
+bool logicComponents::createCoin() {
+  srand(time(nullptr));
+  unsigned R;
+  unsigned X[16] = {3,8,31,57,68,64,39,72,45,61,39,16,26,35,62,77};
+  unsigned Y[16] = {28,46,10,6,5,21,22,72,45,52,77,72,66,81,94,26};
+    COIN_ = new septim[10];
+  for(unsigned i(0); i < 20; i++){
+    R = rand() % 16;
+    COIN_[i].placeSeptim(X[R], Y[R], MAP_);
+    COIN_[i].priceSeptim(R);
+  }
+  return false;
+}
+
+unsigned logicComponents::findCoin(unsigned X, unsigned Y) {
+  unsigned coinX, coinY;
+  for(unsigned i (0); i < 16; i++){
+    COIN_[i].conditionPlaceSeptim(coinX, coinY);
+    if (coinX == X && coinY == Y){
+      return i++;
+    }
+  }
+  return 0;
+}
+
+bool logicComponents::deleteCoin() {
+  delete[] COIN_;
+  return false;
+}
+
 bool logicComponents::createECS() {
   if (MAP_ && PLAYER_) {
-    ECS_ = new myECS(MAP_, PLAYER_);
+    ECS_ = new myECS(MAP_, PLAYER_, COIN_);
     return false;
   } else {
     return true;

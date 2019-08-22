@@ -15,6 +15,13 @@ class septim : public item {
   septim();
   septim(unsigned Count);
   septim(unsigned X, unsigned Y, playMap *AREA);
+  ~septim() {}
+
+  bool placeSeptim(unsigned X, unsigned Y, playMap *AREA);
+  bool priceSeptim(unsigned Price);
+
+  void conditionPriceSeptim(unsigned &Price);
+  void conditionPlaceSeptim(unsigned &X, unsigned &Y);
 };
 
 #endif  // TESROUGEFALKREATH_SEPTIM_H
