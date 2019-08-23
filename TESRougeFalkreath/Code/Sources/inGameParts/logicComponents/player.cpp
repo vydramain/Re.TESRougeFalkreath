@@ -151,59 +151,63 @@ bool player::changeCoinsCount(unsigned Count) {
   return false;
 }
 
-void player::viewName(char* NAME) {
-  for (unsigned i(0); i < NAMESPACE; i++) {
-    NAME[i] = name_[i];
-  }
+char* player::viewName() {
+  return name_;
 }
 
-void player::viewLocation(unsigned& X, unsigned& Y) {
-  X = areaPlaceX_;
-  Y = areaPlaceY_;
+unsigned player::viewLocationX() {
+  return areaPlaceX_;
+}
+unsigned player::viewLocationY() {
+  return areaPlaceY_;
 }
 
-void player::viewStatus(unsigned& STATUS) {
-  STATUS = status_;
+unsigned player::viewStatus() {
+  return status_;
 }
 
-void player::viewCourse(unsigned& CURSE) {
-  CURSE = course_;
+unsigned player::viewCourse() {
+  return course_;
 }
 
-void player::viewNationality(unsigned& N) {
-  N = nationality_;
+unsigned player::viewNationality() {
+  return nationality_;
 }
 
-void player::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
-  H = HP_;
-  A = AP_;
-  M = MP_;
+unsigned player::viewPointsHP() {
+  return HP_;
+}
+unsigned player::viewPointsAP() {
+  return AP_;
+}
+unsigned player::viewPointsMP() {
+  return MP_;
 }
 
-void player::viewCoinsCount(unsigned& Count) {
-  Count = wallet_;
+unsigned player::viewCoinsCount() {
+  return wallet_;
 }
 
 void player::changeOldAct(unsigned Act) {
   oldAct = Act;
 }
 
-void player::conditionOldAct(unsigned& Act) {
-  Act = oldAct;
+unsigned player::conditionOldAct() {
+  return oldAct;
 }
 
 void player::changeChangeArea(bool IN) {
   changeArea = IN;
 }
 
-void player::conditionChangeArea(bool& IN) {
-  IN = changeArea;
+bool player::conditionChangeArea() {
+  return changeArea;
 }
 
 void player::changeEndGame(bool IN) {
   endGame = IN;
 }
 
-void player::conditionEndGame(bool& IN) {
-  IN = endGame;
+bool player::conditionEndGame() {
+  return endGame;
 }

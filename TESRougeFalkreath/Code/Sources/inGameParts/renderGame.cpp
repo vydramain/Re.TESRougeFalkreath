@@ -124,9 +124,8 @@ bool renderGame::viewChoise(const char* title, const char** punctsChoise, unsign
 
 bool renderGame::deathScreen(logicComponents* COMPONENTS) {
   clearALL();
-  char playerName[24];
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
-  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
+  unsigned playerStatus = COMPONENTS->conditionPlayerSTATUS();
+  unsigned playerWallet = COMPONENTS->conditionPlayerWALLET();
   if (playerStatus == 0) {
     viewPhrase("Как это не печально но вы были убиты...", "Может в следующий раз ты поступишь умнее...", 0, 0, 99, 39);
   }
@@ -241,9 +240,11 @@ void renderGame::symColor(char mapSym) {
 void renderGame::showArea(logicComponents* COMPONENTS) {
   unsigned mapX, mapY;
   playMap* AREA = COMPONENTS->secret();
-  AREA->viewSize(mapX, mapY);
+  mapX = AREA->viewSizeX();
+  mapY = AREA->viewSizeY();
   unsigned playerX, playerY;
-  COMPONENTS->conditionPlayer(playerX, playerY);
+  playerX = COMPONENTS->conditionPlayerX();
+  playerY = COMPONENTS->conditionPlayerY();
   char temp;
   for (unsigned ii(0); ii < mapBorderY_; ii++) {
     for (unsigned i(0); i < mapBorderX_; i++) {
@@ -268,9 +269,8 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
   }
 }
 void renderGame::showPlayer(logicComponents* COMPONENTS) {
-  char playerName[24];
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
-  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
+  unsigned playerStatus;
+  playerStatus = COMPONENTS->conditionPlayerSTATUS();
   terminal_layer(4);
   terminal_color(0xFFFFFFFF);
   if (playerStatus == 2) {
@@ -280,9 +280,15 @@ void renderGame::showPlayer(logicComponents* COMPONENTS) {
 }
 
 void renderGame::showHud(logicComponents* COMPONENTS) {
-  char playerName[24];
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerWallet;
-  COMPONENTS->conditionPlayer(playerX, playerY, playerHP, playerAP, playerMP, playerNationality, playerStatus, playerName, playerWallet);
+  char *playerName = COMPONENTS->conditionPlayerNAME();
+  unsigned playerX = COMPONENTS->conditionPlayerX();
+  unsigned playerY = COMPONENTS->conditionPlayerY();
+  unsigned playerHP = COMPONENTS->conditionPlayerHP();
+  unsigned playerAP = COMPONENTS->conditionPlayerAP();
+  unsigned playerMP = COMPONENTS->conditionPlayerMP();
+  unsigned playerNationality = COMPONENTS->conditionPlayerNATIONALITY();
+  unsigned playerStatus = COMPONENTS->conditionPlayerSTATUS();
+  unsigned playerWallet = COMPONENTS->conditionPlayerWALLET();
   terminal_layer(5);
   terminal_color(0xffffffff);
   for (unsigned i(0); i < mapBorderY_; i++) {
@@ -294,9 +300,9 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
 
   char coorX[5], coorY[5], meter[9];
   terminal_print(mapBorderX_ + 1, mapBorderY_ - 3, "Координаты:");
-  sprintf(coorX, "%d", playerX);
-  sprintf(coorY, "%d", playerY);
-  sprintf(meter, "%d", stepMeter_);
+  snprintf(coorX, (size_t) "%d", "%u", playerX);
+  snprintf(coorY, (size_t) "%d", "%u", playerY);
+  snprintf(meter, (size_t) "%d", "%u", stepMeter_);
   terminal_print(mapBorderX_ + 1 + 12, mapBorderY_ - 3, coorX);
   terminal_print(mapBorderX_ + 1 + 16, mapBorderY_ - 3, coorY);
   terminal_print(mapBorderX_ + 1, mapBorderY_ - 2, "Действий:");
@@ -307,9 +313,9 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 3, "Статус:");
 
   char hp[5], mp[5], ap[5];
-  sprintf(hp, "%d", playerHP);
-  sprintf(ap, "%d", playerAP);
-  sprintf(mp, "%d", playerMP);
+  snprintf(hp, (size_t) "%d", "%u", playerHP);
+  snprintf(ap, (size_t) "%d", "%u", playerAP);
+  snprintf(mp, (size_t) "%d", "%u", playerMP);
   terminal_color(0xFFFF4444);
   terminal_print(mapBorderX_ + 1, 4, "ОЗ:");
   terminal_print(mapBorderX_ + 1 + 5, 4, hp);
@@ -325,7 +331,7 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
   terminal_print(mapBorderX_ + 1, 26, "Кошель:");
   char wallet[9];
-  sprintf(wallet, "%d", playerWallet);
+  snprintf(wallet, (size_t) "%d", "%u", playerWallet);
   terminal_print(mapBorderX_ + 1 + 8, 26, wallet);
 
   terminal_print(mapBorderX_ + 1, 27, "Сумка:");
@@ -400,14 +406,13 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
 }
 
 void renderGame::showLogWindow(logicComponents* COMPONENTS) {
-  bool mark;
-  COMPONENTS->conditionLogWindow(mark);
+  bool mark = COMPONENTS->conditionLogWindow();
   if (mark) {
-    unsigned act;
-    COMPONENTS->conditionOldAct(act);
+    unsigned act = COMPONENTS->conditionOldAct();
     playMap* AREA = COMPONENTS->secret();
-    unsigned itemX, itemY, Course;
-    COMPONENTS->conditionPlayer(itemX, itemY, Course);
+    unsigned itemX = COMPONENTS->conditionPlayerX();
+    unsigned itemY = COMPONENTS->conditionPlayerY();
+    unsigned Course = COMPONENTS->conditionPlayerCOURSE();
     switch (Course) {
       case 0: {
         itemY -= 1;

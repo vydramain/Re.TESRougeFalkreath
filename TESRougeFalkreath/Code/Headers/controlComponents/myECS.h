@@ -2,8 +2,8 @@
 // Created by vydra on 8/21/19.
 //
 
-#ifndef TESROUGEFALKREATH_MYECS_H
-#define TESROUGEFALKREATH_MYECS_H
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_MYECS_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_MYECS_H_
 
 #include <inGameParts/logicComponents/items/septim.h>
 #include <inGameParts/logicComponents/player.h>
@@ -26,4 +26,4 @@ class myECS {
   bool EcsUpdate(inputCommand_);
 };
 
-#endif  // TESROUGEFALKREATH_MYECS_H
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_MYECS_H_

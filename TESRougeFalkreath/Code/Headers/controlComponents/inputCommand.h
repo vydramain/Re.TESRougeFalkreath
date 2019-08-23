@@ -2,8 +2,8 @@
 // Created by vydra on 8/21/19.
 //
 
-#ifndef TESROUGEFALKREATH_INPUTCOMMAND_H
-#define TESROUGEFALKREATH_INPUTCOMMAND_H
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_INPUTCOMMAND_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_INPUTCOMMAND_H_
 
 struct inputCommand_ {
  private:
@@ -23,16 +23,16 @@ struct inputCommand_ {
   void moveInCommand(unsigned Move) {
     move = Move;
   }
-  void moveOutCommand(unsigned& Move) {
-    Move = move;
+  unsigned moveOutCommand() {
+    return move;
   }
 
   void actInCommand(unsigned Act) {
     act = Act;
   }
-  void actOutCommand(unsigned& Act) {
-    Act = act;
+  unsigned actOutCommand() {
+    return act;
   }
 };
 
-#endif  // TESROUGEFALKREATH_INPUTCOMMAND_H
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_INPUTCOMMAND_H_

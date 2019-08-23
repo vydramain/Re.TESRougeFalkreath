@@ -28,10 +28,16 @@ class logicComponents {
   bool createPlayer(char*, unsigned);  // Имя, Раса
   bool putPlayer(unsigned);
   bool loadPlayer();
-  bool conditionPlayer(unsigned& X, unsigned& Y);
-  bool conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course);
-  bool conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY, unsigned& STATUS,
-                       char* NAME, unsigned& WALLET);
+  unsigned conditionPlayerX();
+  unsigned conditionPlayerY();
+  unsigned conditionPlayerHP();
+  unsigned conditionPlayerAP();
+  unsigned conditionPlayerMP();
+  unsigned conditionPlayerNATIONALITY();
+  unsigned conditionPlayerSTATUS();
+  unsigned conditionPlayerWALLET();
+  unsigned conditionPlayerCOURSE();
+  char* conditionPlayerNAME();
 
   bool loadMap(const unsigned&, const unsigned&, const unsigned&, char**);  // Имя карты, x, y, char
 
@@ -41,16 +47,16 @@ class logicComponents {
 
   bool createECS();
 
-  void changeLogWindow(bool);
-  void conditionLogWindow(bool&);
+  void changeLogWindow(bool Log);
+bool  conditionLogWindow();
 
-  void changeOldAct(unsigned);
-  void conditionOldAct(unsigned&);
+  void changeOldAct(unsigned IN);
+  unsigned conditionOldAct();
 
-  void changeChangeArea(bool);
-  void conditionChangeArea(bool&);
+  void changeChangeArea(bool IN);
+  bool conditionChangeArea();
 
-  void conditionEnd(bool&);
+  bool conditionEnd();
 
   playMap* secret() {
     return MAP_;

@@ -50,30 +50,33 @@ class player {
   explicit player(char *, unsigned, unsigned);  // создаём рабочего персонажа
   ~player();
 
-  bool changeName(char *);
-  bool changeLocation(unsigned, unsigned);
-  bool changeCourse(unsigned);
-  bool changeStatus(unsigned);
-  bool changeNationality(unsigned);
-  bool changePoints(unsigned, unsigned, unsigned);
-  bool changeCoinsCount(unsigned);
+  bool changeName(char *Name);
+  bool changeLocation(unsigned X, unsigned Y);
+  bool changeCourse(unsigned Course);
+  bool changeStatus(unsigned Status);
+  bool changeNationality(unsigned Nationality);
+  bool changePoints(unsigned HP, unsigned AP, unsigned MP);
+  bool changeCoinsCount(unsigned Count);
 
-  void viewName(char *);
-  void viewLocation(unsigned &, unsigned &);
-  void viewCourse(unsigned &);
-  void viewStatus(unsigned &);
-  void viewNationality(unsigned &);
-  void viewPoints(unsigned &, unsigned &, unsigned &);
-  void viewCoinsCount(unsigned &);
+  char* viewName();
+  unsigned viewLocationX();
+  unsigned viewLocationY();
+  unsigned viewCourse();
+  unsigned viewStatus();
+  unsigned viewNationality();
+  unsigned viewPointsHP();
+  unsigned viewPointsAP();
+  unsigned viewPointsMP();
+  unsigned viewCoinsCount();
 
-  void changeOldAct(unsigned);
-  void conditionOldAct(unsigned &);
+  void changeOldAct(unsigned OldAct);
+  unsigned conditionOldAct();
 
-  void changeChangeArea(bool);
-  void conditionChangeArea(bool &);
+  void changeChangeArea(bool ChangeArea);
+  bool conditionChangeArea();
 
-  void changeEndGame(bool);
-  void conditionEndGame(bool &);
+  void changeEndGame(bool EndGame);
+  bool conditionEndGame();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_PLAYER_H_

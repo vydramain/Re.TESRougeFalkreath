@@ -1,4 +1,4 @@
-#include "inGameLogic.h"
+#include "./inGameLogic.h"
 
 int main() {
   inGameLogic GAME(1);

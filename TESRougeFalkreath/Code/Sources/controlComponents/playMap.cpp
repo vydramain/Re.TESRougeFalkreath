@@ -209,7 +209,10 @@ bool playMap::pullKnot(unsigned X, unsigned Y, char &lay0, char &lay1, char &lay
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->viewKnot(lay0, lay1, lay2, lay3);
+    lay0 = pb->viewKnot0();
+    lay1 = pb->viewKnot1();
+    lay2 = pb->viewKnot2();
+    lay3 = pb->viewKnot3();
     return 0;
   } else {
     return 1;
@@ -225,7 +228,7 @@ bool playMap::pullKnot0(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->viewKnot0(lay);
+    lay = pb->viewKnot0();
     return 0;
   } else {
     return 1;
@@ -241,7 +244,7 @@ bool playMap::pullKnot1(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->viewKnot1(lay);
+    lay = pb->viewKnot1();
     return 0;
   } else {
     return 1;
@@ -257,7 +260,7 @@ bool playMap::pullKnot2(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->viewKnot2(lay);
+    lay = pb->viewKnot2();
     return 0;
   } else {
     return 1;
@@ -273,7 +276,7 @@ bool playMap::pullKnot3(unsigned X, unsigned Y, char &lay) {
     for (unsigned i(0); i < X; i++) {
       pb = pb->next2;
     }
-    pb->viewKnot3(lay);
+    lay = pb->viewKnot3();
     return 0;
   } else {
     return 1;
@@ -284,11 +287,14 @@ void playMap::setName(unsigned Name) {
   mapName_ = Name;
 }
 
-void playMap::viewName(unsigned &Name) {
-  Name = mapName_;
+unsigned playMap::viewName() {
+  return mapName_;
 }
 
-void playMap::viewSize(unsigned &X, unsigned &Y) {
-  X = countX_;
-  Y = countY_;
+unsigned playMap::viewSizeY() {
+  return countY_;
+}
+
+unsigned playMap::viewSizeX() {
+  return countX_;
 }

@@ -44,19 +44,22 @@ class npc {
   explicit npc(char*, unsigned, unsigned, unsigned);
   ~npc();
 
-  bool changeName(char*);
-  bool changeLocation(unsigned, unsigned);
-  bool changeCourse(unsigned);
-  bool changeStatus(unsigned);
-  bool changeNationality(unsigned);
-  bool changePoints(unsigned, unsigned, unsigned);
+  bool changeName(char* Name);
+  bool changeLocation(unsigned X, unsigned Y);
+  bool changeCourse(unsigned Course);
+  bool changeStatus(unsigned Status);
+  bool changeNationality(unsigned Nationality);
+  bool changePoints(unsigned HP, unsigned AP, unsigned MP);
 
-  void viewName(char*);
-  void viewLocation(unsigned&, unsigned&);
-  void viewCourse(unsigned&);
-  void viewStatus(unsigned&);
-  void viewNationality(unsigned&);
-  void viewPoints(unsigned&, unsigned&, unsigned&);
+  char* viewName();
+  unsigned viewLocationX();
+  unsigned viewLocationY();
+  unsigned viewCourse();
+  unsigned viewStatus();
+  unsigned viewNationality();
+  unsigned viewPointsHP();
+  unsigned viewPointsAP();
+  unsigned viewPointsMP();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_NPC_H_

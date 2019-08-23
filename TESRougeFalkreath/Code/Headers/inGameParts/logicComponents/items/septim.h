@@ -2,8 +2,8 @@
 // Created by vydra on 8/22/19.
 //
 
-#ifndef TESROUGEFALKREATH_SEPTIM_H
-#define TESROUGEFALKREATH_SEPTIM_H
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_ITEMS_SEPTIM_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_ITEMS_SEPTIM_H_
 
 #include <controlComponents/playMap.h>
 #include "inGameParts/logicComponents/item.h"
@@ -14,15 +14,16 @@ class septim : public item {
 
  public:
   septim();
-  septim(unsigned Count);
-  septim(unsigned X, unsigned Y, playMap *AREA);
+  explicit septim(unsigned Count);
+  explicit septim(unsigned X, unsigned Y, playMap *AREA);
   ~septim() {}
 
   bool placeSeptim(unsigned X, unsigned Y, playMap *AREA);
   bool priceSeptim(unsigned Price);
 
-  void conditionPriceSeptim(unsigned &Price);
-  void conditionPlaceSeptim(unsigned &X, unsigned &Y);
+  unsigned conditionPriceSeptim();
+  unsigned conditionPlaceSeptimX();
+  unsigned conditionPlaceSeptimY();
 };
 
-#endif  // TESROUGEFALKREATH_SEPTIM_H
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_LOGICCOMPONENTS_ITEMS_SEPTIM_H_

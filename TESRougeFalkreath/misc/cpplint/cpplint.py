@@ -54,7 +54,7 @@ import unicodedata
 
 
 _USAGE = """
-Syntax: cpplint.py [--verbose=#] [--output=vs7] [--filter=-x_,+y_,...]
+Syntax: cpplint.py [--verbose=#] [--output=vs7] [--filter=-x,+y,...]
                    [--counting=total|toplevel|detailed] [--root=subdir]
                    [--linelength=digits]
         <file> [file] ...
@@ -82,7 +82,7 @@ Syntax: cpplint.py [--verbose=#] [--output=vs7] [--filter=-x_,+y_,...]
     verbose=#
       Specify a number 0-5 to restrict errors to certain verbosity levels.
 
-    filter=-x_,+y_,...
+    filter=-x,+y,...
       Specify a comma-separated list of category-filters to apply: only
       error messages whose category names pass the filters will be printed.
       (Category names are printed with the message and look like
@@ -999,7 +999,7 @@ def Error(filename, linenum, category, confidence, message):
 
 # Matches standard C++ escape sequences per 2.13.2.3 of the C++ standard.
 _RE_PATTERN_CLEANSE_LINE_ESCAPES = re.compile(
-    r'\\([abfnrtv?"\\\']|\d+|x_[0-9a-fA-F]+)')
+    r'\\([abfnrtv?"\\\']|\d+|x[0-9a-fA-F]+)')
 # Matches strings.  Escape codes should already be removed by ESCAPES.
 _RE_PATTERN_CLEANSE_LINE_DOUBLE_QUOTES = re.compile(r'"[^"]*"')
 # Matches characters.  Escape codes should already be removed by ESCAPES.
@@ -1020,7 +1020,7 @@ _RE_PATTERN_CLEANSE_LINE_C_COMMENTS = re.compile(
 
 
 def IsCppString(line):
-  """Does line terminate so, that the next symbol_ is in string constant.
+  """Does line terminate so, that the next symbol is in string constant.
 
   This function does not consider single-line nor multi-line comments.
 
@@ -1691,7 +1691,7 @@ class _ClassInfo(_BlockInfo):
 
     # Try to find the end of the class.  This will be confused by things like:
     #   class A {
-    #   } *x_ = { ...
+    #   } *x = { ...
     #
     # But it's still good enough for CheckSectionSpacing.
     self.last_line = 0
@@ -1744,7 +1744,7 @@ class _NamespaceInfo(_BlockInfo):
     # check if a short namespace contained nontrivial things (something
     # other than forward declarations).  There is currently no logic on
     # deciding what these nontrivial things are, so this check is
-    # triggered by namespace size_ only, which works most of the time.
+    # triggered by namespace size only, which works most of the time.
     if (linenum - self.starting_linenum < 10
         and not Match(r'};*\s*(//|/\*).*\bnamespace\b', line)):
       return
@@ -2823,9 +2823,9 @@ def CheckSpacing(filename, clean_lines, linenum, nesting_state, error):
     trailing_text = ''
     if endpos > -1:
       trailing_text = endline[endpos:]
-    for offset_ in xrange(endlinenum + 1,
+    for offset in xrange(endlinenum + 1,
                          min(endlinenum + 3, clean_lines.NumLines() - 1)):
-      trailing_text += clean_lines.elided[offset_]
+      trailing_text += clean_lines.elided[offset]
     if not Match(r'^[\s}]*[{.;,)<\]]', trailing_text):
       error(filename, linenum, 'whitespace/braces', 5,
             'Missing space before {')
@@ -3022,7 +3022,7 @@ def CheckBraces(filename, clean_lines, linenum, error):
   #    Function(...) const {};
   #
   # 4. Block following some statement:
-  #    x_ = 42;
+  #    x = 42;
   #    {};
   #
   # 5. Block at the beginning of a function:
@@ -3267,7 +3267,7 @@ def CheckCheck(filename, clean_lines, linenum, error):
   if Match(match_constant, lhs) or Match(match_constant, rhs):
     # Note: since we know both lhs and rhs, we can provide a more
     # descriptive error message like:
-    #   Consider using CHECK_EQ(x_, 42) instead of CHECK(x_ == 42)
+    #   Consider using CHECK_EQ(x, 42) instead of CHECK(x == 42)
     # Instead of:
     #   Consider using CHECK_EQ instead of CHECK(a == b)
     #
@@ -3312,23 +3312,23 @@ def CheckAltTokens(filename, clean_lines, linenum, error):
 
 
 def GetLineWidth(line):
-  """Determines the width_ of the line in column positions.
+  """Determines the width of the line in column positions.
 
   Args:
     line: A string, which may be a Unicode string.
 
   Returns:
-    The width_ of the line in column positions, accounting for Unicode
+    The width of the line in column positions, accounting for Unicode
     combining characters and wide characters.
   """
   if isinstance(line, unicode):
-    width_ = 0
+    width = 0
     for uc in unicodedata.normalize('NFC', line):
       if unicodedata.east_asian_width(uc) in ('W', 'F'):
-        width_ += 2
+        width += 2
       elif not unicodedata.combining(uc):
-        width_ += 1
-    return width_
+        width += 1
+    return width
   else:
     return len(line)
 
@@ -3631,11 +3631,11 @@ def _GetTextInside(text, start_pattern):
 
   Given a string of lines and a regular expression string, retrieve all the text
   following the expression and between opening punctuation symbols like
-  (, [, or {, and the matching close-punctuation symbol_. This properly nested
+  (, [, or {, and the matching close-punctuation symbol. This properly nested
   occurrences of the punctuations, so for the text like
     printf(a(), b(c()));
   a call to _GetTextInside(text, r'printf\(') will return 'a(), b(c())'.
-  start_pattern must match string having an open punctuation symbol_ at the end.
+  start_pattern must match string having an open punctuation symbol at the end.
 
   Args:
     text: The lines to extract text. Its comments and strings must be elided.
@@ -3761,7 +3761,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
 
     # gMock methods are defined using some variant of MOCK_METHODx(name, type)
     # where type may be float(), int(string), etc.  Without context they are
-    # virtually indistinguishable from int(x_) casts. Likewise, gMock's
+    # virtually indistinguishable from int(x) casts. Likewise, gMock's
     # MockCallback takes a template parameter of the form return_type(arg_type),
     # which looks much like the cast we're trying to detect.
     #
@@ -3879,7 +3879,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
   # When snprintf is used, the second argument shouldn't be a literal.
   match = Search(r'snprintf\s*\(([^,]*),\s*([0-9]*)\s*,', line)
   if match and match.group(2) != '0':
-    # If 2nd arg is zero, snprintf is used to calculate size_.
+    # If 2nd arg is zero, snprintf is used to calculate size.
     error(filename, linenum, 'runtime/printf', 3,
           'If you can, use sizeof(%s) instead of %s as the 2nd arg '
           'to snprintf.' % (match.group(1), match.group(2)))
@@ -3896,9 +3896,9 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
   # Check if some verboten operator overloading is going on
   # TODO(unknown): catch out-of-line unary operator&:
   #   class X {};
-  #   int operator&(const X& x_) { return 42; }  // unary operator&
+  #   int operator&(const X& x) { return 42; }  // unary operator&
   # The trick is it's hard to tell apart from binary operator&:
-  #   class Y { int operator&(const Y& x_) { return 23; } }; // binary operator&
+  #   class Y { int operator&(const Y& x) { return 23; } }; // binary operator&
   if Search(r'\boperator\s*&\s*\(\s*\)', line):
     error(filename, linenum, 'runtime/operator', 4,
           'Unary operator& is dangerous.  Do not use it.')
@@ -3942,7 +3942,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
   match = Match(r'\s*(.+::)?(\w+) [a-z]\w*\[(.+)];', line)
   if (match and match.group(2) != 'return' and match.group(2) != 'delete' and
       match.group(3).find(']') == -1):
-    # Split the size_ using space and arithmetic operators as delimiters.
+    # Split the size using space and arithmetic operators as delimiters.
     # If any of the resulting tokens are not compile time constants then
     # report the error.
     tokens = re.split(r'\s|\+|\-|\*|\/|<<|>>]', match.group(3))
@@ -3975,7 +3975,7 @@ def CheckLanguage(filename, clean_lines, linenum, file_extension,
     if not is_const:
       error(filename, linenum, 'runtime/arrays', 1,
             'Do not use variable-length arrays.  Use an appropriately named '
-            "('k' followed by CamelCase) compile-time constant for the size_.")
+            "('k' followed by CamelCase) compile-time constant for the size.")
 
   # If DISALLOW_EVIL_CONSTRUCTORS, DISALLOW_COPY_AND_ASSIGN, or
   # DISALLOW_IMPLICIT_CONSTRUCTORS is present, then it should be the last thing

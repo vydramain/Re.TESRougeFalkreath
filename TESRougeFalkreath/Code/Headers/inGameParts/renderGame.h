@@ -35,7 +35,7 @@ class renderGame {
   bool mainMenu(unsigned);  // Выделенный элемент
   bool raceMenu(unsigned);  // Аналог верхнего
 
-  void symColor(char);
+  void symColor(char Symbol);
   void showArea(logicComponents* COMPONENTSAREA);
   void showPlayer(logicComponents* COMPONENTSAREA);
   void showHud(logicComponents* COMPONENTS);

@@ -34,11 +34,14 @@ bool septim::priceSeptim(unsigned Price) {
   price = Price;
   return false;
 }
-void septim::conditionPriceSeptim(unsigned& Price) {
-  Price = price;
+unsigned septim::conditionPriceSeptim() {
+  return price;
 }
 
-void septim::conditionPlaceSeptim(unsigned& X, unsigned& Y) {
-  X = itemX_;
-  Y = itemY_;
+unsigned septim::conditionPlaceSeptimX() {
+  return itemX_;
+}
+
+unsigned septim::conditionPlaceSeptimY() {
+  return itemY_;
 }

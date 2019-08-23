@@ -22,19 +22,18 @@ myECS::~myECS() {
 
 bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   unsigned move, act;
-  containerCommand.moveOutCommand(move);
-  containerCommand.actOutCommand(act);
+  move = containerCommand.moveOutCommand();
+  act = containerCommand.actOutCommand();
   containerCommand.clearCommand();
   if (act) {
     PLAYER_->changeOldAct(act);
   }
 
-  unsigned playerX, playerY, playerHP, playerAP, playerMP, playerCourse, playerStatus, wallet;
-  PLAYER_->viewLocation(playerX, playerY);
-  PLAYER_->viewPoints(playerHP, playerAP, playerMP);
-  PLAYER_->viewCourse(playerCourse);
-  PLAYER_->viewStatus(playerStatus);
-  PLAYER_->viewCoinsCount(wallet);
+  unsigned playerX, playerY, playerCourse, wallet;
+  playerX = PLAYER_->viewLocationX();
+  playerY = PLAYER_->viewLocationY();
+  playerCourse = PLAYER_->viewCourse();
+  wallet = PLAYER_->viewCoinsCount();
 
   char layer0, layer1, layer2, layer3;
   MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
@@ -43,9 +42,10 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   if (layer3 == '$') {
     unsigned coinX, coinY;
     for (unsigned i(0); i < 16; i++) {
-      COIN_[i].conditionPlaceSeptim(coinX, coinY);
+      coinX = COIN_[i].conditionPlaceSeptimX();
+      coinY = COIN_[i].conditionPlaceSeptimY();
       if (coinX == playerX && coinY == playerY) {
-        COIN_[i].conditionPriceSeptim(coinPrice);
+        coinPrice = COIN_[i].conditionPriceSeptim();
       }
     }
     PLAYER_->changeCoinsCount(wallet + coinPrice);

@@ -1,4 +1,4 @@
-#include "inGameLogic.h"
+#include "./inGameLogic.h"
 
 inGameLogic::inGameLogic() {
   RENDER_ = new renderGame();
@@ -83,7 +83,6 @@ bool inGameLogic::newGame() {
       deathScreen();
       isExit = true;
     }
-
   } while (!isExit);
   deleteCoin();
   return false;
@@ -93,7 +92,7 @@ bool inGameLogic::putPlayer() {
   playMap* Map;
   unsigned mapName;
   Map = LOGICA_->secret();
-  Map->viewName(mapName);
+  mapName = Map->viewName();
   return LOGICA_->putPlayer(mapName);
 }
 
@@ -157,20 +156,17 @@ bool inGameLogic::deleteCoin() {
 }
 
 bool inGameLogic::checkEnd() {
-  bool end;
-  LOGICA_->conditionEnd(end);
-  return end;
+  return LOGICA_->conditionEnd();
 }
 
 bool inGameLogic::reloadMap() {
-  bool status;
-  LOGICA_->conditionChangeArea(status);
+  bool status = LOGICA_->conditionChangeArea();
   if (status) {
     playMap* Map;
     unsigned mapX, mapY, mapName;
     char** mapChar = nullptr;
     Map = LOGICA_->secret();
-    Map->viewName(mapName);
+    mapName = Map->viewName();
     if (mapName == 0) {
       if (LOADFILE_) {
         delete LOADFILE_;

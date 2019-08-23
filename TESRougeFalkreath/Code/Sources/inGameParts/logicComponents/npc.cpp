@@ -138,31 +138,35 @@ bool npc::changePoints(unsigned H, unsigned A, unsigned M) {
   return 0;
 }
 
-void npc::viewName(char* NAME) {
-  for (unsigned i(0); i < NAMESPACE; i++) {
-    NAME[i] = name_[i];
-  }
+char* npc::viewName() {
+  return name_;
 }
 
-void npc::viewLocation(unsigned& X, unsigned& Y) {
-  X = areaPlaceX_;
-  Y = areaPlaceY_;
+unsigned npc::viewLocationX() {
+  return areaPlaceX_;
+}
+unsigned npc::viewLocationY() {
+  return areaPlaceY_;
 }
 
-void npc::viewStatus(unsigned& STATUS) {
-  STATUS = status_;
+unsigned npc::viewStatus() {
+  return status_;
 }
 
-void npc::viewCourse(unsigned& CURSE) {
-  CURSE = course_;
+unsigned npc::viewCourse() {
+  return course_;
 }
 
-void npc::viewNationality(unsigned& N) {
-  N = nationality_;
+unsigned npc::viewNationality() {
+  return nationality_;
 }
 
-void npc::viewPoints(unsigned& H, unsigned& A, unsigned& M) {
-  H = HP_;
-  A = AP_;
-  M = MP_;
+unsigned npc::viewPointsHP() {
+  return HP_;
+}
+unsigned npc::viewPointsAP() {
+  return AP_;
+}
+unsigned npc::viewPointsMP() {
+  return MP_;
 }

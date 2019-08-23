@@ -33,26 +33,37 @@ bool logicComponents::putPlayer(unsigned map) {
   }
 }
 
-bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y) {
-  PLAYER_->viewLocation(X, Y);
-  return false;
+unsigned logicComponents::conditionPlayerX() {
+  return PLAYER_->viewLocationX();
 }
 
-bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& Course) {
-  PLAYER_->viewLocation(X, Y);
-  PLAYER_->viewCourse(Course);
-  return false;
+unsigned logicComponents::conditionPlayerY() {
+  return PLAYER_->viewLocationY();
 }
 
-bool logicComponents::conditionPlayer(unsigned& X, unsigned& Y, unsigned& HP, unsigned& AP, unsigned& MP, unsigned& NATIONALITY,
-                                      unsigned& STATUS, char* NAME, unsigned& WALLET) {
-  PLAYER_->viewLocation(X, Y);
-  PLAYER_->viewPoints(HP, AP, MP);
-  PLAYER_->viewNationality(NATIONALITY);
-  PLAYER_->viewName(NAME);
-  PLAYER_->viewStatus(STATUS);
-  PLAYER_->viewCoinsCount(WALLET);
-  return false;
+unsigned logicComponents::conditionPlayerHP() {
+  return PLAYER_->viewPointsHP();
+}
+unsigned logicComponents::conditionPlayerAP() {
+  return PLAYER_->viewPointsAP();
+}
+unsigned logicComponents::conditionPlayerMP() {
+  return PLAYER_->viewPointsAP();
+}
+unsigned logicComponents::conditionPlayerNATIONALITY() {
+  return PLAYER_->viewNationality();
+}
+char* logicComponents::conditionPlayerNAME() {
+  return PLAYER_->viewName();
+}
+unsigned logicComponents::conditionPlayerSTATUS() {
+  return PLAYER_->viewStatus();
+}
+unsigned logicComponents::conditionPlayerWALLET() {
+  return PLAYER_->viewCoinsCount();
+}
+unsigned logicComponents::conditionPlayerCOURSE() {
+  return PLAYER_->viewCourse();
 }
 
 bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const unsigned& mapY, char** mapChar) {
@@ -73,13 +84,12 @@ bool logicComponents::loadMap(const unsigned& Name, const unsigned& mapX, const 
 }
 
 bool logicComponents::createCoin() {
-  srand(time(nullptr));
-  unsigned R;
+  unsigned R, seed;
   unsigned X[16] = {3, 8, 31, 57, 68, 64, 39, 72, 45, 61, 39, 16, 26, 35, 62, 77};
   unsigned Y[16] = {28, 46, 10, 6, 5, 21, 22, 72, 45, 52, 77, 72, 66, 81, 94, 26};
   COIN_ = new septim[10];
   for (unsigned i(0); i < 20; i++) {
-    R = rand() % 16;
+    R = rand_r(&seed)% 16;
     COIN_[i].placeSeptim(X[R], Y[R], MAP_);
     COIN_[i].priceSeptim(R);
   }
@@ -89,7 +99,8 @@ bool logicComponents::createCoin() {
 unsigned logicComponents::findCoin(unsigned X, unsigned Y) {
   unsigned coinX, coinY;
   for (unsigned i(0); i < 16; i++) {
-    COIN_[i].conditionPlaceSeptim(coinX, coinY);
+    coinX = COIN_[i].conditionPlaceSeptimX();
+    coinY = COIN_[i].conditionPlaceSeptimY();
     if (coinX == X && coinY == Y) {
       return i++;
     }
@@ -115,16 +126,16 @@ void logicComponents::changeLogWindow(bool Log) {
   logWindow = Log;
 }
 
-void logicComponents::conditionLogWindow(bool& Log) {
-  Log = logWindow;
+bool logicComponents::conditionLogWindow() {
+  return logWindow;
 }
 
 void logicComponents::changeOldAct(unsigned Act) {
   PLAYER_->changeOldAct(Act);
 }
 
-void logicComponents::conditionOldAct(unsigned& Act) {
-  PLAYER_->conditionOldAct(Act);
+unsigned logicComponents::conditionOldAct() {
+  return PLAYER_->conditionOldAct();
 }
 
 bool logicComponents::Update(const inputCommand_& containerCommand) {
@@ -136,10 +147,10 @@ void logicComponents::changeChangeArea(bool IN) {
   PLAYER_->changeChangeArea(IN);
 }
 
-void logicComponents::conditionChangeArea(bool& IN) {
-  PLAYER_->conditionChangeArea(IN);
+bool logicComponents::conditionChangeArea() {
+  return PLAYER_->conditionChangeArea();
 }
 
-void logicComponents::conditionEnd(bool& IN) {
-  PLAYER_->conditionEndGame(IN);
+bool logicComponents::conditionEnd() {
+  return PLAYER_->conditionEndGame();
 }

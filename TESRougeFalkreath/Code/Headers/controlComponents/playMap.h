@@ -1,5 +1,5 @@
-#ifndef TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_PLAYMAP_H_
-#define TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_PLAYMAP_H_
+#ifndef TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_PLAYMAP_H_
+#define TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_PLAYMAP_H_
 
 class playMap {
  private:
@@ -64,23 +64,17 @@ class playMap {
       layer3 = new char(lay);
     }
 
-    void viewKnot(char &lay0, char &lay1, char &lay2, char &lay3) {
-      lay0 = *layer0;
-      lay1 = *layer1;
-      lay2 = *layer2;
-      lay3 = *layer3;
+    char viewKnot0() {
+      return *layer0;
     }
-    void viewKnot0(char &lay) {
-      lay = *layer0;
+    char viewKnot1() {
+      return *layer1;
     }
-    void viewKnot1(char &lay) {
-      lay = *layer1;
+    char viewKnot2() {
+      return *layer2;
     }
-    void viewKnot2(char &lay) {
-      lay = *layer2;
-    }
-    void viewKnot3(char &lay) {
-      lay = *layer3;
+    char viewKnot3() {
+      return  *layer3;
     }
   };
 
@@ -114,8 +108,9 @@ class playMap {
   bool pullKnot3(unsigned, unsigned, char &);
 
   void setName(unsigned Name);
-  void viewName(unsigned &Name);
-  void viewSize(unsigned &X, unsigned &Y);
+  unsigned viewName();
+  unsigned viewSizeX();
+  unsigned viewSizeY();
 };
 
-#endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_CONTROLCOMPONENTS_PLAYMAP_H_
+#endif  // TESROUGEFALKREATH_CODE_HEADERS_CONTROLCOMPONENTS_PLAYMAP_H_

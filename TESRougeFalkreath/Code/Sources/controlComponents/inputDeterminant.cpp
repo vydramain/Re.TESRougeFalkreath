@@ -41,7 +41,7 @@ inputCommand_ inputDeterminant::determineInputKey(inputKey* INPUT) {
   } else {
     if (conditionPlayerConfirm_) {
       unsigned act;
-      container.moveOutCommand(act);
+      act = container.moveOutCommand();
       if (act != 0) {
         conditionPlayerConfirm_ = false;
       }
