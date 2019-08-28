@@ -31,6 +31,7 @@ renderGame::renderGame(unsigned gameMode) {
 }
 
 renderGame::~renderGame() {
+    terminal_clear();
   terminal_close();
 }
 
@@ -49,8 +50,8 @@ void renderGame::clearAREA(unsigned inX, unsigned inY, unsigned outX, unsigned o
 }
 
 bool renderGame::viewPhrase(const char* fstString, const char* scdString, unsigned inX, unsigned inY, unsigned outX, unsigned outY) {
-  clearAREA(inX, inY, outX + 1, outY);
   terminal_layer(HUDLAYER);
+  clearAREA(inX, inY, outX + 1, outY);
   for (unsigned ii(0); ii < (outY - inY); ii++) {
     for (unsigned i(0); i < (outX - inX); i++) {
       terminal_put(inX + i, inY + ii, ' ');
@@ -147,7 +148,6 @@ bool renderGame::deathScreen(logicComponents* COMPONENTS) {
       }
     }
   }
-  terminal_refresh();
   return false;
 }
 
@@ -280,7 +280,7 @@ void renderGame::showPlayer(logicComponents* COMPONENTS) {
 }
 
 void renderGame::showHud(logicComponents* COMPONENTS) {
-  char *playerName = COMPONENTS->conditionPlayerNAME();
+  char* playerName = COMPONENTS->conditionPlayerNAME();
   unsigned playerX = COMPONENTS->conditionPlayerX();
   unsigned playerY = COMPONENTS->conditionPlayerY();
   unsigned playerHP = COMPONENTS->conditionPlayerHP();

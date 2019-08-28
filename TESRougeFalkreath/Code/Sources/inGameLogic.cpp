@@ -81,6 +81,7 @@ bool inGameLogic::newGame() {
     reloadMap();
     if (checkEnd()) {
       deathScreen();
+      terminal_refresh();
       isExit = true;
     }
   } while (!isExit);
@@ -105,7 +106,7 @@ bool inGameLogic::createPlayer() {
     Name[i] = 0;
   }
   RENDER_->viewWord("Выбери имя: ", Name, 12, 24, 0, 0, 99, 39);
-  terminal_refresh();
+  // terminal_refresh();
 
   do {
     RENDER_->raceMenu(Race);
