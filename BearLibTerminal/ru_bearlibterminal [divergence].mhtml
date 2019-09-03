@@ -1,0 +1,147 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://foo.wyrd.name/ru:bearlibterminal
+Subject: ru:bearlibterminal [divergence]
+Date: Fri, 30 Aug 2019 17:31:07 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--HBWsCqoIAF7WdfUnDWLXeb81DXfh0fxUhe9jgYVQnT----"
+
+
+------MultipartBoundary--HBWsCqoIAF7WdfUnDWLXeb81DXfh0fxUhe9jgYVQnT----
+Content-Type: text/html
+Content-ID: <frame-BF94AAA9E1675D8760AB939C5DB8EEA8@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: http://foo.wyrd.name/ru:bearlibterminal
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>
+    ru:bearlibterminal    [divergence]
+  </title>
+
+  <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="date" content="2017-11-20T03:33:53+0300">
+<meta name="keywords" content="ru,bearlibterminal">
+<link rel="search" type="application/opensearchdescription+xml" href="http://foo.wyrd.name/lib/exe/opensearch.php" title="divergence">
+<link rel="start" href="http://foo.wyrd.name/">
+<link rel="contents" href="http://foo.wyrd.name/ru:bearlibterminal?do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="http://foo.wyrd.name/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://foo.wyrd.name/feed.php?mode=list&amp;ns=ru">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://foo.wyrd.name/_export/xhtml/ru:bearlibterminal">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://foo.wyrd.name/_export/raw/ru:bearlibterminal">
+<link rel="canonical" href="http://foo.wyrd.name/ru:bearlibterminal">
+
+<link rel="stylesheet" type="text/css" href="http://foo.wyrd.name/lib/plugins/syntaxhighlighter3/sxh3/styles/shCore.css">
+<link rel="stylesheet" type="text/css" href="http://foo.wyrd.name/lib/plugins/syntaxhighlighter3/sxh3/styles/shThemeDefault.css">
+</head></html>
+------MultipartBoundary--HBWsCqoIAF7WdfUnDWLXeb81DXfh0fxUhe9jgYVQnT----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: http://foo.wyrd.name/lib/plugins/syntaxhighlighter3/sxh3/styles/shCore.css
+
+@charset "utf-8";
+
+.syntaxhighlighter a, .syntaxhighlighter div, .syntaxhighlighter code, .syntaxhighlighter table, .syntaxhighlighter table td, .syntaxhighlighter table tr, .syntaxhighlighter table tbody, .syntaxhighlighter table thead, .syntaxhighlighter table caption, .syntaxhighlighter textarea { font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; font-size: 1em; line-height: 1.25em; height: auto; }
+
+.syntaxhighlighter { margin-bottom: 1em; }
+
+.syntaxhighlighter div { }
+
+.syntaxhighlighter.source { }
+
+.syntaxhighlighter .bold { }
+
+.syntaxhighlighter .italic { }
+
+.syntaxhighlighter .line { }
+
+.syntaxhighlighter table { }
+
+.syntaxhighlighter table caption { }
+
+.syntaxhighlighter table td.code { }
+
+.syntaxhighlighter table td.code .container { }
+
+.syntaxhighlighter table td.code .container textarea { }
+
+.syntaxhighlighter table td.gutter .line { }
+
+.syntaxhighlighter table td.code .line { }
+
+.syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line { }
+
+.syntaxhighlighter.show { }
+
+.syntaxhighlighter.collapsed table { }
+
+.syntaxhighlighter.collapsed .toolbar { }
+
+.syntaxhighlighter.collapsed .toolbar span { }
+
+.syntaxhighlighter.collapsed .toolbar span a { }
+
+.syntaxhighlighter.collapsed .toolbar span a.expandSource { }
+
+.syntaxhighlighter .toolbar { }
+
+.syntaxhighlighter .toolbar span.title { }
+
+.syntaxhighlighter .toolbar a { }
+
+.syntaxhighlighter .toolbar a.expandSource { }
+
+.syntaxhighlighter.ie { }
+
+.syntaxhighlighter.ie .toolbar { }
+
+.syntaxhighlighter.ie .toolbar a { }
+
+.syntaxhighlighter.printing .line.alt1 .content, .syntaxhighlighter.printing .line.alt2 .content, .syntaxhighlighter.printing .line.highlighted .number, .syntaxhighlighter.printing .line.highlighted.alt1 .content, .syntaxhighlighter.printing .line.highlighted.alt2 .content { }
+
+.syntaxhighlighter.printing .line .number { }
+
+.syntaxhighlighter.printing .line .content { }
+
+.syntaxhighlighter.printing .toolbar { }
+
+.syntaxhighlighter.printing a { }
+
+.syntaxhighlighter.printing .plain, .syntaxhighlighter.printing .plain a { }
+
+.syntaxhighlighter.printing .comments, .syntaxhighlighter.printing .comments a { }
+
+.syntaxhighlighter.printing .string, .syntaxhighlighter.printing .string a { }
+
+.syntaxhighlighter.printing .keyword { }
+
+.syntaxhighlighter.printing .preprocessor { }
+
+.syntaxhighlighter.printing .variable { }
+
+.syntaxhighlighter.printing .value { }
+
+.syntaxhighlighter.printing .functions { }
+
+.syntaxhighlighter.printing .constants { }
+
+.syntaxhighlighter.printing .script { }
+
+.syntaxhighlighter.printing .color1, .syntaxhighlighter.printing .color1 a { }
+
+.syntaxhighlighter.printing .color2, .syntaxhighlighter.printing .color2 a { }
+
+.syntaxhighlighter.printing .color3, .syntaxhighlighter.printing .color3 a { }
+
+.syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a { }
+------MultipartBoundary--HBWsCqoIAF7WdfUnDWLXeb81DXfh0fxUhe9jgYVQnT----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: http://foo.wyrd.name/lib/plugins/syntaxhighlighter3/sxh3/styles/shThemeDefault.css
+
+@charset "utf-8";
+
+
+------MultipartBoundary--HBWsCqoIAF7WdfUnDWLXeb81DXfh0fxUhe9jgYVQnT------

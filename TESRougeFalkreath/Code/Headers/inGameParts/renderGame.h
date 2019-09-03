@@ -17,11 +17,11 @@ class renderGame {
 
  public:
   explicit renderGame();
-  explicit renderGame(unsigned);
+  explicit renderGame(unsigned gameMode);
   ~renderGame();
 
   void clearALL();
-  void clearAREA(unsigned, unsigned, unsigned, unsigned);
+  void clearAREA(unsigned inX, unsigned inY, unsigned outX, unsigned outY);
 
   bool viewPhrase(const char*, const char*, unsigned, unsigned, unsigned, unsigned);
   bool viewWord(const char*, char*, unsigned, unsigned, unsigned, unsigned, unsigned,
@@ -30,18 +30,18 @@ class renderGame {
   bool viewChoise(const char*, const char**, unsigned, unsigned, unsigned, unsigned, unsigned,
                   unsigned);  // Заголовок, список из меню, колличество пунктов для выбора, выбранный пункт, координаты квадрата для выбора
 
-  bool deathScreen(logicComponents* COMPONENTS);
-
-  bool mainMenu(unsigned);  // Выделенный элемент
-  bool raceMenu(unsigned);  // Аналог верхнего
+  bool mainMenu(unsigned);  // Выделенный элемент      содежит terminal_refresh
+  bool raceMenu(unsigned);  // Аналог верхнего         содежит terminal_refresh
 
   void symColor(char Symbol);
-  void showArea(logicComponents* COMPONENTSAREA);
-  void showPlayer(logicComponents* COMPONENTSAREA);
+  void showArea(logicComponents* COMPONENTS);
+  void showPlayer(logicComponents* COMPONENTS);
   void showHud(logicComponents* COMPONENTS);
   void showLogWindow(logicComponents* COMPONENTS);
 
-  bool Update(logicComponents* COMPONENTS);
+  bool   Update(logicComponents* COMPONENTS);  // содежит terminal_refresh
+
+  bool deathScreen(logicComponents* COMPONENTS);  // содежит terminal_refresh
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMEPARTS_RENDERGAME_H_

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head prefix="og: http://ogp.me/ns#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="Требования к 4 итерации · Wiki · coding-garden / tutorials" property="og:title">
+<meta content="GitLab Community Edition" property="og:description">
+<meta content="https://gitlab.7bits.it/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="64" property="og:image:width">
+<meta content="64" property="og:image:height">
+<meta content="https://gitlab.7bits.it/coding-garden/tutorials/wikis/%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BA-4-%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="Требования к 4 итерации · Wiki · coding-garden / tutorials" property="twitter:title">
+<meta content="GitLab Community Edition" property="twitter:description">
+<meta content="https://gitlab.7bits.it/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>Требования к 4 итерации · Wiki · coding-garden / tutorials · GitLab</title>
+<meta content="GitLab Community Edition" name="description">
+<link rel="shortcut icon" type="image/png" href="https://gitlab.7bits.it/assets/favicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png" id="favicon" data-original-href="/assets/favicon-7901bd695fb93edb07975966062049829afb56cf11511236e61bcf425070e36e.png">
+<link rel="stylesheet" media="all" href="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/application-78812856e55613c6803ecb31cc1864b7555bf7f0126d1dfa.css">
+<link rel="stylesheet" media="print" href="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/print-74c3df10dad473d66660c828e3aa54ca3bfeac6d8bb70864333140.css">
+
+
+
+<link rel="stylesheet" media="all" href="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/white-a165d47ce52cf24c29686366976ae691bd9addb9641a6abeb3ba6d.css">
+<script>
+//<![CDATA[
+window.gon={};gon.api_version="v4";gon.default_avatar_url="https://gitlab.7bits.it/assets/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.asset_host=null;gon.webpack_public_path="/assets/webpack/";gon.relative_url_root="";gon.shortcuts_path="/help/shortcuts";gon.user_color_scheme="white";gon.gitlab_url="https://gitlab.7bits.it";gon.revision="34d086f3e14";gon.gitlab_logo="/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png";gon.sprite_icons="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg";gon.sprite_file_icons="/assets/file_icons-7262fc6897e02f1ceaf8de43dc33afa5e4f9a2067f4f68ef77dcc87946575e9e.svg";gon.emoji_sprites_css_path="/assets/emoji_sprites-289eccffb1183c188b630297431be837765d9ff4aed6130cf738586fb307c170.css";gon.test_env=false;gon.suggested_label_colors={"#0033CC":"UA blue","#428BCA":"Moderate blue","#44AD8E":"Lime green","#A8D695":"Feijoa","#5CB85C":"Slightly desaturated green","#69D100":"Bright green","#004E00":"Very dark lime green","#34495E":"Very dark desaturated blue","#7F8C8D":"Dark grayish cyan","#A295D6":"Slightly desaturated blue","#5843AD":"Dark moderate blue","#8E44AD":"Dark moderate violet","#FFECDB":"Very pale orange","#AD4363":"Dark moderate pink","#D10069":"Strong pink","#CC0033":"Strong red","#FF0000":"Pure red","#D9534F":"Soft red","#D1D100":"Strong yellow","#F0AD4E":"Soft orange","#AD8D43":"Dark moderate orange"};gon.first_day_of_week=1;gon.ee=false;gon.current_user_id=232;gon.current_username="ustjantsev.andrej";gon.current_user_fullname="Устьянцев Андрей";gon.current_user_avatar_url="https://secure.gravatar.com/avatar/005e743a250036afb518fa4a19546daa?s=80\u0026d=identicon";gon.features={"gfmEmbeddedMetrics":false};
+//]]>
+</script>
+
+
+<script src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/runtime.js" defer="defer"></script>
+<script src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/main.js" defer="defer"></script>
+<script src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/commonspages_002.js" defer="defer"></script>
+<script src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/commonspages.js" defer="defer"></script>
+<script src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/pages.js" defer="defer"></script>
+<script>
+  window.uploads_path = "/coding-garden/tutorials/uploads";
+</script>
+
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="LgVhlGHJldiS6ktIrtGuCyxtaJEyVHrOAoZN8IvUPru+L7eeJgqJmgZ+Vdm5BOPHrvsOIw/lK6H6QiK4M7wucg==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.7bits.it/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.7bits.it/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.7bits.it/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.7bits.it/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://gitlab.7bits.it/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+
+
+
+
+
+<style type="text/css">.toasted{padding:0 20px}.toasted.rounded{border-radius:24px}.toasted .primary,.toasted.toasted-primary{border-radius:2px;min-height:38px;line-height:1.1em;background-color:#353535;padding:0 20px;font-size:15px;font-weight:300;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.toasted .primary.success,.toasted.toasted-primary.success{background:#4caf50}.toasted .primary.error,.toasted.toasted-primary.error{background:#f44336}.toasted .primary.info,.toasted.toasted-primary.info{background:#3f51b5}.toasted .primary .action,.toasted.toasted-primary .action{color:#a1c2fa}.toasted.bubble{border-radius:30px;min-height:38px;line-height:1.1em;background-color:#ff7043;padding:0 20px;font-size:15px;font-weight:300;color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.toasted.bubble.success{background:#4caf50}.toasted.bubble.error{background:#f44336}.toasted.bubble.info{background:#3f51b5}.toasted.bubble .action{color:#8e2b0c}.toasted.outline{border-radius:30px;min-height:38px;line-height:1.1em;background-color:#fff;border:1px solid #676767;padding:0 20px;font-size:15px;color:#676767;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);font-weight:700}.toasted.outline.success{color:#4caf50;border-color:#4caf50}.toasted.outline.error{color:#f44336;border-color:#f44336}.toasted.outline.info{color:#3f51b5;border-color:#3f51b5}.toasted.outline .action{color:#607d8b}.toasted-container{position:fixed;z-index:10000}.toasted-container,.toasted-container.full-width{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}.toasted-container.full-width{max-width:86%;width:100%}.toasted-container.full-width.fit-to-screen{min-width:100%}.toasted-container.full-width.fit-to-screen .toasted:first-child{margin-top:0}.toasted-container.full-width.fit-to-screen.top-right{top:0;right:0}.toasted-container.full-width.fit-to-screen.top-left{top:0;left:0}.toasted-container.full-width.fit-to-screen.top-center{top:0;left:0;-webkit-transform:translateX(0);transform:translateX(0)}.toasted-container.full-width.fit-to-screen.bottom-right{right:0;bottom:0}.toasted-container.full-width.fit-to-screen.bottom-left{left:0;bottom:0}.toasted-container.full-width.fit-to-screen.bottom-center{left:0;bottom:0;-webkit-transform:translateX(0);transform:translateX(0)}.toasted-container.top-right{top:10%;right:7%}.toasted-container.top-left{top:10%;left:7%}.toasted-container.top-center{top:10%;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.toasted-container.bottom-right{right:5%;bottom:7%}.toasted-container.bottom-left{left:5%;bottom:7%}.toasted-container.bottom-center{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);bottom:7%}.toasted-container.bottom-left .toasted,.toasted-container.top-left .toasted{float:left}.toasted-container.bottom-right .toasted,.toasted-container.top-right .toasted{float:right}.toasted-container .toasted{top:35px;width:auto;clear:both;margin-top:10px;position:relative;max-width:100%;height:auto;word-break:normal;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;box-sizing:inherit}.toasted-container .toasted .fa,.toasted-container .toasted .fab,.toasted-container .toasted .far,.toasted-container .toasted .fas,.toasted-container .toasted .material-icons,.toasted-container .toasted .mdi{margin-right:.5rem;margin-left:-.4rem}.toasted-container .toasted .fa.after,.toasted-container .toasted .fab.after,.toasted-container .toasted .far.after,.toasted-container .toasted .fas.after,.toasted-container .toasted .material-icons.after,.toasted-container .toasted .mdi.after{margin-left:.5rem;margin-right:-.4rem}.toasted-container .toasted .action{text-decoration:none;font-size:.8rem;padding:8px;margin:5px -7px 5px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.03em;font-weight:600;cursor:pointer}.toasted-container .toasted .action.icon{padding:4px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}.toasted-container .toasted .action.icon .fa,.toasted-container .toasted .action.icon .material-icons,.toasted-container .toasted .action.icon .mdi{margin-right:0;margin-left:4px}.toasted-container .toasted .action.icon:hover{text-decoration:none}.toasted-container .toasted .action:hover{text-decoration:underline}@media only screen and (max-width:600px){#toasted-container{min-width:100%}#toasted-container .toasted:first-child{margin-top:0}#toasted-container.top-right{top:0;right:0}#toasted-container.top-left{top:0;left:0}#toasted-container.top-center{top:0;left:0;-webkit-transform:translateX(0);transform:translateX(0)}#toasted-container.bottom-right{right:0;bottom:0}#toasted-container.bottom-left{left:0;bottom:0}#toasted-container.bottom-center{left:0;bottom:0;-webkit-transform:translateX(0);transform:translateX(0)}#toasted-container.bottom-center,#toasted-container.top-center{-ms-flex-align:stretch!important;align-items:stretch!important}#toasted-container.bottom-left .toasted,#toasted-container.bottom-right .toasted,#toasted-container.top-left .toasted,#toasted-container.top-right .toasted{float:none}#toasted-container .toasted{border-radius:0}}</style><script charset="utf-8" src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/vendorsselect2.js"></script></head>
+
+<body class="ui-indigo  gl-browser-firefox gl-platform-linux" data-find-file="/coding-garden/tutorials/find_file/master" data-group="" data-page="projects:wikis:show" data-project="tutorials">
+
+<script>
+  gl = window.gl || {};
+  gl.client = {"isFirefox":true,"isLinux":true};
+</script>
+
+
+
+<header class="navbar navbar-gitlab navbar-expand-sm js-navbar" data-qa-selector="navbar">
+<a class="sr-only gl-accessibility" href="#content-body" tabindex="1">Skip to content</a>
+<div class="container-fluid">
+<div class="header-content">
+<div class="title-container">
+<h1 class="title">
+<a title="Dashboard" id="logo" href="https://gitlab.7bits.it/"><svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36">
+  <path class="tanuki-shape tanuki-left-ear" fill="#e24329" d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
+  <path class="tanuki-shape tanuki-right-ear" fill="#e24329" d="M34 14l-9.38 9v-9l4-12.28c.205-.632 1.176-.632 1.38 0z"></path>
+  <path class="tanuki-shape tanuki-nose" fill="#e24329" d="M18,34.38 3,14 33,14 Z"></path>
+  <path class="tanuki-shape tanuki-left-eye" fill="#fc6d26" d="M18,34.38 11.38,14 2,14 6,25Z"></path>
+  <path class="tanuki-shape tanuki-right-eye" fill="#fc6d26" d="M18,34.38 24.62,14 34,14 30,25Z"></path>
+  <path class="tanuki-shape tanuki-left-cheek" fill="#fca326" d="M2 14L.1 20.16c-.18.565 0 1.2.5 1.56l17.42 12.66z"></path>
+  <path class="tanuki-shape tanuki-right-cheek" fill="#fca326" d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
+</svg>
+
+<span class="logo-text d-none d-lg-block prepend-left-8">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 617 169"><path d="M315.26 2.97h-21.8l.1 162.5h88.3v-20.1h-66.5l-.1-142.4M465.89 136.95c-5.5 5.7-14.6 11.4-27 11.4-16.6 0-23.3-8.2-23.3-18.9 0-16.1 11.2-23.8 35-23.8 4.5 0 11.7.5 15.4 1.2v30.1h-.1m-22.6-98.5c-17.6 0-33.8 6.2-46.4 16.7l7.7 13.4c8.9-5.2 19.8-10.4 35.5-10.4 17.9 0 25.8 9.2 25.8 24.6v7.9c-3.5-.7-10.7-1.2-15.1-1.2-38.2 0-57.6 13.4-57.6 41.4 0 25.1 15.4 37.7 38.7 37.7 15.7 0 30.8-7.2 36-18.9l4 15.9h15.4v-83.2c-.1-26.3-11.5-43.9-44-43.9M557.63 149.1c-8.2 0-15.4-1-20.8-3.5V70.5c7.4-6.2 16.6-10.7 28.3-10.7 21.1 0 29.2 14.9 29.2 39 0 34.2-13.1 50.3-36.7 50.3m9.2-110.6c-19.5 0-30 13.3-30 13.3v-21l-.1-27.8h-21.3l.1 158.5c10.7 4.5 25.3 6.9 41.2 6.9 40.7 0 60.3-26 60.3-70.9-.1-35.5-18.2-59-50.2-59M77.9 20.6c19.3 0 31.8 6.4 39.9 12.9l9.4-16.3C114.5 6 97.3 0 78.9 0 32.5 0 0 28.3 0 85.4c0 59.8 35.1 83.1 75.2 83.1 20.1 0 37.2-4.7 48.4-9.4l-.5-63.9V75.1H63.6v20.1h38l.5 48.5c-5 2.5-13.6 4.5-25.3 4.5-32.2 0-53.8-20.3-53.8-63-.1-43.5 22.2-64.6 54.9-64.6M231.43 2.95h-21.3l.1 27.3v94.3c0 26.3 11.4 43.9 43.9 43.9 4.5 0 8.9-.4 13.1-1.2v-19.1c-3.1.5-6.4.7-9.9.7-17.9 0-25.8-9.2-25.8-24.6v-65h35.7v-17.8h-35.7l-.1-38.5M155.96 165.47h21.3v-124h-21.3v124M155.96 24.37h21.3V3.07h-21.3v21.3"></path></svg>
+
+</span>
+</a></h1>
+<ul class="list-unstyled navbar-sub-nav">
+<li id="nav-projects-dropdown" class="home dropdown header-projects qa-projects-dropdown" data-track-label="projects_dropdown" data-track-event="click_dropdown" data-track-value=""><button class="btn" data-toggle="dropdown" type="button">
+Projects
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</button>
+<div class="dropdown-menu frequent-items-dropdown-menu">
+<div class="frequent-items-dropdown-container">
+<div class="frequent-items-dropdown-sidebar qa-projects-dropdown-sidebar">
+<ul>
+<li class=""><a class="qa-your-projects-link" href="https://gitlab.7bits.it/dashboard/projects">Your projects
+</a></li><li class=""><a href="https://gitlab.7bits.it/dashboard/projects/starred">Starred projects
+</a></li><li class=""><a href="https://gitlab.7bits.it/explore">Explore projects
+</a></li></ul>
+</div>
+<div class="frequent-items-dropdown-content">
+<div><div class="search-input-container d-none d-sm-block"><input placeholder="Search your projects" type="search" class="form-control"> <svg aria-hidden="true" class="search-icon s16 ic-search"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#search"></use></svg></div> <!----> <div class="section-header">
+    Frequently visited
+  </div> <div class="frequent-items-list-container"><ul class="list-unstyled"><li class="section-empty">
+      Projects you visit often will appear here
+    </li></ul></div></div>
+</div>
+</div>
+
+</div>
+</li><li id="nav-groups-dropdown" class="home dropdown header-groups qa-groups-dropdown" data-track-label="groups_dropdown" data-track-event="click_dropdown" data-track-value=""><button class="btn" data-toggle="dropdown" type="button">
+Groups
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</button>
+<div class="dropdown-menu frequent-items-dropdown-menu">
+<div class="frequent-items-dropdown-container">
+<div class="frequent-items-dropdown-sidebar qa-groups-dropdown-sidebar">
+<ul>
+<li class=""><a class="qa-your-groups-link" href="https://gitlab.7bits.it/dashboard/groups">Your groups
+</a></li><li class=""><a href="https://gitlab.7bits.it/explore/groups">Explore groups
+</a></li></ul>
+</div>
+<div class="frequent-items-dropdown-content">
+<div><div class="search-input-container d-none d-sm-block"><input placeholder="Search your groups" type="search" class="form-control"> <svg aria-hidden="true" class="search-icon s16 ic-search"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#search"></use></svg></div> <!----> <div class="section-header">
+    Frequently visited
+  </div> <div class="frequent-items-list-container"><ul class="list-unstyled"><li class="section-empty">
+      Groups you visit often will appear here
+    </li></ul></div></div>
+</div>
+</div>
+
+</div>
+</li><li class="d-none d-xl-block"><a class="dashboard-shortcuts-activity" href="https://gitlab.7bits.it/dashboard/activity">Activity
+</a></li><li class="d-none d-xl-block"><a class="dashboard-shortcuts-milestones" href="https://gitlab.7bits.it/dashboard/milestones">Milestones
+</a></li><li class="d-none d-xl-block"><a class="dashboard-shortcuts-snippets qa-snippets-link" href="https://gitlab.7bits.it/dashboard/snippets">Snippets
+</a></li><li class="d-xl-none dropdown header-more">
+<a data-toggle="dropdown" href="#">
+More
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</a>
+<div class="dropdown-menu">
+<ul>
+<li class=""><a href="https://gitlab.7bits.it/dashboard/activity">Activity
+</a></li><li class=""><a class="dashboard-shortcuts-milestones" href="https://gitlab.7bits.it/dashboard/milestones">Milestones
+</a></li><li class=""><a class="dashboard-shortcuts-snippets" href="https://gitlab.7bits.it/dashboard/snippets">Snippets
+</a></li><li class="dropdown d-lg-none">
+
+</li>
+<li class="d-lg-none"><a href="https://gitlab.7bits.it/-/instance_statistics">Instance Statistics
+</a></li></ul>
+</div>
+</li>
+<li class="hidden">
+<a class="dashboard-shortcuts-projects" href="https://gitlab.7bits.it/dashboard/projects">Projects
+</a></li>
+<li class="d-lg-block d-none dropdown">
+
+</li>
+<li class="d-none d-lg-block d-xl-block"><a title="Instance Statistics" aria-label="Instance Statistics" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.7bits.it/-/instance_statistics"><svg class="s18"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#chart"></use></svg>
+</a></li>
+</ul>
+
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="header-new dropdown" data-track-event="click_dropdown" data-track-label="new_dropdown" data-track-value="">
+<a class="header-new-dropdown-toggle has-tooltip qa-new-menu-toggle" id="js-onboarding-new-project-link" title="New..." ref="tooltip" aria-label="New..." data-toggle="dropdown" data-placement="bottom" data-container="body" data-display="static" href="https://gitlab.7bits.it/projects/new"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#plus-square"></use></svg>
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</a><div class="dropdown-menu dropdown-menu-right">
+<ul>
+<li class="dropdown-bold-header">
+This project
+</li>
+<li><a href="https://gitlab.7bits.it/coding-garden/tutorials/issues/new">New issue</a></li>
+<li class="divider"></li>
+<li class="dropdown-bold-header">GitLab</li>
+<li><a class="qa-global-new-snippet-link" href="https://gitlab.7bits.it/snippets/new">New snippet</a></li>
+</ul>
+</div>
+</li>
+
+<li class="nav-item d-none d-sm-none d-md-block m-auto">
+<div class="search search-form" data-track-event="activate_form_input" data-track-label="navbar_search" data-track-value="">
+<form class="form-inline" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search or jump to…" class="search-input dropdown-menu-toggle no-outline js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-issues-path="/dashboard/issues" data-mr-path="/dashboard/merge_requests" aria-label="Search or jump to…">
+<button class="hidden js-dropdown-search-toggle" data-toggle="dropdown" type="button"></button>
+<div class="dropdown-menu dropdown-select js-dashboard-search-options">
+<div class="dropdown-content"><ul>
+<li class="dropdown-menu-empty-item">
+<a>
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i aria-hidden="true" data-hidden="true" class="fa fa-spinner fa-spin"></i></div>
+</div>
+<svg class="s16 search-icon"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#search"></use></svg>
+<svg class="s16 clear-icon js-clear-input"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#close"></use></svg>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="338" class="js-search-project-options" data-project-path="tutorials" data-name="tutorials" data-issues-path="/coding-garden/tutorials/issues" data-mr-path="/coding-garden/tutorials/merge_requests" data-issues-disabled="false">
+<input type="hidden" name="scope" id="scope" value="wiki_blobs">
+<input type="hidden" name="repository_ref" id="repository_ref">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/search/autocomplete" data-autocomplete-project-id="338"></div>
+</form></div>
+
+</li>
+<li class="nav-item d-inline-block d-sm-none d-md-none">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.7bits.it/search?project_id=338"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#search"></use></svg>
+</a></li>
+<li class="user-counter"><a title="Issues" class="dashboard-shortcuts-issues" aria-label="Issues" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.7bits.it/dashboard/issues?assignee_username=ustjantsev.andrej"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#issues"></use></svg>
+<span class="badge badge-pill green-badge hidden issues-count">
+0
+</span>
+</a></li><li class="user-counter"><a title="Merge requests" class="dashboard-shortcuts-merge_requests" aria-label="Merge requests" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.7bits.it/dashboard/merge_requests?assignee_username=ustjantsev.andrej"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#git-merge"></use></svg>
+<span class="badge badge-pill hidden merge-requests-count">
+0
+</span>
+</a></li><li class="user-counter"><a title="To-Do List" aria-label="To-Do List" class="shortcuts-todos" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.7bits.it/dashboard/todos"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#todo-done"></use></svg>
+<span class="badge badge-pill hidden todos-count">
+0
+</span>
+</a></li><li class="nav-item header-help dropdown">
+<a class="header-help-dropdown-toggle" data-toggle="dropdown" href="https://gitlab.7bits.it/help"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#question"></use></svg>
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</a><div class="dropdown-menu dropdown-menu-right">
+<ul>
+<li>
+<a href="https://gitlab.7bits.it/help">Help</a>
+</li>
+
+<li class="divider"></li>
+<li>
+<a href="https://about.gitlab.com/submit-feedback">Submit feedback</a>
+</li>
+<li>
+<a target="_blank" class="text-nowrap" href="https://about.gitlab.com/contributing">Contribute to GitLab
+</a></li>
+
+
+</ul>
+
+</div>
+</li>
+<li class="nav-item header-user dropdown" data-qa-selector="user_menu" data-track-event="click_dropdown" data-track-label="profile_dropdown" data-track-value="">
+<a class="header-user-dropdown-toggle" data-toggle="dropdown" href="https://gitlab.7bits.it/ustjantsev.andrej"><img class="header-user-avatar qa-user-avatar js-lazy-loaded qa-js-lazy-loaded" src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/005e743a250036afb518fa4a19546daa.png" width="23" height="23">
+<svg class="caret-down"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-down"></use></svg>
+</a><div class="dropdown-menu dropdown-menu-right">
+<ul>
+<li class="current-user">
+<div class="user-name bold">
+Устьянцев Андрей
+</div>
+@ustjantsev.andrej
+</li>
+<li class="divider"></li>
+<li>
+<button type="button" class="btn menu-item">Set status</button>
+</li>
+<li>
+<a class="profile-link" data-user="ustjantsev.andrej" href="https://gitlab.7bits.it/ustjantsev.andrej">Profile</a>
+</li>
+<li>
+<a href="https://gitlab.7bits.it/profile">Settings</a>
+</li>
+<li class="divider"></li>
+<li>
+<a class="sign-out-link qa-sign-out-link" href="https://gitlab.7bits.it/users/sign_out">Sign out</a>
+</li>
+</ul>
+
+</div>
+</li>
+</ul>
+</div>
+<button class="navbar-toggler d-block d-sm-none" type="button">
+<span class="sr-only">Toggle navigation</span>
+<svg class="s12 more-icon js-navbar-toggle-right"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#ellipsis_h"></use></svg>
+<svg class="s12 close-icon js-navbar-toggle-left"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#close"></use></svg>
+</button>
+</div>
+</div>
+</header>
+<!---->
+
+<div class="layout-page page-gutter page-with-contextual-sidebar right-sidebar-expanded wiki-sidebar">
+<div class="nav-sidebar">
+<div class="nav-sidebar-inner-scroll">
+<div class="context-header">
+<a title="tutorials" href="https://gitlab.7bits.it/coding-garden/tutorials"><div class="avatar-container rect-avatar s40 project-avatar">
+<div class="avatar s40 avatar-tile identicon bg3">T</div>
+</div>
+<div class="sidebar-context-title">
+tutorials
+</div>
+</a></div>
+<ul class="sidebar-top-level-items">
+<li class="home"><a class="shortcuts-project qa-link-project" href="https://gitlab.7bits.it/coding-garden/tutorials"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#home"></use></svg>
+</div>
+<span class="nav-item-name">
+Project
+</span>
+</a><ul class="sidebar-sub-level-items">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials"><strong class="fly-out-top-item-name">
+Project
+</strong>
+</a></li><li class="divider fly-out-top-item"></li>
+<li class=""><a title="Project details" class="shortcuts-project" href="https://gitlab.7bits.it/coding-garden/tutorials"><span>Details</span>
+</a></li><li class=""><a title="Activity" class="shortcuts-project-activity qa-activity-link" href="https://gitlab.7bits.it/coding-garden/tutorials/activity"><span>Activity</span>
+</a></li><li class=""><a title="Releases" class="shortcuts-project-releases" href="https://gitlab.7bits.it/coding-garden/tutorials/-/releases"><span>Releases</span>
+</a></li>
+
+<li class=""><a title="Cycle Analytics" class="shortcuts-project-cycle-analytics" href="https://gitlab.7bits.it/coding-garden/tutorials/cycle_analytics"><span>Cycle Analytics</span>
+</a></li>
+</ul>
+</li><li class=""><a class="shortcuts-tree qa-project-menu-repo" href="https://gitlab.7bits.it/coding-garden/tutorials/tree/master"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#doc-text"></use></svg>
+</div>
+<span class="nav-item-name" id="js-onboarding-repo-link">
+Repository
+</span>
+</a><ul class="sidebar-sub-level-items">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/tree/master"><strong class="fly-out-top-item-name">
+Repository
+</strong>
+</a></li><li class="divider fly-out-top-item"></li>
+<li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/tree/master">Files
+</a></li><li class=""><a id="js-onboarding-commits-link" href="https://gitlab.7bits.it/coding-garden/tutorials/commits/master">Commits
+</a></li><li class=""><a class="qa-branches-link" id="js-onboarding-branches-link" href="https://gitlab.7bits.it/coding-garden/tutorials/-/branches">Branches
+</a></li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/-/tags">Tags
+</a></li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/-/graphs/master">Contributors
+</a></li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/-/network/master">Graph
+</a></li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/compare?from=master&amp;to=master">Compare
+</a></li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/-/graphs/master/charts">Charts
+</a></li>
+</ul>
+</li><li class=""><a class="shortcuts-issues qa-issues-item" href="https://gitlab.7bits.it/coding-garden/tutorials/issues"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#issues"></use></svg>
+</div>
+<span class="nav-item-name" id="js-onboarding-issues-link">
+Issues
+</span>
+<span class="badge badge-pill count issue_counter">
+0
+</span>
+</a><ul class="sidebar-sub-level-items fly-out-list" style="">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/issues"><strong class="fly-out-top-item-name">
+Issues
+</strong>
+<span class="badge badge-pill count issue_counter fly-out-badge">
+0
+</span>
+</a></li><li class="divider fly-out-top-item"></li>
+<li class=""><a title="Issues" href="https://gitlab.7bits.it/coding-garden/tutorials/issues"><span>
+List
+</span>
+</a></li><li class=""><a title="Boards" href="https://gitlab.7bits.it/coding-garden/tutorials/-/boards"><span>
+Boards
+</span>
+</a></li><li class=""><a title="Labels" class="qa-labels-link" href="https://gitlab.7bits.it/coding-garden/tutorials/-/labels"><span>
+Labels
+</span>
+</a></li>
+<li class=""><a title="Milestones" class="qa-milestones-link" href="https://gitlab.7bits.it/coding-garden/tutorials/-/milestones"><span>
+Milestones
+</span>
+</a></li></ul>
+</li><li class=""><a class="shortcuts-merge_requests qa-merge-requests-link" href="https://gitlab.7bits.it/coding-garden/tutorials/merge_requests"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#git-merge"></use></svg>
+</div>
+<span class="nav-item-name" id="js-onboarding-mr-link">
+Merge Requests
+</span>
+<span class="badge badge-pill count merge_counter js-merge-counter">
+0
+</span>
+</a><ul class="sidebar-sub-level-items is-fly-out-only">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/merge_requests"><strong class="fly-out-top-item-name">
+Merge Requests
+</strong>
+<span class="badge badge-pill count merge_counter js-merge-counter fly-out-badge">
+0
+</span>
+</a></li></ul>
+</li><li class=""><a class="shortcuts-pipelines qa-link-pipelines" href="https://gitlab.7bits.it/coding-garden/tutorials/pipelines"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#rocket"></use></svg>
+</div>
+<span class="nav-item-name" id="js-onboarding-pipelines-link">
+CI / CD
+</span>
+</a><ul class="sidebar-sub-level-items fly-out-list" style="">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/pipelines"><strong class="fly-out-top-item-name">
+CI / CD
+</strong>
+</a></li><li class="divider fly-out-top-item"></li>
+<li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://gitlab.7bits.it/coding-garden/tutorials/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class=""><a title="Jobs" class="shortcuts-builds" href="https://gitlab.7bits.it/coding-garden/tutorials/-/jobs"><span>
+Jobs
+</span>
+</a></li><li class=""><a title="Schedules" class="shortcuts-builds" href="https://gitlab.7bits.it/coding-garden/tutorials/pipeline_schedules"><span>
+Schedules
+</span>
+</a></li><li class=""><a title="Charts" class="shortcuts-pipelines-charts" href="https://gitlab.7bits.it/coding-garden/tutorials/pipelines/charts"><span>
+Charts
+</span>
+</a></li></ul>
+</li><li class=""><a href="https://gitlab.7bits.it/coding-garden/tutorials/container_registry"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#package"></use></svg>
+</div>
+<span class="nav-item-name">
+Packages
+</span>
+</a><ul class="sidebar-sub-level-items fly-out-list" style="">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/container_registry"><strong class="fly-out-top-item-name">
+Packages
+</strong>
+</a></li><li class="divider fly-out-top-item"></li>
+<li class=""><a class="shortcuts-container-registry" title="Container Registry" href="https://gitlab.7bits.it/coding-garden/tutorials/container_registry"><span>Container Registry</span>
+</a></li></ul>
+</li>
+<li class="active"><a class="shortcuts-wiki qa-wiki-link" href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/home"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#book"></use></svg>
+</div>
+<span class="nav-item-name">
+Wiki
+</span>
+</a><ul class="sidebar-sub-level-items is-fly-out-only">
+<li class="fly-out-top-item active"><a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/home"><strong class="fly-out-top-item-name">
+Wiki
+</strong>
+</a></li></ul>
+</li><li class=""><a class="shortcuts-snippets" href="https://gitlab.7bits.it/coding-garden/tutorials/snippets"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#snippet"></use></svg>
+</div>
+<span class="nav-item-name">
+Snippets
+</span>
+</a><ul class="sidebar-sub-level-items is-fly-out-only">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/snippets"><strong class="fly-out-top-item-name">
+Snippets
+</strong>
+</a></li></ul>
+</li><li class=""><a title="Members" class="shortcuts-tree" href="https://gitlab.7bits.it/coding-garden/tutorials/-/settings/members"><div class="nav-icon-container">
+<svg><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#users"></use></svg>
+</div>
+<span class="nav-item-name">
+Members
+</span>
+</a><ul class="sidebar-sub-level-items is-fly-out-only">
+<li class="fly-out-top-item"><a href="https://gitlab.7bits.it/coding-garden/tutorials/-/project_members"><strong class="fly-out-top-item-name">
+Members
+</strong>
+</a></li></ul>
+</li><a class="toggle-sidebar-button js-toggle-sidebar qa-toggle-sidebar" role="button" title="Toggle sidebar" type="button">
+<svg class="icon-angle-double-left"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-double-left"></use></svg>
+<svg class="icon-angle-double-right"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-double-right"></use></svg>
+<span class="collapse-text">Collapse sidebar</span>
+</a>
+<button name="button" type="button" class="close-nav-button"><svg class="s16"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#close"></use></svg>
+<span class="collapse-text">Close sidebar</span>
+</button>
+<li class="hidden">
+<a title="Activity" class="shortcuts-project-activity" href="https://gitlab.7bits.it/coding-garden/tutorials/activity"><span>
+Activity
+</span>
+</a></li>
+<li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://gitlab.7bits.it/coding-garden/tutorials/-/network/master">Graph
+</a></li>
+<li class="hidden">
+<a title="Charts" class="shortcuts-repository-charts" href="https://gitlab.7bits.it/coding-garden/tutorials/-/graphs/master/charts">Charts
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://gitlab.7bits.it/coding-garden/tutorials/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Jobs" class="shortcuts-builds" href="https://gitlab.7bits.it/coding-garden/tutorials/-/jobs">Jobs
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://gitlab.7bits.it/coding-garden/tutorials/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://gitlab.7bits.it/coding-garden/tutorials/-/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="content-wrapper">
+
+<div class="mobile-overlay"></div>
+<div class="alert-wrapper">
+
+
+
+
+
+
+<nav class="breadcrumbs container-fluid container-limited limit-container-width" role="navigation">
+<div class="breadcrumbs-container">
+<button name="button" type="button" class="toggle-mobile-nav"><span class="sr-only">Open sidebar</span>
+<i aria-hidden="true" data-hidden="true" class="fa fa-bars"></i>
+</button><div class="breadcrumbs-links js-title-container">
+<ul class="list-unstyled breadcrumbs-list js-breadcrumbs-list">
+<li><a class="group-path breadcrumb-item-text js-breadcrumb-item-text " href="https://gitlab.7bits.it/coding-garden"><img class="avatar-tile js-lazy-loaded qa-js-lazy-loaded" src="%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BA%204%20%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%C2%B7%20Wiki%20%C2%B7%20coding-garden%20_%20tutorials%20%C2%B7%20GitLab_files/Ft4PdfXjwFk.jpg" width="15" height="15">coding-garden</a><svg class="s8 breadcrumbs-list-angle"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-right"></use></svg></li> <li><a href="https://gitlab.7bits.it/coding-garden/tutorials"><span class="breadcrumb-item-text js-breadcrumb-item-text">tutorials</span></a><svg class="s8 breadcrumbs-list-angle"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-right"></use></svg></li>
+<li><a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/home">Wiki</a><svg class="s8 breadcrumbs-list-angle"><use xlink:href="/assets/icons-d2ccb0e13086d398012c6c445cbd9fc0ed64fb5278cafd89f8be8e0a33a85383.svg#angle-right"></use></svg></li>
+
+<li>
+<h2 class="breadcrumbs-sub-title"><a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BA-4-%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8">Требования к 4 итерации</a></h2>
+</li>
+</ul>
+</div>
+
+</div>
+</nav>
+
+<div class="flash-container flash-container-page">
+</div>
+
+<div class="d-flex"></div>
+</div>
+<div class="container-fluid container-limited limit-container-width">
+<div class="content" id="content-body">
+<div class="wiki-page-header has-sidebar-toggle">
+<button class="btn btn-default sidebar-toggle js-sidebar-wiki-toggle" role="button" type="button">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-left"></i>
+</button>
+<div class="nav-text flex-fill">
+<h2 class="wiki-page-title">Требования к 4 итерации</h2>
+<span class="wiki-last-edit-by">
+Last edited by <strong>Ilya Siganov</strong>
+<time class="js-timeago" title="" datetime="2019-07-30T03:56:56Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Jul 30, 2019 3:56am">3 weeks ago</time>
+</span>
+</div>
+<div class="nav-controls">
+<a class="btn" href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/%D0%A2%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BA-4-%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8/history">Page history
+</a>
+</div>
+</div>
+<div class="prepend-top-default append-bottom-default">
+<div class="md md-file">
+<h2 data-sourcepos="1:1-1:23" dir="auto">
+<a id="user-content-требования" class="anchor" href="#%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F" aria-hidden="true" rel="nofollow noreferrer noopener" target="_blank"></a>Требования</h2>
+<ul data-sourcepos="2:1-6:0" dir="auto">
+<li data-sourcepos="2:1-2:110">Появляются двери (<code>&gt;</code>), позволяющие пройти на другой уровень.</li>
+<li data-sourcepos="3:1-3:97">Уровни читаются из файла или генерируются случайно.</li>
+<li data-sourcepos="4:1-4:189">После перехода на следующий уровень игрок появляется рядом с закрытой дверью (путь к прошлому уровню).</li>
+<li data-sourcepos="5:1-6:0">Дополнительно: Дверь, из которой пришёл 
+игрок, может быть открытой. При переходе в неё игрок попадает на 
+предыдущий уровень, при этом он появляется уже рядом с той дверью, в 
+которую только что зашёл.</li>
+</ul>
+<h2 data-sourcepos="7:1-7:46" dir="auto">
+<a id="user-content-рекомендуемые-воркшопы" class="anchor" href="#%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D0%BC%D1%8B%D0%B5-%D0%B2%D0%BE%D1%80%D0%BA%D1%88%D0%BE%D0%BF%D1%8B" aria-hidden="true" rel="nofollow noreferrer noopener" target="_blank"></a>Рекомендуемые воркшопы</h2>
+<ul data-sourcepos="8:1-9:0" dir="auto">
+<li data-sourcepos="8:1-9:0"><a href="https://www.youtube.com/watch?v=yvTks2WqQMY&amp;list=PLLyuiBK_HOLMsJf1-SKHRBdAXHFN6X7fc" rel="nofollow noreferrer noopener" target="_blank">Паттерны #1. Практика</a></li>
+</ul>
+<h2 data-sourcepos="10:1-10:42" dir="auto">
+<a id="user-content-рекомендуемые-лекции" class="anchor" href="#%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D0%B5%D0%BC%D1%8B%D0%B5-%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D0%B8" aria-hidden="true" rel="nofollow noreferrer noopener" target="_blank"></a>Рекомендуемые лекции</h2>
+<ul data-sourcepos="11:1-11:122" dir="auto">
+<li data-sourcepos="11:1-11:122"><a href="https://www.youtube.com/watch?v=sZkO1kH2UnY&amp;list=PLLyuiBK_HOLMsJf1-SKHRBdAXHFN6X7fc" rel="nofollow noreferrer noopener" target="_blank">Паттерны #1. Лекция</a></li>
+</ul>
+</div>
+</div>
+<aside class="right-sidebar right-sidebar-expanded wiki-sidebar js-wiki-sidebar js-right-sidebar" data-offset-top="50" data-spy="affix">
+<div class="sidebar-container">
+<div class="block wiki-sidebar-header append-bottom-default">
+<a class="gutter-toggle float-right d-block d-sm-block d-md-none js-sidebar-wiki-toggle" href="#">
+<i aria-hidden="true" data-hidden="true" class="fa fa-angle-double-right"></i>
+</a>
+<a class="" href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/git_access"><i aria-hidden="true" data-hidden="true" class="fa fa-cloud-download append-right-5"></i>
+<span>Clone repository</span>
+</a></div>
+<div class="blocks-container">
+<div class="block block-first">
+<ul class="wiki-pages">
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/CPP-FAQ">CPP FAQ
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Linux.-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F">Linux. Создание и настройка Git репозитория
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Linux.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-GCC-%D0%B8-CMake">Linux. Установка GCC и CMake
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Linux.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%9E%D0%A1">Linux. Установка ОС
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Linux.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git">Linux. Установка и настройка Git
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Linux.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%81%D1%80%D0%B5%D0%B4%D1%8B-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8">Linux. Установка среды разработки
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/MacOS.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-gcc-%D0%B8-cmake">MacOS. Установка gcc и cmake
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/MacOS.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git">MacOS. Установка и настройка Git
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/MacOS.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B5%D0%BD%D0%B5%D0%B4%D0%B6%D0%B5%D1%80%D0%B0-brew.">MacOS. Установка пакетного менеджера brew.
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/MacOS.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%81%D1%80%D0%B5%D0%B4%D1%8B-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8">MacOS. Установка среды разработки
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Windows.-%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B-%D1%81-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%BE%D0%B9">Windows. Распространенные проблемы с настройкой
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Windows.-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-Git-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F">Windows. Создание и настройка Git репозитория
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Windows.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-gcc-%D0%B8-cmake">Windows. Установка gcc и cmake
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/Windows.-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D1%81%D1%80%D0%B5%D0%B4%D1%8B-%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8">Windows. Установка среды разработки
+</a></li>
+
+<li class="">
+<a href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/home">Home
+</a></li>
+
+
+</ul>
+</div>
+<div class="block">
+<a class="btn btn-block" href="https://gitlab.7bits.it/coding-garden/tutorials/wikis/pages">More Pages
+</a></div>
+</div>
+</div>
+</aside>
+<div class="modal" id="modal-new-wiki">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="page-title">New Wiki Page</h3>
+<button aria-label="Close" class="close" data-dismiss="modal" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<form class="new-wiki-page">
+<div class="form-group">
+<label for="new_wiki_path"><span>Page slug</span>
+</label><input type="text" name="new_wiki_path" id="new_wiki_path" placeholder="how-to-setup" class="form-control" required="required" data-wikis-path="/coding-garden/tutorials/wikis" autofocus="autofocus">
+<span class="new-wiki-page-slug-tip">
+<i aria-hidden="true" data-hidden="true" class="fa fa-lightbulb-o"></i>
+Tip: You can specify the full path for the new file. We will automatically create any missing directories.
+</span>
+</div>
+<div class="form-actions">
+<button name="button" type="submit" class="build-new-wiki btn btn-success">Create page</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+</body></html>

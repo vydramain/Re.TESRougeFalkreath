@@ -48,7 +48,7 @@ class logicComponents {
   bool createECS();
 
   void changeLogWindow(bool Log);
-bool  conditionLogWindow();
+  bool conditionLogWindow();
 
   void changeOldAct(unsigned IN);
   unsigned conditionOldAct();
