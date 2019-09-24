@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_SOURCE_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_BINARY_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TESRougeFalkreath.dir/depend.make
@@ -59,172 +59,185 @@ include CMakeFiles/TESRougeFalkreath.dir/flags.make
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o: Code/Sources/controlComponents/inputDeterminant.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputDeterminant.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o: Code/Sources/controlComponents/inputKey.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/inputKey.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o: Code/Sources/controlComponents/loadFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/loadFile.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o: Code/Sources/controlComponents/myECS.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/myECS.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o: Code/Sources/controlComponents/playMap.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Sources/inGameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Sources/inGameParts/logicComponents.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.s
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o: Code/Sources/inGameParts/logicComponents/Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/Enemy.cpp
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/Enemy.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.i
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/Enemy.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.s
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o: Code/Sources/inGameParts/logicComponents/NpcMind.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/NpcMind.cpp
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/NpcMind.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/NpcMind.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o: Code/Sources/inGameParts/logicComponents/item.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o: Code/Sources/inGameParts/logicComponents/items/septim.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.s
-
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o: Code/Sources/inGameParts/logicComponents/npc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/npc.cpp
-
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/npc.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.i
-
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/npc.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o: Code/Sources/inGameParts/logicComponents/player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Sources/inGameParts/renderGame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.s
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: CMakeFiles/TESRougeFalkreath.dir/flags.make
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Sources/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o -c /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o -c /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp > CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.i
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp -o CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.s
 
 # Object files for target TESRougeFalkreath
 TESRougeFalkreath_OBJECTS = \
@@ -235,9 +248,10 @@ TESRougeFalkreath_OBJECTS = \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o" \
+"CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o" \
+"CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o" \
-"CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o" \
 "CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o"
@@ -252,16 +266,17 @@ TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponen
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/controlComponents/playMap.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o
+TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o
+TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o
-TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/build.make
 TESRougeFalkreath: lib/BearLibTerminal/Linux64/libBearLibTerminal.so
 TESRougeFalkreath: CMakeFiles/TESRougeFalkreath.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable TESRougeFalkreath"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable TESRougeFalkreath"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TESRougeFalkreath.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -274,6 +289,6 @@ CMakeFiles/TESRougeFalkreath.dir/clean:
 .PHONY : CMakeFiles/TESRougeFalkreath.dir/clean
 
 CMakeFiles/TESRougeFalkreath.dir/depend:
-	cd /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/TESRougeFalkreath.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/TESRougeFalkreath.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/TESRougeFalkreath.dir/depend
 

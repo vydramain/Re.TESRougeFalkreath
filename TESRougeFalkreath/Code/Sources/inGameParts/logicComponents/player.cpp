@@ -140,6 +140,9 @@ bool player::changeNationality(unsigned N) {
 }
 
 bool player::changePoints(unsigned H, unsigned A, unsigned M) {
+  if (H >= HP_) {
+    this->endGame = true;
+  }
   HP_ += H;
   AP_ += A;
   MP_ += M;

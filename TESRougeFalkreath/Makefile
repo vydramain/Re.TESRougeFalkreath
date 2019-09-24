@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_SOURCE_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_BINARY_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRoug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -325,6 +325,60 @@ Code/Sources/inGameParts/logicComponents.cpp.s:
 	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.s
 .PHONY : Code/Sources/inGameParts/logicComponents.cpp.s
 
+Code/Sources/inGameParts/logicComponents/Enemy.o: Code/Sources/inGameParts/logicComponents/Enemy.cpp.o
+
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.o
+
+# target to build an object file
+Code/Sources/inGameParts/logicComponents/Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.cpp.o
+
+Code/Sources/inGameParts/logicComponents/Enemy.i: Code/Sources/inGameParts/logicComponents/Enemy.cpp.i
+
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.i
+
+# target to preprocess a source file
+Code/Sources/inGameParts/logicComponents/Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.i
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.cpp.i
+
+Code/Sources/inGameParts/logicComponents/Enemy.s: Code/Sources/inGameParts/logicComponents/Enemy.cpp.s
+
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.s
+
+# target to generate assembly for a file
+Code/Sources/inGameParts/logicComponents/Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.s
+.PHONY : Code/Sources/inGameParts/logicComponents/Enemy.cpp.s
+
+Code/Sources/inGameParts/logicComponents/NpcMind.o: Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o
+
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.o
+
+# target to build an object file
+Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o
+
+Code/Sources/inGameParts/logicComponents/NpcMind.i: Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i
+
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.i
+
+# target to preprocess a source file
+Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.cpp.i
+
+Code/Sources/inGameParts/logicComponents/NpcMind.s: Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s
+
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.s
+
+# target to generate assembly for a file
+Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s:
+	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s
+.PHONY : Code/Sources/inGameParts/logicComponents/NpcMind.cpp.s
+
 Code/Sources/inGameParts/logicComponents/item.o: Code/Sources/inGameParts/logicComponents/item.cpp.o
 
 .PHONY : Code/Sources/inGameParts/logicComponents/item.o
@@ -378,33 +432,6 @@ Code/Sources/inGameParts/logicComponents/items/septim.s: Code/Sources/inGamePart
 Code/Sources/inGameParts/logicComponents/items/septim.cpp.s:
 	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.s
 .PHONY : Code/Sources/inGameParts/logicComponents/items/septim.cpp.s
-
-Code/Sources/inGameParts/logicComponents/npc.o: Code/Sources/inGameParts/logicComponents/npc.cpp.o
-
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.o
-
-# target to build an object file
-Code/Sources/inGameParts/logicComponents/npc.cpp.o:
-	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.cpp.o
-
-Code/Sources/inGameParts/logicComponents/npc.i: Code/Sources/inGameParts/logicComponents/npc.cpp.i
-
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.i
-
-# target to preprocess a source file
-Code/Sources/inGameParts/logicComponents/npc.cpp.i:
-	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.i
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.cpp.i
-
-Code/Sources/inGameParts/logicComponents/npc.s: Code/Sources/inGameParts/logicComponents/npc.cpp.s
-
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.s
-
-# target to generate assembly for a file
-Code/Sources/inGameParts/logicComponents/npc.cpp.s:
-	$(MAKE) -f CMakeFiles/TESRougeFalkreath.dir/build.make CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.s
-.PHONY : Code/Sources/inGameParts/logicComponents/npc.cpp.s
 
 Code/Sources/inGameParts/logicComponents/player.o: Code/Sources/inGameParts/logicComponents/player.cpp.o
 
@@ -518,15 +545,18 @@ help:
 	@echo "... Code/Sources/inGameParts/logicComponents.o"
 	@echo "... Code/Sources/inGameParts/logicComponents.i"
 	@echo "... Code/Sources/inGameParts/logicComponents.s"
+	@echo "... Code/Sources/inGameParts/logicComponents/Enemy.o"
+	@echo "... Code/Sources/inGameParts/logicComponents/Enemy.i"
+	@echo "... Code/Sources/inGameParts/logicComponents/Enemy.s"
+	@echo "... Code/Sources/inGameParts/logicComponents/NpcMind.o"
+	@echo "... Code/Sources/inGameParts/logicComponents/NpcMind.i"
+	@echo "... Code/Sources/inGameParts/logicComponents/NpcMind.s"
 	@echo "... Code/Sources/inGameParts/logicComponents/item.o"
 	@echo "... Code/Sources/inGameParts/logicComponents/item.i"
 	@echo "... Code/Sources/inGameParts/logicComponents/item.s"
 	@echo "... Code/Sources/inGameParts/logicComponents/items/septim.o"
 	@echo "... Code/Sources/inGameParts/logicComponents/items/septim.i"
 	@echo "... Code/Sources/inGameParts/logicComponents/items/septim.s"
-	@echo "... Code/Sources/inGameParts/logicComponents/npc.o"
-	@echo "... Code/Sources/inGameParts/logicComponents/npc.i"
-	@echo "... Code/Sources/inGameParts/logicComponents/npc.s"
 	@echo "... Code/Sources/inGameParts/logicComponents/player.o"
 	@echo "... Code/Sources/inGameParts/logicComponents/player.i"
 	@echo "... Code/Sources/inGameParts/logicComponents/player.s"

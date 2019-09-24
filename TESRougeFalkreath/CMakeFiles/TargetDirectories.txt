@@ -1,4 +1,4 @@
-/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/rebuild_cache.dir
-/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/edit_cache.dir
-/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/TESRougeFalkreath.dir
-/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/lint.dir
+/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/rebuild_cache.dir
+/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/edit_cache.dir
+/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/TESRougeFalkreath.dir
+/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/lint.dir

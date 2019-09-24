@@ -34,9 +34,10 @@ CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/./
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/./inGameLogic.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/./inGameParts/logicComponents.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/controlComponents/myECS.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/./Enemy.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/NpcMind.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/items/septim.h
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/npc.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/logicComponents/player.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: Code/Headers/inGameParts/renderGame.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameLogic.cpp.o: lib/BearLibTerminal/include/BearLibTerminal.h
@@ -46,10 +47,18 @@ CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o:
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/controlComponents/myECS.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/controlComponents/playMap.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/./Enemy.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/NpcMind.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/items/septim.h
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/npc.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents.cpp.o: Code/Headers/inGameParts/logicComponents/player.h
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o: Code/Sources/inGameParts/logicComponents/Enemy.cpp
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/Enemy.cpp.o: Code/Headers/inGameParts/logicComponents/Enemy.h
+
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o: Code/Sources/inGameParts/logicComponents/NpcMind.cpp
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o: Code/Headers/inGameParts/logicComponents/./Enemy.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/NpcMind.cpp.o: Code/Headers/inGameParts/logicComponents/NpcMind.h
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/item.cpp.o: Code/Sources/inGameParts/logicComponents/item.cpp
 
@@ -57,9 +66,6 @@ CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o: Code/Headers/controlComponents/playMap.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/items/septim.cpp.o: Code/Headers/inGameParts/logicComponents/items/septim.h
-
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o: Code/Sources/inGameParts/logicComponents/npc.cpp
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/npc.cpp.o: Code/Headers/inGameParts/logicComponents/npc.h
 
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o: Code/Sources/inGameParts/logicComponents/player.cpp
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/logicComponents/player.cpp.o: Code/Headers/inGameParts/logicComponents/player.h
@@ -69,9 +75,10 @@ CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/controlComponents/myECS.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/controlComponents/playMap.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/./Enemy.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/NpcMind.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/items/septim.h
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/npc.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/logicComponents/player.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: Code/Headers/inGameParts/renderGame.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/inGameParts/renderGame.cpp.o: lib/BearLibTerminal/include/BearLibTerminal.h
@@ -85,9 +92,10 @@ CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/./control
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/./inGameLogic.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/./inGameParts/logicComponents.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/controlComponents/myECS.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/./Enemy.h
+CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/NpcMind.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/items/septim.h
-CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/npc.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/logicComponents/player.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: Code/Headers/inGameParts/renderGame.h
 CMakeFiles/TESRougeFalkreath.dir/Code/Sources/main.cpp.o: lib/BearLibTerminal/include/BearLibTerminal.h

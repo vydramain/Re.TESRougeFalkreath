@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_SOURCE_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
+CMAKE_BINARY_DIR = /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath
 
 # Utility rule file for lint.
 
@@ -61,9 +61,10 @@ CMakeFiles/lint: Code/Headers/controlComponents/myECS.h
 CMakeFiles/lint: Code/Headers/controlComponents/playMap.h
 CMakeFiles/lint: Code/Headers/inGameLogic.h
 CMakeFiles/lint: Code/Headers/inGameParts/logicComponents.h
+CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/Enemy.h
+CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/NpcMind.h
 CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/item.h
 CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/items/septim.h
-CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/npc.h
 CMakeFiles/lint: Code/Headers/inGameParts/logicComponents/player.h
 CMakeFiles/lint: Code/Headers/inGameParts/renderGame.h
 CMakeFiles/lint: Code/Sources/controlComponents/inputDeterminant.cpp
@@ -73,14 +74,15 @@ CMakeFiles/lint: Code/Sources/controlComponents/myECS.cpp
 CMakeFiles/lint: Code/Sources/controlComponents/playMap.cpp
 CMakeFiles/lint: Code/Sources/inGameLogic.cpp
 CMakeFiles/lint: Code/Sources/inGameParts/logicComponents.cpp
+CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/Enemy.cpp
+CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/NpcMind.cpp
 CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/item.cpp
 CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/items/septim.cpp
-CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/npc.cpp
 CMakeFiles/lint: Code/Sources/inGameParts/logicComponents/player.cpp
 CMakeFiles/lint: Code/Sources/inGameParts/renderGame.cpp
 CMakeFiles/lint: Code/Sources/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linting TESRougeFalkreath"
-	/home/vyrda/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E chdir /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /usr/bin/python2.7 /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/misc/cpplint/cpplint.py --filter=-build/include_subdir,-runtime/references,-legal/copyright, --counting=detailed --linelength=140 /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputCommand.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputDeterminant.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputKey.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/loadFile.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/myECS.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/playMap.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameLogic.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/item.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/items/septim.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/npc.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/player.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/renderGame.h /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/npc.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linting TESRougeFalkreath"
+	/home/vydra/.Apps/clion-2019.2/bin/cmake/linux/bin/cmake -E chdir /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /usr/bin/python2.7 /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/misc/cpplint/cpplint.py --filter=-build/include_subdir,-runtime/references,-legal/copyright, --counting=detailed --linelength=140 /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputCommand.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputDeterminant.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/inputKey.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/loadFile.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/myECS.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/controlComponents/playMap.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameLogic.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/Enemy.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/NpcMind.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/item.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/items/septim.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/logicComponents/player.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers/inGameParts/renderGame.h /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputDeterminant.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/inputKey.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/loadFile.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/myECS.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/controlComponents/playMap.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameLogic.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/Enemy.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/NpcMind.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/item.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/items/septim.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/logicComponents/player.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/inGameParts/renderGame.cpp /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Sources/main.cpp
 
 lint: CMakeFiles/lint
 lint: CMakeFiles/lint.dir/build.make
@@ -97,6 +99,6 @@ CMakeFiles/lint.dir/clean:
 .PHONY : CMakeFiles/lint.dir/clean
 
 CMakeFiles/lint.dir/depend:
-	cd /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/lint.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/CMakeFiles/lint.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lint.dir/depend
 

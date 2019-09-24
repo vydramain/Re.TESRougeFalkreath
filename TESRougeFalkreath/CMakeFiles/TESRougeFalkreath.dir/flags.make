@@ -6,5 +6,5 @@ CXX_FLAGS =  -O0 -Wall -Werror -Wextra -Wzero-as-null-pointer-constant -Winit-se
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers -isystem /home/vyrda/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/lib/BearLibTerminal/include 
+CXX_INCLUDES = -I/home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/Code/Headers -isystem /home/vydra/Documents/SomeGits/ustjantsev-andrej-game/TESRougeFalkreath/lib/BearLibTerminal/include 
 

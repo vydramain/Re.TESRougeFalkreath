@@ -15,7 +15,7 @@ set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/Code/Sources)
 file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} Code/Sources/inGameParts/logicComponents/Enemy.cpp Code/Headers/inGameParts/logicComponents/Enemy.h)
 
 include_directories(${PROJECT_HEADERS_DIR})
 
