@@ -1,6 +1,8 @@
 #include "inGameParts/renderGame.h"
+#include <iostream>
 
 renderGame::renderGame() {
+  std::cout << "renderGame()" << std::endl;
   terminal_open();
   terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
   terminal_refresh();
@@ -9,6 +11,7 @@ renderGame::renderGame() {
 }
 
 renderGame::renderGame(unsigned gameMode) {
+  std::cout << "renderGame(" << gameMode << ")" << std::endl;
   switch (gameMode) {
     case 1: {
       terminal_open();
@@ -128,7 +131,7 @@ bool renderGame::deathScreen(logicComponents* COMPONENTS) {
   unsigned playerStatus = COMPONENTS->conditionPlayerSTATUS();
   unsigned playerWallet = COMPONENTS->conditionPlayerWALLET();
   if (playerStatus == 0) {
-    viewPhrase("Как это не печально но вы были убиты...", "Может в следующий раз ты поступишь умнее...", 0, 0, 99, 39);
+    viewPhrase("Как это не печально но вы мертвы...", "Может в следующий раз ты поступишь умнее...", 0, 0, 99, 39);
   }
   if (playerStatus == 1) {
     terminal_layer(1);

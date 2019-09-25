@@ -1,6 +1,8 @@
 #include "controlComponents/playMap.h"
+#include <iostream>
 
 playMap::playMap() {
+  std::cout << "playMap()" <<std::endl;
   mapName_ = 0;
   ph = nullptr;
   pb = nullptr;
@@ -59,6 +61,7 @@ bool playMap::newKnot2(unsigned Y) {
 }
 
 playMap::playMap(unsigned Name, unsigned X, unsigned Y) {
+  std::cout << "playMap()" <<std::endl;
   mapName_ = Name;
   countX_ = X;
   countY_ = Y;

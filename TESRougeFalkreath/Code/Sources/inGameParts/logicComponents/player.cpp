@@ -141,12 +141,16 @@ bool player::changeNationality(unsigned N) {
 
 bool player::changePoints(unsigned H, unsigned A, unsigned M) {
   if (H >= HP_) {
+
+    this->status_ = 0;
     this->endGame = true;
+  } else {
+    HP_ += H;
+    AP_ += A;
+    MP_ += M;
   }
-  HP_ += H;
-  AP_ += A;
-  MP_ += M;
-  return 0;
+
+  return false;
 }
 
 bool player::changeCoinsCount(unsigned Count) {

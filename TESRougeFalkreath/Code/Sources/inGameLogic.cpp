@@ -64,11 +64,8 @@ bool inGameLogic::newGame() {
   createECS();
   bool isExit = false;
   inputCommand_ containerCommand;
+  INPUT_->Update();
   do {
-    INPUT_->Update();
-    if (INPUT_->IsExit()) {
-      return 1;
-    }
     if (INPUT_->IsButtonEsc()) {
       isExit = true;
     }
@@ -83,6 +80,10 @@ bool inGameLogic::newGame() {
       deathScreen();
       terminal_refresh();
       isExit = true;
+    }
+    INPUT_->Update();
+    if (INPUT_->IsExit()) {
+      return true;
     }
   } while (!isExit);
   deleteCoin();
