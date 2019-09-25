@@ -135,67 +135,67 @@ void inputKey::Update() {
   is_p_button_ = false;
   is_m_button_ = false;
 
-  while (terminal_has_input()) {
-    auto key = terminal_read();
-    if (key == TK_ENTER) {
-      is_enter_ = true;
-    }
-    if (key == TK_CLOSE) {
-      is_exit_ = true;
-    }
-    if (key == TK_UP) {
-      is_locate_up_ = true;
-    }
-    if (key == TK_DOWN) {
-      is_locate_down_ = true;
-    }
-    if (key == TK_LEFT) {
-      is_locate_left_ = true;
-    }
-    if (key == TK_RIGHT) {
-      is_locate_right_ = true;
-    }
-    if (key == TK_ESCAPE) {
-      is_esc_button_ = true;
-    }
-    if (key == TK_CONTROL) {
-      is_ctrl_button_ = true;
-    }
-    if (key == TK_ALT) {
-      is_alt_button_ = true;
-    }
-    if (key == TK_Q) {
-      is_q_button_ = true;
-    }
-    if (key == TK_W) {
-      is_w_button_ = true;
-    }
-    if (key == TK_E) {
-      is_e_button_ = true;
-    }
-    if (key == TK_I) {
-      is_i_button_ = true;
-    }
-    if (key == TK_O) {
-      is_o_button_ = true;
-    }
-    if (key == TK_P) {
-      is_p_button_ = true;
-    }
-    if (key == TK_A) {
-      is_a_button_ = true;
-    }
-    if (key == TK_S) {
-      is_s_button_ = true;
-    }
-    if (key == TK_D) {
-      is_d_button_ = true;
-    }
-    if (key == TK_F) {
-      is_f_button_ = true;
-    }
-    if (key == TK_M) {
-      is_m_button_ = true;
-    }
+  // while (terminal_has_input()) {
+  auto key = terminal_read();
+  if (key == TK_ENTER) {
+    is_enter_ = true;
   }
+  if (key == TK_CLOSE) {
+    is_exit_ = true;
+  }
+  if (key == TK_UP) {
+    is_locate_up_ = true;
+  }
+  if (key == TK_DOWN) {
+    is_locate_down_ = true;
+  }
+  if (key == TK_LEFT) {
+    is_locate_left_ = true;
+  }
+  if (key == TK_RIGHT) {
+    is_locate_right_ = true;
+  }
+  if (key == TK_ESCAPE) {
+    is_esc_button_ = true;
+  }
+  if (key == TK_CONTROL) {
+    is_ctrl_button_ = true;
+  }
+  if (key == TK_ALT) {
+    is_alt_button_ = true;
+  }
+  if (key == TK_Q) {
+    is_q_button_ = true;
+  }
+  if (key == TK_W) {
+    is_w_button_ = true;
+  }
+  if (key == TK_E) {
+    is_e_button_ = true;
+  }
+  if (key == TK_I) {
+    is_i_button_ = true;
+  }
+  if (key == TK_O) {
+    is_o_button_ = true;
+  }
+  if (key == TK_P) {
+    is_p_button_ = true;
+  }
+  if (key == TK_A) {
+    is_a_button_ = true;
+  }
+  if (key == TK_S) {
+    is_s_button_ = true;
+  }
+  if (key == TK_D) {
+    is_d_button_ = true;
+  }
+  if (key == TK_F) {
+    is_f_button_ = true;
+  }
+  if (key == TK_M) {
+    is_m_button_ = true;
+  }
+  // }
 }

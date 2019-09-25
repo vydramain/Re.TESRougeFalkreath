@@ -1,6 +1,10 @@
-#include "inGameParts/logicComponents/npc.h"
+//
+// Created by vydra on 9/25/19.
+//
 
-npc::npc() {
+#include "inGameParts/logicComponents/Enemy.h"
+
+Enemy::Enemy() {
   areaPlaceX_ = 0;
   areaPlaceY_ = 0;
 
@@ -11,9 +15,13 @@ npc::npc() {
   HP_ = 0;
   AP_ = 0;
   MP_ = 0;
+  wallet_ = 0;
+
+  changeArea = false;
+  endGame = false;
 }
 
-npc::npc(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
+Enemy::Enemy(char* NAME, unsigned X, unsigned Y) {
   areaPlaceX_ = X;
   areaPlaceY_ = Y;
 
@@ -21,35 +29,39 @@ npc::npc(char* NAME, unsigned X, unsigned Y, unsigned RACE) {
     name_[i] = NAME[i];
   }
 
+  wallet_ = 0;
   status_ = 1;
+
+  changeArea = false;
+  endGame = false;
 }
 
-npc::~npc() {}
+Enemy::~Enemy() {}
 
-bool npc::changeName(char* NAME) {
+bool Enemy::changeName(char* NAME) {
   for (unsigned i(0); i < NAMESPACE; i++) {
     name_[i] = NAME[i];
   }
   return 0;
 }
 
-bool npc::changeLocation(unsigned X, unsigned Y) {
+bool Enemy::changeLocation(unsigned X, unsigned Y) {
   areaPlaceX_ = X;
   areaPlaceY_ = Y;
   return 0;
 }
 
-bool npc::changeStatus(unsigned STATUS) {
+bool Enemy::changeStatus(unsigned STATUS) {
   status_ = STATUS;
   return 0;
 }
 
-bool npc::changeCourse(unsigned CURSE) {
+bool Enemy::changeCourse(unsigned CURSE) {
   course_ = CURSE;
   return 0;
 }
 
-bool npc::changeNationality(unsigned N) {
+bool Enemy::changeNationality(unsigned N) {
   switch (N) {
     case 1: {  // Норд
       nationality_ = 1;
@@ -131,42 +143,75 @@ bool npc::changeNationality(unsigned N) {
   }
 }
 
-bool npc::changePoints(unsigned H, unsigned A, unsigned M) {
+bool Enemy::changePoints(unsigned H, unsigned A, unsigned M) {
   HP_ += H;
   AP_ += A;
   MP_ += M;
   return 0;
 }
 
-char* npc::viewName() {
+bool Enemy::changeCoinsCount(unsigned Count) {
+  wallet_ = Count;
+  return false;
+}
+
+char* Enemy::viewName() {
   return name_;
 }
 
-unsigned npc::viewLocationX() {
+unsigned Enemy::viewLocationX() {
   return areaPlaceX_;
 }
-unsigned npc::viewLocationY() {
+unsigned Enemy::viewLocationY() {
   return areaPlaceY_;
 }
 
-unsigned npc::viewStatus() {
+unsigned Enemy::viewStatus() {
   return status_;
 }
 
-unsigned npc::viewCourse() {
+unsigned Enemy::viewCourse() {
   return course_;
 }
 
-unsigned npc::viewNationality() {
+unsigned Enemy::viewNationality() {
   return nationality_;
 }
 
-unsigned npc::viewPointsHP() {
+unsigned Enemy::viewPointsHP() {
   return HP_;
 }
-unsigned npc::viewPointsAP() {
+unsigned Enemy::viewPointsAP() {
   return AP_;
 }
-unsigned npc::viewPointsMP() {
+unsigned Enemy::viewPointsMP() {
   return MP_;
+}
+
+unsigned Enemy::viewCoinsCount() {
+  return wallet_;
+}
+
+void Enemy::changeOldAct(unsigned Act) {
+  oldAct = Act;
+}
+
+unsigned Enemy::conditionOldAct() {
+  return oldAct;
+}
+
+void Enemy::changeChangeArea(bool IN) {
+  changeArea = IN;
+}
+
+bool Enemy::conditionChangeArea() {
+  return changeArea;
+}
+
+void Enemy::changeEndGame(bool IN) {
+  endGame = IN;
+}
+
+bool Enemy::conditionEndGame() {
+  return endGame;
 }

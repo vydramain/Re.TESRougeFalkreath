@@ -35,6 +35,7 @@ unsigned inGameLogic::mainMenu() {
   do {
     RENDER_->clearALL();
     RENDER_->mainMenu(nonshoise);
+    terminal_refresh();
     INPUT_->Update();
     if (INPUT_->IsUp() && nonshoise > 1) {
       nonshoise--;
@@ -61,14 +62,32 @@ bool inGameLogic::newGame() {
   createMap();
   createCoin();
   createECS();
-  bool exit = gameLoop();
+  bool isExit = false;
+  inputCommand_ containerCommand;
+  INPUT_->Update();
+  do {
+    if (INPUT_->IsButtonEsc()) {
+      isExit = true;
+    }
+
+    containerCommand = DETERM_->determineInputKey(INPUT_);
+
+    LOGICA_->Update(containerCommand);
+    RENDER_->Update(LOGICA_);
+
+    reloadMap();
+    if (checkEnd()) {
+      deathScreen();
+      terminal_refresh();
+      isExit = true;
+    }
+    INPUT_->Update();
+    if (INPUT_->IsExit()) {
+      return true;
+    }
+  } while (!isExit);
   deleteCoin();
-  if (checkEnd()) {
-    RENDER_->deathScreen(LOGICA_);
-    terminal_refresh();
-    terminal_read();
-  }
-  return exit;
+  return false;
 }
 
 bool inGameLogic::putPlayer() {
@@ -88,10 +107,11 @@ bool inGameLogic::createPlayer() {
     Name[i] = 0;
   }
   RENDER_->viewWord("Выбери имя: ", Name, 12, 24, 0, 0, 99, 39);
-  RENDER_->clearALL();
+  // terminal_refresh();
 
   do {
     RENDER_->raceMenu(Race);
+    terminal_refresh();
     INPUT_->Update();
     if (INPUT_->IsUp() && Race > 1) {
       Race--;
@@ -110,6 +130,7 @@ bool inGameLogic::createPlayer() {
       }
     }
   } while (!isGO);
+
   return LOGICA_->createPlayer(Name, Race);
 }
 
@@ -143,15 +164,15 @@ bool inGameLogic::checkEnd() {
 bool inGameLogic::reloadMap() {
   bool status = LOGICA_->conditionChangeArea();
   if (status) {
-    if (LOADFILE_) {
-      delete LOADFILE_;
-    }
     playMap* Map;
     unsigned mapX, mapY, mapName;
     char** mapChar = nullptr;
     Map = LOGICA_->secret();
     mapName = Map->viewName();
     if (mapName == 0) {
+      if (LOADFILE_) {
+        delete LOADFILE_;
+      }
       LOADFILE_ = new loadFile("Maps/WestForest.bin");
       LOADFILE_->loadMap(mapX, mapY, mapChar);
 
@@ -159,6 +180,9 @@ bool inGameLogic::reloadMap() {
       LOGICA_->putPlayer(1);
       return LOGICA_->loadMap(1, mapX, mapY, mapChar);
     } else {
+      if (LOADFILE_) {
+        delete LOADFILE_;
+      }
       LOADFILE_ = new loadFile("Maps/Falkreath.bin");
       LOADFILE_->loadMap(mapX, mapY, mapChar);
 
@@ -173,27 +197,6 @@ bool inGameLogic::reloadMap() {
 
 bool inGameLogic::deathScreen() {
   RENDER_->deathScreen(LOGICA_);
-  return false;
-}
-
-bool inGameLogic::gameLoop() {
-  bool isExit = false;
-  inputCommand_ containerCommand;
-  do {
-    INPUT_->Update();
-    if (INPUT_->IsExit()) {
-      return true;
-    }
-    if (INPUT_->IsButtonEsc() || checkEnd()) {
-      isExit = true;
-    }
-
-    containerCommand = DETERM_->determineInputKey(INPUT_);
-
-    LOGICA_->Update(containerCommand);
-    RENDER_->Update(LOGICA_);
-
-    reloadMap();
-  } while (!isExit);
+  terminal_read();
   return false;
 }

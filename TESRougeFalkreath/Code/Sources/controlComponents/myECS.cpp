@@ -38,6 +38,10 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
   char layer0, layer1, layer2, layer3;
   MAP_->pullKnot(playerX, playerY, layer0, layer1, layer2, layer3);
 
+  if (layer0 == '~') {
+    PLAYER_->changePoints(-10, 0, 0);
+  }
+
   unsigned coinPrice(0);
   if (layer3 == '$') {
     unsigned coinX, coinY;
@@ -57,7 +61,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
       case 1: {
         PLAYER_->changeCourse(0);
         MAP_->pullKnot(playerX, playerY - 1, layer0, layer1, layer2, layer3);
-        if ((layer0 == ' ' || layer0 == '.' || layer0 == ':' || layer0 == 'L') && layer1 == ' ' && layer2 == ' ') {
+        if ((layer0 == ' ' || layer0 == '.' || layer0 == 'L' || layer0 == '~') && layer1 == ' ' && layer2 == ' ') {
           PLAYER_->changeLocation(playerX, playerY -= 1);
         }
         break;
@@ -65,7 +69,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
       case 2: {
         PLAYER_->changeCourse(1);
         MAP_->pullKnot(playerX, playerY + 1, layer0, layer1, layer2, layer3);
-        if ((layer0 == ' ' || layer0 == '.' || layer0 == ':' || layer0 == 'L' || layer0 == '_') && layer1 == ' ' && layer2 == ' ') {
+        if ((layer0 == ' ' || layer0 == '.' || layer0 == 'L' || layer0 == '_' || layer0 == '~') && layer1 == ' ' && layer2 == ' ') {
           char layerAdd;
           MAP_->pullKnot0(playerX, playerY, layerAdd);
           if (layerAdd != '_') {
@@ -77,7 +81,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
       case 3: {
         PLAYER_->changeCourse(2);
         MAP_->pullKnot(playerX - 1, playerY, layer0, layer1, layer2, layer3);
-        if ((layer0 == ' ' || layer0 == '.' || layer0 == ':' || layer0 == 'L' || layer0 == '_') && layer1 == ' ' && layer2 == ' ') {
+        if ((layer0 == ' ' || layer0 == '.' || layer0 == 'L' || layer0 == '_' || layer0 == '~') && layer1 == ' ' && layer2 == ' ') {
           PLAYER_->changeLocation(playerX -= 1, playerY);
         }
         break;
@@ -85,7 +89,7 @@ bool myECS::EcsUpdate(inputCommand_ containerCommand) {
       case 4: {
         PLAYER_->changeCourse(3);
         MAP_->pullKnot(playerX + 1, playerY, layer0, layer1, layer2, layer3);
-        if ((layer0 == ' ' || layer0 == '.' || layer0 == ':' || layer0 == 'L' || layer0 == '_') && layer1 == ' ' && layer2 == ' ') {
+        if ((layer0 == ' ' || layer0 == '.' || layer0 == 'L' || layer0 == '_' || layer0 == '~') && layer1 == ' ' && layer2 == ' ') {
           PLAYER_->changeLocation(playerX += 1, playerY);
         }
         break;

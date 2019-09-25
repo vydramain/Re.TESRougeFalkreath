@@ -21,7 +21,6 @@ class inGameLogic {
 
   inputKey *INPUT_ = nullptr;
   inputDeterminant *DETERM_ = nullptr;
-
   loadFile *LOADFILE_ = nullptr;
   playMap *MAP_ = nullptr;
 
@@ -47,8 +46,6 @@ class inGameLogic {
   bool reloadMap();
 
   bool deathScreen();
-
-  bool gameLoop();
 };
 
 #endif  // TESROUGEFALKREATH_CODE_HEADERS_INGAMELOGIC_H_

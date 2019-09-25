@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "controlComponents/playMap.h"
+#include "inGameParts/logicComponents/NpcMind.h"
 #include "inGameParts/logicComponents/item.h"
-#include "inGameParts/logicComponents/npc.h"
 #include "inGameParts/logicComponents/player.h"
 
 class logicComponents {
@@ -48,7 +48,7 @@ class logicComponents {
   bool createECS();
 
   void changeLogWindow(bool Log);
-  bool conditionLogWindow();
+bool  conditionLogWindow();
 
   void changeOldAct(unsigned IN);
   unsigned conditionOldAct();

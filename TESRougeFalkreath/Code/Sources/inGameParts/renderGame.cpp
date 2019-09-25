@@ -1,6 +1,8 @@
 #include "inGameParts/renderGame.h"
+#include <iostream>
 
 renderGame::renderGame() {
+  std::cout << "renderGame()" << std::endl;
   terminal_open();
   terminal_set("window: title='TES Falkreath', cellsize=8x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-C.ttf, size=12");
   terminal_refresh();
@@ -9,10 +11,11 @@ renderGame::renderGame() {
 }
 
 renderGame::renderGame(unsigned gameMode) {
+  std::cout << "renderGame(" << gameMode << ")" << std::endl;
   switch (gameMode) {
     case 1: {
       terminal_open();
-      terminal_set("window: title='TES Falkreath', cellsize=12x16, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-R.ttf, size=12");
+      terminal_set("window: title='TES Falkreath', cellsize=12x15, size=100x40, fullscreen=true; font: ./Fonts/Ubuntu-R.ttf, size=12");
       terminal_refresh();
 
       stepMeter_ = 0;
@@ -31,6 +34,7 @@ renderGame::renderGame(unsigned gameMode) {
 }
 
 renderGame::~renderGame() {
+  terminal_clear();
   terminal_close();
 }
 
@@ -119,12 +123,38 @@ bool renderGame::viewChoise(const char* title, const char** punctsChoise, unsign
     }
     terminal_print(inX + 6, inY + 3 + i, punctsChoise[i - 1]);
   }
-  terminal_refresh();
+  return false;
+}
+
+bool renderGame::deathScreen(logicComponents* COMPONENTS) {
+  clearALL();
+  unsigned playerStatus = COMPONENTS->conditionPlayerSTATUS();
+  unsigned playerWallet = COMPONENTS->conditionPlayerWALLET();
+  if (playerStatus == 0) {
+    viewPhrase("Как это не печально но вы мертвы...", "Может в следующий раз ты поступишь умнее...", 0, 0, 99, 39);
+  }
+  if (playerStatus == 1) {
+    terminal_layer(1);
+    viewPhrase("Вы отправились в дальнее путешествие...", "Вы покинули Фолкрит навсегда...", 0, 0, 99, 5);
+    viewPhrase("Никто из нынешних жителей Фолкрита никогда не увидит больше вас...", "", 0, 7, 99, 11);
+    viewPhrase("Но и вспоминать они вас не будут...", "Никто о вас не знал вас. Вы - очередной безымянный путешественник.", 0, 13, 99, 18);
+    if (playerWallet > 60) {
+      viewPhrase("Однако, жители после вашего ухода перестали доверять друг другу.",
+                 "Никто больше не приветствовал друг друга со счастливой улыбкой.", 0, 20, 99, 25);
+      viewPhrase("И особенно не жаловали путешественников...", " ", 0, 27, 99, 31);
+    } else {
+      if (playerWallet == 0) {
+        viewPhrase("Фолкрит остался всё таким же, каким и был до этого...", "Тихим и прекрасным местом...", 0, 20, 99, 25);
+        viewPhrase("Зелёной сокровищницей, скрывающей внутри себя хвойные и смолистые драгоценности.", "", 0, 27, 99, 31);
+      } else {
+        viewPhrase("И вы хорошо знаете удел искателя приключений.", "", 0, 20, 99, 24);
+      }
+    }
+  }
   return false;
 }
 
 bool renderGame::mainMenu(unsigned highLight) {
-  terminal_layer(HUDLAYER);
   const char Title[26] = {"Главное меню:"};
   const char* Puncts[4] = {"Новая игра", "Загрузить игру", "Конфигурация", "Выход"};
   unsigned Pincts(4);
@@ -132,7 +162,6 @@ bool renderGame::mainMenu(unsigned highLight) {
 }
 
 bool renderGame::raceMenu(unsigned highLight) {
-  terminal_layer(HUDLAYER);
   const char Title[26] = {"Выбери Расу: "};
   const char* Puncts[10] = {"Норд",        "Бретон",      "Редгард", "Имперец",    "Высокий эльф",
                             "Тёмный эльф", "Лесной эльф", "Орк",     "Аргонианин", "Каджит"};
@@ -140,15 +169,21 @@ bool renderGame::raceMenu(unsigned highLight) {
   return viewChoise(Title, Puncts, Pincts, highLight, 0, 0, 99, 39);
 }
 
-void renderGame::symColor(char mapSym) {
+void renderGame::symColor(wchar_t mapSym) {
   switch (mapSym) {
     case '~': {
       terminal_color(0xcc00ffff);
       break;
     }
+    case ';':
     case '+':
+    case '-':
+    case '?':
+    case ':':
+    case 'J':
+    case '`':
     case 'x':
-    case 'X': {
+    case '9': {
       terminal_color(0xff26cf26);
       break;
     }
@@ -223,7 +258,7 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
         if (playerX - 30 + i > mapX - 2) {
           terminal_put(i, ii, ' ');
         } else {
-          terminal_layer(0);
+          terminal_layer(1);
           AREA->pullKnot0(playerX - 30 + i, playerY - 20 + ii, temp);
           symColor(temp);
           terminal_put(i, ii, temp);
@@ -237,9 +272,9 @@ void renderGame::showArea(logicComponents* COMPONENTS) {
   }
 }
 void renderGame::showPlayer(logicComponents* COMPONENTS) {
-  terminal_layer(4);
   unsigned playerStatus;
   playerStatus = COMPONENTS->conditionPlayerSTATUS();
+  terminal_layer(4);
   terminal_color(0xFFFFFFFF);
   if (playerStatus == 2) {
     terminal_color(0xff00ff00);
@@ -298,7 +333,6 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
   terminal_print(mapBorderX_ + 1, 11, "Задания:");
   terminal_print(mapBorderX_ + 1, 20, "Экипировка:");
   terminal_print(mapBorderX_ + 1, 26, "Кошель:");
-
   char wallet[9];
   snprintf(wallet, (size_t) "%d", "%u", playerWallet);
   terminal_print(mapBorderX_ + 1 + 8, 26, wallet);
@@ -375,7 +409,6 @@ void renderGame::showHud(logicComponents* COMPONENTS) {
 }
 
 void renderGame::showLogWindow(logicComponents* COMPONENTS) {
-  terminal_layer(5);
   bool mark = COMPONENTS->conditionLogWindow();
   if (mark) {
     unsigned act = COMPONENTS->conditionOldAct();
@@ -409,92 +442,68 @@ void renderGame::showLogWindow(logicComponents* COMPONENTS) {
     AREA->pullKnot0(itemX, itemY, lay0);
     switch (act) {
       case 6: {
-        switch (lay0) {
-          case '#': {
-            viewPhrase("Камень... Высокий...", "Я на него не смогу забраться.", 0, 30, 65, 39);
-            break;
-          }
-          case '>':
-          case '<':
-          case 'v':
-          case '^': {
+        if (lay0 == '#') {
+          viewPhrase("Камень... Высокий...", "Я на него не смогу забраться.", 0, 30, 65, 39);
+        } else {
+          if (lay0 == '<' || lay0 == '>' || lay0 == 'v' || lay0 == '^') {
             viewPhrase("Это дверь.", "Похоже, изготовлена из многовековой ели.", 0, 30, 65, 39);
-            break;
-          }
-          case 'X':
-          case 'x': {
-            viewPhrase("Это хвойное растение.", "Похоже на ель.", 0, 30, 65, 39);
-            break;
-          }
-          case '+': {
-            viewPhrase("Куст...", "Зеленый и густой... Из-за него ничего не видно", 0, 30, 65, 39);
-            break;
-          }
-          case '[':
-          case ']':
-          case '_': {
-            viewPhrase("Гладкая каменная стена....", "          ...из хорошего булыжника.", 0, 30, 65, 39);
-            break;
-          }
-          case 'L': {
-            viewPhrase("Пшеница...", "Несозревшая", 0, 30, 65, 39);
-            break;
-          }
-          case '=':
-          case '|': {
-            viewPhrase("Ствол.", "Просто ствол дерева.", 0, 30, 65, 39);
-            break;
-          }
-          case 'W': {
-            viewPhrase("Забор деревянный.", "Добротный.", 0, 30, 65, 39);
-            break;
-          }
-          case 't': {
-            viewPhrase("Могила...", "     ...впервые вижу эти руны...", 0, 30, 65, 39);
-            break;
-          }
-          case '~': {
-            viewPhrase("Вода... Не хочу мокнуть.", "  Я туда не полезу", 0, 30, 65, 39);
-            break;
-          }
-          case 'Z': {
-            viewPhrase("Восточные ворота Фолкрита.", "Ворота в Скайрим...", 0, 30, 65, 39);
-            break;
-          }
-          case 'Q': {
-            viewPhrase("Покинуть Фолкрит ради новых приключений?", "Отправившись однажды, вы больше никогда не сможете вернуться.", 0, 30,
-                       65, 39);
-            break;
-          }
-          default: {
-            if (lay0 != ' ' && lay0 != '.') {
-              viewPhrase("Я не знаю что это...", "Вроде на камень смахивает придорожный.", 0, 30, 65, 39);
+          } else {
+            if (lay0 == ';' || lay0 == '+' || lay0 == '-' || lay0 == '?' || lay0 == ':' || lay0 == 'J' || lay0 == '`' || lay0 == '9' ||
+                lay0 == 'x') {
+              viewPhrase("Это хвойное растение.", "Похоже на ель.", 0, 30, 65, 39);
+            } else {
+              if (lay0 == '[' || lay0 == ']' || lay0 == '_') {
+                viewPhrase("Гладкая каменная стена....", "          ...из хорошего булыжника.", 0, 30, 65, 39);
+              } else {
+                if (lay0 == 'L') {
+                  viewPhrase("Пшеница...", "Несозревшая", 0, 30, 65, 39);
+                } else {
+                  if (lay0 == '"' || lay0 == '|' || lay0 == '=') {
+                    viewPhrase("Ствол.", "Просто ствол дерева.", 0, 30, 65, 39);
+                  } else {
+                    if (lay0 == 'W' || lay0 == 'w' || lay0 == 'V') {
+                      viewPhrase("Забор деревянный.", "Добротный.", 0, 30, 65, 39);
+                    } else {
+                      if (lay0 == 't') {
+                        viewPhrase("Могила...", "     ...впервые вижу эти руны...", 0, 30, 65, 39);
+                      } else {
+                        if (lay0 == '~') {
+                          viewPhrase("Вода... Не хочу мокнуть.", "  Я туда не полезу", 0, 30, 65, 39);
+                        } else {
+                          if (lay0 == 'Z') {
+                            viewPhrase("Восточные ворота Фолкрита.", "Ворота в Скайрим...", 0, 30, 65, 39);
+                          } else {
+                            if (lay0 == 'Q') {
+                              viewPhrase("Покинуть Фолкрит ради новых приключений?",
+                                         "Отправившись однажды, вы больше никогда не сможете вернуться.", 0, 30, 65, 39);
+                            } else {
+                              if (lay0 != ' ' && lay0 != '.') {
+                                viewPhrase("Я не знаю что это...", "Вроде на камень смахивает придорожный.", 0, 30, 65, 39);
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
         break;
       }
       case 5: {
-        switch (lay0) {
-          case '>':
-          case '<':
-          case 'v':
-          case '^': {
-            viewPhrase("Открыть дверь?", "", 0, 30, 65, 39);
-            break;
-          }
-          case 'Z': {
-            viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
-            break;
-          }
-          case 'Q': {
-            viewPhrase("Покинуть Фолкрит?", " Обратного пути не будет...", 0, 30, 65, 39);
-            break;
-          }
-          default: {
-            break;
-          }
+        if (lay0 == '<' || lay0 == '>' || lay0 == 'v' || lay0 == '^') {
+          viewPhrase("Открыть дверь?", "", 0, 30, 65, 39);
         }
+        if (lay0 == 'Z') {
+          viewPhrase("Отправиться  в восточный лес?", "", 0, 30, 65, 39);
+        }
+        if (lay0 == 'Q') {
+          viewPhrase("Покинуть Фолкрит?", " Обратного пути не будет...", 0, 30, 65, 39);
+        }
+        break;
       }
       default: {
         break;
@@ -511,35 +520,5 @@ bool renderGame::Update(logicComponents* COMPONENTS) {
   showLogWindow(COMPONENTS);
   terminal_refresh();
 
-  return false;
-}
-
-bool renderGame::deathScreen(logicComponents* COMPONENTS) {
-  clearALL();
-  terminal_layer(HUDLAYER);
-  unsigned playerStatus = COMPONENTS->conditionPlayerSTATUS();
-  unsigned playerWallet = COMPONENTS->conditionPlayerWALLET();
-  if (playerStatus == 0) {
-    viewPhrase("Как это не печально но вы были убиты...", "Может в следующий раз вы поступите умнее...", 0, 0, 99, 39);
-  }
-  if (playerStatus == 1) {
-    terminal_layer(1);
-    viewPhrase("Вы отправились в дальнее путешествие...", "Вы покинули Фолкрит навсегда...", 0, 0, 99, 5);
-    viewPhrase("Никто из нынешних жителей Фолкрита никогда не увидит больше вас...", "", 0, 7, 99, 11);
-    viewPhrase("Но и вспоминать они вас не будут...",
-               "Вы ни с кем не общались и никто вас не запомнил. Вы - очередной безымянный путешественник.", 0, 13, 99, 18);
-    if (playerWallet > 60) {
-      viewPhrase("Однако, жители после вашего ухода перестали доверять друг другу.",
-                 "Никто больше не приветствовал друг друга со счастливой улыбкой.", 0, 20, 99, 25);
-      viewPhrase("И особенно не жаловали путешественников...", " ", 0, 27, 99, 31);
-    } else {
-      if (playerWallet == 0) {
-        viewPhrase("Фолкрит остался всё таким же, каким и был до этого...", "Тихим и прекрасным местом...", 0, 20, 99, 25);
-        viewPhrase("Зелёной сокровищницей, скрывающей внутри себя хвойные и смолистые драгоценности.", "", 0, 27, 99, 31);
-      } else {
-        viewPhrase("И вы хорошо знаете удел искателя приключений.", "", 0, 20, 99, 24);
-      }
-    }
-  }
   return false;
 }
