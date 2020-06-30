@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c99 -O0 -Wall -Wextra -Wimplicit  -rdynamic CMakeFiles/runtests.dir/main.c.o CMakeFiles/runtests.dir/utils.c.o  -o runtests -lcunit -ldl 
