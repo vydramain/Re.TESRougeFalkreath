@@ -10,28 +10,18 @@
 
 class main_menu_render : public interface_render {
 private:
-    const unsigned SCREENMODE_X = 28;
-    const unsigned SCREENMODE_Y = 17;
-
-    const char *const title = "Главное меню:";
-    const char *choices[3] = {"Играть", "Выход"};
-    const unsigned count_choices = 3;
-    unsigned highlighted = 0;
-
+    static const unsigned SCREENMODE_X = 28;
+    static const unsigned SCREENMODE_Y = 17;
 public:
     main_menu_render();
 
     ~main_menu_render();
 
-    void set_highlighted(unsigned int highlighted) {
-        this->highlighted = highlighted;
-    }
-
     static void clear_all();
     static void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y);
     static void view_choice(const char *title, const char **input_choices,
                      unsigned input_count_choices, unsigned highlighted_choice,
-                     unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y);
+                     unsigned in_x = 0, unsigned in_y = 0, unsigned out_x = SCREENMODE_X - 1, unsigned out_y = SCREENMODE_Y - 1);
 
     void render();
 };

@@ -47,9 +47,7 @@ public:
     /*
      * Destructor
      */
-    ~global_game_state() {
-        delete state;
-    }
+    ~global_game_state() {}
 
     /*
      * Assigment

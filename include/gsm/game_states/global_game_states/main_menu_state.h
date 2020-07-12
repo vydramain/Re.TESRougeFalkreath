@@ -16,15 +16,15 @@ private:
 
 public:
     explicit main_menu_state() : global_game_state("main_menu") {
-        input = new input_key();
         render = new main_menu_render();
+        input = new input_key();
     }
     ~main_menu_state() {
         delete input;
         delete render;
     }
 
-    void update() const;
+    void update() const override;
 };
 
 #endif //RE_TESROUGEFALKREATH_MAIN_MENU_STATE_H

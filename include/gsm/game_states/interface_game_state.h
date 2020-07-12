@@ -9,8 +9,7 @@
 
 class interface_game_state {
 public:
-    virtual ~interface_game_state() = 0;
-    virtual void update() const;
+    virtual void update() const = 0;
     virtual const char* get_game_state() const = 0;
     virtual bool is_closed() const = 0;
 };

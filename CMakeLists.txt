@@ -18,7 +18,7 @@ file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 include_directories(${PROJECT_HEADERS_DIR})
 
 
-set (TESTS_SOURCES tests/global_game_state_test.cpp)
+set (TESTS_SOURCES tests/test.cpp)
 
 #set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "lib/Boost/include/boost")
 #set (CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "lib/Boost/include/boost/lib")

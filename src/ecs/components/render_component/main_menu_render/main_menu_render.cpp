@@ -8,6 +8,7 @@ main_menu_render::main_menu_render() {
     terminal_open();
     terminal_set("window: title='re.TESFalkreath', cellsize=8x15, size=28x17, fullscreen=true;");
     terminal_layer(0);
+    terminal_clear();
     terminal_refresh();
 }
 
@@ -52,9 +53,5 @@ void main_menu_render::view_choice(const char *title, const char **input_choices
 }
 
 void main_menu_render::render() {
-    clear_all();
-    view_choice(this->title, this->choices,
-                this->count_choices, this->highlighted,
-                0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1);
     terminal_refresh();
 }
