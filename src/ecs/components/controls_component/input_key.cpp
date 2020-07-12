@@ -106,7 +106,6 @@ void input_key::update() {
     is_p_button_ = false;
     is_m_button_ = false;
 
-//    while (terminal_has_input()) {
     auto key = terminal_read();
     if (key == TK_ENTER) {
         is_enter_ = true;
@@ -168,5 +167,4 @@ void input_key::update() {
     if (key == TK_M) {
         is_m_button_ = true;
     }
-//    }
 }
