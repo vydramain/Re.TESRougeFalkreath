@@ -18,4 +18,7 @@ reload: mkdir_build
 fast_build:
 	cd cmake-build-debug;make
 
+test:
+	cd cmake-build-debug;make test
+
 run: fast_build exec

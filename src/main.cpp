@@ -1,9 +1,12 @@
 #include "BearLibTerminal.h"
-#include "gsm/interface_gsm.h"
-#include "gsm/game_states/interface_game_state.h"
-#include "gsm/game_states/global_game_states/global_game_state.h"
+
+#include "components/render_component/main_menu_render/main_menu_render.h"
 
 int main() {
+    auto *render = new main_menu_render();
+    render->render();
+    while (terminal_read() != TK_CLOSE);
+    delete render;
 
     return 0;
 }
