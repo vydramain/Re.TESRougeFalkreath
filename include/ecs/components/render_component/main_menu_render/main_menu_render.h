@@ -6,7 +6,7 @@
 #define RE_TESROUGEFALKREATH_MAIN_MENU_RENDER_H
 
 #include "BearLibTerminal.h"
-#include "components/render_component/interface_render.h"
+#include "ecs/components/render_component/interface_render.h"
 
 class main_menu_render : public interface_render {
 private:
@@ -14,8 +14,8 @@ private:
     const unsigned SCREENMODE_Y = 17;
 
     const char *const title = "Главное меню:";
-    const char *choices[2] = {"Играть", "Выход"};
-    const unsigned count_choices = 2;
+    const char *choices[3] = {"Играть", "Выход"};
+    const unsigned count_choices = 3;
     unsigned highlighted = 0;
 
 public:

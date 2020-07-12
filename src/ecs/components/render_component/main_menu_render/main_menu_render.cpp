@@ -2,7 +2,7 @@
 // Created by vydra on 12.07.2020.
 //
 
-#include "components/render_component/main_menu_render/main_menu_render.h"
+#include "ecs/components/render_component/main_menu_render/main_menu_render.h"
 
 main_menu_render::main_menu_render() {
     terminal_open();
