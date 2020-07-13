@@ -1,11 +1,11 @@
 
-#include "gsm/game_states/global_game_states/global_game_state.h"
-#include "gsm/game_states/global_game_states/main_menu_state.h"
+#include <iostream>
+#include "ecs/entities/my_pair.h"
 
 int main() {
-    auto* state = new main_menu_state();
-    state->update();
-    delete state;
+    int *n = new int(2);
+    my_pair<char, int> p(new char('f'), n);
+    std::cout << p.get_first() << ", " << *p.get_second() << std::endl;
 
     return 0;
 }
