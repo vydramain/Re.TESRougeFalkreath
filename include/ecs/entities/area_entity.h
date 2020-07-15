@@ -6,14 +6,14 @@
 #define RE_TESROUGEFALKREATH_MAP_H
 
 
-class area {
+class g_area {
 private:
     unsigned size_x;
     unsigned size_y;
 
     char **data;
 public:
-    explicit area(const unsigned input_size_x = 0, const unsigned input_size_y = 0, char **input_data = nullptr)
+    explicit g_area(const unsigned input_size_x = 0, const unsigned input_size_y = 0, char **input_data = nullptr)
             : size_x(input_size_x), size_y(input_size_y) {
         if (input_data != nullptr) {
             data = new char *[size_x];
@@ -28,7 +28,7 @@ public:
         }
     }
 
-    area(area &input_area) {
+    g_area(g_area &input_area) {
         size_x = input_area.size_x;
         size_y = input_area.size_y;
         if (input_area.data != nullptr) {
@@ -44,18 +44,18 @@ public:
         }
     }
 
-    area(area &&input_area) noexcept : size_x(input_area.size_x), size_y(input_area.size_y), data(input_area.data) {
+    g_area(g_area &&input_area) noexcept : size_x(input_area.size_x), size_y(input_area.size_y), data(input_area.data) {
         input_area.data = nullptr;
     }
 
-    ~area() {
+    ~g_area() {
         for (unsigned i = 0; i < size_x; i++) {
             delete data[i];
         }
         delete data;
     }
 
-    area &operator=(const area &input_area) {
+    g_area &operator=(const g_area &input_area) {
         size_x = input_area.size_x;
         size_y = input_area.size_y;
         if (input_area.data != nullptr) {
@@ -72,7 +72,7 @@ public:
         return *this;
     }
 
-    area &operator=(area &&input_area) noexcept {
+    g_area &operator=(g_area &&input_area) noexcept {
         size_x = input_area.size_x;
         size_y = input_area.size_y;
         data = input_area.data;

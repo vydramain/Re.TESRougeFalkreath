@@ -2,39 +2,39 @@
 // Created by vydra on 16.07.2020.
 //
 
-#ifndef RE_TESROUGEFALKREATH_CREATURES_H
-#define RE_TESROUGEFALKREATH_CREATURES_H
+#ifndef RE_TESROUGEFALKREATH_G_CREATURES_H
+#define RE_TESROUGEFALKREATH_G_CREATURES_H
 
 #include <vector>
-#include "creature.h"
+#include "creature_entity.h"
 
 
-class creatures {
+class g_creatures {
 private:
     std::vector<creature> vec_creatures;
 
 public:
-    explicit creatures(unsigned input_count) {
+    explicit g_creatures(unsigned input_count) {
         vec_creatures.reserve(input_count);
     }
-    creatures(creatures &input_creatures) {
+    g_creatures(g_creatures &input_creatures) {
         std::vector<creature>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
     }
-    creatures(creatures &&input_creatures) noexcept {
+    g_creatures(g_creatures &&input_creatures) noexcept {
         std::vector<creature>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
         input_creatures.vec_creatures.clear();
     }
-    ~creatures() {
+    ~g_creatures() {
         vec_creatures.clear();
     }
 
-    creatures &operator=(creatures &input_creatures) {
+    g_creatures &operator=(g_creatures &input_creatures) {
         std::vector<creature>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
@@ -42,7 +42,7 @@ public:
         return *this;
     }
 
-    creatures &operator=(creatures &&input_creatures) noexcept {
+    g_creatures &operator=(g_creatures &&input_creatures) noexcept {
         std::vector<creature>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
@@ -56,4 +56,4 @@ public:
 //    ??? get_list_creatures();
 };
 
-#endif //RE_TESROUGEFALKREATH_CREATURES_H
+#endif //RE_TESROUGEFALKREATH_G_CREATURES_H
