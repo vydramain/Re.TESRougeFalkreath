@@ -7,6 +7,7 @@
 
 class creature {
 private:
+    char *name;
     unsigned current_x;
     unsigned current_y;
 
@@ -20,50 +21,52 @@ private:
     direction current_direction;
 
 public:
-    explicit creature(const unsigned input_current_x = 0, const unsigned input_current_y = 0) : current_x(
-            input_current_x), current_y(input_current_y) {
+    explicit creature(char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
+            name(input_name), current_x(input_current_x), current_y(input_current_y) {
         current_direction = DIRECTION_LEFT;
     }
+
     creature(const creature &input_creature) = default;
-    creature(creature &&input_creature) noexcept  : current_x(input_creature.current_x),
-                                                    current_y(input_creature.current_y),
-                                                    current_direction(input_creature.current_direction){
+
+    creature(creature &&input_creature) noexcept: name(input_creature.name),
+                                                  current_x(input_creature.current_x),
+                                                  current_y(input_creature.current_y),
+                                                  current_direction(input_creature.current_direction) {
         input_creature.current_x = 0;
         input_creature.current_y = 0;
     }
+
     ~creature() = default;
 
-    creature &operator=(creature &&input_creature) noexcept {
+    creature &operator=(creature &input_creature) {
+        name = input_creature.name;
         current_x = input_creature.current_x;
         current_y = input_creature.current_y;
         current_direction = input_creature.current_direction;
+        return *this;
+    }
+
+
+    creature &operator=(creature &&input_creature) noexcept {
+        name = input_creature.name;
+        current_x = input_creature.current_x;
+        current_y = input_creature.current_y;
+        current_direction = input_creature.current_direction;
+        input_creature.name = nullptr;
         input_creature.current_x = 0;
         input_creature.current_y = 0;
+        return *this;
     }
 
-    unsigned int getCurrentX() const {
-        return current_x;
-    }
+    char *get_name() const;
+    unsigned get_current_x() const;
+    unsigned get_current_y() const;
+    unsigned get_current_direction() const;
 
-    void setCurrentX(unsigned int currentX) {
-        current_x = currentX;
-    }
-
-    unsigned int getCurrentY() const {
-        return current_y;
-    }
-
-    void setCurrentY(unsigned int currentY) {
-        current_y = currentY;
-    }
-
-    direction getCurrentDirection() const {
-        return current_direction;
-    }
-
-    void setCurrentDirection(direction currentDirection) {
-        current_direction = currentDirection;
-    }
+    void set_name(char *input_name);
+    void set_current_x(unsigned int input_x);
+    void set_current_y(unsigned int input_y);
+    void set_current_direction(direction input_direction);
 
     void go_up();
     void go_down();
