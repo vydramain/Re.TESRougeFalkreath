@@ -4,11 +4,10 @@
 
 #include "gsm/game_states/global_game_states/main_menu_state.h"
 
-void main_menu_state::update() const {
+void main_menu_state::run() {
     const char *const title = "Главное меню:";
     const char *choices[2] = {"Играть", "Выход"};
     const unsigned count_choices = 2;
-    unsigned highlighted = 0;
 
     render->view_choice(title, choices, count_choices, highlighted);
     render->render();
@@ -22,5 +21,5 @@ void main_menu_state::update() const {
         }
         render->view_choice(title, choices, count_choices, highlighted);
         render->render();
-    } while(!(input->is_exit() || input->is_button_esc()));
+    } while(!(input->is_exit() || input->is_button_esc() || input->is_enter()));
 }

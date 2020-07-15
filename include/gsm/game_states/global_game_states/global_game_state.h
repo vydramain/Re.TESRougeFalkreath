@@ -10,7 +10,6 @@
 
 class global_game_state : public interface_game_state {
 protected:
-    bool is_closed_ = false;
     const char *state;
     unsigned state_size;
 
@@ -59,9 +58,8 @@ public:
         return *this;
     }
 
-    virtual void update() const = 0;
+    virtual void run() = 0;
     const char *get_game_state() const;
-    bool is_closed() const;
 };
 
 #endif //RE_TESROUGEFALKREATH_GLOBAL_GAME_STATE_H

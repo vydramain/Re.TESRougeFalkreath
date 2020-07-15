@@ -7,7 +7,3 @@
 const char* global_game_state::get_game_state() const {
     return state;
 }
-
-bool global_game_state::is_closed() const {
-    return is_closed_;
-}
