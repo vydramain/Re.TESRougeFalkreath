@@ -5,7 +5,6 @@
 #ifndef RE_TESROUGEFALKREATH_MAIN_MENU_RENDER_H
 #define RE_TESROUGEFALKREATH_MAIN_MENU_RENDER_H
 
-#include "BearLibTerminal.h"
 #include "ecs/components/render_component/interface_render.h"
 
 class main_menu_render : public interface_render {
