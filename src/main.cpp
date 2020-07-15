@@ -1,11 +1,12 @@
 
 #include <iostream>
-#include "ecs/entities/my_pair.h"
+#include "gsm/game_states/global_game_states/main_menu_state.h"
+#include "gsm/game_states/global_game_states/game_loop_state.h"
 
 int main() {
-    int *n = new int(2);
-    my_pair<char, int> p(new char('f'), n);
-    std::cout << p.get_first() << ", " << *p.get_second() << std::endl;
+    auto *state = new game_loop_state();
+    state->run();
+    delete state;
 
     return 0;
 }

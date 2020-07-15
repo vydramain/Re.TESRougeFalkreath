@@ -5,6 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_MY_PAIR_H
 #define RE_TESROUGEFALKREATH_MY_PAIR_H
 
+
 template<typename T1, typename T2>
 class my_pair {
 private:
@@ -47,5 +48,6 @@ public:
     }
 
 };
+
 
 #endif //RE_TESROUGEFALKREATH_MY_PAIR_H
