@@ -17,11 +17,12 @@ public:
 
     ~main_menu_render();
 
-    static void clear_all();
-    static void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y);
-    static void view_choice(const char *title, const char **input_choices,
-                     unsigned input_count_choices, unsigned highlighted_choice,
-                     unsigned in_x = 0, unsigned in_y = 0, unsigned out_x = SCREENMODE_X - 1, unsigned out_y = SCREENMODE_Y - 1);
+    void clear_all();
+    void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y);
+    void view_choice(const char *title, const char **input_choices, unsigned input_count_choices,
+                     unsigned highlighted_choice,
+                     unsigned in_x = 0, unsigned in_y = 0,
+                     unsigned out_x = SCREENMODE_X - 1, unsigned out_y = SCREENMODE_Y - 1);
 
     void render();
 };
