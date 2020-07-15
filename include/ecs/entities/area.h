@@ -28,7 +28,7 @@ public:
         }
     }
 
-    area(const area &input_area) {
+    area(area &input_area) {
         size_x = input_area.size_x;
         size_y = input_area.size_y;
         if (input_area.data != nullptr) {
@@ -80,9 +80,9 @@ public:
         return *this;
     }
 
-    const unsigned get_size_x();
-    const unsigned get_size_y();
-    const char get_cell(unsigned input_x, unsigned input_y);
+    unsigned get_size_x();
+    unsigned get_size_y();
+    char get_cell(unsigned input_x, unsigned input_y);
 
 };
 
