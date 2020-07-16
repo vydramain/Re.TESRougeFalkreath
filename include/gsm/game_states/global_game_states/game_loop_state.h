@@ -19,10 +19,9 @@ private:
     game_loop_render *render = nullptr;
 
     location_entity *location = nullptr;
-    creatures_entity *creatures = nullptr;
 
 public:
-    explicit game_loop_state(char* input_area_name = nullptr, area_entity *input_area = nullptr, creature_entity *input_player = nullptr);
+    explicit game_loop_state(const char* input_area_name = nullptr, area_entity *input_area = nullptr, creature_entity *input_player = nullptr);
     ~game_loop_state();
 
     void run() override;

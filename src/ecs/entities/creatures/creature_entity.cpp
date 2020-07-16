@@ -5,7 +5,7 @@
 #include "ecs/entities/creatures_entities/creature_entity.h"
 
 
-char *creature_entity::get_name() const {
+const char *creature_entity::get_name() const {
     return name;
 }
 

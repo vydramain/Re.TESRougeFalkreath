@@ -13,6 +13,18 @@ game_loop_render::game_loop_render(const location_entity *input_location, const 
 
     location = input_location;
     creatures = input_creatures;
+    target = creatures->get_creature(0);
+
+    if(target->get_current_x() < world_edge_x / 2){
+        last_x = 0;
+    } else {
+        last_x = target->get_current_x() - world_edge_x / 2;
+    }
+    if(target->get_current_y() < world_edge_y / 2) {
+        last_y = 0;
+    } else {
+        last_y = target->get_current_y() - world_edge_y / 2;
+    }
 }
 
 game_loop_render::~game_loop_render() {
@@ -23,6 +35,11 @@ game_loop_render::~game_loop_render() {
     creatures = nullptr;
 }
 
+void game_loop_render::set_target_creature(const creature_entity *input_target) {
+    target = input_target;
+}
+
+
 void game_loop_render::clear_all() {
     terminal_clear();
 }
@@ -31,11 +48,12 @@ void game_loop_render::clear_area(unsigned in_x, unsigned in_y, unsigned out_x, 
     terminal_clear_area(in_x, in_y, out_x, out_y);
 }
 
-void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x, unsigned in_y,
-                                   unsigned out_x, unsigned out_y) {
+void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x,
+                                    unsigned in_y,
+                                    unsigned out_x, unsigned out_y) {
     // cleaning up area_entity for message
     for (unsigned j = 0; j < out_y - in_y; j++) {
-        for(unsigned i = 0; i < out_x - in_x; i++) {
+        for (unsigned i = 0; i < out_x - in_x; i++) {
             terminal_put(in_x + i, in_y + j, ' ');
         }
     }
@@ -80,6 +98,52 @@ void game_loop_render::view_choice(const char *title, const char **input_choices
         terminal_print(in_x + 7, in_y + 3 + i, input_choices[i - 1]);
     }
 }
+
+
+unsigned game_loop_render::calc_camera_position_x(const unsigned input_x) {
+    unsigned screen_place_x = last_x;
+
+    if (input_x < world_edge_x / 4) {
+        screen_place_x = 0;
+        last_x = input_x;
+    }
+    if (location->get_size_x() - input_x < world_edge_x / 4) {
+        screen_place_x = location->get_size_x() - world_edge_x;
+        last_x = ((world_edge_x / 4) * 3) + location->get_size_x() - input_x;
+    }
+    if (input_x >= world_edge_x / 4 && location->get_size_x() - input_x >= world_edge_x / 4) {
+        if (last_x > input_x && last_x + 1 < ((world_edge_x / 4) * 3)) {
+            screen_place_x = last_x++;
+        }
+        if (last_x < input_x && last_x - 1 < world_edge_x / 4) {
+            screen_place_x = last_x--;
+        }
+    }
+    return screen_place_x;
+}
+
+unsigned game_loop_render::calc_camera_position_y(const unsigned input_y) {
+    unsigned screen_place_y = last_y;
+
+    if (input_y < world_edge_y / 4) {
+        screen_place_y = 0;
+        last_y = input_y;
+    }
+    if (location->get_size_y() - input_y < world_edge_y / 4) {
+        screen_place_y = location->get_size_y() - world_edge_y;
+        last_y = ((world_edge_y / 4) * 3) + location->get_size_y() - input_y;
+    }
+    if (input_y >= world_edge_y / 4 && location->get_size_y() - input_y >= world_edge_y / 4) {
+        if (last_y > input_y && last_y + 1 < ((world_edge_y / 4) * 3)) {
+            screen_place_y = last_y++;
+        }
+        if (last_y < input_y && last_y - 1 < world_edge_y / 4) {
+            screen_place_y = last_y--;
+        }
+    }
+    return screen_place_y;
+}
+
 
 void game_loop_render::paint_symbol(wchar_t symbol) {
     switch (symbol) {
@@ -152,11 +216,61 @@ void game_loop_render::paint_symbol(wchar_t symbol) {
     }
 }
 
+void game_loop_render::view_location() {
+    if (target) {
+        unsigned target_x = calc_camera_position_x(target->get_current_x());
+        unsigned target_y = calc_camera_position_y(target->get_current_y());
+
+        view_area(target_x, target_y);
+        view_creatures(target_x, target_y);
+        view_items(target_x, target_y);
+    } else {
+        view_message("target missed!", "", 0, 0, world_edge_x, world_edge_y);
+    }
+}
+
+void game_loop_render::view_area(unsigned input_camera_x, unsigned input_camera_y) {
+    char temp;
+    for (int ii = 0; ii < world_edge_y; ii++) {
+        for (int i = 0; i < world_edge_x; i++) {
+            terminal_color(0xaaffffff);
+            terminal_layer(1);
+            temp = location->get_current_area()->get_cell(input_camera_x + i, input_camera_y + ii);
+            paint_symbol(temp);
+            terminal_put(i, ii, temp);
+        }
+    }
+}
+
+void game_loop_render::view_creatures(unsigned input_camera_x, unsigned input_camera_y) {
+    const creature_entity *creature;
+    for (unsigned i = 0; i < creatures->get_size(); i++) {
+        creature = creatures->get_creature(i);
+        unsigned creature_x = creature->get_current_x();
+        unsigned creature_y = creature->get_current_y();
+
+        if ((creature_x >= input_camera_x &&
+             creature_x < input_camera_x + world_edge_x) &&
+            (creature_y >= input_camera_y &&
+             creature_y < input_camera_y + world_edge_y)) {
+            terminal_color(0xffFFFFFF);
+            terminal_layer(2);
+            terminal_put(creature_x - input_camera_x, creature_y - input_camera_y, 'i');
+        }
+    }
+}
+
+
+/*
 void game_loop_render::view_player() {
+    int screen_place_x = calc_camera_position_x();
+    int screen_place_y = calc_camera_position_y();
+
     terminal_layer(4);
     terminal_color(0xFFFFFFFF);
-    terminal_put_ext(30, 20, 0, -1, 'i');
+    terminal_put_ext(screen_place_x, screen_place_y, 0, -1, 'i');
 }
+*/
 
 void game_loop_render::view_hud() {
     terminal_layer(5);
@@ -165,7 +279,7 @@ void game_loop_render::view_hud() {
         terminal_print(world_edge_x, i, "|");
     }
 
-    for(int i = 0; i < SCREENMODE_X - world_edge_x; i++){
+    for (int i = 0; i < SCREENMODE_X - world_edge_x; i++) {
         terminal_print(world_edge_x + i + 1, 9, "_");
         terminal_print(world_edge_x + i + 1, world_edge_y - 5, "_");
     }
@@ -186,7 +300,7 @@ void game_loop_render::view_hud() {
 
 void game_loop_render::render() {
     clear_all();
-    view_player();
+    view_location();
     view_hud();
     terminal_refresh();
 }

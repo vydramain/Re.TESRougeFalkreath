@@ -7,7 +7,7 @@
 
 class creature_entity {
 private:
-    char *name;
+    const char *name;
     unsigned current_x;
     unsigned current_y;
 
@@ -21,7 +21,7 @@ private:
     direction current_direction;
 
 public:
-    explicit creature_entity(char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
+    explicit creature_entity(const char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
             name(input_name), current_x(input_current_x), current_y(input_current_y) {
         current_direction = DIRECTION_LEFT;
     }
@@ -58,7 +58,7 @@ public:
         return *this;
     }
 
-    char *get_name() const;
+    const char *get_name() const;
     unsigned get_current_x() const;
     unsigned get_current_y() const;
     unsigned get_current_direction() const;

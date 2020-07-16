@@ -19,11 +19,17 @@ private:
 
     const location_entity *location = nullptr;
     const creatures_entity *creatures = nullptr;
+
+    const creature_entity *target = nullptr;
+    unsigned int last_x;
+    unsigned int last_y;
+
 public:
 
     explicit game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures);
-
     ~game_loop_render() override;
+
+    void set_target_creature(const creature_entity *input_target);
 
     void clear_all() override;
     void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y) override;
@@ -37,10 +43,15 @@ public:
                      unsigned in_x = 0, unsigned in_y = 0,
                      unsigned out_x = SCREENMODE_X - 1, unsigned out_y = SCREENMODE_Y - 1);
 
+    unsigned calc_camera_position_x(unsigned input_x);
+    unsigned calc_camera_position_y(unsigned input_y);
     void paint_symbol(wchar_t symbol);
 
-//    void view_area();
-    void view_player();
+    void view_location();
+    void view_area(unsigned input_camera_x, unsigned input_camera_y);
+    void view_creatures(unsigned input_camera_x, unsigned input_camera_y);
+    void view_items(unsigned input_camera_x, unsigned input_camera_y) {}
+
     void view_hud();
 //    void view_log_window();
 

@@ -53,6 +53,8 @@ public:
 
     void put_creature(creature_entity input_creature);
     creature_entity *get_creature(unsigned input_index);
+    const creature_entity *get_creature(unsigned input_index) const;
+    unsigned get_size() const;
 //    ??? get_list_creatures();
 };
 
