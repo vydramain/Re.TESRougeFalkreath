@@ -6,22 +6,27 @@
 #define RE_TESROUGEFALKREATH_GAME_LOOP_RENDER_H
 
 #include "ecs/components/render_component/interface_render.h"
+#include "ecs/entities/creatures_entities/creatures_entity.h"
+#include "ecs/entities/locations_entities/location_entity.h"
 
 class game_loop_render : public interface_render {
 private:
     static const int SCREENMODE_X = 100;
     static const int SCREENMODE_Y = 40;
 
-public:
     static const int world_edge_x = SCREENMODE_X - 34;
     static const int world_edge_y = SCREENMODE_Y;
 
-    explicit game_loop_render();
+    const location_entity *location = nullptr;
+    const creatures_entity *creatures = nullptr;
+public:
 
-    ~game_loop_render();
+    explicit game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures);
 
-    void clear_all();
-    void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y);
+    ~game_loop_render() override;
+
+    void clear_all() override;
+    void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y) override;
 
     void view_message(const char *input_first_string, const char *input_second_string, unsigned in_x, unsigned in_y,
                       unsigned out_x, unsigned out_y);

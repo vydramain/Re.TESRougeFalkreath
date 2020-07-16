@@ -5,7 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_CREATURE_H
 #define RE_TESROUGEFALKREATH_CREATURE_H
 
-class creature {
+class creature_entity {
 private:
     char *name;
     unsigned current_x;
@@ -21,24 +21,24 @@ private:
     direction current_direction;
 
 public:
-    explicit creature(char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
+    explicit creature_entity(char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
             name(input_name), current_x(input_current_x), current_y(input_current_y) {
         current_direction = DIRECTION_LEFT;
     }
 
-    creature(const creature &input_creature) = default;
+    creature_entity(const creature_entity &input_creature) = default;
 
-    creature(creature &&input_creature) noexcept: name(input_creature.name),
-                                                  current_x(input_creature.current_x),
-                                                  current_y(input_creature.current_y),
-                                                  current_direction(input_creature.current_direction) {
+    creature_entity(creature_entity &&input_creature) noexcept: name(input_creature.name),
+                                                                current_x(input_creature.current_x),
+                                                                current_y(input_creature.current_y),
+                                                                current_direction(input_creature.current_direction) {
         input_creature.current_x = 0;
         input_creature.current_y = 0;
     }
 
-    ~creature() = default;
+    ~creature_entity() = default;
 
-    creature &operator=(creature &input_creature) {
+    creature_entity &operator=(creature_entity &input_creature) {
         name = input_creature.name;
         current_x = input_creature.current_x;
         current_y = input_creature.current_y;
@@ -47,7 +47,7 @@ public:
     }
 
 
-    creature &operator=(creature &&input_creature) noexcept {
+    creature_entity &operator=(creature_entity &&input_creature) noexcept {
         name = input_creature.name;
         current_x = input_creature.current_x;
         current_y = input_creature.current_y;

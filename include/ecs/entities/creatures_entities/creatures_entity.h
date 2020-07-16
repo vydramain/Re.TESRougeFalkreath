@@ -9,41 +9,41 @@
 #include "creature_entity.h"
 
 
-class g_creatures {
+class creatures_entity {
 private:
-    std::vector<creature> vec_creatures;
+    std::vector<creature_entity> vec_creatures;
 
 public:
-    explicit g_creatures(unsigned input_count) {
+    explicit creatures_entity(unsigned input_count) {
         vec_creatures.reserve(input_count);
     }
-    g_creatures(g_creatures &input_creatures) {
-        std::vector<creature>::iterator it;
+    creatures_entity(creatures_entity &input_creatures) {
+        std::vector<creature_entity>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
     }
-    g_creatures(g_creatures &&input_creatures) noexcept {
-        std::vector<creature>::iterator it;
+    creatures_entity(creatures_entity &&input_creatures) noexcept {
+        std::vector<creature_entity>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
         input_creatures.vec_creatures.clear();
     }
-    ~g_creatures() {
+    ~creatures_entity() {
         vec_creatures.clear();
     }
 
-    g_creatures &operator=(g_creatures &input_creatures) {
-        std::vector<creature>::iterator it;
+    creatures_entity &operator=(creatures_entity &input_creatures) {
+        std::vector<creature_entity>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
         return *this;
     }
 
-    g_creatures &operator=(g_creatures &&input_creatures) noexcept {
-        std::vector<creature>::iterator it;
+    creatures_entity &operator=(creatures_entity &&input_creatures) noexcept {
+        std::vector<creature_entity>::iterator it;
         for(it = input_creatures.vec_creatures.begin(); it < input_creatures.vec_creatures.end(); it++) {
             vec_creatures.push_back(*it);
         }
@@ -51,8 +51,8 @@ public:
         return *this;
     }
 
-    void put_creature(creature input_creature);
-    creature *get_creature(unsigned input_index);
+    void put_creature(creature_entity input_creature);
+    creature_entity *get_creature(unsigned input_index);
 //    ??? get_list_creatures();
 };
 

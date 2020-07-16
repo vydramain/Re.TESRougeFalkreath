@@ -4,17 +4,23 @@
 
 #include "ecs/components/render_component/game_loop_render.h"
 
-game_loop_render::game_loop_render() {
+game_loop_render::game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures) {
     terminal_open();
     terminal_set("window: title='re.TESFalkreath', cellsize=8x15, size=100x40, fullscreen=true;");
     terminal_layer(0);
     terminal_clear();
     terminal_refresh();
+
+    location = input_location;
+    creatures = input_creatures;
 }
 
 game_loop_render::~game_loop_render() {
     terminal_clear();
     terminal_close();
+
+    location = nullptr;
+    creatures = nullptr;
 }
 
 void game_loop_render::clear_all() {
@@ -27,7 +33,7 @@ void game_loop_render::clear_area(unsigned in_x, unsigned in_y, unsigned out_x, 
 
 void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x, unsigned in_y,
                                    unsigned out_x, unsigned out_y) {
-    // cleaning up area for message
+    // cleaning up area_entity for message
     for (unsigned j = 0; j < out_y - in_y; j++) {
         for(unsigned i = 0; i < out_x - in_x; i++) {
             terminal_put(in_x + i, in_y + j, ' ');
