@@ -11,18 +11,22 @@
 
 class game_loop_render : public interface_render {
 private:
-    static const int SCREENMODE_X = 100;
-    static const int SCREENMODE_Y = 40;
+    static const unsigned SCREENMODE_X = 100;
+    static const unsigned SCREENMODE_Y = 40;
 
-    static const int world_edge_x = SCREENMODE_X - 34;
-    static const int world_edge_y = SCREENMODE_Y;
+    static const unsigned passive_zone_out_x = SCREENMODE_X - 34;
+    static const unsigned passive_zone_out_y = SCREENMODE_Y;
+    static const unsigned active_zone_in_x = passive_zone_out_x / 4;
+    static const unsigned active_zone_in_y = passive_zone_out_y / 4;
+    static const unsigned active_zone_out_x = passive_zone_out_x - active_zone_in_x;
+    static const unsigned active_zone_out_y = passive_zone_out_y - active_zone_in_y;
 
     const location_entity *location = nullptr;
     const creatures_entity *creatures = nullptr;
-
     const creature_entity *target = nullptr;
-    unsigned int last_x;
-    unsigned int last_y;
+
+    unsigned int current_camera_x;
+    unsigned int current_camera_y;
 
 public:
 
@@ -43,8 +47,10 @@ public:
                      unsigned in_x = 0, unsigned in_y = 0,
                      unsigned out_x = SCREENMODE_X - 1, unsigned out_y = SCREENMODE_Y - 1);
 
-    unsigned calc_camera_position_x(unsigned input_x);
-    unsigned calc_camera_position_y(unsigned input_y);
+    void new_camera_position_x();
+    void new_camera_position_y();
+    void update_camera_position_x();
+    void update_camera_position_y();
     void paint_symbol(wchar_t symbol);
 
     void view_location();

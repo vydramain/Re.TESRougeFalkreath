@@ -24,6 +24,22 @@ void game_loop_state::run() {
     do {
         input->update();
 
+        if(input->is_up()) {
+            location->get_current_creatures()->get_creature(0)->go_up();
+        }
+
+        if(input->is_down()) {
+            location->get_current_creatures()->get_creature(0)->go_down();
+        }
+
+        if(input->is_left()) {
+            location->get_current_creatures()->get_creature(0)->go_left();
+        }
+
+        if(input->is_right()) {
+            location->get_current_creatures()->get_creature(0)->go_right();
+        }
+
         render->render();
     } while(!(input->is_exit() || input->is_button_esc() || input->is_enter()));
 }

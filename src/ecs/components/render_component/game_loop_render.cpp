@@ -13,18 +13,11 @@ game_loop_render::game_loop_render(const location_entity *input_location, const 
 
     location = input_location;
     creatures = input_creatures;
+
     target = creatures->get_creature(0);
 
-    if(target->get_current_x() < world_edge_x / 2){
-        last_x = 0;
-    } else {
-        last_x = target->get_current_x() - world_edge_x / 2;
-    }
-    if(target->get_current_y() < world_edge_y / 2) {
-        last_y = 0;
-    } else {
-        last_y = target->get_current_y() - world_edge_y / 2;
-    }
+    new_camera_position_x();
+    new_camera_position_y();
 }
 
 game_loop_render::~game_loop_render() {
@@ -99,49 +92,62 @@ void game_loop_render::view_choice(const char *title, const char **input_choices
     }
 }
 
-
-unsigned game_loop_render::calc_camera_position_x(const unsigned input_x) {
-    unsigned screen_place_x = last_x;
-
-    if (input_x < world_edge_x / 4) {
-        screen_place_x = 0;
-        last_x = input_x;
+void game_loop_render::new_camera_position_x() {
+    current_camera_x = target->get_current_x() - active_zone_in_x;
+    if (target->get_current_x() < active_zone_in_x) {
+        current_camera_x = 0;
     }
-    if (location->get_size_x() - input_x < world_edge_x / 4) {
-        screen_place_x = location->get_size_x() - world_edge_x;
-        last_x = ((world_edge_x / 4) * 3) + location->get_size_x() - input_x;
+    if (location->get_size_x() - target->get_current_x() < active_zone_out_x) {
+        current_camera_x = location->get_size_x() - passive_zone_out_x;
     }
-    if (input_x >= world_edge_x / 4 && location->get_size_x() - input_x >= world_edge_x / 4) {
-        if (last_x > input_x && last_x + 1 < ((world_edge_x / 4) * 3)) {
-            screen_place_x = last_x++;
-        }
-        if (last_x < input_x && last_x - 1 < world_edge_x / 4) {
-            screen_place_x = last_x--;
-        }
-    }
-    return screen_place_x;
 }
 
-unsigned game_loop_render::calc_camera_position_y(const unsigned input_y) {
-    unsigned screen_place_y = last_y;
+void game_loop_render::new_camera_position_y() {
+    current_camera_y = target->get_current_y() - active_zone_in_y;
+    if (target->get_current_y() < active_zone_in_y) {
+        current_camera_y = 0;
+    }
+    if (location->get_size_y() - target->get_current_y() < active_zone_out_y) {
+        current_camera_y = location->get_size_y() - passive_zone_out_y;
+    }
+}
 
-    if (input_y < world_edge_y / 4) {
-        screen_place_y = 0;
-        last_y = input_y;
-    }
-    if (location->get_size_y() - input_y < world_edge_y / 4) {
-        screen_place_y = location->get_size_y() - world_edge_y;
-        last_y = ((world_edge_y / 4) * 3) + location->get_size_y() - input_y;
-    }
-    if (input_y >= world_edge_y / 4 && location->get_size_y() - input_y >= world_edge_y / 4) {
-        if (last_y > input_y && last_y + 1 < ((world_edge_y / 4) * 3)) {
-            screen_place_y = last_y++;
+void game_loop_render::update_camera_position_x() {
+    unsigned target_x = target->get_current_x();
+
+    if (target_x < current_camera_x + active_zone_in_x || target_x > current_camera_x + active_zone_out_x) {
+        if (target_x < current_camera_x + active_zone_in_x) {
+            current_camera_x = target_x - active_zone_in_x;
+            if (target_x < active_zone_in_x) {
+                current_camera_x = 0;
+            }
         }
-        if (last_y < input_y && last_y - 1 < world_edge_y / 4) {
-            screen_place_y = last_y--;
+        if (target_x > current_camera_x + active_zone_out_x) {
+            current_camera_x = target_x - active_zone_out_x;
+            if (target_x >= location->get_size_x() - active_zone_in_x) {
+                current_camera_x = location->get_size_x() - passive_zone_out_x;
+            }
         }
     }
-    return screen_place_y;
+}
+
+void game_loop_render::update_camera_position_y() {
+    unsigned target_y = target->get_current_y();
+
+    if (target_y < current_camera_y + active_zone_in_y || target_y > current_camera_y + active_zone_out_y) {
+        if (target_y < current_camera_y + active_zone_in_y) {
+            current_camera_y = target_y - active_zone_in_y;
+            if (target_y < active_zone_in_y) {
+                current_camera_y = 0;
+            }
+        }
+        if (target_y > current_camera_y + active_zone_out_y) {
+            current_camera_y = target_y - active_zone_out_y;
+            if (target_y >= location->get_size_y() - active_zone_in_y) {
+                current_camera_y = location->get_size_y() - passive_zone_out_y;
+            }
+        }
+    }
 }
 
 
@@ -218,21 +224,21 @@ void game_loop_render::paint_symbol(wchar_t symbol) {
 
 void game_loop_render::view_location() {
     if (target) {
-        unsigned target_x = calc_camera_position_x(target->get_current_x());
-        unsigned target_y = calc_camera_position_y(target->get_current_y());
+        update_camera_position_x();
+        update_camera_position_y();
 
-        view_area(target_x, target_y);
-        view_creatures(target_x, target_y);
-        view_items(target_x, target_y);
+        view_area(current_camera_x, current_camera_y);
+        view_creatures(current_camera_x, current_camera_y);
+        view_items(current_camera_x, current_camera_y);
     } else {
-        view_message("target missed!", "", 0, 0, world_edge_x, world_edge_y);
+        view_message("target missed!", "", 0, 0, passive_zone_out_x, passive_zone_out_y);
     }
 }
 
 void game_loop_render::view_area(unsigned input_camera_x, unsigned input_camera_y) {
     char temp;
-    for (int ii = 0; ii < world_edge_y; ii++) {
-        for (int i = 0; i < world_edge_x; i++) {
+    for (int ii = 0; ii < passive_zone_out_y; ii++) {
+        for (int i = 0; i < passive_zone_out_x; i++) {
             terminal_color(0xaaffffff);
             terminal_layer(1);
             temp = location->get_current_area()->get_cell(input_camera_x + i, input_camera_y + ii);
@@ -250,9 +256,9 @@ void game_loop_render::view_creatures(unsigned input_camera_x, unsigned input_ca
         unsigned creature_y = creature->get_current_y();
 
         if ((creature_x >= input_camera_x &&
-             creature_x < input_camera_x + world_edge_x) &&
+             creature_x < input_camera_x + passive_zone_out_x) &&
             (creature_y >= input_camera_y &&
-             creature_y < input_camera_y + world_edge_y)) {
+             creature_y < input_camera_y + passive_zone_out_y)) {
             terminal_color(0xffFFFFFF);
             terminal_layer(2);
             terminal_put(creature_x - input_camera_x, creature_y - input_camera_y, 'i');
@@ -260,42 +266,30 @@ void game_loop_render::view_creatures(unsigned input_camera_x, unsigned input_ca
     }
 }
 
-
-/*
-void game_loop_render::view_player() {
-    int screen_place_x = calc_camera_position_x();
-    int screen_place_y = calc_camera_position_y();
-
-    terminal_layer(4);
-    terminal_color(0xFFFFFFFF);
-    terminal_put_ext(screen_place_x, screen_place_y, 0, -1, 'i');
-}
-*/
-
 void game_loop_render::view_hud() {
     terminal_layer(5);
     terminal_color(0xffffffff);
-    for (int i = 0; i < world_edge_y; i++) {
-        terminal_print(world_edge_x, i, "|");
+    for (int i = 0; i < passive_zone_out_y; i++) {
+        terminal_print(passive_zone_out_x, i, "|");
     }
 
-    for (int i = 0; i < SCREENMODE_X - world_edge_x; i++) {
-        terminal_print(world_edge_x + i + 1, 9, "_");
-        terminal_print(world_edge_x + i + 1, world_edge_y - 5, "_");
+    for (int i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
+        terminal_print(passive_zone_out_x + i + 1, 9, "_");
+        terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "_");
     }
 
-    terminal_print(world_edge_x + 1, world_edge_y - 3, "Координаты:");
+    terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
 
-    terminal_print(world_edge_x + 1, 1, "Имя:");
-    terminal_print(world_edge_x + 1, 2, "Раса:");
-    terminal_print(world_edge_x + 1, 3, "Статус:");
+    terminal_print(passive_zone_out_x + 1, 1, "Имя:");
+    terminal_print(passive_zone_out_x + 1, 2, "Раса:");
+    terminal_print(passive_zone_out_x + 1, 3, "Статус:");
 
     terminal_color(0xFFFF4444);
-    terminal_print(world_edge_x + 1, 4, "ОЗ:");
+    terminal_print(passive_zone_out_x + 1, 4, "ОЗ:");
     terminal_color(0xFF44ff44);
-    terminal_print(world_edge_x + 1, 5, "ОД:");
+    terminal_print(passive_zone_out_x + 1, 5, "ОД:");
     terminal_color(0xFF6666FF);
-    terminal_print(world_edge_x + 1, 6, "OМ:");
+    terminal_print(passive_zone_out_x + 1, 6, "OМ:");
 }
 
 void game_loop_render::render() {

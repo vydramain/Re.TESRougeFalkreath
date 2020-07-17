@@ -7,19 +7,22 @@
 
 
 int main() {
-    char **m = new char *[200];
-    for (int i = 0; i < 200; i++) {
-        m[i] = new char[300];
+    unsigned x = 70;
+    unsigned y = 50;
+
+    char **m = new char *[x];
+    for (unsigned i = 0; i < x; i++) {
+        m[i] = new char[y];
     }
-    for (int i = 0; i < 200; i++) {
-        for (int j = 0; j < 300; j++) {
+    for (unsigned i = 0; i < x; i++) {
+        for (unsigned j = 0; j < y; j++) {
             m[i][j] = '.';
         }
     }
 
     auto *state = new game_loop_state("test_map",
-                                      new area_entity(200, 300, m),
-                                      new creature_entity("player", 199, 290));
+                                      new area_entity(x, y, m),
+                                      new creature_entity("player", 15, 2));
     state->run();
     delete state;
 

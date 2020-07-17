@@ -73,11 +73,13 @@ public:
     unsigned int get_size_x() const;
     unsigned int get_size_y() const;
     area_entity *get_current_area() const;
+    creatures_entity *get_current_creatures() const;
 
     void set_name(const char *input_name);
     void set_size_x(unsigned int input_x);
     void set_size_y(unsigned int input_y);
-    void set_current_area(area_entity *currentArea);
+    void set_current_area(area_entity *input_area);
+    void set_current_creatures(creatures_entity *input_creatures);
 
 
 };
