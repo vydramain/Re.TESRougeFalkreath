@@ -5,7 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_MAIN_MENU_STATE_H
 #define RE_TESROUGEFALKREATH_MAIN_MENU_STATE_H
 
-#include "gsm/game_states/global_game_states/global_game_state.h"
+#include "global_game_state.h"
 #include "ecs/systems/render_system/main_menu_render.h"
 #include "ecs/systems/controls_system/controls.h"
 

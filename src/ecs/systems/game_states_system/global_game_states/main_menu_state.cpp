@@ -2,7 +2,7 @@
 // Created by vydra on 12.07.2020.
 //
 
-#include "gsm/game_states/global_game_states/main_menu_state.h"
+#include "ecs/systems/game_states_system/global_game_states/main_menu_state.h"
 
 void main_menu_state::run() {
     const char *const title = "Главное меню:";

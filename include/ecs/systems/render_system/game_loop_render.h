@@ -53,12 +53,12 @@ public:
     void update_camera_position_y();
     void paint_symbol(wchar_t symbol);
 
-    void view_location();
-    void view_area(unsigned input_camera_x, unsigned input_camera_y);
-    void view_creatures(unsigned input_camera_x, unsigned input_camera_y);
-    void view_items(unsigned input_camera_x, unsigned input_camera_y) {}
+    void render_location();
+    void render_area(unsigned input_camera_x, unsigned input_camera_y);
+    void render_creatures(unsigned input_camera_x, unsigned input_camera_y);
+    void render_items(unsigned input_camera_x, unsigned input_camera_y) {}
 
-    void view_hud();
+    void render_hud();
 //    void view_log_window();
 
     void render() override;

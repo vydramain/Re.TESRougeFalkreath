@@ -6,7 +6,7 @@
 #define RE_TESROUGEFALKREATH_GLOBAL_GAME_STATE_H
 
 #include <string>
-#include <gsm/game_states/interface_game_state.h>
+#include <ecs/systems/game_states_system/interface_game_state.h>
 
 class global_game_state : public interface_game_state {
 protected:

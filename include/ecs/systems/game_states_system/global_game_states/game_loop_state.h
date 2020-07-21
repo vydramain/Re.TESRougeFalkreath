@@ -5,7 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_GAME_LOOP_STATE_H
 #define RE_TESROUGEFALKREATH_GAME_LOOP_STATE_H
 
-#include "gsm/game_states/global_game_states/global_game_state.h"
+#include "global_game_state.h"
 #include "ecs/systems/render_system/game_loop_render.h"
 #include "ecs/systems/controls_system/controls.h"
 #include "ecs/entities/creatures_entities/creatures_entity.h"

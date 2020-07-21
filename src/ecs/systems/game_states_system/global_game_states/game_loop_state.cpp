@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "gsm/game_states/global_game_states/game_loop_state.h"
+#include "ecs/systems/game_states_system/global_game_states/game_loop_state.h"
 
 game_loop_state::game_loop_state(const char* input_area_name, area_entity *input_area, creature_entity *input_player) {
     auto *creatures = new creatures_entity(1);

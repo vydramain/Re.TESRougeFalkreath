@@ -222,20 +222,20 @@ void game_loop_render::paint_symbol(wchar_t symbol) {
     }
 }
 
-void game_loop_render::view_location() {
+void game_loop_render::render_location() {
     if (target) {
         update_camera_position_x();
         update_camera_position_y();
 
-        view_area(current_camera_x, current_camera_y);
-        view_creatures(current_camera_x, current_camera_y);
-        view_items(current_camera_x, current_camera_y);
+        render_area(current_camera_x, current_camera_y);
+        render_creatures(current_camera_x, current_camera_y);
+        render_items(current_camera_x, current_camera_y);
     } else {
         view_message("target missed!", "", 0, 0, passive_zone_out_x, passive_zone_out_y);
     }
 }
 
-void game_loop_render::view_area(unsigned input_camera_x, unsigned input_camera_y) {
+void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camera_y) {
     char temp;
     for (int ii = 0; ii < passive_zone_out_y; ii++) {
         for (int i = 0; i < passive_zone_out_x; i++) {
@@ -248,7 +248,7 @@ void game_loop_render::view_area(unsigned input_camera_x, unsigned input_camera_
     }
 }
 
-void game_loop_render::view_creatures(unsigned input_camera_x, unsigned input_camera_y) {
+void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
     const creature_entity *creature;
     for (unsigned i = 0; i < creatures->get_size(); i++) {
         creature = creatures->get_creature(i);
@@ -266,7 +266,7 @@ void game_loop_render::view_creatures(unsigned input_camera_x, unsigned input_ca
     }
 }
 
-void game_loop_render::view_hud() {
+void game_loop_render::render_hud() {
     terminal_layer(5);
     terminal_color(0xffffffff);
     for (int i = 0; i < passive_zone_out_y; i++) {
@@ -294,7 +294,7 @@ void game_loop_render::view_hud() {
 
 void game_loop_render::render() {
     clear_all();
-    view_location();
-    view_hud();
+    render_location();
+    render_hud();
     terminal_refresh();
 }
