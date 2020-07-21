@@ -18,19 +18,6 @@ file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 include_directories(${PROJECT_HEADERS_DIR})
 
 
-set (TESTS_SOURCES tests/test.cpp)
-
-#set (CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "lib/Boost/include/boost")
-#set (CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "lib/Boost/include/boost/lib")
-find_package (Boost COMPONENTS unit_test_framework REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
-
-set (TEST re.TEST${PROJECT})
-add_executable (${TEST} ${TESTS_SOURCES})
-target_link_libraries (${TEST} ${PROJECT} ${Boost_LIBRARIES})
-enable_testing ()
-add_test (${TEST} ${TEST})
-
 file(GLOB HEADERS)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
