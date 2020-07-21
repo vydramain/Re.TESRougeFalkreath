@@ -10,7 +10,7 @@ game_loop_state::game_loop_state(const char* input_area_name, area_entity *input
     location = new location_entity(input_area_name, input_area, creatures);
     delete input_player;
 
-    input = new controls_component();
+    input = new controls();
     render = new game_loop_render(location, creatures);
 }
 

@@ -5,7 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_GAME_LOOP_RENDER_H
 #define RE_TESROUGEFALKREATH_GAME_LOOP_RENDER_H
 
-#include "ecs/components/render_component/interface_render.h"
+#include "ecs/systems//render_system/interface_render.h"
 #include "ecs/entities/creatures_entities/creatures_entity.h"
 #include "ecs/entities/locations_entities/location_entity.h"
 

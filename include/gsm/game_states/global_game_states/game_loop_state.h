@@ -6,8 +6,8 @@
 #define RE_TESROUGEFALKREATH_GAME_LOOP_STATE_H
 
 #include "gsm/game_states/global_game_states/global_game_state.h"
-#include "ecs/components/controls_component/controls_component.h"
-#include "ecs/components/render_component/game_loop_render.h"
+#include "ecs/systems/render_system/game_loop_render.h"
+#include "ecs/systems/controls_system/controls.h"
 #include "ecs/entities/creatures_entities/creatures_entity.h"
 #include "ecs/entities/locations_entities/location_entity.h"
 
@@ -15,7 +15,7 @@
 
 class game_loop_state : public global_game_state {
 private:
-    controls_component *input = nullptr;
+    controls *input = nullptr;
     game_loop_render *render = nullptr;
 
     location_entity *location = nullptr;

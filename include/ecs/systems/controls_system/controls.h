@@ -7,7 +7,7 @@
 
 #include <BearLibTerminal.h>
 
-class controls_component {
+class controls {
 private:
     bool is_enter_ = false;
     bool is_exit_ = false;
@@ -31,9 +31,9 @@ private:
     bool is_m_button_ = false;
 
 public:
-    explicit controls_component() {}
+    explicit controls() {}
 
-    explicit controls_component(controls_component &old) {
+    explicit controls(controls &old) {
         is_enter_ = old.is_enter_;
         is_exit_ = old.is_exit_;
         is_locate_right_ = old.is_locate_right_;
@@ -56,9 +56,9 @@ public:
         is_m_button_ = old.is_m_button_;
     }
 
-    ~controls_component() {}
+    ~controls() {}
 
-    controls_component &operator=(controls_component &old) {
+    controls &operator=(controls &old) {
         if (this != &old) {
             is_enter_ = old.is_enter_;
             is_exit_ = old.is_exit_;

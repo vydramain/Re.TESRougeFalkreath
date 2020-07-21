@@ -2,89 +2,89 @@
 // Created by vydra on 7/15/19.
 //
 
-#include "ecs/components/controls_component/controls_component.h"
+#include "ecs/systems/controls_system/controls.h"
 
-bool controls_component::is_enter() const {
+bool controls::is_enter() const {
     return is_enter_;
 }
 
-bool controls_component::is_exit() const {
+bool controls::is_exit() const {
     return is_exit_;
 }
 
-bool controls_component::is_right() const {
+bool controls::is_right() const {
     return is_locate_right_;
 }
 
-bool controls_component::is_left() const {
+bool controls::is_left() const {
     return is_locate_left_;
 }
 
-bool controls_component::is_down() const {
+bool controls::is_down() const {
     return is_locate_down_;
 }
 
-bool controls_component::is_up() const {
+bool controls::is_up() const {
     return is_locate_up_;
 }
 
-bool controls_component::is_button_esc() const {
+bool controls::is_button_esc() const {
     return is_esc_button_;
 }
 
-bool controls_component::is_button_alt() const {
+bool controls::is_button_alt() const {
     return is_alt_button_;
 }
 
-bool controls_component::is_button_ctrl() const {
+bool controls::is_button_ctrl() const {
     return is_ctrl_button_;
 }
 
-bool controls_component::is_button_q() const {
+bool controls::is_button_q() const {
     return is_q_button_;
 }
 
-bool controls_component::is_button_w() const {
+bool controls::is_button_w() const {
     return is_w_button_;
 }
 
-bool controls_component::is_button_e() const {
+bool controls::is_button_e() const {
     return is_e_button_;
 }
 
-bool controls_component::is_button_i() const {
+bool controls::is_button_i() const {
     return is_i_button_;
 }
 
-bool controls_component::is_button_o() const {
+bool controls::is_button_o() const {
     return is_o_button_;
 }
 
-bool controls_component::is_button_p() const {
+bool controls::is_button_p() const {
     return is_p_button_;
 }
 
-bool controls_component::is_button_a() const {
+bool controls::is_button_a() const {
     return is_a_button_;
 }
 
-bool controls_component::is_button_s() const {
+bool controls::is_button_s() const {
     return is_s_button_;
 }
 
-bool controls_component::is_button_d() const {
+bool controls::is_button_d() const {
     return is_d_button_;
 }
 
-bool controls_component::is_button_f() const {
+bool controls::is_button_f() const {
     return is_f_button_;
 }
 
-bool controls_component::is_button_m() const {
+bool controls::is_button_m() const {
     return is_m_button_;
 }
 
-void controls_component::update() {
+void controls::update() {
     is_enter_ = false;
     is_exit_ = false;
     is_locate_right_ = false;

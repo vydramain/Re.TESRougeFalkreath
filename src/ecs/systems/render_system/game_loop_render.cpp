@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/components/render_component/game_loop_render.h"
+#include "ecs/systems/render_system/game_loop_render.h"
 
 game_loop_render::game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures) {
     terminal_open();

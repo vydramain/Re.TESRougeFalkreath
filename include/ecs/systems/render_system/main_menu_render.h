@@ -5,7 +5,7 @@
 #ifndef RE_TESROUGEFALKREATH_MAIN_MENU_RENDER_H
 #define RE_TESROUGEFALKREATH_MAIN_MENU_RENDER_H
 
-#include "ecs/components/render_component/interface_render.h"
+#include "ecs/systems//render_system/interface_render.h"
 
 class main_menu_render : public interface_render {
 private:
