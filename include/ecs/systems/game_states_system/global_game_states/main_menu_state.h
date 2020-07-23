@@ -7,12 +7,12 @@
 
 #include "global_game_state.h"
 #include "ecs/systems/render_system/main_menu_render.h"
-#include "ecs/systems/controls_system/controls.h"
+#include "ecs/systems/controls_system/Controls.h"
 
 
 class main_menu_state : public global_game_state {
 private:
-    controls *input;
+    Controls *input;
     main_menu_render *render;
 
     unsigned highlighted = 0;
@@ -20,7 +20,7 @@ private:
 public:
     explicit main_menu_state() : global_game_state("main_menu") {
         render = new main_menu_render();
-        input = new controls();
+        input = new Controls();
     }
     ~main_menu_state() {
         delete input;

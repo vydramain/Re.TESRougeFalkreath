@@ -7,7 +7,7 @@
 
 #include "global_game_state.h"
 #include "ecs/systems/render_system/game_loop_render.h"
-#include "ecs/systems/controls_system/controls.h"
+#include "ecs/systems/controls_system/Controls.h"
 #include "ecs/entities/creatures_entities/creatures_entity.h"
 #include "ecs/entities/locations_entities/location_entity.h"
 
@@ -15,7 +15,7 @@
 
 class game_loop_state : public global_game_state {
 private:
-    controls *input = nullptr;
+    Controls *input = nullptr;
     game_loop_render *render = nullptr;
 
     location_entity *location = nullptr;
