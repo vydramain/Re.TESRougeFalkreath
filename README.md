@@ -1,6 +1,6 @@
 # README #
 
-For start open current directory and execute `cmake` command.
+For start open current directory and execute `make` command.
 
 
 ## Notes ##
