@@ -2,9 +2,9 @@
 // Created by vydra on 12.07.2020.
 //
 
-#include "ecs/systems/game_states_system/global_game_states/main_menu_state.h"
+#include <ecs/systems/scenes_system/MainMenuScene.h>
 
-void main_menu_state::run() {
+void MainMenuScene::run() {
     const char *const title = "Главное меню:";
     const char *choices[2] = {"Играть", "Выход"};
     const unsigned count_choices = 2;

@@ -5,12 +5,12 @@
 #ifndef RE_TESROUGEFALKREATH_MAIN_MENU_STATE_H
 #define RE_TESROUGEFALKREATH_MAIN_MENU_STATE_H
 
-#include "global_game_state.h"
+#include "ecs/systems/scenes_system/IMainScene.h"
 #include "ecs/systems/render_system/main_menu_render.h"
 #include "ecs/systems/controls_system/Controls.h"
 
 
-class main_menu_state : public global_game_state {
+class MainMenuScene : public IMainScene {
 private:
     Controls *input;
     main_menu_render *render;
@@ -18,11 +18,11 @@ private:
     unsigned highlighted = 0;
 
 public:
-    explicit main_menu_state() : global_game_state("main_menu") {
+    explicit MainMenuScene() : IMainScene("main_menu") {
         render = new main_menu_render();
         input = new Controls();
     }
-    ~main_menu_state() {
+    ~MainMenuScene() {
         delete input;
         delete render;
     }

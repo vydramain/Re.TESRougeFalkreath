@@ -7,7 +7,7 @@
 
 #include <string>
 
-class interface_game_state {
+class IScene {
 public:
     virtual void run() = 0;
     virtual const char* get_game_state() const = 0;

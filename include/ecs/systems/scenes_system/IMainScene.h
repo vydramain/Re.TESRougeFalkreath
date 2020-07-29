@@ -6,9 +6,9 @@
 #define RE_TESROUGEFALKREATH_GLOBAL_GAME_STATE_H
 
 #include <string>
-#include <ecs/systems/game_states_system/interface_game_state.h>
+#include "IScene.h"
 
-class global_game_state : public interface_game_state {
+class IMainScene : public IScene {
 protected:
     const char *state;
     unsigned state_size;
@@ -17,14 +17,14 @@ public:
     /*
      * Constructor
      */
-    explicit global_game_state(const char *input_state = nullptr, unsigned input_state_size = 0) :
+    explicit IMainScene(const char *input_state = nullptr, unsigned input_state_size = 0) :
             state(input_state), state_size(input_state_size) {
     }
 
     /*
      * Copy constructor
      */
-    global_game_state(global_game_state &input_state) {
+    IMainScene(IMainScene &input_state) {
         char *temp_state = new char[input_state.state_size];
         for (unsigned i = 0; i < input_state.state_size; i++){
             temp_state[i] = input_state.state[i];
@@ -37,7 +37,7 @@ public:
     /*
      * Move constructor
      */
-    global_game_state(global_game_state &&input_state) noexcept {
+    IMainScene(IMainScene &&input_state) noexcept {
         state = input_state.state;
         state_size = input_state.state_size;
         input_state.state = nullptr;
@@ -46,12 +46,12 @@ public:
     /*
      * Destructor
      */
-    ~global_game_state() {}
+    ~IMainScene() {}
 
     /*
      * Assigment
      */
-    global_game_state &operator=(global_game_state &&input_state) noexcept {
+    IMainScene &operator=(IMainScene &&input_state) noexcept {
         state = input_state.state;
         state_size = input_state.state_size;
         input_state.state = nullptr;

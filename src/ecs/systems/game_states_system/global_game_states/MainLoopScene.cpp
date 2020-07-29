@@ -2,9 +2,9 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/systems/game_states_system/global_game_states/game_loop_state.h"
+#include <ecs/systems/scenes_system/MainLoopScene.h>
 
-game_loop_state::game_loop_state(const char* input_area_name, area_entity *input_area, creature_entity *input_player) {
+MainLoopScene::MainLoopScene(const char* input_area_name, area_entity *input_area, creature_entity *input_player) {
     auto *creatures = new creatures_entity(1);
     creatures->put_creature(*input_player);
     location = new location_entity(input_area_name, input_area, creatures);
@@ -14,12 +14,12 @@ game_loop_state::game_loop_state(const char* input_area_name, area_entity *input
     render = new game_loop_render(location, creatures);
 }
 
-game_loop_state::~game_loop_state() {
+MainLoopScene::~MainLoopScene() {
     delete input;
     delete render;
 }
 
-void game_loop_state::run() {
+void MainLoopScene::run() {
     render->render();
     do {
         input->update();
