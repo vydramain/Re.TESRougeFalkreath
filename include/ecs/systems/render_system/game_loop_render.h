@@ -6,8 +6,8 @@
 #define RE_TESROUGEFALKREATH_GAME_LOOP_RENDER_H
 
 #include "ecs/systems//render_system/interface_render.h"
-#include "ecs/entities/creatures_entities/creatures_entity.h"
-#include "ecs/entities/locations_entities/location_entity.h"
+#include "ecs/entities/creatures_entities/Creatures.h"
+#include "ecs/entities/locations_entities/Location.h"
 
 class game_loop_render : public interface_render {
 private:
@@ -21,19 +21,19 @@ private:
     static const unsigned active_zone_out_x = passive_zone_out_x - active_zone_in_x;
     static const unsigned active_zone_out_y = passive_zone_out_y - active_zone_in_y;
 
-    const location_entity *location = nullptr;
-    const creatures_entity *creatures = nullptr;
-    const creature_entity *target = nullptr;
+    const Location *location = nullptr;
+    const Creatures *creatures = nullptr;
+    const Creature *target = nullptr;
 
     unsigned int current_camera_x;
     unsigned int current_camera_y;
 
 public:
 
-    explicit game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures);
+    explicit game_loop_render(const Location *input_location, const Creatures *input_creatures);
     ~game_loop_render() override;
 
-    void set_target_creature(const creature_entity *input_target);
+    void set_target_creature(const Creature *input_target);
 
     void clear_all() override;
     void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y) override;

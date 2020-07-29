@@ -8,8 +8,8 @@
 #include "ecs/systems/scenes_system/IMainScene.h"
 #include "ecs/systems/render_system/game_loop_render.h"
 #include "ecs/systems/controls_system/Controls.h"
-#include "ecs/entities/creatures_entities/creatures_entity.h"
-#include "ecs/entities/locations_entities/location_entity.h"
+#include "ecs/entities/creatures_entities/Creatures.h"
+#include "ecs/entities/locations_entities/Location.h"
 
 
 
@@ -18,10 +18,10 @@ private:
     Controls *input = nullptr;
     game_loop_render *render = nullptr;
 
-    location_entity *location = nullptr;
+    Location *location = nullptr;
 
 public:
-    explicit MainLoopScene(const char* input_area_name = nullptr, area_entity *input_area = nullptr, creature_entity *input_player = nullptr);
+    explicit MainLoopScene(const char* input_area_name = nullptr, Area *input_area = nullptr, Creature *input_player = nullptr);
     ~MainLoopScene();
 
     void run() override;

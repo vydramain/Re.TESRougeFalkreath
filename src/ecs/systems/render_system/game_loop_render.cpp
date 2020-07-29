@@ -4,7 +4,7 @@
 
 #include "ecs/systems/render_system/game_loop_render.h"
 
-game_loop_render::game_loop_render(const location_entity *input_location, const creatures_entity *input_creatures) {
+game_loop_render::game_loop_render(const Location *input_location, const Creatures *input_creatures) {
     terminal_open();
     terminal_set("window: title='re.TESFalkreath', cellsize=8x15, size=100x40, fullscreen=true;");
     terminal_layer(0);
@@ -28,7 +28,7 @@ game_loop_render::~game_loop_render() {
     creatures = nullptr;
 }
 
-void game_loop_render::set_target_creature(const creature_entity *input_target) {
+void game_loop_render::set_target_creature(const Creature *input_target) {
     target = input_target;
 }
 
@@ -44,7 +44,7 @@ void game_loop_render::clear_area(unsigned in_x, unsigned in_y, unsigned out_x, 
 void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x,
                                     unsigned in_y,
                                     unsigned out_x, unsigned out_y) {
-    // cleaning up area_entity for message
+    // cleaning up Area for message
     for (unsigned j = 0; j < out_y - in_y; j++) {
         for (unsigned i = 0; i < out_x - in_x; i++) {
             terminal_put(in_x + i, in_y + j, ' ');
@@ -249,7 +249,7 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
 }
 
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
-    const creature_entity *creature;
+    const Creature *creature;
     for (unsigned i = 0; i < creatures->get_size(); i++) {
         creature = creatures->get_creature(i);
         unsigned creature_x = creature->get_current_x();

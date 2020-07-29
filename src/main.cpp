@@ -18,8 +18,8 @@ int main() {
     }
 
     auto *state = new MainLoopScene("test_map",
-                                      new area_entity(x, y, m),
-                                      new creature_entity("player", 15, 2));
+                                      new Area(x, y, m),
+                                      new Creature("player", 15, 2));
 //    auto *state = new MainMenuScene();
     state->run();
     delete state;
