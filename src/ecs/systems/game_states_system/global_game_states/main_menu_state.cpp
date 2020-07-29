@@ -13,10 +13,10 @@ void main_menu_state::run() {
     render->render();
     do {
         input->update();
-        if((input->is_up() || input->is_button_w()) && highlighted > 1){
+        if(input->is_up() && highlighted > 1) {
             highlighted--;
         }
-        if((input->is_down() || input->is_button_s()) && highlighted < count_choices) {
+        if(input->is_down() && highlighted < count_choices) {
             highlighted++;
         }
         render->view_choice(title, choices, count_choices, highlighted);
