@@ -10,7 +10,6 @@
 class IScene {
 public:
     virtual void run() = 0;
-    virtual const char* get_game_state() const = 0;
 };
 
 #endif //RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H

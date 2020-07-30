@@ -3,7 +3,3 @@
 //
 
 #include <ecs/systems/scenes_system/IMainScene.h>
-
-const char* IMainScene::get_game_state() const {
-    return state;
-}
