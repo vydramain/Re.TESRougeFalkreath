@@ -6,14 +6,14 @@
 #define RE_TESROUGEFALKREATH_MLASCONTROLS_H
 
 #include <BearLibTerminal.h>
-#include "MLASControlMap.h"
+#include "MLAControlMap.h"
 
 class MLASControls {
 private:
-    MLASControlMap *control_map;
+    MLAControlMap *control_map;
 
 public:
-    explicit MLASControls(Creature *input_player) : control_map(new MLASControlMap(input_player)) {}
+    explicit MLASControls(Creature *input_player) : control_map(new MLAControlMap(input_player)) {}
     ~MLASControls() = default;
 
     IControl* update() {
