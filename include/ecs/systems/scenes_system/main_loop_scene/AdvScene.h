@@ -15,7 +15,7 @@ private:
     Location *location;
 
 public:
-    explicit AdvScene(Controls* input, Location* input_location) : input(input), location(input_location) {}
+    explicit AdvScene(Controls* input, Location* input_location) : IScene("AdvScene"), input(input), location(input_location) {}
     ~AdvScene() {
         location = nullptr;
         input = nullptr;

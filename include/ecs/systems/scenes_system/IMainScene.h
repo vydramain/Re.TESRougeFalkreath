@@ -9,54 +9,8 @@
 #include "IScene.h"
 
 class IMainScene : public IScene {
-protected:
-    const char *state;
-    unsigned state_size;
-
 public:
-    /*
-     * Constructor
-     */
-    explicit IMainScene(const char *input_state = nullptr, unsigned input_state_size = 0) :
-            state(input_state), state_size(input_state_size) {
-    }
-
-    /*
-     * Copy constructor
-     */
-    IMainScene(IMainScene &input_state) {
-        char *temp_state = new char[input_state.state_size];
-        for (unsigned i = 0; i < input_state.state_size; i++){
-            temp_state[i] = input_state.state[i];
-        }
-        state = temp_state;
-        state_size = input_state.state_size;
-        temp_state = nullptr;
-    }
-
-    /*
-     * Move constructor
-     */
-    IMainScene(IMainScene &&input_state) noexcept {
-        state = input_state.state;
-        state_size = input_state.state_size;
-        input_state.state = nullptr;
-    }
-
-    /*
-     * Destructor
-     */
-    ~IMainScene() {}
-
-    /*
-     * Assigment
-     */
-    IMainScene &operator=(IMainScene &&input_state) noexcept {
-        state = input_state.state;
-        state_size = input_state.state_size;
-        input_state.state = nullptr;
-        return *this;
-    }
+    explicit IMainScene(const char *input_name = "MainScene") : IScene(input_name) {}
 
     virtual void run() = 0;
     const char *get_game_state() const;
