@@ -12,8 +12,7 @@ class IMainScene : public IScene {
 public:
     explicit IMainScene(const char *input_name = "MainScene") : IScene(input_name) {}
 
-    virtual void run() = 0;
-    const char *get_game_state() const;
+    void run() override = 0;
 };
 
 #endif //RE_TESROUGEFALKREATH_GLOBAL_GAME_STATE_H

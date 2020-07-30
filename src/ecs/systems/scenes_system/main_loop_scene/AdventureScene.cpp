@@ -2,10 +2,15 @@
 // Created by vydra on 7/30/20.
 //
 
-#include <ecs/systems/scenes_system/main_loop_scene/AdvScene.h>
+#include <ecs/systems/scenes_system/main_loop_scene/AdventureScene.h>
 
 
-void AdvScene::run() {
+void AdventureScene::run() {
+
+    last_control = mlas_input->update();
+    last_control->execute();
+
+    /*
     input->update();
     if(input->is_up()) {
         location->get_current_creatures()->get_creature(0)->go_up();
@@ -22,4 +27,5 @@ void AdvScene::run() {
     if(input->is_right()) {
         location->get_current_creatures()->get_creature(0)->go_right();
     }
+    */
 }

@@ -6,6 +6,7 @@
 #define RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H
 
 #include <string>
+#include <ecs/systems/controls_system/IControl.h>
 
 class IScene {
 private:
