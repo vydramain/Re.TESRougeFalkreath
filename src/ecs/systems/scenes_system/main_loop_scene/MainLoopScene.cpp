@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include <ecs/systems/scenes_system/MainLoopScene.h>
+#include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
 
 MainLoopScene::MainLoopScene(const char* input_area_name, Map *input_area, Creature *input_player) {
     auto *creatures = new Creatures(1);
@@ -22,24 +22,8 @@ MainLoopScene::~MainLoopScene() {
 void MainLoopScene::run() {
     render->render();
     do {
-        input->update();
-
-        if(input->is_up()) {
-            location->get_current_creatures()->get_creature(0)->go_up();
-        }
-
-        if(input->is_down()) {
-            location->get_current_creatures()->get_creature(0)->go_down();
-        }
-
-        if(input->is_left()) {
-            location->get_current_creatures()->get_creature(0)->go_left();
-        }
-
-        if(input->is_right()) {
-            location->get_current_creatures()->get_creature(0)->go_right();
-        }
-
+        auto *adventure = new AdvScene(input, location);
+        adventure->run();
         render->render();
     } while(!(input->is_exit() || input->is_button_esc() || input->is_enter()));
 }

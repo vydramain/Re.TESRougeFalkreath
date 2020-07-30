@@ -8,9 +8,9 @@
 #include "ecs/systems/scenes_system/IMainScene.h"
 #include "ecs/systems/render_system/game_loop_render.h"
 #include "ecs/systems/controls_system/Controls.h"
+#include "ecs/systems/scenes_system/main_loop_scene/AdvScene.h"
 #include "ecs/entities/creatures_entities/Creatures.h"
 #include "ecs/entities/locations_entities/Location.h"
-
 
 
 class MainLoopScene : public IMainScene {

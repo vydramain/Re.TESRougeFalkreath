@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <ecs/systems/scenes_system/MainMenuScene.h>
-#include <ecs/systems/scenes_system/MainLoopScene.h>
+#include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
 
 int main() {
     unsigned x = 70;
