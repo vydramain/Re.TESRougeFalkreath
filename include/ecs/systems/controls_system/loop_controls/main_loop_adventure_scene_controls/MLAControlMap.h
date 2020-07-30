@@ -2,36 +2,36 @@
 // Created by vydra on 7/30/20.
 //
 
-#ifndef RE_TESROUGEFALKREATH_MLASCONTROLMAP_H
-#define RE_TESROUGEFALKREATH_MLASCONTROLMAP_H
+#ifndef RE_TESROUGEFALKREATH_MLACONTROLMAP_H
+#define RE_TESROUGEFALKREATH_MLACONTROLMAP_H
 
 #include <map>
 #include <BearLibTerminal.h>
-#include "MLASControlPlayerDown.h"
-#include "MLASControlPlayerLeft.h"
-#include "MLASControlPlayerRight.h"
-#include "MLASControlPlayerUp.h"
-#include "MLASControlExit.h"
-#include "MLASControlEmpty.h"
+#include "MLAControlPlayerDown.h"
+#include "MLAControlPlayerLeft.h"
+#include "MLAControlPlayerRight.h"
+#include "MLAControlPlayerUp.h"
+#include "MLAControlExit.h"
+#include "MLAControlEmpty.h"
 
-class MLASControlMap {
+class MLAControlMap {
 private:
-    MLASControlExit *control_exit = new MLASControlExit();
-    MLASControlEmpty *control_empty = new MLASControlEmpty();
-    MLASControlPlayerDown *control_player_down;
-    MLASControlPlayerLeft *control_player_left;
-    MLASControlPlayerRight *control_player_right;
-    MLASControlPlayerUp *control_player_up;
+    MLAControlExit *control_exit = new MLAControlExit();
+    MLAControlEmpty *control_empty = new MLAControlEmpty();
+    MLAControlPlayerDown *control_player_down;
+    MLAControlPlayerLeft *control_player_left;
+    MLAControlPlayerRight *control_player_right;
+    MLAControlPlayerUp *control_player_up;
 
     std::map<int, IControl *> mlas_map;
     std::map<int, IControl *>::iterator mlas_iterator;
 
 public:
-    explicit MLASControlMap(Creature *input_player) {
-        control_player_down = new MLASControlPlayerDown(input_player);
-        control_player_left = new MLASControlPlayerLeft(input_player);
-        control_player_right = new MLASControlPlayerRight(input_player);
-        control_player_up = new MLASControlPlayerUp(input_player);
+    explicit MLAControlMap(Creature *input_player) {
+        control_player_down = new MLAControlPlayerDown(input_player);
+        control_player_left = new MLAControlPlayerLeft(input_player);
+        control_player_right = new MLAControlPlayerRight(input_player);
+        control_player_up = new MLAControlPlayerUp(input_player);
 
         mlas_map[TK_CLOSE] = control_exit;
         mlas_map[TK_ESCAPE] = control_exit;
@@ -43,7 +43,7 @@ public:
         mlas_iterator = mlas_map.begin();
     }
 
-    ~MLASControlMap() {
+    ~MLAControlMap() {
         delete control_exit;
         delete control_empty;
         delete control_player_down;
@@ -61,4 +61,4 @@ public:
     }
 };
 
-#endif //RE_TESROUGEFALKREATH_MLASCONTROLMAP_H
+#endif //RE_TESROUGEFALKREATH_MLACONTROLMAP_H

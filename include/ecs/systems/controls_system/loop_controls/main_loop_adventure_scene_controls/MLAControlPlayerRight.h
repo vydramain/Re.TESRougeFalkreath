@@ -8,12 +8,12 @@
 #include <ecs/systems/controls_system/IControl.h>
 #include <ecs/entities/creatures_entities/Creature.h>
 
-class MLASControlPlayerRight : public IControl {
+class MLAControlPlayerRight : public IControl {
 private:
     Creature *player;
 
 public:
-    explicit MLASControlPlayerRight (Creature* input_player) : player(input_player), IControl("MLASControlPlayerRight") {}
+    explicit MLAControlPlayerRight (Creature* input_player) : player(input_player), IControl("MLAControlPlayerRight") {}
 
     void execute() override {
         player->go_right();

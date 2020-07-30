@@ -7,9 +7,9 @@
 
 #include <ecs/systems/controls_system/IControl.h>
 
-class MLASControlEmpty : public IControl {
+class MLAControlEmpty : public IControl {
 public:
-    explicit MLASControlEmpty() : IControl("MLASControlEmpty") {}
+    explicit MLAControlEmpty() : IControl("MLAControlEmpty") {}
     void execute() override {}
 
 };

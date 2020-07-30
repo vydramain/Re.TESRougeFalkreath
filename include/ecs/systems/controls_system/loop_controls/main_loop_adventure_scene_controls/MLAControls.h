@@ -2,19 +2,19 @@
 // Created by vydra on 7/30/20.
 //
 
-#ifndef RE_TESROUGEFALKREATH_MLASCONTROLS_H
-#define RE_TESROUGEFALKREATH_MLASCONTROLS_H
+#ifndef RE_TESROUGEFALKREATH_MLACONTROLS_H
+#define RE_TESROUGEFALKREATH_MLACONTROLS_H
 
 #include <BearLibTerminal.h>
 #include "MLAControlMap.h"
 
-class MLASControls {
+class MLAControls {
 private:
     MLAControlMap *control_map;
 
 public:
-    explicit MLASControls(Creature *input_player) : control_map(new MLAControlMap(input_player)) {}
-    ~MLASControls() = default;
+    explicit MLAControls(Creature *input_player) : control_map(new MLAControlMap(input_player)) {}
+    ~MLAControls() = default;
 
     IControl* update() {
         auto key = terminal_read();
@@ -22,4 +22,4 @@ public:
     }
 };
 
-#endif //RE_TESROUGEFALKREATH_MLASCONTROLS_H
+#endif //RE_TESROUGEFALKREATH_MLACONTROLS_H

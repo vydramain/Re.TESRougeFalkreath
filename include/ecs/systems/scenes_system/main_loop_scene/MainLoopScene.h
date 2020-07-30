@@ -7,8 +7,7 @@
 
 #include "ecs/systems/scenes_system/IMainScene.h"
 #include "ecs/systems/render_system/game_loop_render.h"
-#include "ecs/systems/controls_system/Controls.h"
-#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLASControls.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h"
 #include "ecs/systems/scenes_system/main_loop_scene/AdventureScene.h"
 #include "ecs/entities/creatures_entities/Creatures.h"
 #include "ecs/entities/locations_entities/Location.h"
@@ -16,7 +15,6 @@
 
 class MainLoopScene : public IMainScene {
 private:
-    Controls *input = nullptr;
     game_loop_render *render = nullptr;
 
     Location *location = nullptr;

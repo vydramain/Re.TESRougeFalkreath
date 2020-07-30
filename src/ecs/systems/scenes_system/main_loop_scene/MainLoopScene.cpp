@@ -12,12 +12,10 @@ MainLoopScene::MainLoopScene(const char* input_area_name, Map *input_area, Creat
     location = new Location(input_area_name, input_area, creatures);
     delete input_player;
 
-    input = new Controls();
     render = new game_loop_render(location, creatures);
 }
 
 MainLoopScene::~MainLoopScene() {
-    delete input;
     delete render;
 }
 

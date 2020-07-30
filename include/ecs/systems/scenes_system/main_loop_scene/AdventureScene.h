@@ -6,20 +6,19 @@
 #define RE_TESROUGEFALKREATH_ADVETURESCENE_H
 
 #include <ecs/systems/scenes_system/IScene.h>
-#include <ecs/systems/controls_system/Controls.h>
 #include <ecs/entities/locations_entities/Location.h>
-#include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLASControls.h>
+#include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h>
 
 class AdventureScene : public IScene {
 private:
     Location *location;
-    MLASControls *mlas_input;
+    MLAControls *mlas_input;
     IControl *last_control = nullptr;
 
 public:
     explicit AdventureScene(Location *input_location) : IScene("AdventureScene"),
                                                                          location(input_location),
-                                                                         mlas_input(new MLASControls(input_location->get_current_creatures()->get_creature(0))) {}
+                                                                         mlas_input(new MLAControls(input_location->get_current_creatures()->get_creature(0))) {}
 
     ~AdventureScene() {
         location = nullptr;

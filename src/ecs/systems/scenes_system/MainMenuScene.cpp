@@ -11,15 +11,4 @@ void MainMenuScene::run() {
 
     render->view_choice(title, choices, count_choices, highlighted);
     render->render();
-    do {
-        input->update();
-        if(input->is_up() && highlighted > 1) {
-            highlighted--;
-        }
-        if(input->is_down() && highlighted < count_choices) {
-            highlighted++;
-        }
-        render->view_choice(title, choices, count_choices, highlighted);
-        render->render();
-    } while(!(input->is_exit() || input->is_button_esc() || input->is_enter()));
 }

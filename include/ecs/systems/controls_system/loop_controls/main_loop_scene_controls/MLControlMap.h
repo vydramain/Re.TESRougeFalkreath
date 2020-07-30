@@ -26,7 +26,7 @@ public:
     MLControlMap(Location *input_location) {
         control_adventure = new MLControlAdventure(input_location);
 
-        ml_map["MLASControlExit"] = control_exit;
+        ml_map["MLAControlExit"] = control_exit;
     }
 
     ~MLControlMap(){
