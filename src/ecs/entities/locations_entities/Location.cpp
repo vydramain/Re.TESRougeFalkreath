@@ -16,7 +16,7 @@ unsigned int Location::get_size_y() const {
     return size_y;
 }
 
-Area *Location::get_current_area() const {
+Map *Location::get_current_area() const {
     return current_area;
 }
 
@@ -37,7 +37,7 @@ void Location::set_size_y(unsigned int input_y) {
     size_y = input_y;
 }
 
-void Location::set_current_area(Area *input_area) {
+void Location::set_current_area(Map *input_area) {
     current_area = input_area;
 }
 

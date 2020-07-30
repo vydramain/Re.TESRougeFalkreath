@@ -18,7 +18,7 @@ int main() {
     }
 
     auto *state = new MainLoopScene("test_map",
-                                      new Area(x, y, m),
+                                      new Map(x, y, m),
                                       new Creature("player", 15, 2));
 //    auto *state = new MainMenuScene();
     state->run();

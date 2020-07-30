@@ -6,14 +6,14 @@
 #define RE_TESROUGEFALKREATH_MAP_H
 
 
-class Area {
+class Map {
 private:
     unsigned size_x;
     unsigned size_y;
 
     char **data;
 public:
-    explicit Area(const unsigned input_size_x = 0, const unsigned input_size_y = 0, char **input_data = nullptr)
+    explicit Map(const unsigned input_size_x = 0, const unsigned input_size_y = 0, char **input_data = nullptr)
             : size_x(input_size_x), size_y(input_size_y) {
         if (input_data != nullptr) {
             data = new char *[size_x];
@@ -28,7 +28,7 @@ public:
         }
     }
 
-    ~Area() {
+    ~Map() {
         for (unsigned i = 0; i < size_x; i++) {
             delete data[i];
         }

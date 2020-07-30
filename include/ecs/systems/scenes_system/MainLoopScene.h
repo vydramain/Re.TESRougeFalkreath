@@ -21,7 +21,7 @@ private:
     Location *location = nullptr;
 
 public:
-    explicit MainLoopScene(const char* input_area_name = nullptr, Area *input_area = nullptr, Creature *input_player = nullptr);
+    explicit MainLoopScene(const char* input_area_name = nullptr, Map *input_area = nullptr, Creature *input_player = nullptr);
     ~MainLoopScene();
 
     void run() override;

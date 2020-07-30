@@ -44,7 +44,7 @@ void game_loop_render::clear_area(unsigned in_x, unsigned in_y, unsigned out_x, 
 void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x,
                                     unsigned in_y,
                                     unsigned out_x, unsigned out_y) {
-    // cleaning up Area for message
+    // cleaning up Map for message
     for (unsigned j = 0; j < out_y - in_y; j++) {
         for (unsigned i = 0; i < out_x - in_x; i++) {
             terminal_put(in_x + i, in_y + j, ' ');

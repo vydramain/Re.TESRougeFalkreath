@@ -4,7 +4,7 @@
 
 #include <ecs/systems/scenes_system/MainLoopScene.h>
 
-MainLoopScene::MainLoopScene(const char* input_area_name, Area *input_area, Creature *input_player) {
+MainLoopScene::MainLoopScene(const char* input_area_name, Map *input_area, Creature *input_player) {
     auto *creatures = new Creatures(1);
     creatures->put_creature(*input_player);
     location = new Location(input_area_name, input_area, creatures);
