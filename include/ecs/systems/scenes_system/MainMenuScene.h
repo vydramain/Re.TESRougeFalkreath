@@ -22,14 +22,8 @@ private:
     unsigned highlighted = 0;
 
 public:
-    explicit MainMenuScene() : IMainScene("main_menu") {
-        render = new main_menu_render();
-        mm_input = new MMControls(count_choices, highlighted);
-    }
-    ~MainMenuScene() {
-        delete render;
-        delete mm_input;
-    }
+    explicit MainMenuScene();
+    ~MainMenuScene();
 
     void run() override;
 };

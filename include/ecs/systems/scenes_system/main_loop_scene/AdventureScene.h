@@ -12,17 +12,17 @@
 class AdventureScene : public IScene {
 private:
     Location *location;
-    MLAControls *mlas_input;
+    MLAControls *mla_input;
     IControl *last_control = nullptr;
 
 public:
     explicit AdventureScene(Location *input_location) : IScene("AdventureScene"),
-                                                                         location(input_location),
-                                                                         mlas_input(new MLAControls(input_location->get_current_creatures()->get_creature(0))) {}
+                                                        location(input_location),
+                                                        mla_input(new MLAControls(input_location)) {}
 
     ~AdventureScene() {
         location = nullptr;
-        delete mlas_input;
+        delete mla_input;
     }
 
     IControl *get_last_control() {

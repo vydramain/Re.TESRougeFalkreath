@@ -21,10 +21,7 @@ private:
     direction current_direction;
 
 public:
-    explicit Creature(const char *input_name, const unsigned input_current_x = 0, const unsigned input_current_y = 0) :
-            name(input_name), current_x(input_current_x), current_y(input_current_y) {
-        current_direction = DIRECTION_LEFT;
-    }
+    explicit Creature(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0);
 
     const char *get_name() const;
     unsigned get_current_x() const;
@@ -36,10 +33,14 @@ public:
     void set_current_y(unsigned int input_y);
     void set_current_direction(direction input_direction);
 
+    /**
+     * Methods for creatures moves on map
+     * This method change creature's coordinates and change direction
+     */
     void go_up();
-    void go_down();
+    void go_down(unsigned input_border);
     void go_left();
-    void go_right();
+    void go_right(unsigned input_border);
 
 };
 

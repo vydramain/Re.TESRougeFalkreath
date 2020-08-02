@@ -27,11 +27,11 @@ private:
     std::map<int, IControl *>::iterator mlas_iterator;
 
 public:
-    explicit MLAControlMap(Creature *input_player) {
-        control_player_down = new MLAControlPlayerDown(input_player);
-        control_player_left = new MLAControlPlayerLeft(input_player);
-        control_player_right = new MLAControlPlayerRight(input_player);
-        control_player_up = new MLAControlPlayerUp(input_player);
+    explicit MLAControlMap(Location *input_location) {
+        control_player_down = new MLAControlPlayerDown(input_location);
+        control_player_left = new MLAControlPlayerLeft(input_location);
+        control_player_right = new MLAControlPlayerRight(input_location);
+        control_player_up = new MLAControlPlayerUp(input_location);
 
         mlas_map[TK_CLOSE] = control_exit;
         mlas_map[TK_ESCAPE] = control_exit;

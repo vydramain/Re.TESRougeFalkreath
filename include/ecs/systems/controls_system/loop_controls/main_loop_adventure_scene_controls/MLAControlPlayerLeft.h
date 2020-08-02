@@ -10,13 +10,13 @@
 
 class MLAControlPlayerLeft : public IControl {
 private:
-    Creature *player;
+    const Location *location;
 
 public:
-    explicit MLAControlPlayerLeft (Creature* input_player) : player(input_player), IControl("MLAControlPlayerLeft") {}
+    explicit MLAControlPlayerLeft (const Location* input_location) : location(input_location), IControl("MLAControlPlayerLeft") {}
 
     void execute() override {
-        player->go_left();
+        location->get_current_creatures()->get_creature(0)->go_left();
     }
 
 };

@@ -10,13 +10,13 @@
 
 class MLAControlPlayerDown : public IControl {
 private:
-    Creature *player;
+    const Location *location;
 
 public:
-    explicit MLAControlPlayerDown(Creature* input_player) : player(input_player), IControl("MLAControlPlayerDown") {}
+    explicit MLAControlPlayerDown(const Location* input_location) : location(input_location), IControl("MLAControlPlayerDown") {}
 
     void execute() override {
-        player->go_down();
+        location->get_current_creatures()->get_creature(0)->go_down(location->get_size_y());
     }
 
 };

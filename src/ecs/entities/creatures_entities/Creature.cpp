@@ -4,6 +4,10 @@
 
 #include "ecs/entities/creatures_entities/Creature.h"
 
+Creature::Creature(const char *input_name, const unsigned input_current_x, const unsigned input_current_y) :
+        name(input_name), current_x(input_current_x), current_y(input_current_y) {
+    current_direction = DIRECTION_LEFT;
+}
 
 const char *Creature::get_name() const {
     return name;
@@ -39,20 +43,28 @@ void Creature::set_current_direction(direction input_direction) {
 
 void Creature::go_up() {
     current_direction = DIRECTION_UP;
-    current_y--;
+    if(current_y > 0) {
+        current_y--;
+    }
 }
 
-void Creature::go_down() {
+void Creature::go_down(const unsigned input_border) {
     current_direction = DIRECTION_DOWN;
-    current_y++;
+    if(current_y + 1 < input_border) {
+        current_y++;
+    }
 }
 
 void Creature::go_left() {
     current_direction = DIRECTION_LEFT;
-    current_x--;
+    if(current_x > 0) {
+        current_x--;
+    }
 }
 
-void Creature::go_right() {
+void Creature::go_right(const unsigned input_border) {
     current_direction = DIRECTION_RIGHT;
-    current_x++;
+    if (current_x + 1 < input_border) {
+        current_x++;
+    }
 }

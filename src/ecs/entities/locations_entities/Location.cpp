@@ -4,6 +4,18 @@
 
 #include "ecs/entities/locations_entities/Location.h"
 
+Location::Location(const char *input_name, Map *input_area, Creatures *input_creatures) : name(input_name),
+                                                                                          size_x(input_area->get_size_x()),
+                                                                                          size_y(input_area->get_size_y()) {
+    current_area = input_area;
+    current_creatures = input_creatures;
+}
+
+Location::~Location() {
+    delete current_area;
+    delete current_creatures;
+}
+
 const char *Location::get_name() const {
     return name;
 }
@@ -27,14 +39,6 @@ Creatures *Location::get_current_creatures() const {
 
 void Location::set_name(const char *input_name) {
     Location::name = input_name;
-}
-
-void Location::set_size_x(unsigned int input_x) {
-    size_x = input_x;
-}
-
-void Location::set_size_y(unsigned int input_y) {
-    size_y = input_y;
 }
 
 void Location::set_current_area(Map *input_area) {

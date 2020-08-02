@@ -7,7 +7,7 @@
 
 void AdventureScene::run() {
 
-    last_control = mlas_input->update();
+    last_control = mla_input->update();
     last_control->execute();
 
     /*

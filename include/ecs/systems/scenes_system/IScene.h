@@ -15,9 +15,7 @@ public:
     explicit IScene(const char* input_name): name(input_name) {}
     virtual void run() = 0;
 
-    const char* getSceneName() {
-        return name;
-    }
+    const char* getSceneName() const { return name; }
 };
 
 #endif //RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H

@@ -13,7 +13,7 @@ private:
     MLAControlMap *control_map;
 
 public:
-    explicit MLAControls(Creature *input_player) : control_map(new MLAControlMap(input_player)) {}
+    explicit MLAControls(Location *input_location) : control_map(new MLAControlMap(input_location)) {}
     ~MLAControls() = default;
 
     IControl* update() {
