@@ -5,7 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAINMENUSCENE_H_
 #define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAINMENUSCENE_H_
 
-#include <ecs/systems/controls_system/menu_controls/MMControls.h>
+#include "ecs/systems/controls_system/menu_controls/MMControls.h"
 
 #include "ecs/systems/render_system/main_menu_render.h"
 #include "ecs/systems/scenes_system/IMainScene.h"

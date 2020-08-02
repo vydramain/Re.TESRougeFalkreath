@@ -5,9 +5,9 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLS_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLS_H_
 
-#include <ecs/systems/controls_system/IControl.h>
+#include "ecs/systems/controls_system/IControl.h"
 
-#include "./MMControlMap.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlMap.h"
 
 class MMControls {
  private:

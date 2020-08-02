@@ -5,9 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLS_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLS_H_
 
-#include <BearLibTerminal.h>
-
-#include "./MLAControlMap.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlMap.h"
 
 class MLAControls {
  private:

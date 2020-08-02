@@ -2,10 +2,10 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include <ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlMap.h>
-#include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
-
 #include <cstring>
+
+#include "ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlMap.h"
 
 MainLoopScene::MainLoopScene(const char *input_area_name, Map *input_area, Creature *input_player)
     : IMainScene("MainLoopScene") {

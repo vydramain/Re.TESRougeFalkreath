@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include <ecs/entities/items_entities/Item.h>
+#include "ecs/entities/items_entities/Item.h"
 
 Item::Item(const char* input_name) : name(input_name) {}
 

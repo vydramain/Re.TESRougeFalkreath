@@ -5,7 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLSELECTEXIT_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLSELECTEXIT_H_
 
-#include <ecs/systems/controls_system/IControl.h>
+#include "ecs/systems/controls_system/IControl.h"
 
 class MMControlSelectExit : public IControl {
  public:

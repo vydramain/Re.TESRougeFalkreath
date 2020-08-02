@@ -5,15 +5,14 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLMAP_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLMAP_H_
 
-#include <BearLibTerminal.h>
-
 #include <map>
 
-#include "./MMControlSelectDown.h"
-#include "./MMControlSelectEmpty.h"
-#include "./MMControlSelectEnter.h"
-#include "./MMControlSelectExit.h"
-#include "./MMControlSelectUp.h"
+#include "./BearLibTerminal.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlSelectDown.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlSelectEmpty.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlSelectEnter.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlSelectExit.h"
+#include "ecs/systems/controls_system/menu_controls/MMControlSelectUp.h"
 
 class MMControlMap {
  private:

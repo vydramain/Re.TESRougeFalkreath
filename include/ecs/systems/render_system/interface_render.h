@@ -5,8 +5,6 @@
 #ifndef INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_INTERFACE_RENDER_H_
 #define INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_INTERFACE_RENDER_H_
 
-#include <BearLibTerminal.h>
-
 class interface_render {
  public:
   interface_render() = default;

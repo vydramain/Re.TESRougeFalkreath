@@ -2,9 +2,9 @@
 // Created by vydra on 12.07.2020.
 //
 
-#include <ecs/systems/scenes_system/MainMenuScene.h>
-
 #include <cstring>
+
+#include "ecs/systems/scenes_system/MainMenuScene.h"
 
 MainMenuScene::MainMenuScene() : IMainScene("main_menu") {
   render = new main_menu_render();

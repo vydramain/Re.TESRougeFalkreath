@@ -5,6 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_MAIN_MENU_RENDER_H_
 #define INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_MAIN_MENU_RENDER_H_
 
+#include "./BearLibTerminal.h"
 #include "ecs/systems//render_system/interface_render.h"
 
 class main_menu_render : public interface_render {

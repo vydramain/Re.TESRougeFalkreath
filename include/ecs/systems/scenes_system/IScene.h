@@ -5,9 +5,9 @@
 #ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
 #define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
 
-#include <ecs/systems/controls_system/IControl.h>
-
 #include <string>
+
+#include "ecs/systems/controls_system/IControl.h"
 
 class IScene {
  private:

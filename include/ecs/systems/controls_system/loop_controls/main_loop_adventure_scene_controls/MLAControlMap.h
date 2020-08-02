@@ -5,16 +5,15 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLMAP_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLMAP_H_
 
-#include <BearLibTerminal.h>
-
 #include <map>
 
-#include "./MLAControlEmpty.h"
-#include "./MLAControlExit.h"
-#include "./MLAControlPlayerDown.h"
-#include "./MLAControlPlayerLeft.h"
-#include "./MLAControlPlayerRight.h"
-#include "./MLAControlPlayerUp.h"
+#include "./BearLibTerminal.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlEmpty.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlExit.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerDown.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerLeft.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerRight.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerUp.h"
 
 class MLAControlMap {
  private:

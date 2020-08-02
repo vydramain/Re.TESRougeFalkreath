@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "./IScene.h"
+#include "ecs/systems/scenes_system/IScene.h"
 
 class IMainScene : public IScene {
  public:

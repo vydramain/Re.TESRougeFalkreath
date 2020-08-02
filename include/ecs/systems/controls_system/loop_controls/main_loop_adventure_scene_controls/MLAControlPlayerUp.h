@@ -5,8 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLPLAYERUP_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLPLAYERUP_H_
 
-#include <ecs/entities/creatures_entities/Creature.h>
-#include <ecs/systems/controls_system/IControl.h>
+#include "ecs/systems/controls_system/IControl.h"
 
 class MLAControlPlayerUp : public IControl {
  private:

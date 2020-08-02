@@ -7,9 +7,9 @@
 
 #include <map>
 
-#include "./MLControlAdventure.h"
-#include "./MLControlEmpty.h"
-#include "./MLControlExit.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlAdventure.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlEmpty.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlExit.h"
 
 class MLControlMap {
  private:

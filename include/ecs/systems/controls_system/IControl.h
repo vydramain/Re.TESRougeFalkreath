@@ -5,8 +5,6 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_ICONTROL_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_ICONTROL_H_
 
-#include <BearLibTerminal.h>
-
 class IControl {
  private:
   const char* name;
