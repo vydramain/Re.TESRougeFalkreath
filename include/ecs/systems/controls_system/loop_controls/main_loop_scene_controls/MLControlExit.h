@@ -2,23 +2,21 @@
 // Created by vydra on 7/31/20.
 //
 
-#ifndef RE_TESROUGEFALKREATH_MLSCONTROLCLOSE_H
-#define RE_TESROUGEFALKREATH_MLSCONTROLCLOSE_H
+#ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_SCENE_CONTROLS_MLCONTROLEXIT_H_
+#define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_SCENE_CONTROLS_MLCONTROLEXIT_H_
 
-#include "IMLControl.h"
+#include "./IMLControl.h"
 
 class MLControlExit : public IMLControl {
-private:
+ private:
+ public:
+  explicit MLControlExit() : IMLControl("MLControlExit") {}
 
-public:
-    explicit MLControlExit() : IMLControl("MLControlExit") {}
+  IControl *get_last_control() {
+    return nullptr;
+  }
 
-    IControl *get_last_control() {
-        return nullptr;
-    }
-
-    void execute() override {}
-
+  void execute() override {}
 };
 
-#endif //RE_TESROUGEFALKREATH_MLSCONTROLCLOSE_H
+#endif  // INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_SCENE_CONTROLS_MLCONTROLEXIT_H_

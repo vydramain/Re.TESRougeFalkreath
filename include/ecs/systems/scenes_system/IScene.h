@@ -2,20 +2,24 @@
 // Created by vydra on 10.07.2020.
 //
 
-#ifndef RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H
-#define RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H
+#ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
+#define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
 
-#include <string>
 #include <ecs/systems/controls_system/IControl.h>
 
-class IScene {
-private:
-    const char* name;
-public:
-    explicit IScene(const char* input_name): name(input_name) {}
-    virtual void run() = 0;
+#include <string>
 
-    const char* getSceneName() const { return name; }
+class IScene {
+ private:
+  const char* name;
+
+ public:
+  explicit IScene(const char* input_name) : name(input_name) {}
+  virtual void run() = 0;
+
+  const char* getSceneName() const {
+    return name;
+  }
 };
 
-#endif //RE_TESROUGEFALKREATH_INTERFACE_GAME_STATE_H
+#endif  // INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_

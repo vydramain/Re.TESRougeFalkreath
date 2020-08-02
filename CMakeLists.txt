@@ -3,7 +3,6 @@ project(re.TESRougeFalkreath)
 
 set(CMAKE_CXX_STANDARD 14)
 
-
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
 find_package(BearLibTerminal REQUIRED)
@@ -13,7 +12,7 @@ include_directories(SYSTEM ${BLT_INCLUDE_DIRS})
 set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/include)
 set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
 
-file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.hpp)
+file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
 include_directories(${PROJECT_HEADERS_DIR})
 
@@ -24,3 +23,9 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${BLT_LIBRARIES})
 file(COPY ${BLT_LIBRARY} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME})
+
+
+# Add linting before compilation
+include(CppLint)
+ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
+add_dependencies(${PROJECT_NAME} lint)

@@ -2,16 +2,15 @@
 // Created by vydra on 7/31/20.
 //
 
-#ifndef RE_TESROUGEFALKREATH_MLSCONTROLEMPTY_H
-#define RE_TESROUGEFALKREATH_MLSCONTROLEMPTY_H
+#ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLEMPTY_H_
+#define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLEMPTY_H_
 
 #include <ecs/systems/controls_system/IControl.h>
 
 class MLAControlEmpty : public IControl {
-public:
-    explicit MLAControlEmpty() : IControl("MLAControlEmpty") {}
-    void execute() override {}
-
+ public:
+  explicit MLAControlEmpty() : IControl("MLAControlEmpty") {}
+  void execute() override {}
 };
 
-#endif //RE_TESROUGEFALKREATH_MLSCONTROLEMPTY_H
+#endif  // INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLEMPTY_H_

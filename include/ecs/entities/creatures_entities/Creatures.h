@@ -2,27 +2,26 @@
 // Created by vydra on 16.07.2020.
 //
 
-#ifndef RE_TESROUGEFALKREATH_G_CREATURES_H
-#define RE_TESROUGEFALKREATH_G_CREATURES_H
+#ifndef INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURES_H_
+#define INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURES_H_
 
 #include <vector>
-#include "Creature.h"
 
+#include "./Creature.h"
 
 class Creatures {
-private:
-    std::vector<Creature> vec_creatures;
+ private:
+  std::vector<Creature> vec_creatures;
 
-public:
-    explicit Creatures(unsigned input_count);
-    ~Creatures();
+ public:
+  explicit Creatures(unsigned input_count);
+  ~Creatures();
 
-    void put_creature(Creature input_creature);
+  void put_creature(Creature input_creature);
 
-    unsigned get_size() const;
-    Creature *get_creature(unsigned input_index);
-    const Creature *get_creature(unsigned input_index) const;
-
+  unsigned get_size() const;
+  Creature *get_creature(unsigned input_index);
+  const Creature *get_creature(unsigned input_index) const;
 };
 
-#endif //RE_TESROUGEFALKREATH_G_CREATURES_H
+#endif  // INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURES_H_

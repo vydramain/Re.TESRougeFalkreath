@@ -2,16 +2,16 @@
 // Created by vydra on 7/31/20.
 //
 
-#ifndef RE_TESROUGEFALKREATH_MMCONTROLSELECTEMPTY_H
-#define RE_TESROUGEFALKREATH_MMCONTROLSELECTEMPTY_H
+#ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLSELECTEMPTY_H_
+#define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLSELECTEMPTY_H_
 
 #include <ecs/systems/controls_system/IControl.h>
 
 class MMControlSelectEmpty : public IControl {
-public:
-    explicit MMControlSelectEmpty() : IControl("MMControlSelectEmpty") {}
+ public:
+  explicit MMControlSelectEmpty() : IControl("MMControlSelectEmpty") {}
 
-    void execute() override {}
+  void execute() override {}
 };
 
-#endif //RE_TESROUGEFALKREATH_MMCONTROLSELECTEMPTY_H
+#endif  // INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_MENU_CONTROLS_MMCONTROLSELECTEMPTY_H_

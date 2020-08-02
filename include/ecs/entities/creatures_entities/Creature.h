@@ -2,46 +2,45 @@
 // Created by vydra on 15.07.2020.
 //
 
-#ifndef RE_TESROUGEFALKREATH_CREATURE_H
-#define RE_TESROUGEFALKREATH_CREATURE_H
+#ifndef INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURE_H_
+#define INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURE_H_
 
 class Creature {
-private:
-    const char *name;
-    unsigned current_x;
-    unsigned current_y;
+ private:
+  const char *name;
+  unsigned current_x;
+  unsigned current_y;
 
-    enum direction {
-        DIRECTION_UP,
-        DIRECTION_DOWN,
-        DIRECTION_RIGHT,
-        DIRECTION_LEFT,
-    };
+  enum direction {
+    DIRECTION_UP,
+    DIRECTION_DOWN,
+    DIRECTION_RIGHT,
+    DIRECTION_LEFT,
+  };
 
-    direction current_direction;
+  direction current_direction;
 
-public:
-    explicit Creature(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0);
+ public:
+  explicit Creature(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0);
 
-    const char *get_name() const;
-    unsigned get_current_x() const;
-    unsigned get_current_y() const;
-    unsigned get_current_direction() const;
+  const char *get_name() const;
+  unsigned get_current_x() const;
+  unsigned get_current_y() const;
+  unsigned get_current_direction() const;
 
-    void set_name(char *input_name);
-    void set_current_x(unsigned int input_x);
-    void set_current_y(unsigned int input_y);
-    void set_current_direction(direction input_direction);
+  void set_name(char *input_name);
+  void set_current_x(unsigned int input_x);
+  void set_current_y(unsigned int input_y);
+  void set_current_direction(direction input_direction);
 
-    /**
-     * Methods for creatures moves on map
-     * This method change creature's coordinates and change direction
-     */
-    void go_up();
-    void go_down(unsigned input_border);
-    void go_left();
-    void go_right(unsigned input_border);
-
+  /**
+   * Methods for creatures moves on map
+   * This method change creature's coordinates and change direction
+   */
+  void go_up();
+  void go_down(unsigned input_border);
+  void go_left();
+  void go_right(unsigned input_border);
 };
 
-#endif //RE_TESROUGEFALKREATH_CREATURE_H
+#endif  // INCLUDE_ECS_ENTITIES_CREATURES_ENTITIES_CREATURE_H_
