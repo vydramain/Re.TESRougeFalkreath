@@ -14,7 +14,7 @@ class MLAControlPlayerRight : public IControl {
 
  public:
   explicit MLAControlPlayerRight(const Location* input_location)
-      : location(input_location), IControl("MLAControlPlayerRight") {}
+      : IControl("MLAControlPlayerRight"), location(input_location) {}
 
   void execute() override {
     location->get_current_creatures()->get_creature(0)->go_right(location->get_size_x());

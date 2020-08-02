@@ -10,6 +10,7 @@
 class MMControlSelectEmpty : public IControl {
  public:
   explicit MMControlSelectEmpty() : IControl("MMControlSelectEmpty") {}
+  ~MMControlSelectEmpty() override = default;
 
   void execute() override {}
 };

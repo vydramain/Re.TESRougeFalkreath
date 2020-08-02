@@ -10,6 +10,7 @@
 class MMControlSelectEnter : public IControl {
  public:
   explicit MMControlSelectEnter() : IControl("MMControlSelectEnter") {}
+  ~MMControlSelectEnter() override = default;
 
   void execute() override {}
 };

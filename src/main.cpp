@@ -17,7 +17,7 @@ int main() {
   }
 
   auto *state = new MainLoopScene("test_map", new Map(x, y, m), new Creature("location", 15, 2));
-  //  auto *state = new MainMenuScene();
+  //    auto *state = new MainMenuScene();
   state->run();
   delete state;
 

@@ -10,6 +10,7 @@
 class MMControlSelectExit : public IControl {
  public:
   explicit MMControlSelectExit() : IControl("MMControlSelectExit") {}
+  ~MMControlSelectExit() override = default;
 
   void execute() override {}
 };

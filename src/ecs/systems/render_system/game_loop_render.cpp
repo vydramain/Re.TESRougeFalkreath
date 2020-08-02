@@ -234,8 +234,8 @@ void game_loop_render::render_location() {
 
 void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camera_y) {
   char temp;
-  for (int ii = 0; ii < passive_zone_out_y; ii++) {
-    for (int i = 0; i < passive_zone_out_x; i++) {
+  for (unsigned ii = 0; ii < passive_zone_out_y; ii++) {
+    for (unsigned i = 0; i < passive_zone_out_x; i++) {
       terminal_color(0xaaffffff);
       terminal_layer(1);
       temp = location->get_current_area()->get_cell(input_camera_x + i, input_camera_y + ii);
@@ -264,11 +264,11 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
 void game_loop_render::render_hud() {
   terminal_layer(5);
   terminal_color(0xffffffff);
-  for (int i = 0; i < passive_zone_out_y; i++) {
+  for (unsigned i = 0; i < passive_zone_out_y; i++) {
     terminal_print(passive_zone_out_x, i, "|");
   }
 
-  for (int i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
+  for (unsigned i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
     terminal_print(passive_zone_out_x + i + 1, 9, "_");
     terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "_");
   }

@@ -15,6 +15,7 @@ class IScene {
 
  public:
   explicit IScene(const char* input_name) : name(input_name) {}
+  virtual ~IScene() = default;
   virtual void run() = 0;
 
   const char* getSceneName() const {

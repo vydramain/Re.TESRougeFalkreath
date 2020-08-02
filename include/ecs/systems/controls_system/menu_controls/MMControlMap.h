@@ -17,9 +17,9 @@
 
 class MMControlMap {
  private:
-  MMControlSelectExit *select_exit = new MMControlSelectExit();
-  MMControlSelectEmpty *select_empty = new MMControlSelectEmpty();
-  MMControlSelectEnter *select_enter = new MMControlSelectEnter();
+  MMControlSelectExit *select_exit;
+  MMControlSelectEmpty *select_empty;
+  MMControlSelectEnter *select_enter;
   MMControlSelectDown *select_down;
   MMControlSelectUp *select_up;
 
@@ -30,6 +30,9 @@ class MMControlMap {
   explicit MMControlMap(const unsigned input_count, unsigned *input_highlighted) {
     select_down = new MMControlSelectDown(input_count, input_highlighted);
     select_up = new MMControlSelectUp(input_count, input_highlighted);
+    select_exit = new MMControlSelectExit();
+    select_empty = new MMControlSelectEmpty();
+    select_enter = new MMControlSelectEnter();
 
     mm_map[TK_CLOSE] = select_exit;
     mm_map[TK_ESCAPE] = select_exit;

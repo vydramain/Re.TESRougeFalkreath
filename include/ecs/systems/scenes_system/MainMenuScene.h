@@ -23,7 +23,7 @@ class MainMenuScene : public IMainScene {
 
  public:
   explicit MainMenuScene();
-  ~MainMenuScene();
+  ~MainMenuScene() override;
 
   void run() override;
 };

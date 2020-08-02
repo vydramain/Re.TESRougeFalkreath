@@ -13,6 +13,7 @@ class IControl {
 
  public:
   explicit IControl(const char* input_name = "IControl") : name(input_name) {}
+  virtual ~IControl() = default;
 
   const char* get_name() {
     return name;

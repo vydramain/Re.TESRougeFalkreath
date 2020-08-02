@@ -14,7 +14,7 @@ class MLAControlPlayerUp : public IControl {
 
  public:
   explicit MLAControlPlayerUp(const Location* input_location)
-      : location(input_location), IControl("MLAControlPlayerUp") {}
+      : IControl("MLAControlPlayerUp"), location(input_location) {}
 
   void execute() override {
     location->get_current_creatures()->get_creature(0)->go_up();

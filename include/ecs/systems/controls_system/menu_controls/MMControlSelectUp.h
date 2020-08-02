@@ -17,6 +17,7 @@ class MMControlSelectUp : public IControl {
       : IControl("MMControlSelectUp"), count_choices(input_count) {
     highlighted = input_highlighted;
   }
+  ~MMControlSelectUp() override = default;
 
   void execute() override {
     if (*highlighted > 1) {
