@@ -5,12 +5,14 @@
 #ifndef INCLUDE_ECS_ENTITIES_ITEMS_ENTITIES_ITEM_H_
 #define INCLUDE_ECS_ENTITIES_ITEMS_ENTITIES_ITEM_H_
 
-class Item {
+#include "ecs/components/Pickable.h"
+
+class Item : public Pickable {
  private:
   const char* name;
 
  public:
-  explicit Item(const char* input_name);
+  explicit Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y);
   ~Item();
 
   void set_name(const char* input_name);
