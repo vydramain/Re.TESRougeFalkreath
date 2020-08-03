@@ -89,6 +89,8 @@ void Creature::set_sight() {
     case DIRECTION_LEFT:
       sight_x--;
       break;
+    default:
+      break;
   }
 }
 
