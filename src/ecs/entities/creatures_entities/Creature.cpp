@@ -5,13 +5,34 @@
 #include "ecs/entities/creatures_entities/Creature.h"
 
 Creature::Creature(const char *input_name, const unsigned input_current_x, const unsigned input_current_y)
-    : name(input_name), current_x(input_current_x), current_y(input_current_y) {
-  current_direction = DIRECTION_LEFT;
-}
+    : name(input_name), current_x(input_current_x), current_y(input_current_y), current_direction(DIRECTION_LEFT) {}
 
 Creature::Creature(const Creature &input_creature)
-    : name(input_creature.name), current_x(input_creature.current_x), current_y(input_creature.current_y) {
+    : name(input_creature.name),
+      current_x(input_creature.current_x),
+      current_y(input_creature.current_y),
+      current_direction(input_creature.current_direction) {}
+
+Creature::Creature(Creature &&input_creature) noexcept
+    : name(input_creature.name),
+      current_x(input_creature.current_x),
+      current_y(input_creature.current_y),
+      current_direction(input_creature.current_direction) {}
+
+Creature &Creature::operator=(const Creature &input_creature)  {
+  name = input_creature.get_name();
+  current_x = input_creature.get_current_x();
+  current_y = input_creature.get_current_y();
   current_direction = input_creature.current_direction;
+  return *this;
+}
+
+Creature &Creature::operator=(Creature &&input_creature) noexcept {
+    name = input_creature.get_name();
+    current_x = input_creature.get_current_x();
+    current_y = input_creature.get_current_y();
+    current_direction = input_creature.current_direction;
+  return *this;
 }
 
 const char *Creature::get_name() const {
@@ -59,7 +80,6 @@ void Creature::go_down(const unsigned input_border) {
     current_y++;
   }
 }
-
 void Creature::go_left() {
   current_direction = DIRECTION_LEFT;
   if (current_x > 0) {

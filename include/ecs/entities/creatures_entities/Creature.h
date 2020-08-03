@@ -23,6 +23,9 @@ class Creature {
  public:
   explicit Creature(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0);
   Creature(const Creature &input_creature);
+  Creature(Creature &&input_creature) noexcept;
+  Creature &operator=(const Creature &input_creature);
+  Creature &operator=(Creature &&input_creature) noexcept;
 
   const char *get_name() const;
   unsigned get_current_x() const;
