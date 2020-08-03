@@ -5,22 +5,22 @@
 #include "ecs/entities/races_entities/Race.h"
 
 Race::Race(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
-           const unsigned input_pocket)
-    : Pocket(input_pocket),
+           const unsigned input_pocket, const unsigned input_wallet)
+    : Pocket(input_pocket, input_wallet),
       name(input_name),
       current_x(input_current_x),
       current_y(input_current_y),
       current_direction(DIRECTION_LEFT) {}
 
 Race::Race(const Race &input_race)
-    : Pocket(input_race.get_pocket_size()),
+    : Pocket(input_race.get_pocket_size(), input_race.get_wallet_size()),
       name(input_race.name),
       current_x(input_race.current_x),
       current_y(input_race.current_y),
       current_direction(input_race.current_direction) {}
 
 Race::Race(Race &&input_race) noexcept
-    : Pocket(input_race.get_pocket_size()),
+    : Pocket(input_race.get_pocket_size(), input_race.get_wallet_size()),
       name(input_race.name),
       current_x(input_race.current_x),
       current_y(input_race.current_y),
@@ -35,6 +35,7 @@ Race &Race::operator=(const Race &input_race) {
   for (unsigned i = 0; i < get_pocket_size(); i++) {
     put_item(*input_race.get_item(i));
   }
+  set_wallet_size(input_race.get_wallet_size());
   return *this;
 }
 
@@ -47,6 +48,7 @@ Race &Race::operator=(Race &&input_race) noexcept {
   for (unsigned i = 0; i < get_pocket_size(); i++) {
     put_item(*input_race.remove_item(i));
   }
+  set_wallet_size(input_race.get_wallet_size());
   return *this;
 }
 

@@ -245,19 +245,19 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
 }
 
 void game_loop_render::render_races(unsigned input_camera_x, unsigned input_camera_y) {
-    const Race *race;
-    for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
-        race = location->get_races()->get_race(i);
-        unsigned race_x = race->get_current_x();
-        unsigned race_y = race->get_current_y();
+  const Race *race;
+  for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
+    race = location->get_races()->get_race(i);
+    unsigned race_x = race->get_current_x();
+    unsigned race_y = race->get_current_y();
 
-        if ((race_x >= input_camera_x && race_x < input_camera_x + passive_zone_out_x) &&
-            (race_y >= input_camera_y && race_y < input_camera_y + passive_zone_out_y)) {
-            terminal_color(0xddFFFFFF);
-            terminal_layer(4);
-            terminal_put(race_x - input_camera_x, race_y - input_camera_y, 'i');
-        }
+    if ((race_x >= input_camera_x && race_x < input_camera_x + passive_zone_out_x) &&
+        (race_y >= input_camera_y && race_y < input_camera_y + passive_zone_out_y)) {
+      terminal_color(0xddFFFFFF);
+      terminal_layer(4);
+      terminal_put(race_x - input_camera_x, race_y - input_camera_y, 'i');
     }
+  }
 }
 
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
@@ -277,19 +277,19 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
 }
 
 void game_loop_render::render_items(unsigned int input_camera_x, unsigned int input_camera_y) {
-    const Item *item;
-    for (unsigned i = 0; i < location->get_items()->get_size(); i++) {
-      item = location->get_items()->get_item(i);
-        unsigned item_x = item->get_current_x();
-        unsigned item_y = item->get_current_y();
+  const Item *item;
+  for (unsigned i = 0; i < location->get_items()->get_size(); i++) {
+    item = location->get_items()->get_item(i);
+    unsigned item_x = item->get_current_x();
+    unsigned item_y = item->get_current_y();
 
-        if ((item_x >= input_camera_x && item_x < input_camera_x + passive_zone_out_x) &&
-            (item_y >= input_camera_y && item_y < input_camera_y + passive_zone_out_y)) {
-            terminal_color(0xddFFEB00);
-            terminal_layer(2);
-            terminal_put(item_x - input_camera_x, item_y - input_camera_y, '$');
-        }
+    if ((item_x >= input_camera_x && item_x < input_camera_x + passive_zone_out_x) &&
+        (item_y >= input_camera_y && item_y < input_camera_y + passive_zone_out_y)) {
+      terminal_color(0xddFFEB00);
+      terminal_layer(2);
+      terminal_put(item_x - input_camera_x, item_y - input_camera_y, '$');
     }
+  }
 }
 
 void game_loop_render::render_hud() {
@@ -304,7 +304,21 @@ void game_loop_render::render_hud() {
     terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "_");
   }
 
+  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
+  char wallet[4];
+  snprintf(wallet, (size_t) "%u", "%u", location->get_races()->get_player()->get_wallet_size());
+  terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
+
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
+  char x[4], y[4];
+  snprintf(x, (size_t) "%u", "%u", location->get_races()->get_player()->get_current_x());
+  snprintf(y, (size_t) "%u", "%u", location->get_races()->get_player()->get_current_y());
+  terminal_print(passive_zone_out_x + 15, passive_zone_out_y - 3, x);
+  terminal_print(passive_zone_out_x + 18, passive_zone_out_y - 3, y);
+
+  char s[4];
+  snprintf(s, (size_t) "%u", "%u", steps);
+  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 1, s);
 
   terminal_print(passive_zone_out_x + 1, 1, "Имя:");
   terminal_print(passive_zone_out_x + 1, 2, "Раса:");
@@ -322,5 +336,6 @@ void game_loop_render::render() {
   clear_all();
   render_location();
   render_hud();
+  steps++;
   terminal_refresh();
 }

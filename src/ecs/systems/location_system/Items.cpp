@@ -36,9 +36,8 @@ int Items::get_item_index(Item *input_item) {
 }
 
 int Items::get_item_index(unsigned int input_x, unsigned int input_y) {
-  for (auto &vec_item : vec_items) {
-    if (vec_item.get_current_x() == input_x && vec_item.get_current_y() == input_y) {
-      auto it = std::find(vec_items.begin(), vec_items.end(), vec_item);
+  for (auto it = vec_items.begin(); it < vec_items.end(); it++) {
+    if (it->get_current_x() == input_x && it->get_current_y() == input_y) {
       return std::distance(vec_items.begin(), it);
     }
   }

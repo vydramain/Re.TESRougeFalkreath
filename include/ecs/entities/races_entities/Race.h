@@ -27,7 +27,7 @@ class Race : public Pocket {
 
  public:
   explicit Race(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0,
-                unsigned input_pocket = 10);
+                unsigned input_pocket = 10, unsigned input_wallet = 0);
   Race(const Race &input_race);
   Race(Race &&input_race) noexcept;
   Race &operator=(const Race &input_race);

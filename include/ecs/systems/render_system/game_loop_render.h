@@ -5,6 +5,8 @@
 #ifndef INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_GAME_LOOP_RENDER_H_
 #define INCLUDE_ECS_SYSTEMS_RENDER_SYSTEM_GAME_LOOP_RENDER_H_
 
+#include <charconv>
+
 #include "./BearLibTerminal.h"
 #include "ecs/systems//render_system/interface_render.h"
 #include "ecs/systems/location_system/Location.h"
@@ -20,6 +22,8 @@ class game_loop_render : public interface_render {
   static const unsigned active_zone_in_y = passive_zone_out_y / 4;
   static const unsigned active_zone_out_x = passive_zone_out_x - active_zone_in_x;
   static const unsigned active_zone_out_y = passive_zone_out_y - active_zone_in_y;
+
+  unsigned steps = 0;
 
   const Location *location = nullptr;
   const Race *target = nullptr;
