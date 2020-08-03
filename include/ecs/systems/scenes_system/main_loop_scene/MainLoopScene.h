@@ -20,7 +20,7 @@ class MainLoopScene : public IMainScene {
 
  public:
   explicit MainLoopScene(const char *input_area_name = nullptr, Map *input_area = nullptr,
-                         Creature *input_player = nullptr);
+                         Creatures *input_creatures = nullptr, Items *input_items = nullptr);
   ~MainLoopScene();
 
   void run() override;

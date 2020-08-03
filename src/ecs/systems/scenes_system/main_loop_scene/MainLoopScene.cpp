@@ -2,19 +2,18 @@
 // Created by vydra on 15.07.2020.
 //
 
+#include "ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h"
+
 #include <cstring>
 
-#include "ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlMap.h"
 
-MainLoopScene::MainLoopScene(const char *input_area_name, Map *input_area, Creature *input_player)
+MainLoopScene::MainLoopScene(const char *input_area_name, Map *input_area, Creatures *input_creatures,
+                             Items *input_items)
     : IMainScene("MainLoopScene") {
-  auto *creatures = new Creatures(1);
-  creatures->put_creature(*input_player);
-  location = new Location(input_area_name, input_area, creatures);
-  delete input_player;
+  location = new Location(input_area_name, input_area, input_creatures, input_items);
 
-  render = new game_loop_render(location, creatures);
+  render = new game_loop_render(location, input_creatures);
 }
 
 MainLoopScene::~MainLoopScene() {

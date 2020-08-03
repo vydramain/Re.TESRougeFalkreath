@@ -2,6 +2,8 @@
 #include <ecs/systems/scenes_system/MainMenuScene.h>
 #include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
 
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlInteract.h"
+
 int main() {
   unsigned x = 70;
   unsigned y = 50;
@@ -15,8 +17,11 @@ int main() {
       m[i][j] = '.';
     }
   }
+  auto *creatures = new Creatures(0);
+  creatures->put_player(new Creature("pl", 15, 2));
+  auto *items = new Items(0);
 
-  auto *state = new MainLoopScene("test_map", new Map(x, y, m), new Creature("location", 15, 2));
+  auto *state = new MainLoopScene("test_map", new Map(x, y, m), creatures, items);
   //    auto *state = new MainMenuScene();
   state->run();
   delete state;
