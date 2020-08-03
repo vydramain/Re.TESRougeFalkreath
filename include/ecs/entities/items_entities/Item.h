@@ -13,6 +13,7 @@ class Item : public Pickable {
 
  public:
   explicit Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y);
+  Item(const Item& input_item);
   ~Item();
 
   void set_name(const char* input_name);
