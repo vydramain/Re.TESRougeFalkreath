@@ -2,8 +2,6 @@
 #include <ecs/systems/scenes_system/MainMenuScene.h>
 #include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
 
-#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlInteract.h"
-
 int main() {
   unsigned x = 70;
   unsigned y = 50;
