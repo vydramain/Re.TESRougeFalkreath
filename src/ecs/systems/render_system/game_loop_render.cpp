@@ -14,7 +14,7 @@ game_loop_render::game_loop_render(const Location *input_location, const Creatur
   location = input_location;
   creatures = input_creatures;
 
-  target = creatures->get_creature(0);
+  target = creatures->get_player();
 
   new_camera_position_x();
   new_camera_position_y();
@@ -238,7 +238,7 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
     for (unsigned i = 0; i < passive_zone_out_x; i++) {
       terminal_color(0xaaffffff);
       terminal_layer(1);
-      temp = location->get_current_area()->get_cell(input_camera_x + i, input_camera_y + ii);
+      temp = location->get_area()->get_cell(input_camera_x + i, input_camera_y + ii);
       paint_symbol(temp);
       terminal_put(i, ii, temp);
     }
@@ -254,7 +254,7 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
 
     if ((creature_x >= input_camera_x && creature_x < input_camera_x + passive_zone_out_x) &&
         (creature_y >= input_camera_y && creature_y < input_camera_y + passive_zone_out_y)) {
-      terminal_color(0xffFFFFFF);
+      terminal_color(0xddFFFFFF);
       terminal_layer(2);
       terminal_put(creature_x - input_camera_x, creature_y - input_camera_y, 'i');
     }
