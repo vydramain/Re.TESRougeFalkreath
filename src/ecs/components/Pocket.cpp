@@ -12,6 +12,13 @@ Pocket::~Pocket() {
   vec_items.clear();
 }
 
+bool Pocket::is_can_pick_up() const {
+    return can_pick_up;
+}
+void Pocket::set_can_pick_up(bool canPickUp) {
+    can_pick_up = canPickUp;
+}
+
 void Pocket::put_item(Item input_item) {
   vec_items.push_back(input_item);
 }
@@ -31,7 +38,6 @@ Item *Pocket::get_item(const unsigned int input_index) {
   Item *pointer = vec_items.data();
   return &pointer[input_index];
 }
-
 const Item *Pocket::get_item(const unsigned int input_index) const {
   const Item *pointer = vec_items.data();
   return &pointer[input_index];

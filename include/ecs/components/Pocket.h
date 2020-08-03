@@ -11,11 +11,15 @@
 
 class Pocket {
  private:
+  bool can_pick_up;
   std::vector<Item> vec_items;
 
  public:
   explicit Pocket(unsigned input_count);
   ~Pocket();
+
+  bool is_can_pick_up() const;
+  void set_can_pick_up(bool canPickUp);
 
   void put_item(Item input_item);
   Item *remove_item(unsigned input_index);
