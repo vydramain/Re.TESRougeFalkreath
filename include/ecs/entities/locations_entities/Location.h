@@ -7,6 +7,7 @@
 
 #include "ecs/entities/Map.h"
 #include "ecs/entities/creatures_entities/Creatures.h"
+#include "ecs/entities/items_entities/Items.h"
 
 class Location {
  private:
@@ -16,20 +17,20 @@ class Location {
 
   Map *current_area;
   Creatures *current_creatures;
+  Items *current_items;
 
  public:
-  explicit Location(const char *input_name, Map *input_area, Creatures *input_creatures);
+  explicit Location(const char *input_name, Map *input_area, Creatures *input_creatures, Items *input_items);
   ~Location();
 
   const char *get_name() const;
   unsigned int get_size_x() const;
   unsigned int get_size_y() const;
-  Map *get_current_area() const;
-  Creatures *get_current_creatures() const;
+  Map *get_area() const;
+  Creatures *get_creatures() const;
+  Items *get_items() const;
 
   void set_name(const char *input_name);
-  void set_current_area(Map *input_area);
-  void set_current_creatures(Creatures *input_creatures);
 };
 
 #endif  // INCLUDE_ECS_ENTITIES_LOCATIONS_ENTITIES_LOCATION_H_
