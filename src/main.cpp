@@ -1,5 +1,5 @@
 
-#include <ecs/entities/creatures_entities/beastfolk_race/Khadjiit.h>
+#include <ecs/entities/races_entities/beastfolk_race/Khadjiit.h>
 #include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
 #include <ecs/systems/scenes_system/MainMenuScene.h>
 #include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
@@ -18,10 +18,11 @@ int main() {
     }
   }
   auto *creatures = new Creatures(0);
-  creatures->put_player(new Creature("pl", 15, 2));
+  auto *races = new Races(0);
+  races->put_player(new Khadjiit("pl", 15, 2));
   auto *items = new Items(0);
 
-  auto *state = new MainLoopScene("test_map", new Map(x, y, m), creatures, items);
+  auto *state = new MainLoopScene("test_map", new Map(x, y, m), races, creatures, items);
   //    auto *state = new MainMenuScene();
   state->run();
   delete state;

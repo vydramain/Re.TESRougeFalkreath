@@ -12,9 +12,8 @@ game_loop_render::game_loop_render(const Location *input_location, const Creatur
   terminal_refresh();
 
   location = input_location;
-  creatures = input_creatures;
 
-  target = creatures->get_player();
+  target = location->get_races()->get_player();
 
   new_camera_position_x();
   new_camera_position_y();
@@ -25,10 +24,9 @@ game_loop_render::~game_loop_render() {
   terminal_close();
 
   location = nullptr;
-  creatures = nullptr;
 }
 
-void game_loop_render::set_target_creature(const Creature *input_target) {
+void game_loop_render::set_target_creature(const Race *input_target) {
   target = input_target;
 }
 
@@ -225,6 +223,7 @@ void game_loop_render::render_location() {
     update_camera_position_y();
 
     render_area(current_camera_x, current_camera_y);
+    render_races(current_camera_x, current_camera_y);
     render_creatures(current_camera_x, current_camera_y);
     render_items(current_camera_x, current_camera_y);
   } else {
@@ -245,10 +244,26 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
   }
 }
 
+void game_loop_render::render_races(unsigned input_camera_x, unsigned input_camera_y) {
+    const Race *race;
+    for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
+        race = location->get_races()->get_race(i);
+        unsigned race_x = race->get_current_x();
+        unsigned race_y = race->get_current_y();
+
+        if ((race_x >= input_camera_x && race_x < input_camera_x + passive_zone_out_x) &&
+            (race_y >= input_camera_y && race_y < input_camera_y + passive_zone_out_y)) {
+            terminal_color(0xddFFFFFF);
+            terminal_layer(2);
+            terminal_put(race_x - input_camera_x, race_y - input_camera_y, 'i');
+        }
+    }
+}
+
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
   const Creature *creature;
-  for (unsigned i = 0; i < creatures->get_size(); i++) {
-    creature = creatures->get_creature(i);
+  for (unsigned i = 0; i < location->get_creatures()->get_size(); i++) {
+    creature = location->get_creatures()->get_creature(i);
     unsigned creature_x = creature->get_current_x();
     unsigned creature_y = creature->get_current_y();
 
@@ -260,6 +275,7 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
     }
   }
 }
+
 
 void game_loop_render::render_hud() {
   terminal_layer(5);

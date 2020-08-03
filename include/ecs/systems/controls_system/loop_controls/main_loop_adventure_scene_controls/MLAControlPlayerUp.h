@@ -17,7 +17,7 @@ class MLAControlPlayerUp : public IControl {
       : IControl("MLAControlPlayerUp"), location(input_location) {}
 
   void execute() override {
-    location->get_creatures()->get_player()->go_up();
+    location->get_races()->get_player()->go_up();
   }
 };
 

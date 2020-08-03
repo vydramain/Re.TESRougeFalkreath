@@ -11,22 +11,24 @@
 
 class Pocket {
  private:
-  bool can_pick_up;
   std::vector<Item> vec_items;
 
  public:
   explicit Pocket(unsigned input_count);
+  Pocket(const Pocket &input_pocket);
+  Pocket(Pocket &&input_pocket) noexcept;
+  Pocket &operator=(const Pocket &input_pocket);
+  Pocket &operator=(Pocket &&input_pocket) noexcept;
   ~Pocket();
-
-  bool is_can_pick_up() const;
-  void set_can_pick_up(bool canPickUp);
 
   void put_item(Item input_item);
   Item *remove_item(unsigned input_index);
 
-  unsigned get_size() const;
+  unsigned get_pocket_size() const;
   Item *get_item(unsigned input_index);
   const Item *get_item(unsigned input_index) const;
+
+  void clear_pocket();
 };
 
 #endif  // INCLUDE_ECS_COMPONENTS_POCKET_H_

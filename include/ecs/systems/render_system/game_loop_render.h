@@ -7,7 +7,6 @@
 
 #include "./BearLibTerminal.h"
 #include "ecs/systems//render_system/interface_render.h"
-#include "ecs/systems/location_system/Creatures.h"
 #include "ecs/systems/location_system/Location.h"
 
 class game_loop_render : public interface_render {
@@ -23,8 +22,7 @@ class game_loop_render : public interface_render {
   static const unsigned active_zone_out_y = passive_zone_out_y - active_zone_in_y;
 
   const Location *location = nullptr;
-  const Creatures *creatures = nullptr;
-  const Creature *target = nullptr;
+  const Race *target = nullptr;
 
   unsigned int current_camera_x;
   unsigned int current_camera_y;
@@ -33,7 +31,7 @@ class game_loop_render : public interface_render {
   explicit game_loop_render(const Location *input_location, const Creatures *input_creatures);
   ~game_loop_render() override;
 
-  void set_target_creature(const Creature *input_target);
+  void set_target_creature(const Race *input_target);
 
   void clear_all() override;
   void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y) override;
@@ -54,6 +52,7 @@ class game_loop_render : public interface_render {
 
   void render_location();
   void render_area(unsigned input_camera_x, unsigned input_camera_y);
+  void render_races(unsigned input_camera_x, unsigned input_camera_y);
   void render_creatures(unsigned input_camera_x, unsigned input_camera_y);
   void render_items(unsigned input_camera_x, unsigned input_camera_y) {}
 

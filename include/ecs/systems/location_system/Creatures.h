@@ -17,17 +17,12 @@ class Creatures {
   explicit Creatures(unsigned input_count);
   ~Creatures();
 
-  void put_player(Creature *input_player);
-  Creature *remove_player();
-
   void put_creature(Creature *input_creature);
   Creature *remove_creature(unsigned input_index);
 
-  Creature *get_player();
-  Creature *get_creature(unsigned input_index);
-
   unsigned get_size() const;
-  const Creature *get_player() const;
+
+  Creature *get_creature(unsigned input_index);
   const Creature *get_creature(unsigned input_index) const;
 };
 

@@ -19,7 +19,7 @@ class MainLoopScene : public IMainScene {
   Location *location = nullptr;
 
  public:
-  explicit MainLoopScene(const char *input_area_name = nullptr, Map *input_area = nullptr,
+  explicit MainLoopScene(const char *input_area_name = nullptr, Map *input_area = nullptr, Races *input_races = nullptr,
                          Creatures *input_creatures = nullptr, Items *input_items = nullptr);
   ~MainLoopScene();
 
