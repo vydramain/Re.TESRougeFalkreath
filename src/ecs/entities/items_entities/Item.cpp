@@ -19,3 +19,9 @@ void Item::set_name(const char* input_name) {
 const char* Item::get_name() const {
   return name;
 }
+bool Item::operator==(const Item& rhs) const {
+  return name == rhs.name;
+}
+bool Item::operator!=(const Item& rhs) const {
+  return !(rhs == *this);
+}

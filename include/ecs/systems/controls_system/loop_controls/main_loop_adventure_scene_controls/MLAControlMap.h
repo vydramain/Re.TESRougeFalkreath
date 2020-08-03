@@ -11,6 +11,7 @@
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlEmpty.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlExit.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerDown.h"
+#include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerLeft.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerRight.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerUp.h"
@@ -23,6 +24,7 @@ class MLAControlMap {
   MLAControlPlayerLeft *control_player_left;
   MLAControlPlayerRight *control_player_right;
   MLAControlPlayerUp *control_player_up;
+  MLAControlPlayerInteract *control_player_interact;
 
   std::map<int, IControl *> mlas_map;
   std::map<int, IControl *>::iterator mlas_iterator;
@@ -33,6 +35,7 @@ class MLAControlMap {
     control_player_left = new MLAControlPlayerLeft(input_location);
     control_player_right = new MLAControlPlayerRight(input_location);
     control_player_up = new MLAControlPlayerUp(input_location);
+    control_player_interact = new MLAControlPlayerInteract(input_location);
 
     mlas_map[TK_CLOSE] = control_exit;
     mlas_map[TK_ESCAPE] = control_exit;
@@ -40,6 +43,7 @@ class MLAControlMap {
     mlas_map[TK_LEFT] = control_player_left;
     mlas_map[TK_RIGHT] = control_player_right;
     mlas_map[TK_UP] = control_player_up;
+    mlas_map[TK_E] = control_player_interact;
 
     mlas_iterator = mlas_map.begin();
   }
@@ -51,6 +55,7 @@ class MLAControlMap {
     delete control_player_left;
     delete control_player_right;
     delete control_player_up;
+    delete control_player_interact;
   }
 
   IControl *get_control(TERMINAL_API int input_key) {

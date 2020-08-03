@@ -16,6 +16,9 @@ class Item : public Pickable {
   Item(const Item& input_item);
   ~Item();
 
+  bool operator==(const Item& rhs) const;
+  bool operator!=(const Item& rhs) const;
+
   void set_name(const char* input_name);
 
   const char* get_name() const;

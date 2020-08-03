@@ -5,6 +5,7 @@
 #ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
 #define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
 
+#include <algorithm>
 #include <vector>
 
 #include "ecs/entities/items_entities/Item.h"
@@ -21,8 +22,8 @@ class Items {
   Item *remove_item(unsigned input_index);
 
   unsigned get_size() const;
-  Item *get_item(unsigned input_index);
-  Item *get_item(unsigned input_x, unsigned input_y);
+  int get_item_index(Item *input_item);
+  int get_item_index(unsigned input_x, unsigned input_y);
   const Item *get_item(unsigned input_index) const;
 };
 

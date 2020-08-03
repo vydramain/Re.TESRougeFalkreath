@@ -27,18 +27,19 @@ unsigned Items::get_size() const {
   return vec_items.size();
 }
 
-Item *Items::get_item(const unsigned int input_index) {
-  Item *pointer = vec_items.data();
-  return &pointer[input_index];
+int Items::get_item_index(Item *input_item) {
+  auto it = std::find(vec_items.begin(), vec_items.end(), *input_item);
+  return std::distance(vec_items.begin(), it);
 }
 
-Item *Items::get_item(unsigned int input_x, unsigned int input_y) {
-  for (auto & vec_item : vec_items) {
+int Items::get_item_index(unsigned int input_x, unsigned int input_y) {
+  for (auto &vec_item : vec_items) {
     if (vec_item.get_current_x() == input_x && vec_item.get_current_y() == input_y) {
-      return &vec_item;
+      auto it = std::find(vec_items.begin(), vec_items.end(), vec_item);
+      return std::distance(vec_items.begin(), it);
     }
   }
-  return nullptr;
+  return -1;
 }
 const Item *Items::get_item(const unsigned int input_index) const {
   const Item *pointer = vec_items.data();
