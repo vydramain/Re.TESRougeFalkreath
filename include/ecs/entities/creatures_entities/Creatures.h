@@ -11,7 +11,6 @@
 
 class Creatures {
  private:
-  Creature *player;
   std::vector<Creature> vec_creatures;
 
  public:
@@ -21,7 +20,7 @@ class Creatures {
   void put_player(Creature *input_player);
   Creature *remove_player();
 
-  void put_creature(Creature input_creature);
+  void put_creature(Creature *input_creature);
   Creature *remove_creature(unsigned input_index);
 
   Creature *get_player();
