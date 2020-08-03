@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include "ecs/entities/items_entities/Items.h"
+#include "ecs/systems/location_system/Items.h"
 
 Items::Items(const unsigned input_count) {
   vec_items.reserve(input_count);

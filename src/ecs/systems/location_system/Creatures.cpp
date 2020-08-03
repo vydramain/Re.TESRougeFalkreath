@@ -2,9 +2,9 @@
 // Created by vydra on 16.07.2020.
 //
 
-#include <vector>
+#include "ecs/systems/location_system/Creatures.h"
 
-#include "ecs/entities/creatures_entities/Creatures.h"
+#include <vector>
 
 Creatures::Creatures(const unsigned input_count) {
   vec_creatures.reserve(input_count);

@@ -6,8 +6,8 @@
 #define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_LOCATION_H_
 
 #include "ecs/entities/Map.h"
-#include "ecs/entities/creatures_entities/Creatures.h"
-#include "ecs/entities/items_entities/Items.h"
+#include "ecs/systems/location_system/Creatures.h"
+#include "ecs/systems/location_system/Items.h"
 
 class Location {
  private:

@@ -2,8 +2,8 @@
 // Created by vydra on 8/3/20.
 //
 
-#ifndef INCLUDE_ECS_ENTITIES_ITEMS_ENTITIES_ITEMS_H_
-#define INCLUDE_ECS_ENTITIES_ITEMS_ENTITIES_ITEMS_H_
+#ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
+#define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
 
 #include <vector>
 
@@ -25,4 +25,4 @@ class Items {
   const Item *get_item(unsigned input_index) const;
 };
 
-#endif  // INCLUDE_ECS_ENTITIES_ITEMS_ENTITIES_ITEMS_H_
+#endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
