@@ -9,6 +9,11 @@ Creature::Creature(const char *input_name, const unsigned input_current_x, const
   current_direction = DIRECTION_LEFT;
 }
 
+Creature::Creature(const Creature &input_creature)
+    : name(input_creature.name), current_x(input_creature.current_x), current_y(input_creature.current_y) {
+  current_direction = input_creature.current_direction;
+}
+
 const char *Creature::get_name() const {
   return name;
 }
@@ -61,7 +66,6 @@ void Creature::go_left() {
     current_x--;
   }
 }
-
 void Creature::go_right(const unsigned input_border) {
   current_direction = DIRECTION_RIGHT;
   if (current_x + 1 < input_border) {
