@@ -22,7 +22,7 @@ class Creature {
 
  public:
   explicit Creature(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0);
-  Creature(Creature const &input_creature);
+  Creature(const Creature &input_creature);
 
   const char *get_name() const;
   unsigned get_current_x() const;
