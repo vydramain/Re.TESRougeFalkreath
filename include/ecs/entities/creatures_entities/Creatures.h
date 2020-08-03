@@ -18,6 +18,7 @@ class Creatures {
   ~Creatures();
 
   void put_creature(Creature input_creature);
+  Creature *remove_creature(unsigned input_index);
 
   unsigned get_size() const;
   Creature *get_creature(unsigned input_index);
