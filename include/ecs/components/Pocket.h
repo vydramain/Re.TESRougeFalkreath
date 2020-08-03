@@ -5,6 +5,7 @@
 #ifndef INCLUDE_ECS_COMPONENTS_POCKET_H_
 #define INCLUDE_ECS_COMPONENTS_POCKET_H_
 
+#include <algorithm>
 #include <vector>
 
 #include "ecs/entities/items_entities/Item.h"
@@ -25,9 +26,9 @@ class Pocket {
   Item *remove_item(unsigned input_index);
 
   unsigned get_pocket_size() const;
-  Item *get_item(unsigned input_index);
+  int get_item_index(Item *input_item);
+  int get_item_index(unsigned input_x, unsigned input_y);
   const Item *get_item(unsigned input_index) const;
-
   void clear_pocket();
 };
 

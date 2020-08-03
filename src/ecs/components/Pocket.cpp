@@ -42,6 +42,7 @@ Pocket::~Pocket() {
 }
 
 void Pocket::put_item(Item input_item) {
+  input_item.pick_up();
   vec_items.push_back(input_item);
 }
 
@@ -55,14 +56,29 @@ Item *Pocket::remove_item(unsigned int input_index) {
 unsigned Pocket::get_pocket_size() const {
   return vec_items.size();
 }
-Item *Pocket::get_item(const unsigned int input_index) {
-  Item *pointer = vec_items.data();
-  return &pointer[input_index];
+int Pocket::get_item_index(Item *input_item) {
+  auto it = std::find(vec_items.begin(), vec_items.end(), *input_item);
+  if (it != vec_items.end()) {
+    return std::distance(vec_items.begin(), it);
+  }
+  return -1;
 }
-const Item *Pocket::get_item(const unsigned int input_index) const {
+
+int Pocket::get_item_index(unsigned int input_x, unsigned int input_y) {
+  for (auto &vec_item : vec_items) {
+    if (vec_item.get_current_x() == input_x && vec_item.get_current_y() == input_y) {
+      auto it = std::find(vec_items.begin(), vec_items.end(), vec_item);
+      return std::distance(vec_items.begin(), it);
+    }
+  }
+  return -1;
+}
+
+const Item *Pocket::get_item(unsigned int input_index) const {
   const Item *pointer = vec_items.data();
   return &pointer[input_index];
 }
+
 void Pocket::clear_pocket() {
   vec_items.clear();
 }

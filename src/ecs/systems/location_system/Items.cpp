@@ -12,8 +12,8 @@ Items::~Items() {
   vec_items.clear();
 }
 
-void Items::put_item(Item input_item) {
-  vec_items.push_back(input_item);
+void Items::put_item(Item *input_item) {
+  vec_items.push_back(*input_item);
 }
 
 Item *Items::remove_item(unsigned int input_index) {
@@ -29,7 +29,10 @@ unsigned Items::get_size() const {
 
 int Items::get_item_index(Item *input_item) {
   auto it = std::find(vec_items.begin(), vec_items.end(), *input_item);
-  return std::distance(vec_items.begin(), it);
+  if (it != vec_items.end()) {
+    return std::distance(vec_items.begin(), it);
+  }
+  return -1;
 }
 
 int Items::get_item_index(unsigned int input_x, unsigned int input_y) {
@@ -41,7 +44,8 @@ int Items::get_item_index(unsigned int input_x, unsigned int input_y) {
   }
   return -1;
 }
-const Item *Items::get_item(const unsigned int input_index) const {
+
+const Item *Items::get_item(unsigned int input_index) const {
   const Item *pointer = vec_items.data();
   return &pointer[input_index];
 }

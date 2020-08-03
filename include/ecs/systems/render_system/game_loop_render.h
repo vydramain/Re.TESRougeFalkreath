@@ -54,7 +54,7 @@ class game_loop_render : public interface_render {
   void render_area(unsigned input_camera_x, unsigned input_camera_y);
   void render_races(unsigned input_camera_x, unsigned input_camera_y);
   void render_creatures(unsigned input_camera_x, unsigned input_camera_y);
-  void render_items(unsigned input_camera_x, unsigned input_camera_y) {}
+  void render_items(unsigned input_camera_x, unsigned input_camera_y);
 
   void render_hud();
   //    void view_log_window();

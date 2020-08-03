@@ -254,7 +254,7 @@ void game_loop_render::render_races(unsigned input_camera_x, unsigned input_came
         if ((race_x >= input_camera_x && race_x < input_camera_x + passive_zone_out_x) &&
             (race_y >= input_camera_y && race_y < input_camera_y + passive_zone_out_y)) {
             terminal_color(0xddFFFFFF);
-            terminal_layer(2);
+            terminal_layer(4);
             terminal_put(race_x - input_camera_x, race_y - input_camera_y, 'i');
         }
     }
@@ -270,12 +270,27 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
     if ((creature_x >= input_camera_x && creature_x < input_camera_x + passive_zone_out_x) &&
         (creature_y >= input_camera_y && creature_y < input_camera_y + passive_zone_out_y)) {
       terminal_color(0xddFFFFFF);
-      terminal_layer(2);
+      terminal_layer(3);
       terminal_put(creature_x - input_camera_x, creature_y - input_camera_y, 'i');
     }
   }
 }
 
+void game_loop_render::render_items(unsigned int input_camera_x, unsigned int input_camera_y) {
+    const Item *item;
+    for (unsigned i = 0; i < location->get_items()->get_size(); i++) {
+      item = location->get_items()->get_item(i);
+        unsigned item_x = item->get_current_x();
+        unsigned item_y = item->get_current_y();
+
+        if ((item_x >= input_camera_x && item_x < input_camera_x + passive_zone_out_x) &&
+            (item_y >= input_camera_y && item_y < input_camera_y + passive_zone_out_y)) {
+            terminal_color(0xddFFEB00);
+            terminal_layer(2);
+            terminal_put(item_x - input_camera_x, item_y - input_camera_y, '$');
+        }
+    }
+}
 
 void game_loop_render::render_hud() {
   terminal_layer(5);

@@ -19,8 +19,10 @@ int main() {
   }
   auto *creatures = new Creatures(0);
   auto *races = new Races(0);
-  races->put_player(new Khadjiit("pl", 15, 2));
-  auto *items = new Items(0);
+  races->put_player(new Khadjiit("pl", 5, 2));
+  auto *items = new Items(2);
+  items->put_item(new Item("Coin", false, 3, 2));
+
 
   auto *state = new MainLoopScene("test_map", new Map(x, y, m), races, creatures, items);
   //    auto *state = new MainMenuScene();

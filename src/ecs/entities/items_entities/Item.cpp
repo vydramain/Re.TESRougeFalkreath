@@ -7,8 +7,9 @@
 Item::Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y)
     : Pickable(input_pick, input_x, input_y), name(input_name) {}
 
-Item::Item(const Item& input_item)
-    : Pickable(input_item.has_pick_up(), get_current_x(), get_current_y()), name(get_name()) {}
+Item::Item(const Item& input_creature)
+    : Pickable(input_creature.has_pick_up(), input_creature.get_current_x(), input_creature.get_current_y()),
+      name(input_creature.get_name()) {}
 
 Item::~Item() = default;
 

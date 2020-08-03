@@ -18,7 +18,7 @@ class Items {
   explicit Items(unsigned input_count);
   ~Items();
 
-  void put_item(Item input_item);
+  void put_item(Item *input_item);
   Item *remove_item(unsigned input_index);
 
   unsigned get_size() const;

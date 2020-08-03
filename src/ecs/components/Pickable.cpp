@@ -5,7 +5,7 @@
 #include "ecs/components/Pickable.h"
 
 Pickable::Pickable(bool input_pick, unsigned input_x, unsigned input_y)
-    : Locateable(input_x, input_x), picked_up(input_pick) {}
+    : Locateable(input_x, input_y), picked_up(input_pick) {}
 
 Pickable::~Pickable() = default;
 
