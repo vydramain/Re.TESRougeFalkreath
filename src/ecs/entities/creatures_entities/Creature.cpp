@@ -19,7 +19,7 @@ Creature::Creature(Creature &&input_creature) noexcept
       current_y(input_creature.current_y),
       current_direction(input_creature.current_direction) {}
 
-Creature &Creature::operator=(const Creature &input_creature)  {
+Creature &Creature::operator=(const Creature &input_creature) {
   name = input_creature.get_name();
   current_x = input_creature.get_current_x();
   current_y = input_creature.get_current_y();
@@ -28,13 +28,12 @@ Creature &Creature::operator=(const Creature &input_creature)  {
 }
 
 Creature &Creature::operator=(Creature &&input_creature) noexcept {
-    name = input_creature.get_name();
-    current_x = input_creature.get_current_x();
-    current_y = input_creature.get_current_y();
-    current_direction = input_creature.current_direction;
+  name = input_creature.get_name();
+  current_x = input_creature.get_current_x();
+  current_y = input_creature.get_current_y();
+  current_direction = input_creature.current_direction;
   return *this;
 }
-
 const char *Creature::get_name() const {
   return name;
 }
@@ -45,6 +44,13 @@ unsigned int Creature::get_current_x() const {
 
 unsigned int Creature::get_current_y() const {
   return current_y;
+}
+
+unsigned int Creature::getSightX() const {
+  return sight_x;
+}
+unsigned int Creature::getSightY() const {
+  return sight_y;
 }
 
 unsigned Creature::get_current_direction() const {
@@ -67,11 +73,31 @@ void Creature::set_current_direction(direction input_direction) {
   current_direction = input_direction;
 }
 
+void Creature::set_sight() {
+  sight_x = current_x;
+  sight_y = current_y;
+  switch (current_direction) {
+    case DIRECTION_UP:
+      sight_y--;
+      break;
+    case DIRECTION_DOWN:
+      sight_y++;
+      break;
+    case DIRECTION_RIGHT:
+      sight_x++;
+      break;
+    case DIRECTION_LEFT:
+      sight_x--;
+      break;
+  }
+}
+
 void Creature::go_up() {
   current_direction = DIRECTION_UP;
   if (current_y > 0) {
     current_y--;
   }
+  set_sight();
 }
 
 void Creature::go_down(const unsigned input_border) {
@@ -79,16 +105,19 @@ void Creature::go_down(const unsigned input_border) {
   if (current_y + 1 < input_border) {
     current_y++;
   }
+  set_sight();
 }
 void Creature::go_left() {
   current_direction = DIRECTION_LEFT;
   if (current_x > 0) {
     current_x--;
   }
+  set_sight();
 }
 void Creature::go_right(const unsigned input_border) {
   current_direction = DIRECTION_RIGHT;
   if (current_x + 1 < input_border) {
     current_x++;
   }
+  set_sight();
 }
