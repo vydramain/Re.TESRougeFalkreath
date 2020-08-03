@@ -32,6 +32,14 @@ Item *Items::get_item(const unsigned int input_index) {
   return &pointer[input_index];
 }
 
+Item *Items::get_item(unsigned int input_x, unsigned int input_y) {
+  for (auto & vec_item : vec_items) {
+    if (vec_item.get_current_x() == input_x && vec_item.get_current_y() == input_y) {
+      return &vec_item;
+    }
+  }
+  return nullptr;
+}
 const Item *Items::get_item(const unsigned int input_index) const {
   const Item *pointer = vec_items.data();
   return &pointer[input_index];

@@ -22,6 +22,7 @@ class Items {
 
   unsigned get_size() const;
   Item *get_item(unsigned input_index);
+  Item *get_item(unsigned input_x, unsigned input_y);
   const Item *get_item(unsigned input_index) const;
 };
 
