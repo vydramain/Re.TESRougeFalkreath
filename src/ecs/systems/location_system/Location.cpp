@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/locations_entities/Location.h"
+#include "ecs/systems/location_system/Location.h"
 
 Location::Location(const char *input_name, Map *input_area, Creatures *input_creatures, Items *input_items)
     : name(input_name), size_x(input_area->get_size_x()), size_y(input_area->get_size_y()) {

@@ -5,8 +5,8 @@
 #ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAIN_LOOP_SCENE_ADVENTURESCENE_H_
 #define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAIN_LOOP_SCENE_ADVENTURESCENE_H_
 
-#include "ecs/entities/locations_entities/Location.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h"
+#include "ecs/systems/location_system/Location.h"
 #include "ecs/systems/scenes_system/IScene.h"
 
 class AdventureScene : public IScene {

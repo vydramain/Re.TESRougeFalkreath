@@ -1,4 +1,6 @@
 
+#include <ecs/entities/creatures_entities/beastfolk_race/Khadjiit.h>
+#include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
 #include <ecs/systems/scenes_system/MainMenuScene.h>
 #include <ecs/systems/scenes_system/main_loop_scene/MainLoopScene.h>
 

@@ -7,8 +7,8 @@
 
 #include "./BearLibTerminal.h"
 #include "ecs/entities/creatures_entities/Creatures.h"
-#include "ecs/entities/locations_entities/Location.h"
 #include "ecs/systems//render_system/interface_render.h"
+#include "ecs/systems/location_system/Location.h"
 
 class game_loop_render : public interface_render {
  private:

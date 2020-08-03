@@ -12,7 +12,7 @@ class MLControlExit : public IMLControl {
  public:
   explicit MLControlExit() : IMLControl("MLControlExit") {}
 
-  IControl *get_last_control() {
+  IControl *get_last_control() override {
     return nullptr;
   }
 

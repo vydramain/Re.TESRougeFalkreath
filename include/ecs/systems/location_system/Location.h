@@ -2,8 +2,8 @@
 // Created by vydra on 15.07.2020.
 //
 
-#ifndef INCLUDE_ECS_ENTITIES_LOCATIONS_ENTITIES_LOCATION_H_
-#define INCLUDE_ECS_ENTITIES_LOCATIONS_ENTITIES_LOCATION_H_
+#ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_LOCATION_H_
+#define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_LOCATION_H_
 
 #include "ecs/entities/Map.h"
 #include "ecs/entities/creatures_entities/Creatures.h"
@@ -33,4 +33,4 @@ class Location {
   void set_name(const char *input_name);
 };
 
-#endif  // INCLUDE_ECS_ENTITIES_LOCATIONS_ENTITIES_LOCATION_H_
+#endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_LOCATION_H_

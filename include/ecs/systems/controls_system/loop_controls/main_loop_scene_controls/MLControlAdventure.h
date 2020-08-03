@@ -20,7 +20,7 @@ class MLControlAdventure : public IMLControl {
     delete scene;
   }
 
-  IControl *get_last_control() {
+  IControl *get_last_control() override {
     return last_control;
   }
 
