@@ -2,13 +2,11 @@
 // Created by vydra on 12.07.2020.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAINMENUSCENE_H_
-#define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAINMENUSCENE_H_
+#pragma once
 
+#include "ecs/entities/scenes_entities/IMainScene.h"
 #include "ecs/systems/controls_system/menu_controls/MMControls.h"
-
 #include "ecs/systems/render_system/main_menu_render.h"
-#include "ecs/systems/scenes_system/IMainScene.h"
 
 class MainMenuScene : public IMainScene {
  private:
@@ -27,5 +25,3 @@ class MainMenuScene : public IMainScene {
 
   void run() override;
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAINMENUSCENE_H_

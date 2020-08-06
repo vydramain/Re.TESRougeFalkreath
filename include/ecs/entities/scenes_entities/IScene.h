@@ -2,8 +2,7 @@
 // Created by vydra on 10.07.2020.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
-#define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_
+#pragma once
 
 #include <string>
 
@@ -22,5 +21,3 @@ class IScene {
     return name;
   }
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_ISCENE_H_

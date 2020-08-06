@@ -2,15 +2,14 @@
 // Created by vydra on 14.07.2020.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAIN_LOOP_SCENE_MAINLOOPSCENE_H_
-#define INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAIN_LOOP_SCENE_MAINLOOPSCENE_H_
+#pragma once
 
+#include "ecs/entities/scenes_entities/main_loop_scene/AdventureScene.h"
+#include "ecs/entities/scenes_entities/IMainScene.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h"
 #include "ecs/systems/location_system/Creatures.h"
 #include "ecs/systems/location_system/Location.h"
 #include "ecs/systems/render_system/game_loop_render.h"
-#include "ecs/systems/scenes_system/IMainScene.h"
-#include "ecs/systems/scenes_system/main_loop_scene/AdventureScene.h"
 
 class MainLoopScene : public IMainScene {
  private:
@@ -24,5 +23,3 @@ class MainLoopScene : public IMainScene {
 
   void run() override;
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_SCENES_SYSTEM_MAIN_LOOP_SCENE_MAINLOOPSCENE_H_

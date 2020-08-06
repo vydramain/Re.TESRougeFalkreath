@@ -6,7 +6,7 @@
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_SCENE_CONTROLS_MLCONTROLADVENTURE_H_
 
 #include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/IMLControl.h"
-#include "ecs/systems/scenes_system/main_loop_scene/AdventureScene.h"
+#include "ecs/entities/scenes_entities/main_loop_scene/AdventureScene.h"
 
 class MLControlAdventure : public IMLControl {
  private:
