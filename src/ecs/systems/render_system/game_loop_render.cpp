@@ -306,7 +306,7 @@ void game_loop_render::render_hud() {
 
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
   char wallet[4];
-  snprintf(wallet, (size_t) "%u", "%u", location->get_races()->get_player()->get_wallet_size());
+  snprintf(wallet, (size_t) "%u", "%u", location->get_races()->get_player()->get_wallet());
   terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
 
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");

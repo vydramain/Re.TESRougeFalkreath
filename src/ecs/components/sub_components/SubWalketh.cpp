@@ -25,11 +25,19 @@ void SubWalketh::set_sight() {
   }
 }
 
-SubWalketh::SubWalketh(unsigned int input_x, unsigned int input_y) : AbsLocatable(input_x, input_y) {
+SubWalketh::SubWalketh(unsigned int input_x, unsigned int input_y) : SubLocatable(input_x, input_y) {
   set_sight();
 }
 
 SubWalketh::~SubWalketh() {}
+
+unsigned int SubWalketh::get_sight_x() const {
+  return sight_x;
+}
+
+unsigned int SubWalketh::get_sight_y() const {
+    return sight_y;
+}
 
 void SubWalketh::go_up() {
   current_direction = DIRECTION_UP;

@@ -5,15 +5,18 @@
 #pragma once
 
 #include "ecs/components/abs_components/AbsInteroperable.hpp"
-#include "ecs/components/abs_components/AbsLocatable.hpp"
+#include "ecs/components/sub_components/SubLocatable.hpp"
 
-class SubWalketh : public AbsLocatable, AbsInteroperable {
- private:
+class SubWalketh : protected AbsInteroperable, public SubLocatable {
+ protected:
   void set_sight();
 
  public:
   explicit SubWalketh(unsigned input_x, unsigned input_y);
   ~SubWalketh();
+
+  unsigned get_sight_x() const;
+  unsigned get_sight_y() const;
 
   void go_up();
   void go_down(unsigned input_border);

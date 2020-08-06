@@ -6,7 +6,7 @@
 
 #include "ecs/components/abs_components/AbsPockets.hpp"
 
-class SubPockets : public AbsPockets {
+class SubPockets : protected AbsPockets {
  public:
   explicit SubPockets(unsigned input_pocket_size);
   ~SubPockets();
@@ -14,7 +14,6 @@ class SubPockets : public AbsPockets {
   bool put_item(Item *input_item);
   Item *remove_item(unsigned input_index);
 
-  unsigned get_wallet() const;
   void set_wallet(unsigned input_wallet);
 
   unsigned get_pocket_size() const;
@@ -22,4 +21,5 @@ class SubPockets : public AbsPockets {
   int get_item_index(unsigned input_x, unsigned input_y);
   const Item *get_item(unsigned input_index) const;
   void clear_pocket();
+  unsigned get_wallet() const;
 };

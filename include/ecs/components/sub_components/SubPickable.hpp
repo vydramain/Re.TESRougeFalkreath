@@ -7,7 +7,7 @@
 #include "ecs/components/abs_components/AbsPickable.hpp"
 #include "ecs/components/sub_components/SubLocatable.hpp"
 
-class SubPickable : public AbsPickable, SubLocatable {
+class SubPickable : protected AbsPickable, public SubLocatable {
  public:
   explicit SubPickable(bool input_pick = false, unsigned input_x = 0, unsigned input_y = 0);
   ~SubPickable();
