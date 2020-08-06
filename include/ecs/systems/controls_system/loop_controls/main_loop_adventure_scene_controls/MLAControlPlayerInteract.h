@@ -5,8 +5,8 @@
 #ifndef INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLPLAYERINTERACT_H_
 #define INCLUDE_ECS_SYSTEMS_CONTROLS_SYSTEM_LOOP_CONTROLS_MAIN_LOOP_ADVENTURE_SCENE_CONTROLS_MLACONTROLPLAYERINTERACT_H_
 
+#include "ecs/entities/location_enity/Location.h"
 #include "ecs/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/Location.h"
 
 class MLAControlPlayerInteract : public IControl {
  private:

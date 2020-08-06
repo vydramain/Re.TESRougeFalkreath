@@ -4,11 +4,11 @@
 
 #pragma once
 
-#include "ecs/entities/scenes_entities/main_loop_scene/AdventureScene.h"
+#include "ecs/entities/location_enity/Location.h"
 #include "ecs/entities/scenes_entities/IMainScene.h"
+#include "ecs/entities/scenes_entities/main_loop_scene/AdventureScene.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h"
 #include "ecs/systems/location_system/Creatures.h"
-#include "ecs/systems/location_system/Location.h"
 #include "ecs/systems/render_system/game_loop_render.h"
 
 class MainLoopScene : public IMainScene {
