@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/components/abstract_components/AbsPickable.hpp"
+#include "ecs/components/abs_components/AbsPickable.hpp"
 #include "ecs/components/sub_components/SubLocatable.hpp"
 
 class SubPickable : public AbsPickable, SubLocatable {
