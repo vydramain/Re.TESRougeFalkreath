@@ -4,7 +4,7 @@
 
 #include "ecs/entities/location_enity/Location.h"
 
-Location::Location(const char *input_name, Map *input_area, Races *input_races, Creatures *input_creatures,
+Location::Location(const char *input_name, Area *input_area, Races *input_races, Creatures *input_creatures,
                    Items *input_items)
     : name(input_name), size_x(input_area->get_size_x()), size_y(input_area->get_size_y()) {
   current_area = input_area;
@@ -32,7 +32,7 @@ unsigned int Location::get_size_y() const {
   return size_y;
 }
 
-Map *Location::get_area() const {
+Area *Location::get_area() const {
   return current_area;
 }
 

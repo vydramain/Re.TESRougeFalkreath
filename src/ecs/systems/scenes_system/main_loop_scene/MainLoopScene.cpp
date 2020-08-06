@@ -8,7 +8,7 @@
 
 #include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlMap.h"
 
-MainLoopScene::MainLoopScene(const char *input_area_name, Map *input_area, Races *input_races,
+MainLoopScene::MainLoopScene(const char *input_area_name, Area *input_area, Races *input_races,
                              Creatures *input_creatures, Items *input_items)
     : IMainScene("MainLoopScene") {
   location = new Location(input_area_name, input_area, input_races, input_creatures, input_items);

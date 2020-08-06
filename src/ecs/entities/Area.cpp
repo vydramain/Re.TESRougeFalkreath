@@ -2,9 +2,9 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/Map.h"
+#include "ecs/entities/Area.h"
 
-Map::Map(const unsigned input_size_x, const unsigned input_size_y, char **input_data)
+Area::Area(const unsigned input_size_x, const unsigned input_size_y, char **input_data)
     : size_x(input_size_x), size_y(input_size_y) {
   if (input_data != nullptr) {
     data = new char *[size_x];
@@ -19,21 +19,21 @@ Map::Map(const unsigned input_size_x, const unsigned input_size_y, char **input_
   }
 }
 
-Map::~Map() {
+Area::~Area() {
   for (unsigned i = 0; i < size_x; i++) {
     delete data[i];
   }
   delete data;
 }
 
-unsigned Map::get_size_x() const {
+unsigned Area::get_size_x() const {
   return size_x;
 }
 
-unsigned Map::get_size_y() const {
+unsigned Area::get_size_y() const {
   return size_y;
 }
 
-char Map::get_cell(unsigned input_x, unsigned input_y) const {
+char Area::get_cell(unsigned input_x, unsigned input_y) const {
   return data[input_x][input_y];
 }

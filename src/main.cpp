@@ -27,7 +27,7 @@ int main() {
   items->put_item(new Item("Coin", false, 33, 22));
   items->put_item(new Item("Coin", false, 53, 42));
 
-  auto *state = new MainLoopScene("test_map", new Map(x, y, m), races, creatures, items);
+  auto *state = new MainLoopScene("test_map", new Area(x, y, m), races, creatures, items);
   //    auto *state = new MainMenuScene();
   state->run();
   delete state;
