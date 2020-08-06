@@ -15,8 +15,8 @@ Location::Location(const char *input_name, Map *input_area, Races *input_races, 
 
 Location::~Location() {
   delete current_area;
-  delete current_creatures;
   delete current_races;
+  delete current_creatures;
   delete current_items;
 }
 

@@ -30,6 +30,8 @@ class MLControlMap {
   }
 
   ~MLControlMap() {
+    delete control_exit;
+    delete control_empty;
     delete control_adventure;
   }
 

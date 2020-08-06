@@ -15,13 +15,12 @@
 class MainLoopScene : public IMainScene {
  private:
   game_loop_render *render = nullptr;
-
   Location *location = nullptr;
 
  public:
   explicit MainLoopScene(const char *input_area_name = nullptr, Map *input_area = nullptr, Races *input_races = nullptr,
                          Creatures *input_creatures = nullptr, Items *input_items = nullptr);
-  ~MainLoopScene();
+  ~MainLoopScene() override;
 
   void run() override;
 };

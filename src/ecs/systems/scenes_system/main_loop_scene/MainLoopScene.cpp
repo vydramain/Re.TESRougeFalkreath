@@ -17,6 +17,7 @@ MainLoopScene::MainLoopScene(const char *input_area_name, Map *input_area, Races
 }
 
 MainLoopScene::~MainLoopScene() {
+  delete location;
   delete render;
 }
 
