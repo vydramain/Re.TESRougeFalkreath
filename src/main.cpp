@@ -1,5 +1,5 @@
 
-#include <ecs/entities/races_entities/beastfolk_race/Khadjiit.h>
+#include <ecs/entities/location_enities/races_entities/beastfolk_race/Khadjiit.h>
 #include <ecs/entities/scenes_entities/MainMenuScene.h>
 #include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
 #include <ecs/entities/scenes_entities/main_loop_scene/MainLoopScene.h>

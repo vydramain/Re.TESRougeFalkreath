@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "ecs/entities/items_entities/Item.h"
+#include "ecs/entities/location_enities/items_entities/Item.h"
 
 class Items {
  private:

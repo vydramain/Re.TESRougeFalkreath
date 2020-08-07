@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "ecs/entities/creatures_entities/Creature.h"
+#include "ecs/entities/location_enities/creatures_entities/Creature.h"
 
 class Creatures {
  private:

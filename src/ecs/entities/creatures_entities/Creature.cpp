@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/creatures_entities/Creature.h"
+#include "ecs/entities/location_enities/creatures_entities/Creature.h"
 
 Creature::Creature(const char *input_name, const unsigned input_current_x, const unsigned input_current_y)
     : name(input_name), current_x(input_current_x), current_y(input_current_y), current_direction(DIRECTION_LEFT) {}
