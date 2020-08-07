@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "ecs/entities/location_enities/races_entities/Sentient.h"
+#include "ecs/entities/location_enities/sentients_entities/Sentient.h"
 
 class Races {
  private:

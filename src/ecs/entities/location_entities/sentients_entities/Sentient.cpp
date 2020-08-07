@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include "ecs/entities/location_enities/races_entities/Sentient.h"
+#include "ecs/entities/location_enities/sentients_entities/Sentient.h"
 
 Sentient::Sentient(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
            const unsigned input_pocket_size, const unsigned input_wallet)

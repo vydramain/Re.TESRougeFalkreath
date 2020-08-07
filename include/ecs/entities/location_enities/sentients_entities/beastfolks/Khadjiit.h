@@ -5,7 +5,7 @@
 #ifndef INCLUDE_ECS_ENTITIES_RACES_ENTITIES_BEASTFOLK_RACE_KHADJIIT_H_
 #define INCLUDE_ECS_ENTITIES_RACES_ENTITIES_BEASTFOLK_RACE_KHADJIIT_H_
 
-#include "ecs/entities/location_enities/races_entities/Sentient.h"
+#include "ecs/entities/location_enities/sentients_entities/Sentient.h"
 
 class Khadjiit : public Sentient {
  public:
