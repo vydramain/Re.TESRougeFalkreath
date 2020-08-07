@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entities/Area.h"
+#include "ecs/entities/location_enities/Area.h"
 #include "ecs/systems/location_system/Creatures.h"
 #include "ecs/systems/location_system/Items.h"
 #include "ecs/systems/location_system/Races.h"

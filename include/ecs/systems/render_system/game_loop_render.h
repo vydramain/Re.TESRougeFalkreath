@@ -8,7 +8,7 @@
 #include <charconv>
 
 #include "./BearLibTerminal.h"
-#include "ecs/entities/location_enity/Location.h"
+#include "ecs/entities/location_enities/Location.h"
 #include "ecs/systems//render_system/interface_render.h"
 
 class game_loop_render : public interface_render {

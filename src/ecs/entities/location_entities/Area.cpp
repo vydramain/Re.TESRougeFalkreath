@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/Area.h"
+#include "ecs/entities/location_enities/Area.h"
 
 Area::Area(const unsigned input_size_x, const unsigned input_size_y, char **input_data)
     : size_x(input_size_x), size_y(input_size_y) {
