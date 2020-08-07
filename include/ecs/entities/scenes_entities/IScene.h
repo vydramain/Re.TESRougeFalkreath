@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include <string>
-
 #include "ecs/systems/controls_system/IControl.h"
 
 class IScene {
@@ -17,7 +15,7 @@ class IScene {
   virtual ~IScene() = default;
   virtual void run() = 0;
 
-  const char* getSceneName() const {
+  const char* get_scenes_name() const {
     return name;
   }
 };

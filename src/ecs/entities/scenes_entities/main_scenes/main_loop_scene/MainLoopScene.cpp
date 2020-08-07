@@ -2,11 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/scenes_entities/main_loop_scene/MainLoopScene.h"
-
-#include <cstring>
-
-#include "ecs/systems/controls_system/loop_controls/main_loop_scene_controls/MLControlMap.h"
+#include "ecs/entities/scenes_entities/main_scenes/main_loop_scene/MainLoopScene.h"
 
 MainLoopScene::MainLoopScene(const char *input_area_name, Area *input_area, Races *input_races,
                              Creatures *input_creatures, Items *input_items)

@@ -4,7 +4,9 @@
 
 #pragma once
 
-#include "ecs/entities/scenes_entities/IMainScene.h"
+#include <cstring>
+
+#include "ecs/entities/scenes_entities/main_scenes/IMainScene.h"
 #include "ecs/systems/controls_system/menu_controls/MMControls.h"
 #include "ecs/systems/render_system/main_menu_render.h"
 

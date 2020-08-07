@@ -23,7 +23,7 @@ class MLControlMap {
   IMLControl *last_control = nullptr;
 
  public:
-    explicit MLControlMap(Location *input_location) {
+  explicit MLControlMap(Location *input_location) {
     control_adventure = new MLControlAdventure(input_location);
 
     ml_map["MLAControlExit"] = control_exit;
@@ -41,12 +41,13 @@ class MLControlMap {
   }
 
   IMLControl *get_control(IControl *input_control) {
-    ml_iterator = ml_map.find(input_control->get_name());
-    if (ml_iterator == ml_map.end()) {
-      return last_control;
+    for (ml_iterator = ml_map.begin(); ml_iterator != ml_map.end(); ml_iterator++) {
+      if (std::strcmp(ml_iterator->first, input_control->get_name()) == 0) {
+        last_control = ml_iterator->second;
+        return ml_iterator->second;
+      }
     }
-    last_control = ml_iterator->second;
-    return ml_iterator->second;
+    return last_control;
   }
 };
 

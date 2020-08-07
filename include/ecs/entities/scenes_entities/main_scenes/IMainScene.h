@@ -4,8 +4,6 @@
 
 #pragma once
 
-#include <string>
-
 #include "ecs/entities/scenes_entities/IScene.h"
 
 class IMainScene : public IScene {

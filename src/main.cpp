@@ -1,8 +1,8 @@
 
 #include <ecs/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h>
-#include <ecs/entities/scenes_entities/MainMenuScene.h>
+#include <ecs/entities/scenes_entities/main_scenes/main_loop_scene/MainLoopScene.h>
+#include <ecs/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h>
 #include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
-#include <ecs/entities/scenes_entities/main_loop_scene/MainLoopScene.h>
 
 int main() {
   unsigned x = 70;
@@ -28,11 +28,9 @@ int main() {
   items->put_item(new Item("Coin", false, 53, 42));
 
   auto *state = new MainLoopScene("test_map", new Area(x, y, m), races, creatures, items);
-  //    auto *state = new MainMenuScene();
+  //      auto *state = new MainMenuScene();
   state->run();
   delete state;
-
-
 
   return 0;
 }
