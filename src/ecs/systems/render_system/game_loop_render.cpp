@@ -261,7 +261,7 @@ void game_loop_render::render_races(unsigned input_camera_x, unsigned input_came
 }
 
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
-  const Creature *creature;
+  const Magwehr *creature;
   for (unsigned i = 0; i < location->get_creatures()->get_size(); i++) {
     creature = location->get_creatures()->get_creature(i);
     unsigned creature_x = creature->get_current_x();
