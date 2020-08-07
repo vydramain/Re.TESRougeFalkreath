@@ -8,17 +8,17 @@
 
 #include "ecs/components/sub_components/SubPockets.hpp"
 
-class Race : public SubWalketh, public SubPockets {
+class Sentient : public SubWalketh, public SubPockets {
  private:
   const char *name{};
 
  public:
-  explicit Race(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0,
+  explicit Sentient(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0,
                 unsigned input_pocket_size = 10, unsigned input_wallet = 0);
-  Race(const Race &input_race);
-  Race(Race &&input_race) noexcept;
-  Race &operator=(const Race &input_race);
-  Race &operator=(Race &&input_race) noexcept;
+  Sentient(const Sentient &input_race);
+  Sentient(Sentient &&input_race) noexcept;
+  Sentient &operator=(const Sentient &input_race);
+  Sentient &operator=(Sentient &&input_race) noexcept;
 
   const char *get_name() const;
   void set_name(const char *input_name);

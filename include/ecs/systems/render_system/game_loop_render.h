@@ -26,7 +26,7 @@ class game_loop_render : public interface_render {
   unsigned steps = 0;
 
   const Location *location = nullptr;
-  const Race *target = nullptr;
+  const Sentient *target = nullptr;
 
   unsigned int current_camera_x;
   unsigned int current_camera_y;
@@ -35,7 +35,7 @@ class game_loop_render : public interface_render {
   explicit game_loop_render(const Location *input_location, const Creatures *input_creatures);
   ~game_loop_render() override;
 
-  void set_target_creature(const Race *input_target);
+  void set_target_creature(const Sentient *input_target);
 
   void clear_all() override;
   void clear_area(unsigned in_x, unsigned in_y, unsigned out_x, unsigned out_y) override;

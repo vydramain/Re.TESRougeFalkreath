@@ -7,28 +7,28 @@
 
 #include <vector>
 
-#include "ecs/entities/location_enities/races_entities/Race.h"
+#include "ecs/entities/location_enities/races_entities/Sentient.h"
 
 class Races {
  private:
-  std::vector<Race> vec_races;
+  std::vector<Sentient> vec_races;
 
  public:
   explicit Races(unsigned input_count);
   ~Races();
 
-  void put_player(Race *input_player);
-  Race *remove_player();
+  void put_player(Sentient *input_player);
+  Sentient *remove_player();
 
-  void put_race(Race *input_race);
-  Race *remove_race(unsigned input_index);
+  void put_race(Sentient *input_race);
+  Sentient *remove_race(unsigned input_index);
 
-  Race *get_player();
-  Race *get_race(unsigned input_index);
+  Sentient *get_player();
+  Sentient *get_race(unsigned input_index);
 
   unsigned get_size() const;
-  const Race *get_player() const;
-  const Race *get_race(unsigned input_index) const;
+  const Sentient *get_player() const;
+  const Sentient *get_race(unsigned input_index) const;
 };
 
 #endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_RACES_H_

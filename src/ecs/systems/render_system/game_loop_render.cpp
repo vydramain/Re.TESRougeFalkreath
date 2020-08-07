@@ -26,7 +26,7 @@ game_loop_render::~game_loop_render() {
   location = nullptr;
 }
 
-void game_loop_render::set_target_creature(const Race *input_target) {
+void game_loop_render::set_target_creature(const Sentient *input_target) {
   target = input_target;
 }
 
@@ -245,7 +245,7 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
 }
 
 void game_loop_render::render_races(unsigned input_camera_x, unsigned input_camera_y) {
-  const Race *race;
+  const Sentient *race;
   for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
     race = location->get_races()->get_race(i);
     unsigned race_x = race->get_current_x();

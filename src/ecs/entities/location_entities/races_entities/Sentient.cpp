@@ -2,13 +2,13 @@
 // Created by vydra on 8/3/20.
 //
 
-#include "ecs/entities/location_enities/races_entities/Race.h"
+#include "ecs/entities/location_enities/races_entities/Sentient.h"
 
-Race::Race(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
+Sentient::Sentient(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
            const unsigned input_pocket_size, const unsigned input_wallet)
     : SubWalketh(input_current_x, input_current_y), SubPockets(input_pocket_size), name(input_name) {}
 
-Race::Race(const Race &input_race)
+Sentient::Sentient(const Sentient &input_race)
     : SubWalketh(input_race.get_current_x(), input_race.get_current_y()),
       SubPockets(input_race.get_pocket_size()),
       name(input_race.get_name()) {
@@ -21,7 +21,7 @@ Race::Race(const Race &input_race)
   }
 }
 
-Race::Race(Race &&input_race) noexcept
+Sentient::Sentient(Sentient &&input_race) noexcept
     : SubWalketh(input_race.get_current_x(), input_race.get_current_y()),
       SubPockets(input_race.get_pocket_size()),
       name(input_race.get_name()) {
@@ -32,7 +32,7 @@ Race::Race(Race &&input_race) noexcept
   }
 }
 
-Race &Race::operator=(const Race &input_race) {
+Sentient &Sentient::operator=(const Sentient &input_race) {
   name = input_race.get_name();
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
@@ -43,7 +43,7 @@ Race &Race::operator=(const Race &input_race) {
   }
   return *this;
 }
-Race &Race::operator=(Race &&input_race) noexcept {
+Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
   name = input_race.get_name();
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
@@ -54,9 +54,9 @@ Race &Race::operator=(Race &&input_race) noexcept {
   }
   return *this;
 }
-const char *Race::get_name() const {
+const char *Sentient::get_name() const {
   return name;
 }
-void Race::set_name(const char *input_name) {
+void Sentient::set_name(const char *input_name) {
   name = input_name;
 }
