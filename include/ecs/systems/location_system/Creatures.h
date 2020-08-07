@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include "ecs/entities/location_enities/creatures_entities/Magwehr.h"
+#include "ecs/entities/location_enities/magwehrs_entities/Magwehr.h"
 
 class Creatures {
  private:
