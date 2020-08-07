@@ -12,7 +12,7 @@ class AbsPockets {
   const unsigned pocket_size;
   unsigned wallet = 0;
 
-  AbsPockets(unsigned int input_pocket_size) : pocket_size(input_pocket_size) {
+  explicit AbsPockets(unsigned int input_pocket_size) : pocket_size(input_pocket_size) {
     pocket = new Item*[pocket_size];
     for (unsigned int i = 0; i < pocket_size; i++) {
       pocket[i] = nullptr;

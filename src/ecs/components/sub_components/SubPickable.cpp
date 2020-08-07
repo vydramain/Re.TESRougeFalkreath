@@ -5,7 +5,7 @@
 #include "ecs/components/sub_components/SubPickable.hpp"
 
 SubPickable::SubPickable(bool input_pick, unsigned input_x, unsigned input_y)
-        : AbsPickable(input_pick), SubLocatable(input_x, input_x) {}
+        : AbsPickable(input_pick), SubLocatable(input_x, input_y) {}
 
 SubPickable::~SubPickable() = default;
 
