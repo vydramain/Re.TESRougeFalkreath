@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "ecs/entities/location_enities/Location.h"
 #include "ecs/entities/scenes_entities/IScene.h"
 #include "ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControls.h"
+#include "ecs/systems/location_system/Location.h"
 
 class AdventureScene : public IScene {
  private:
