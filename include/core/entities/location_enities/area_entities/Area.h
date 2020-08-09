@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/LocationEntity.h"
 
 class Area : public LocationEntity {
  private:

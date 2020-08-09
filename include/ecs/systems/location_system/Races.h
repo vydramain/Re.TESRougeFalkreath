@@ -2,12 +2,11 @@
 // Created by vydra on 8/3/20.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_RACES_H_
-#define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_RACES_H_
+#pragma once
 
 #include <vector>
 
-#include "ecs/entities/location_enities/sentients_entities/Sentient.h"
+#include "core/entities/location_enities/sentients_entities/Sentient.h"
 
 class Races {
  private:
@@ -30,5 +29,3 @@ class Races {
   const Sentient *get_player() const;
   const Sentient *get_race(unsigned input_index) const;
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_RACES_H_

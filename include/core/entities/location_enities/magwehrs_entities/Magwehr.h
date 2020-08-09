@@ -5,7 +5,7 @@
 #pragma once
 
 #include "core/components/sub_components/SubWalketh.hpp"
-#include "ecs/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/LocationEntity.h"
 
 class Magwehr : public LocationEntity, public SubWalketh {
  public:

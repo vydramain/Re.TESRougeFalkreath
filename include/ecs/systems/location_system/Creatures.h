@@ -2,12 +2,11 @@
 // Created by vydra on 16.07.2020.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_CREATURES_H_
-#define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_CREATURES_H_
+#pragma once
 
 #include <vector>
 
-#include "ecs/entities/location_enities/magwehrs_entities/Magwehr.h"
+#include "core/entities/location_enities/magwehrs_entities/Magwehr.h"
 
 class Creatures {
  private:
@@ -25,5 +24,3 @@ class Creatures {
   Magwehr *get_creature(unsigned input_index);
   const Magwehr *get_creature(unsigned input_index) const;
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_CREATURES_H_

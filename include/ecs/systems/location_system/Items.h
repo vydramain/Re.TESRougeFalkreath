@@ -2,13 +2,12 @@
 // Created by vydra on 8/3/20.
 //
 
-#ifndef INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
-#define INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_
+#pragma once
 
 #include <algorithm>
 #include <vector>
 
-#include "ecs/entities/location_enities/items_entities/Item.h"
+#include "core/entities/location_enities/items_entities/Item.h"
 
 class Items {
  private:
@@ -26,5 +25,3 @@ class Items {
   int get_item_index(unsigned input_x, unsigned input_y);
   const Item *get_item(unsigned input_index) const;
 };
-
-#endif  // INCLUDE_ECS_SYSTEMS_LOCATION_SYSTEM_ITEMS_H_

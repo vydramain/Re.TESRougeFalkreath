@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entities/location_enities/items_entities/Item.h"
+#include "core/entities/location_enities/items_entities/Item.h"
 
 class AbsPockets {
  protected:

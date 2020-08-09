@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entities/location_enities/sentients_entities/Sentient.h"
+#include "core/entities/location_enities/sentients_entities/Sentient.h"
 
 class Khadjiit : public Sentient {
  public:

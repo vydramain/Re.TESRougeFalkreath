@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include <ecs/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h>
+#include <core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h>
 
 Khadjiit::Khadjiit(const char *input_name, unsigned int input_current_x, unsigned int input_current_y,
                    unsigned int input_pocket)

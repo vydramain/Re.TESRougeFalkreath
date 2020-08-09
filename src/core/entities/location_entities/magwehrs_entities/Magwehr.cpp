@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/location_enities/magwehrs_entities/Magwehr.h"
+#include "core/entities/location_enities/magwehrs_entities/Magwehr.h"
 
 Magwehr::Magwehr(const char *input_name, const unsigned input_x, const unsigned input_y)
     : LocationEntity(input_name), SubWalketh(input_x, input_y) {

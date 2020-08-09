@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/entities/location_enities/area_entities/Area.h"
+#include "core/entities/location_enities/area_entities/Area.h"
 
 Area::Area(const char* input_name, const unsigned input_size_x, const unsigned input_size_y, char **input_data)
     : LocationEntity(input_name), size_x(input_size_x), size_y(input_size_y) {

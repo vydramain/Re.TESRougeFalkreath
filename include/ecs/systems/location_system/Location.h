@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "ecs/entities/location_enities/LocationEntity.h"
-#include "ecs/entities/location_enities/area_entities/Area.h"
+#include "core/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/area_entities/Area.h"
 #include "ecs/systems/location_system/Creatures.h"
 #include "ecs/systems/location_system/Items.h"
 #include "ecs/systems/location_system/Races.h"

@@ -5,7 +5,7 @@
 #pragma once
 
 #include "core/components/sub_components/SubPickable.hpp"
-#include "ecs/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/LocationEntity.h"
 
 class Item : public LocationEntity, public SubPickable {
  public:
