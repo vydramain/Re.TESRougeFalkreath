@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "ecs/components/abs_components/AbsInteroperable.hpp"
-#include "ecs/components/sub_components/SubLocatable.hpp"
+#include "SubLocatable.hpp"
+#include "core/components/abs_components/AbsInteroperable.hpp"
 
 class SubWalketh : protected AbsInteroperable, public SubLocatable {
  protected:

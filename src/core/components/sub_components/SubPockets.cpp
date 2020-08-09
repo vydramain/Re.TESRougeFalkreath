@@ -2,7 +2,7 @@
 // Created by vydra on 8/7/20.
 //
 
-#include "ecs/components/sub_components/SubPockets.hpp"
+#include "core/components/sub_components/SubPockets.hpp"
 
 SubPockets::SubPockets(unsigned int input_pocket_size) : AbsPockets(input_pocket_size) {}
 

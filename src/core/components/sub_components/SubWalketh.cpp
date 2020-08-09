@@ -2,7 +2,7 @@
 // Created by vydra on 8/7/20.
 //
 
-#include "ecs/components/sub_components/SubWalketh.hpp"
+#include "core/components/sub_components/SubWalketh.hpp"
 
 void SubWalketh::set_sight() {
   sight_x = current_x;

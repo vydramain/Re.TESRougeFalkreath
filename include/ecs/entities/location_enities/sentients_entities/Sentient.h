@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "ecs/components/sub_components/SubPockets.hpp"
-#include "ecs/components/sub_components/SubWalketh.hpp"
+#include "core/components/sub_components/SubPockets.hpp"
+#include "core/components/sub_components/SubWalketh.hpp"
 #include "ecs/entities/Entity.h"
 
 class Sentient : public Entity, public SubWalketh, public SubPockets {

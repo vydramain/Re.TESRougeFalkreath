@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/components/sub_components/SubWalketh.hpp"
+#include "core/components/sub_components/SubWalketh.hpp"
 #include "ecs/entities/Entity.h"
 
 class Magwehr : public Entity, public SubWalketh {

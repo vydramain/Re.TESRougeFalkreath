@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/components/sub_components/SubPickable.hpp"
+#include "core/components/sub_components/SubPickable.hpp"
 #include "ecs/entities/Entity.h"
 
 class Item : public Entity, public SubPickable {

@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/components/abs_components/AbsLocatable.hpp"
+#include "core/components/abs_components/AbsLocatable.hpp"
 
 class SubLocatable : protected AbsLocatable {
 public:

@@ -2,7 +2,7 @@
 // Created by vydra on 8/7/20.
 //
 
-#include "ecs/components/sub_components/SubLocatable.hpp"
+#include "core/components/sub_components/SubLocatable.hpp"
 
 SubLocatable::SubLocatable(unsigned int input_x, unsigned int input_y) : AbsLocatable(input_x, input_y) {}
 

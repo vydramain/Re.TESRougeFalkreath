@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "ecs/components/abs_components/AbsPickable.hpp"
-#include "ecs/components/sub_components/SubLocatable.hpp"
+#include "SubLocatable.hpp"
+#include "core/components/abs_components/AbsPickable.hpp"
 
 class SubPickable : protected AbsPickable, public SubLocatable {
  public:

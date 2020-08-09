@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/components/abs_components/AbsPockets.hpp"
+#include "core/components/abs_components/AbsPockets.hpp"
 
 class SubPockets : protected AbsPockets {
  public:

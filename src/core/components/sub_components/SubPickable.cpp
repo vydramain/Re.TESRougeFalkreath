@@ -2,7 +2,7 @@
 // Created by vydra on 8/7/20.
 //
 
-#include "ecs/components/sub_components/SubPickable.hpp"
+#include "core/components/sub_components/SubPickable.hpp"
 
 SubPickable::SubPickable(bool input_pick, unsigned input_x, unsigned input_y)
         : AbsPickable(input_pick), SubLocatable(input_x, input_y) {}
