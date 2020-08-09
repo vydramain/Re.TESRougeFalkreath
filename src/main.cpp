@@ -1,7 +1,7 @@
 
 #include <core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h>
-#include <ecs/entities/scenes_entities/main_scenes/main_loop_scene/MainLoopScene.h>
-#include <ecs/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h>
+#include <core/entities/scenes_entities/main_scenes/main_loop_scene/MainLoopScene.h>
+#include <core/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h>
 #include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
 
 int main() {

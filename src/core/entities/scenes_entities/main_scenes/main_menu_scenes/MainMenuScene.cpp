@@ -2,7 +2,7 @@
 // Created by vydra on 12.07.2020.
 //
 
-#include "ecs/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h"
+#include "core/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h"
 
 MainMenuScene::MainMenuScene() : IMainScene("main_menu") {
   render = new main_menu_render();

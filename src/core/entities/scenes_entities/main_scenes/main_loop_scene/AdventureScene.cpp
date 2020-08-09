@@ -2,13 +2,12 @@
 // Created by vydra on 7/30/20.
 //
 
-#include "ecs/entities/scenes_entities/main_scenes/main_loop_scene/AdventureScene.h"
+#include "core/entities/scenes_entities/main_scenes/main_loop_scene/AdventureScene.h"
 
 AdventureScene::AdventureScene(Location *input_location)
-    : IScene("AdventureScene"), location(input_location), mla_input(new MLAControls(input_location)) {}
+    : IScene("AdventureScene"), mla_input(new MLAControls(input_location)) {}
 
 AdventureScene::~AdventureScene() {
-  location = nullptr;
   delete mla_input;
 }
 
