@@ -7,9 +7,9 @@
 class AbsPseudoRendering {
  protected:
   char tile;
-  unsigned short int color;
+  unsigned int color;
 
  public:
-  explicit AbsPseudoRendering(const char input_tile, const unsigned short int input_color) : tile(input_tile), color(input_color) {}
+  explicit AbsPseudoRendering(const char input_tile, const unsigned int input_color) : tile(input_tile), color(input_color) {}
   ~AbsPseudoRendering() = default;
 };

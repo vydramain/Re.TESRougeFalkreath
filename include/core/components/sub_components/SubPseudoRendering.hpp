@@ -8,9 +8,9 @@
 
 class SubPseudoRendering : protected AbsPseudoRendering {
  public:
-  explicit SubPseudoRendering(char input_tile, unsigned short int input_color);
+  explicit SubPseudoRendering(char input_tile, unsigned int input_color);
   ~SubPseudoRendering();
 
   char get_tile() const;
-  unsigned short get_color();
+  unsigned get_color();
 };
