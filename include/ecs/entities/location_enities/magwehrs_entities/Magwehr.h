@@ -5,9 +5,9 @@
 #pragma once
 
 #include "core/components/sub_components/SubWalketh.hpp"
-#include "ecs/entities/Entity.h"
+#include "ecs/entities/location_enities/LocationEntity.h"
 
-class Magwehr : public Entity, public SubWalketh {
+class Magwehr : public LocationEntity, public SubWalketh {
  public:
   explicit Magwehr(const char *input_name, unsigned input_x = 0, unsigned input_y = 0);
   Magwehr(const Magwehr &input_creature);

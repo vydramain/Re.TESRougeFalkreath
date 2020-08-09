@@ -5,9 +5,9 @@
 #pragma once
 
 #include "core/components/sub_components/SubPickable.hpp"
-#include "ecs/entities/Entity.h"
+#include "ecs/entities/location_enities/LocationEntity.h"
 
-class Item : public Entity, public SubPickable {
+class Item : public LocationEntity, public SubPickable {
  public:
   explicit Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y);
   ~Item();

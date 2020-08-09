@@ -4,8 +4,6 @@
 #include <ecs/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h>
 #include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
 
-#include <core/components/sub_components/SubPseudoRendering.hpp>
-
 int main() {
   unsigned x = 70;
   unsigned y = 50;

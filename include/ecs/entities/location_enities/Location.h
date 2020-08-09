@@ -4,13 +4,13 @@
 
 #pragma once
 
-#include "ecs/entities/Entity.h"
+#include "ecs/entities/location_enities/LocationEntity.h"
 #include "ecs/entities/location_enities/area_entities/Area.h"
 #include "ecs/systems/location_system/Creatures.h"
 #include "ecs/systems/location_system/Items.h"
 #include "ecs/systems/location_system/Races.h"
 
-class Location : public Entity {
+class Location : public LocationEntity {
  private:
   Area *current_area;
   Races *current_races;

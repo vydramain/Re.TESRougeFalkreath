@@ -6,7 +6,7 @@
 
 Location::Location(const char *input_name, Area *input_area, Races *input_races, Creatures *input_creatures,
                    Items *input_items)
-    : Entity(input_name) {
+    : LocationEntity(input_name) {
   current_area = input_area;
   current_items = input_items;
   current_races = input_races;

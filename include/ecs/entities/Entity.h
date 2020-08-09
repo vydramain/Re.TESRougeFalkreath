@@ -6,12 +6,12 @@
 
 class Entity {
  private:
-  int id = 0;
+  unsigned id = 0;
   const char* name;
 
  public:
   explicit Entity(const char* input_name);
-  ~Entity() = default;
+  virtual ~Entity() = default;
 
   const char* get_name() const;
   void set_name(const char* input_name);
