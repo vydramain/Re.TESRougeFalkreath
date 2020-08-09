@@ -11,7 +11,7 @@ class GLAControls {
   GLAControlMap *control_map;
 
  public:
-  explicit GLAControls(Location *input_location) : control_map(new GLAControlMap(input_location)) {}
+  explicit GLAControls(LocationSystem *input_location) : control_map(new GLAControlMap(input_location)) {}
   ~GLAControls() = default;
 
   IControl *update() {

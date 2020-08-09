@@ -29,7 +29,7 @@ class GLAControlMap {
   std::map<int, IControl *>::iterator glas_iterator;
 
  public:
-  explicit GLAControlMap(Location *input_location) {
+  explicit GLAControlMap(LocationSystem *input_location) {
     control_player_down = new GLAControlPlayerDown(input_location);
     control_player_left = new GLAControlPlayerLeft(input_location);
     control_player_right = new GLAControlPlayerRight(input_location);

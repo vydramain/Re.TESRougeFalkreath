@@ -6,9 +6,9 @@
 
 #include "core/components/sub_components/SubPockets.hpp"
 #include "core/components/sub_components/SubWalketh.hpp"
-#include "core/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/LocationsEntity.h"
 
-class Sentient : public LocationEntity, public SubWalketh, public SubPockets {
+class Sentient : public LocationsEntity, public SubWalketh, public SubPockets {
  public:
   explicit Sentient(const char *input_name, unsigned input_current_x = 0, unsigned input_current_y = 0,
                     unsigned input_pocket_size = 10, unsigned input_wallet = 0);

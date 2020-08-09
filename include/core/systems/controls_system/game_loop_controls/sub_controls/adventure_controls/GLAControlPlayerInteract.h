@@ -5,14 +5,14 @@
 #pragma once
 
 #include "core/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/Location.h"
+#include "ecs/systems/location_system/LocationSystem.h"
 
 class GLAControlPlayerInteract : public IControl {
  private:
-  Location* location;
+  LocationSystem* location;
 
  public:
-  explicit GLAControlPlayerInteract(Location* input_location)
+  explicit GLAControlPlayerInteract(LocationSystem* input_location)
       : IControl("GLAControlPlayerInteract"), location(input_location) {}
 
   void execute() override {

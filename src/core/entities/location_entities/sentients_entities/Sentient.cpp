@@ -6,10 +6,10 @@
 
 Sentient::Sentient(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
                    const unsigned input_pocket_size, const unsigned input_wallet)
-    : LocationEntity(input_name), SubWalketh(input_current_x, input_current_y), SubPockets(input_pocket_size) {}
+    : LocationsEntity(input_name), SubWalketh(input_current_x, input_current_y), SubPockets(input_pocket_size) {}
 
 Sentient::Sentient(const Sentient &input_sentient)
-    : LocationEntity(input_sentient.get_name()),
+    : LocationsEntity(input_sentient.get_name()),
       SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
       SubPockets(input_sentient.get_pocket_size()) {
   set_sight();
@@ -22,7 +22,7 @@ Sentient::Sentient(const Sentient &input_sentient)
 }
 
 Sentient::Sentient(Sentient &&input_sentient) noexcept
-    : LocationEntity(input_sentient.get_name()),
+    : LocationsEntity(input_sentient.get_name()),
       SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
       SubPockets(input_sentient.get_pocket_size()) {
   set_sight();

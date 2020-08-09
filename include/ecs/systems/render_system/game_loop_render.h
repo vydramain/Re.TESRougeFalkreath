@@ -9,7 +9,7 @@
 
 #include "./BearLibTerminal.h"
 #include "ecs/systems//render_system/interface_render.h"
-#include "ecs/systems/location_system/Location.h"
+#include "ecs/systems/location_system/LocationSystem.h"
 
 class game_loop_render : public interface_render {
  private:
@@ -25,14 +25,14 @@ class game_loop_render : public interface_render {
 
   unsigned steps = 0;
 
-  const Location *location = nullptr;
+  const LocationSystem *location = nullptr;
   const Sentient *target = nullptr;
 
   unsigned int current_camera_x;
   unsigned int current_camera_y;
 
  public:
-  explicit game_loop_render(const Location *input_location, const Creatures *input_creatures);
+  explicit game_loop_render(const LocationSystem *input_location, const MagwehrsSystem *input_creatures);
   ~game_loop_render() override;
 
   void set_target_creature(const Sentient *input_target);

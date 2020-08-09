@@ -4,10 +4,10 @@
 
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
-GameLoopScene::GameLoopScene(const char *input_area_name, Area *input_area, Races *input_races,
-                             Creatures *input_creatures, Items *input_items)
+GameLoopScene::GameLoopScene(const char *input_area_name, Area *input_area, SentientsSystem *input_races,
+                             MagwehrsSystem *input_creatures, ItemsSystem *input_items)
     : IMainScene("MainLoopScene") {
-  location = new Location(input_area_name, input_area, input_races, input_creatures, input_items);
+  location = new LocationSystem(input_area_name, input_area, input_races, input_creatures, input_items);
 
   render = new game_loop_render(location, input_creatures);
 }

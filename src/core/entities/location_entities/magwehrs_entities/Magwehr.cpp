@@ -5,18 +5,18 @@
 #include "core/entities/location_enities/magwehrs_entities/Magwehr.h"
 
 Magwehr::Magwehr(const char *input_name, const unsigned input_x, const unsigned input_y)
-    : LocationEntity(input_name), SubWalketh(input_x, input_y) {
+    : LocationsEntity(input_name), SubWalketh(input_x, input_y) {
   set_sight();
 }
 
 Magwehr::Magwehr(const Magwehr &input_magwehr)
-    : LocationEntity(input_magwehr.get_name()),
+    : LocationsEntity(input_magwehr.get_name()),
       SubWalketh(input_magwehr.get_current_x(), input_magwehr.get_current_y()) {
   set_sight();
 }
 
 Magwehr::Magwehr(Magwehr &&input_magwehr) noexcept
-    : LocationEntity(input_magwehr.get_name()),
+    : LocationsEntity(input_magwehr.get_name()),
       SubWalketh(input_magwehr.get_current_x(), input_magwehr.get_current_y()) {
   set_sight();
 }

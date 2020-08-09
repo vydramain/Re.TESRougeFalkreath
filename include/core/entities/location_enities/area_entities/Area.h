@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "core/entities/location_enities/LocationEntity.h"
+#include "core/entities/location_enities/LocationsEntity.h"
 
-class Area : public LocationEntity {
+class Area : public LocationsEntity {
  private:
   const unsigned size_x;
   const unsigned size_y;

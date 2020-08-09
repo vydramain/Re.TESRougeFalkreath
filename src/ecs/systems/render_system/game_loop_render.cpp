@@ -4,7 +4,7 @@
 
 #include "ecs/systems/render_system/game_loop_render.h"
 
-game_loop_render::game_loop_render(const Location *input_location, const Creatures *input_creatures) {
+game_loop_render::game_loop_render(const LocationSystem *input_location, const MagwehrsSystem *input_creatures) {
   terminal_open();
   terminal_set("window: title='re.TESFalkreath', cellsize=8x15, size=100x40, fullscreen=true;");
   terminal_layer(0);
@@ -247,7 +247,7 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
 void game_loop_render::render_races(unsigned input_camera_x, unsigned input_camera_y) {
   const Sentient *race;
   for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
-    race = location->get_races()->get_race(i);
+    race = location->get_races()->get_sentient(i);
     unsigned race_x = race->get_current_x();
     unsigned race_y = race->get_current_y();
 
@@ -263,7 +263,7 @@ void game_loop_render::render_races(unsigned input_camera_x, unsigned input_came
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
   const Magwehr *creature;
   for (unsigned i = 0; i < location->get_creatures()->get_size(); i++) {
-    creature = location->get_creatures()->get_creature(i);
+    creature = location->get_creatures()->get_magwehr(i);
     unsigned creature_x = creature->get_current_x();
     unsigned creature_y = creature->get_current_y();
 

@@ -7,9 +7,9 @@
 #include "core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h"
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 #include "core/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/Creatures.h"
-#include "ecs/systems/location_system/Items.h"
-#include "ecs/systems/location_system/Races.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
 class GControlNewGame : public IControl {
  private:
@@ -33,10 +33,10 @@ class GControlNewGame : public IControl {
         m[i][j] = '.';
       }
     }
-    auto *creatures = new Creatures(0);
-    auto *races = new Races(0);
+    auto *creatures = new MagwehrsSystem(0);
+    auto *races = new SentientsSystem(0);
     races->put_player(new Khadjiit("pl", 5, 2));
-    auto *items = new Items(4);
+    auto *items = new ItemsSystem(4);
     items->put_item(new Item("Coin", false, 3, 2));
     items->put_item(new Item("Coin", false, 30, 20));
     items->put_item(new Item("Coin", false, 13, 12));

@@ -6,7 +6,7 @@
 
 #include "core/entities/scenes_entities/IScene.h"
 #include "core/systems/controls_system/game_loop_controls/sub_controls/adventure_controls/GLAControls.h"
-#include "ecs/systems/location_system/Location.h"
+#include "ecs/systems/location_system/LocationSystem.h"
 
 class AdventureScene : public IScene {
  private:
@@ -14,7 +14,7 @@ class AdventureScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit AdventureScene(Location *input_location);
+  explicit AdventureScene(LocationSystem *input_location);
   ~AdventureScene() override;
 
   IControl *get_last_control();

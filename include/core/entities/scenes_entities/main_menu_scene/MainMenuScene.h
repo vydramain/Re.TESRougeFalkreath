@@ -21,7 +21,7 @@ class MainMenuScene : public IMainScene {
   const char *const title = "Главное меню:";
   const char *choices[EXIT_CHOICE] = {"Играть", "Выход"};
   const unsigned count_choices = EXIT_CHOICE;
-  unsigned *highlighted = new unsigned(0);
+  unsigned *highlighted = new unsigned(1);
 
  public:
   explicit MainMenuScene();

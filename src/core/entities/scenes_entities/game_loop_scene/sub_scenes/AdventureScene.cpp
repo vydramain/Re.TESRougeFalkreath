@@ -4,7 +4,7 @@
 
 #include "core/entities/scenes_entities/game_loop_scene/sub_scenes/AdventureScene.h"
 
-AdventureScene::AdventureScene(Location *input_location)
+AdventureScene::AdventureScene(LocationSystem *input_location)
     : IScene("AdventureScene"), mla_input(new GLAControls(input_location)) {}
 
 AdventureScene::~AdventureScene() {

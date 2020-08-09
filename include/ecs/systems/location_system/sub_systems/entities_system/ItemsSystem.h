@@ -9,13 +9,13 @@
 
 #include "core/entities/location_enities/items_entities/Item.h"
 
-class Items {
+class ItemsSystem {
  private:
-  std::vector<Item> vec_items;
+  std::vector<Item*> items;
 
  public:
-  explicit Items(unsigned input_count);
-  ~Items();
+  explicit ItemsSystem(unsigned input_count);
+  ~ItemsSystem();
 
   void put_item(Item *input_item);
   Item *remove_item(unsigned input_index);

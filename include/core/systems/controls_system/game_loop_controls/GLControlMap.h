@@ -9,7 +9,7 @@
 #include "core/systems/controls_system/game_loop_controls/GLControlAdventure.h"
 #include "core/systems/controls_system/game_loop_controls/GLControlEmpty.h"
 #include "core/systems/controls_system/game_loop_controls/GLControlExit.h"
-#include "ecs/systems/location_system/Location.h"
+#include "ecs/systems/location_system/LocationSystem.h"
 
 class GLControlMap {
  private:
@@ -23,7 +23,7 @@ class GLControlMap {
   IGLControl *last_control = nullptr;
 
  public:
-  explicit GLControlMap(Location *input_location) {
+  explicit GLControlMap(LocationSystem *input_location) {
     control_adventure = new GLControlAdventure(input_location);
 
     gl_map["GLAControlExit"] = control_exit;

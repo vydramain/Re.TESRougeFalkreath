@@ -13,7 +13,7 @@ class GLControlAdventure : public IGLControl {
   AdventureScene *scene;
 
  public:
-  explicit GLControlAdventure(Location *input_location)
+  explicit GLControlAdventure(LocationSystem *input_location)
       : IGLControl("GLControlAdventure"), scene(new AdventureScene(input_location)) {}
   ~GLControlAdventure() override {
     delete scene;
