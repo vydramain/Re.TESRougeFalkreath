@@ -5,22 +5,14 @@
 #include "ecs/entities/location_enities/items_entities/Item.h"
 
 Item::Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y)
-    : SubPickable(input_pick, input_x, input_y), name(input_name) {}
+    :  Entity(input_name), SubPickable(input_pick, input_x, input_y) {}
 
 Item::~Item() = default;
 
 bool Item::operator==(const Item& rhs) const {
-  return name == rhs.name;
+  return get_name() == rhs.get_name();
 }
 
 bool Item::operator!=(const Item& rhs) const {
   return !(rhs == *this);
-}
-
-const char* Item::get_name() const {
-  return name;
-}
-
-void Item::set_name(const char* input_name) {
-  name = input_name;
 }

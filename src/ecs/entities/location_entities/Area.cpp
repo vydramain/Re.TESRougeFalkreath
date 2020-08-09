@@ -4,8 +4,8 @@
 
 #include "ecs/entities/location_enities/Area.h"
 
-Area::Area(const unsigned input_size_x, const unsigned input_size_y, char **input_data)
-    : size_x(input_size_x), size_y(input_size_y) {
+Area::Area(const char* input_name, const unsigned input_size_x, const unsigned input_size_y, char **input_data)
+    : Entity(input_name), size_x(input_size_x), size_y(input_size_y) {
   if (input_data != nullptr) {
     data = new char *[size_x];
     for (unsigned i = 0; i < size_x; i++) {

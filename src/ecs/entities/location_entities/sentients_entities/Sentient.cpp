@@ -5,15 +5,15 @@
 #include "ecs/entities/location_enities/sentients_entities/Sentient.h"
 
 Sentient::Sentient(const char *input_name, const unsigned input_current_x, const unsigned input_current_y,
-           const unsigned input_pocket_size, const unsigned input_wallet)
-    : SubWalketh(input_current_x, input_current_y), SubPockets(input_pocket_size), name(input_name) {}
+                   const unsigned input_pocket_size, const unsigned input_wallet)
+    : Entity(input_name), SubWalketh(input_current_x, input_current_y), SubPockets(input_pocket_size) {}
 
-Sentient::Sentient(const Sentient &input_race)
-    : SubWalketh(input_race.get_current_x(), input_race.get_current_y()),
-      SubPockets(input_race.get_pocket_size()),
-      name(input_race.get_name()) {
+Sentient::Sentient(const Sentient &input_sentient)
+    : Entity(input_sentient.get_name()),
+      SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
+      SubPockets(input_sentient.get_pocket_size()) {
   set_sight();
-  set_wallet(input_race.get_wallet());
+  set_wallet(input_sentient.get_wallet());
   for (unsigned i = 0; i < get_pocket_size(); i++) {
     if (get_item(i) != nullptr) {
       put_item(new Item(*get_item(i)));
@@ -21,19 +21,19 @@ Sentient::Sentient(const Sentient &input_race)
   }
 }
 
-Sentient::Sentient(Sentient &&input_race) noexcept
-    : SubWalketh(input_race.get_current_x(), input_race.get_current_y()),
-      SubPockets(input_race.get_pocket_size()),
-      name(input_race.get_name()) {
+Sentient::Sentient(Sentient &&input_sentient) noexcept
+    : Entity(input_sentient.get_name()),
+      SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
+      SubPockets(input_sentient.get_pocket_size()) {
   set_sight();
-  set_wallet(input_race.get_wallet());
+  set_wallet(input_sentient.get_wallet());
   for (unsigned i = 0; i < get_pocket_size(); i++) {
     put_item(remove_item(i));
   }
 }
 
 Sentient &Sentient::operator=(const Sentient &input_race) {
-  name = input_race.get_name();
+  set_name(input_race.get_name());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
   set_sight();
@@ -44,7 +44,7 @@ Sentient &Sentient::operator=(const Sentient &input_race) {
   return *this;
 }
 Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
-  name = input_race.get_name();
+  set_name(input_race.get_name());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
   set_sight();
@@ -53,10 +53,4 @@ Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
     put_item(remove_item(i));
   }
   return *this;
-}
-const char *Sentient::get_name() const {
-  return name;
-}
-void Sentient::set_name(const char *input_name) {
-  name = input_name;
 }

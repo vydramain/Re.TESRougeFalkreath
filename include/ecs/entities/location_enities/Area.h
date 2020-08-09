@@ -4,7 +4,9 @@
 
 #pragma once
 
-class Area {
+#include "ecs/entities/Entity.h"
+
+class Area : public Entity {
  private:
   const unsigned size_x;
   const unsigned size_y;
@@ -12,7 +14,8 @@ class Area {
   char **data;
 
  public:
-  explicit Area(unsigned input_size_x = 0, unsigned input_size_y = 0, char **input_data = nullptr);
+  explicit Area(const char *input_name, unsigned input_size_x = 0, unsigned input_size_y = 0,
+                char **input_data = nullptr);
   ~Area();
 
   unsigned get_size_x() const;

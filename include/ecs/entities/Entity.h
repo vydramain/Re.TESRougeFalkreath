@@ -11,7 +11,8 @@ class Entity {
 
  public:
   explicit Entity(const char* input_name);
-  virtual ~Entity() = 0;
+  ~Entity() = default;
 
   const char* get_name() const;
+  void set_name(const char* input_name);
 };

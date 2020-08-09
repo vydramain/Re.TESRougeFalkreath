@@ -93,8 +93,8 @@ void game_loop_render::new_camera_position_x() {
   if (target->get_current_x() < active_zone_in_x) {
     current_camera_x = 0;
   }
-  if (location->get_size_x() - target->get_current_x() < active_zone_out_x) {
-    current_camera_x = location->get_size_x() - passive_zone_out_x;
+  if (location->get_area()->get_size_x() - target->get_current_x() < active_zone_out_x) {
+    current_camera_x = location->get_area()->get_size_x() - passive_zone_out_x;
   }
 }
 
@@ -103,8 +103,8 @@ void game_loop_render::new_camera_position_y() {
   if (target->get_current_y() < active_zone_in_y) {
     current_camera_y = 0;
   }
-  if (location->get_size_y() - target->get_current_y() < active_zone_out_y) {
-    current_camera_y = location->get_size_y() - passive_zone_out_y;
+  if (location->get_area()->get_size_y() - target->get_current_y() < active_zone_out_y) {
+    current_camera_y = location->get_area()->get_size_y() - passive_zone_out_y;
   }
 }
 
@@ -120,8 +120,8 @@ void game_loop_render::update_camera_position_x() {
     }
     if (target_x > current_camera_x + active_zone_out_x) {
       current_camera_x = target_x - active_zone_out_x;
-      if (target_x >= location->get_size_x() - active_zone_in_x) {
-        current_camera_x = location->get_size_x() - passive_zone_out_x;
+      if (target_x >= location->get_area()->get_size_x() - active_zone_in_x) {
+        current_camera_x = location->get_area()->get_size_x() - passive_zone_out_x;
       }
     }
   }
@@ -139,8 +139,8 @@ void game_loop_render::update_camera_position_y() {
     }
     if (target_y > current_camera_y + active_zone_out_y) {
       current_camera_y = target_y - active_zone_out_y;
-      if (target_y >= location->get_size_y() - active_zone_in_y) {
-        current_camera_y = location->get_size_y() - passive_zone_out_y;
+      if (target_y >= location->get_area()->get_size_y() - active_zone_in_y) {
+        current_camera_y = location->get_area()->get_size_y() - passive_zone_out_y;
       }
     }
   }

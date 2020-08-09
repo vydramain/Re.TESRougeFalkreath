@@ -6,7 +6,7 @@
 
 Location::Location(const char *input_name, Area *input_area, Races *input_races, Creatures *input_creatures,
                    Items *input_items)
-    : name(input_name), size_x(input_area->get_size_x()), size_y(input_area->get_size_y()) {
+    : Entity(input_name) {
   current_area = input_area;
   current_items = input_items;
   current_races = input_races;
@@ -18,18 +18,6 @@ Location::~Location() {
   delete current_races;
   delete current_creatures;
   delete current_items;
-}
-
-const char *Location::get_name() const {
-  return name;
-}
-
-unsigned int Location::get_size_x() const {
-  return size_x;
-}
-
-unsigned int Location::get_size_y() const {
-  return size_y;
 }
 
 Area *Location::get_area() const {
@@ -46,8 +34,4 @@ Creatures *Location::get_creatures() const {
 
 Items *Location::get_items() const {
   return current_items;
-}
-
-void Location::set_name(const char *input_name) {
-  Location::name = input_name;
 }
