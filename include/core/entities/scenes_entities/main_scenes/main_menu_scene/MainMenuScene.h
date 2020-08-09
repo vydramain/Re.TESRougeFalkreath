@@ -13,7 +13,7 @@
 class MainMenuScene : public IMainScene {
  private:
   main_menu_render *render;
-  MMControls *mm_input;
+  MainControls *mm_input;
   IControl *last_control = nullptr;
 
   const char *const title = "Главное меню:";
@@ -24,6 +24,8 @@ class MainMenuScene : public IMainScene {
  public:
   explicit MainMenuScene();
   ~MainMenuScene() override;
+
+  unsigned get_highlighted() const;
 
   void run() override;
 };
