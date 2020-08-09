@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "ecs/entities/Entity.h"
+#include "core/entities/Entity.h"
 
 class LocationEntity : public Entity {
  public:
