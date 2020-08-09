@@ -16,6 +16,6 @@ class GLAControlPlayerRight : public IControl {
       : IControl("GLAControlPlayerRight"), location(input_location) {}
 
   void execute() override {
-    location->get_races()->get_player()->go_right(location->get_area()->get_size_x());
+    location->get_entities()->get_player()->go_right(location->get_area()->get_size_x());
   }
 };

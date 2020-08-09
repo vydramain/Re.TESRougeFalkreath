@@ -2,6 +2,7 @@
 
 #include <cstring>
 
+#include "adds/CCMech.h"
 #include "core/systems/controls_system/IControl.h"
 #include "core/systems/controls_system/global_controls/GControlMap.h"
 

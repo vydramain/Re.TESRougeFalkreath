@@ -36,3 +36,11 @@ Magwehr &Magwehr::operator=(Magwehr &&input_magwehr) noexcept {
   set_sight();
   return *this;
 }
+
+bool Magwehr::operator==(const Magwehr& rhs) const {
+  return get_name() == rhs.get_name();
+}
+
+bool Magwehr::operator!=(const Magwehr& rhs) const {
+  return !(rhs == *this);
+}

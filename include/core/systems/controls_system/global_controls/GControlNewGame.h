@@ -33,17 +33,17 @@ class GControlNewGame : public IControl {
         m[i][j] = '.';
       }
     }
-    auto *creatures = new MagwehrsSystem(0);
-    auto *races = new SentientsSystem(0);
-    races->put_player(new Khadjiit("pl", 5, 2));
-    auto *items = new ItemsSystem(4);
-    items->put_item(new Item("Coin", false, 3, 2));
-    items->put_item(new Item("Coin", false, 30, 20));
-    items->put_item(new Item("Coin", false, 13, 12));
-    items->put_item(new Item("Coin", false, 33, 22));
-    items->put_item(new Item("Coin", false, 53, 42));
 
-    auto *main_scene = new GameLoopScene("test_map", new Area("test", x, y, m), races, creatures, items);
+    auto *entities = new LocationsEntitiesSystem();
+    entities->put_player(new Khadjiit("pl", 5, 2));
+    entities->put_item(new Item("Coin", false, 3, 2));
+    entities->put_item(new Item("Coin", false, 30, 20));
+    entities->put_item(new Item("Coin", false, 13, 12));
+    entities->put_item(new Item("Coin", false, 33, 22));
+    entities->put_item(new Item("Coin", false, 53, 42));
+
+    auto *main_scene = new GameLoopScene("test_map", new Area("test", x, y, m),
+                                         entities);
     main_scene->run();
     delete main_scene;
   }

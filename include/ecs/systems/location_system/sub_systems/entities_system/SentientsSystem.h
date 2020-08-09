@@ -13,19 +13,20 @@ class SentientsSystem {
   std::vector<Sentient*> sentients;
 
  public:
-  explicit SentientsSystem(unsigned input_count);
-  ~SentientsSystem();
+  explicit SentientsSystem();
+  virtual ~SentientsSystem();
 
-  void put_player(Sentient *input_player);
-  Sentient *remove_player();
-
-  void put_sentient(Sentient *input_sentient);
-  Sentient *remove_sentient(unsigned input_index);
+  virtual void put_player(Sentient *input_player);
+  virtual Sentient *remove_player();
 
   Sentient *get_player();
   Sentient *get_sentient(unsigned input_index);
 
-  unsigned get_size() const;
-  const Sentient *get_player() const;
+  unsigned get_sentients_size() const;
+  int get_sentient_index(Sentient *input_magwehr);
   const Sentient *get_sentient(unsigned input_index) const;
+
+ protected:
+  virtual void put_sentient(Sentient *input_sentient);
+  virtual Sentient *remove_sentient(unsigned input_index);
 };

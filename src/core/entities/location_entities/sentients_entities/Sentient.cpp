@@ -54,3 +54,11 @@ Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
   }
   return *this;
 }
+
+bool Sentient::operator==(const Sentient& rhs) const {
+  return get_name() == rhs.get_name();
+}
+
+bool Sentient::operator!=(const Sentient& rhs) const {
+  return !(rhs == *this);
+}

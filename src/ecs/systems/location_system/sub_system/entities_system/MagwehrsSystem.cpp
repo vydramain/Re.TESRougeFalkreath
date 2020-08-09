@@ -6,9 +6,7 @@
 
 #include <vector>
 
-MagwehrsSystem::MagwehrsSystem(const unsigned input_count) {
-  magwehrs.reserve(input_count);
-}
+MagwehrsSystem::MagwehrsSystem() = default;
 
 MagwehrsSystem::~MagwehrsSystem() {
   magwehrs.clear();
@@ -24,12 +22,17 @@ Magwehr *MagwehrsSystem::remove_magwehr(unsigned int input_index) {
   return returning_magwehr;
 }
 
-unsigned MagwehrsSystem::get_size() const {
+unsigned MagwehrsSystem::get_magwehrs_size() const {
   return magwehrs.size();
 }
 
-Magwehr *MagwehrsSystem::get_magwehr(const unsigned int input_index) {
-  return magwehrs[input_index];
+int MagwehrsSystem::get_magwehr_index(Magwehr *input_magwehr) {
+  for (unsigned int i = 0; i < magwehrs.size(); i++) {
+    if (*magwehrs[i] == *input_magwehr) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 const Magwehr *MagwehrsSystem::get_magwehr(const unsigned int input_index) const {

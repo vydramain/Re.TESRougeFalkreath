@@ -4,9 +4,7 @@
 
 #include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
 
-ItemsSystem::ItemsSystem(const unsigned input_count) {
-  items.reserve(input_count);
-}
+ItemsSystem::ItemsSystem() = default;
 
 ItemsSystem::~ItemsSystem() {
   items.clear();
@@ -22,7 +20,7 @@ Item *ItemsSystem::remove_item(unsigned int input_index) {
   return returning_item;
 }
 
-unsigned ItemsSystem::get_size() const {
+unsigned ItemsSystem::get_items_size() const {
   return items.size();
 }
 

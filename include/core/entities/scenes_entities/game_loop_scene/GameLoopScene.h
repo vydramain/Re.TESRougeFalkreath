@@ -19,9 +19,7 @@ class GameLoopScene : public IMainScene {
   LocationSystem *location = nullptr;
 
  public:
-  explicit GameLoopScene(const char *input_area_name = nullptr, Area *input_area = nullptr,
-                         SentientsSystem *input_races = nullptr, MagwehrsSystem *input_creatures = nullptr,
-                         ItemsSystem *input_items = nullptr);
+  explicit GameLoopScene(const char *input_area_name, Area *input_area, LocationsEntitiesSystem *input_entities);
   ~GameLoopScene() override;
 
   void run() override;

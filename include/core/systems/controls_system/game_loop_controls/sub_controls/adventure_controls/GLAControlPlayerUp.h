@@ -16,6 +16,6 @@ class GLAControlPlayerUp : public IControl {
       : IControl("GLAControlPlayerUp"), location(input_location) {}
 
   void execute() override {
-    location->get_races()->get_player()->go_up();
+    location->get_entities()->get_player()->go_up();
   }
 };

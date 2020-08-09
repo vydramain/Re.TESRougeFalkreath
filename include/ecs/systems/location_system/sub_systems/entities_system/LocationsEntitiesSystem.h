@@ -6,24 +6,29 @@
 
 #include <vector>
 
-class LocationsEntitesSystem : public SentientsSystem, public MagwehrsSystem, public ItemsSystem {
+#include "adds/CCMech.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
+
+class LocationsEntitiesSystem : public SentientsSystem, public MagwehrsSystem, public ItemsSystem {
  private:
   std::vector<LocationsEntity> entities;
 
  public:
-  explicit LocationsEntitesSystem(unsigned input_count);
-  ~LocationsEntitesSystem();
+  explicit LocationsEntitiesSystem();
+  ~LocationsEntitiesSystem() override;
 
-  void put_players_entity(LocationEntity *input_player);
-  LocationsEntitesSystem *remove_players_entity();
+  void put_item(Item *input_entity) override;
+  void put_magwehr(Magwehr *input_entity) override;
+  void put_player(Sentient *input_entity) override;
+  void put_sentient(Sentient *input_entity) override;
 
-  void put_entity(LocationEntity *input_enity);
-  Sentient *remove_entity(unsigned input_index);
+  Item *remove_item(unsigned input_index) override;
+  Magwehr *remove_magwehr(unsigned input_index) override;
+  Sentient *remove_player() override;
+  Sentient *remove_sentient(unsigned input_index) override;
 
-  Sentient *get_players_entity();
-  Sentient *get_entity(unsigned input_index);
-
-  unsigned get_size() const;
-  const LocationsEntity *get_player() const;
+  LocationsEntity *get_entity(unsigned input_index);
   const LocationsEntity *get_entity(unsigned input_index) const;
 };

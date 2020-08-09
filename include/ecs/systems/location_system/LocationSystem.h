@@ -7,23 +7,19 @@
 #include "core/entities/location_enities/LocationsEntity.h"
 #include "core/entities/location_enities/area_entities/Area.h"
 #include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
+#include "ecs/systems/location_system/sub_systems/entities_system/LocationsEntitiesSystem.h"
 #include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
 #include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
 class LocationSystem {
  private:
-  Area *current_area;
-  SentientsSystem *current_races;
-  MagwehrsSystem *current_creatures;
-  ItemsSystem *current_items;
+  Area *area;
+  LocationsEntitiesSystem *entities;
 
  public:
-  explicit LocationSystem(const char *input_name, Area *input_area, SentientsSystem *input_races,
-                          MagwehrsSystem *input_creatures, ItemsSystem *input_items);
+  explicit LocationSystem(Area *input_area, LocationsEntitiesSystem *input_entites);
   ~LocationSystem();
 
   Area *get_area() const;
-  SentientsSystem *get_races() const;
-  MagwehrsSystem *get_creatures() const;
-  ItemsSystem *get_items() const;
+  LocationsEntitiesSystem *get_entities() const;
 };

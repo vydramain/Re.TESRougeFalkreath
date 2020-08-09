@@ -13,14 +13,14 @@ class MagwehrsSystem {
   std::vector<Magwehr*> magwehrs;
 
  public:
-  explicit MagwehrsSystem(unsigned input_count);
-  ~MagwehrsSystem();
+  explicit MagwehrsSystem();
+  virtual ~MagwehrsSystem();
 
-  void put_magwehr(Magwehr *input_creature);
-  Magwehr *remove_magwehr(unsigned input_index);
-
-  unsigned get_size() const;
-
-  Magwehr *get_magwehr(unsigned input_index);
+  unsigned get_magwehrs_size() const;
+  int get_magwehr_index(Magwehr *input_magwehr);
   const Magwehr *get_magwehr(unsigned input_index) const;
+
+ protected:
+  virtual void put_magwehr(Magwehr *input_creature);
+  virtual Magwehr *remove_magwehr(unsigned input_index);
 };

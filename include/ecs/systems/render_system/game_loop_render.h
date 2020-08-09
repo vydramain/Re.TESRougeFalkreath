@@ -32,7 +32,7 @@ class game_loop_render : public interface_render {
   unsigned int current_camera_y;
 
  public:
-  explicit game_loop_render(const LocationSystem *input_location, const MagwehrsSystem *input_creatures);
+  explicit game_loop_render(const LocationSystem *input_location);
   ~game_loop_render() override;
 
   void set_target_creature(const Sentient *input_target);

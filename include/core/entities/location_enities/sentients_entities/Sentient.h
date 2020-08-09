@@ -16,4 +16,7 @@ class Sentient : public LocationsEntity, public SubWalketh, public SubPockets {
   Sentient(Sentient &&input_sentient) noexcept;
   Sentient &operator=(const Sentient &input_race);
   Sentient &operator=(Sentient &&input_race) noexcept;
+
+  bool operator==(const Sentient& rhs) const;
+  bool operator!=(const Sentient& rhs) const;
 };

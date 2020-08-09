@@ -4,7 +4,7 @@
 
 #include "ecs/systems/render_system/game_loop_render.h"
 
-game_loop_render::game_loop_render(const LocationSystem *input_location, const MagwehrsSystem *input_creatures) {
+game_loop_render::game_loop_render(const LocationSystem *input_location) {
   terminal_open();
   terminal_set("window: title='re.TESFalkreath', cellsize=8x15, size=100x40, fullscreen=true;");
   terminal_layer(0);
@@ -13,7 +13,7 @@ game_loop_render::game_loop_render(const LocationSystem *input_location, const M
 
   location = input_location;
 
-  target = location->get_races()->get_player();
+  target = location->get_entities()->get_player();
 
   new_camera_position_x();
   new_camera_position_y();
@@ -246,8 +246,8 @@ void game_loop_render::render_area(unsigned input_camera_x, unsigned input_camer
 
 void game_loop_render::render_races(unsigned input_camera_x, unsigned input_camera_y) {
   const Sentient *race;
-  for (unsigned i = 0; i < location->get_races()->get_size(); i++) {
-    race = location->get_races()->get_sentient(i);
+  for (unsigned i = 0; i < location->get_entities()->get_sentients_size(); i++) {
+    race = location->get_entities()->get_sentient(i);
     unsigned race_x = race->get_current_x();
     unsigned race_y = race->get_current_y();
 
@@ -262,8 +262,8 @@ void game_loop_render::render_races(unsigned input_camera_x, unsigned input_came
 
 void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_camera_y) {
   const Magwehr *creature;
-  for (unsigned i = 0; i < location->get_creatures()->get_size(); i++) {
-    creature = location->get_creatures()->get_magwehr(i);
+  for (unsigned i = 0; i < location->get_entities()->get_magwehrs_size(); i++) {
+    creature = location->get_entities()->get_magwehr(i);
     unsigned creature_x = creature->get_current_x();
     unsigned creature_y = creature->get_current_y();
 
@@ -278,8 +278,8 @@ void game_loop_render::render_creatures(unsigned input_camera_x, unsigned input_
 
 void game_loop_render::render_items(unsigned int input_camera_x, unsigned int input_camera_y) {
   const Item *item;
-  for (unsigned i = 0; i < location->get_items()->get_size(); i++) {
-    item = location->get_items()->get_item(i);
+  for (unsigned i = 0; i < location->get_entities()->get_items_size(); i++) {
+    item = location->get_entities()->get_item(i);
     unsigned item_x = item->get_current_x();
     unsigned item_y = item->get_current_y();
 
@@ -306,13 +306,13 @@ void game_loop_render::render_hud() {
 
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
   char wallet[4];
-  snprintf(wallet, (size_t) "%u", "%u", location->get_races()->get_player()->get_wallet());
+  snprintf(wallet, (size_t) "%u", "%u", location->get_entities()->get_player()->get_wallet());
   terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
 
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
   char x[4], y[4];
-  snprintf(x, (size_t) "%u", "%u", location->get_races()->get_player()->get_current_x());
-  snprintf(y, (size_t) "%u", "%u", location->get_races()->get_player()->get_current_y());
+  snprintf(x, (size_t) "%u", "%u", location->get_entities()->get_player()->get_current_x());
+  snprintf(y, (size_t) "%u", "%u", location->get_entities()->get_player()->get_current_y());
   terminal_print(passive_zone_out_x + 15, passive_zone_out_y - 3, x);
   terminal_print(passive_zone_out_x + 18, passive_zone_out_y - 3, y);
 

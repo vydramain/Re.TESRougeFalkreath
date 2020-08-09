@@ -4,9 +4,7 @@
 
 #include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
-SentientsSystem::SentientsSystem(const unsigned input_count) {
-  sentients.reserve(input_count);
-}
+SentientsSystem::SentientsSystem() = default;
 
 SentientsSystem::~SentientsSystem() {
   sentients.clear();
@@ -33,7 +31,7 @@ Sentient *SentientsSystem::remove_sentient(unsigned int input_index) {
   return returning_sentient;
 }
 
-unsigned SentientsSystem::get_size() const {
+unsigned SentientsSystem::get_sentients_size() const {
   return sentients.size();
 }
 
@@ -45,9 +43,13 @@ Sentient *SentientsSystem::get_sentient(const unsigned int input_index) {
   return sentients[input_index];
 }
 
-const Sentient *SentientsSystem::get_player() const {
-  const Sentient *pointer = sentients[0];
-  return pointer;
+int SentientsSystem::get_sentient_index(Sentient *input_magwehr) {
+  for (unsigned int i = 0; i < sentients.size(); i++) {
+    if (*sentients[i] == *input_magwehr) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 const Sentient *SentientsSystem::get_sentient(const unsigned int input_index) const {
