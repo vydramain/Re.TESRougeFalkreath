@@ -1,36 +1,20 @@
 
-#include <core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h>
-#include <core/entities/scenes_entities/main_scenes/main_loop_scene/MainLoopScene.h>
-#include <core/entities/scenes_entities/main_scenes/main_menu_scene/MainMenuScene.h>
-#include <ecs/systems/controls_system/loop_controls/main_loop_adventure_scene_controls/MLAControlPlayerInteract.h>
+
+#include <cstring>
+
+#include "core/systems/controls_system/IControl.h"
+#include "core/systems/controls_system/global_controls/GControlMap.h"
 
 int main() {
-  unsigned x = 70;
-  unsigned y = 50;
+  auto *main_map = new GControlMap();
+  IControl *main_control;
 
-  char **m = new char *[x];
-  for (unsigned i = 0; i < x; i++) {
-    m[i] = new char[y];
-  }
-  for (unsigned i = 0; i < x; i++) {
-    for (unsigned j = 0; j < y; j++) {
-      m[i][j] = '.';
-    }
-  }
-  auto *creatures = new Creatures(0);
-  auto *races = new Races(0);
-  races->put_player(new Khadjiit("pl", 5, 2));
-  auto *items = new Items(4);
-  items->put_item(new Item("Coin", false, 3, 2));
-  items->put_item(new Item("Coin", false, 30, 20));
-  items->put_item(new Item("Coin", false, 13, 12));
-  items->put_item(new Item("Coin", false, 33, 22));
-  items->put_item(new Item("Coin", false, 53, 42));
+  do {
+    main_control = main_map->get_control(main_map->get_highlighted());
+    main_control->execute();
+  } while (std::strcmp(main_control->get_name(), "GControlExit") != 0);
 
-  auto *state = new MainLoopScene("test_map", new Area("test", x, y, m), races, creatures, items);
-  //      auto *state = new MainMenuScene();
-  state->run();
-  delete state;
+  delete main_map;
 
   return 0;
 }
