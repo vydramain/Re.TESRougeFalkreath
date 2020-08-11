@@ -9,7 +9,7 @@
 #include "core/entities/location_enities/magwehrs_entities/Magwehr.h"
 
 class MagwehrsSystem {
- private:
+ protected:
   std::vector<Magwehr*> magwehrs;
 
  public:

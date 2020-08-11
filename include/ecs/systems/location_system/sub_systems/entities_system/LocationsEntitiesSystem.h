@@ -17,6 +17,7 @@ class LocationsEntitiesSystem : public SentientsSystem, public MagwehrsSystem, p
 
  public:
   explicit LocationsEntitiesSystem();
+  LocationsEntitiesSystem(const LocationsEntitiesSystem &input_data);
   ~LocationsEntitiesSystem() override;
 
   void put_item(Item *input_entity) override;

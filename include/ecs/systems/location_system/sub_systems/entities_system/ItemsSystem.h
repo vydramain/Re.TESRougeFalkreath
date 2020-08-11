@@ -10,7 +10,7 @@
 #include "core/entities/location_enities/items_entities/Item.h"
 
 class ItemsSystem {
- private:
+ protected:
   std::vector<Item*> items;
 
  public:

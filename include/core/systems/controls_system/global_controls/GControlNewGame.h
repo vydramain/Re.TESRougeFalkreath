@@ -20,6 +20,7 @@ class GControlNewGame : public IControl {
   ~GControlNewGame() override = default;
 
   void execute() override {
+    delete highlighted;
     *highlighted = 0;
     unsigned x = 70;
     unsigned y = 50;
@@ -44,6 +45,14 @@ class GControlNewGame : public IControl {
 
     auto *main_scene = new GameLoopScene("test_map", new Area("test", x, y, m),
                                          entities);
+
+    delete highlighted;
+    delete entities;
+    for (unsigned i = 0; i < x; i++) {
+      delete m[i];
+    }
+    delete[] m;
+
     main_scene->run();
     delete main_scene;
   }

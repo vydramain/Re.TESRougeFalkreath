@@ -33,9 +33,13 @@ class GControlMap {
   }
 
   ~GControlMap() {
+    main_map.clear();
+
     delete main_menu;
     delete new_game;
     delete exit;
+
+    delete last_highlighted;
   }
 
   unsigned get_highlighted() const {

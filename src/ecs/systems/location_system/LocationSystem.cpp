@@ -4,8 +4,10 @@
 
 #include "ecs/systems/location_system/LocationSystem.h"
 
-LocationSystem::LocationSystem(Area *input_area, LocationsEntitiesSystem *input_entites)
-    : area(input_area), entities(input_entites) {}
+LocationSystem::LocationSystem(Area *input_area, LocationsEntitiesSystem *input_entites) {
+  area = new Area(*input_area);
+  entities = new LocationsEntitiesSystem(*input_entites);
+}
 
 LocationSystem::~LocationSystem() {
   delete area;

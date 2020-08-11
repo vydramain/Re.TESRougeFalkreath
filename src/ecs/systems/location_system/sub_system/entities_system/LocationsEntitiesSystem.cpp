@@ -6,6 +6,22 @@
 
 LocationsEntitiesSystem::LocationsEntitiesSystem() = default;
 
+LocationsEntitiesSystem::LocationsEntitiesSystem(const LocationsEntitiesSystem& input_data)
+    : SentientsSystem(), MagwehrsSystem(), ItemsSystem() {
+  for (const auto sentient : input_data.sentients) {
+    sentients.push_back(sentient);
+    entities.push_back(*sentient);
+  }
+  for (const auto magwehr : input_data.magwehrs) {
+    magwehrs.push_back(magwehr);
+    entities.push_back(*magwehr);
+  }
+  for (const auto item : input_data.items) {
+    items.push_back(item);
+    entities.push_back(*item);
+  }
+}
+
 LocationsEntitiesSystem::~LocationsEntitiesSystem() {
   entities.clear();
 }
@@ -47,6 +63,7 @@ Sentient* LocationsEntitiesSystem::remove_sentient(unsigned int input_index) {
 LocationsEntity* LocationsEntitiesSystem::get_entity(unsigned int input_index) {
   return &entities[input_index];
 }
+
 const LocationsEntity* LocationsEntitiesSystem::get_entity(unsigned int input_index) const {
   const LocationsEntity* pointer = entities.data();
   return &pointer[input_index];

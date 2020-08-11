@@ -16,7 +16,8 @@ class Area : public LocationsEntity {
  public:
   explicit Area(const char *input_name, unsigned input_size_x = 0, unsigned input_size_y = 0,
                 char **input_data = nullptr);
-  ~Area();
+  Area(const Area &input_area);
+  ~Area() override;
 
   unsigned get_size_x() const;
   unsigned get_size_y() const;

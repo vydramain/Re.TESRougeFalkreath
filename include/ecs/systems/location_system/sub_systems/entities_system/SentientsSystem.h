@@ -9,7 +9,7 @@
 #include "core/entities/location_enities/sentients_entities/Sentient.h"
 
 class SentientsSystem {
- private:
+ protected:
   std::vector<Sentient*> sentients;
 
  public:
