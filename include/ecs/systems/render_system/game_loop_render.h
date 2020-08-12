@@ -9,7 +9,7 @@
 
 #include "./BearLibTerminal.h"
 #include "ecs/systems//render_system/interface_render.h"
-#include "ecs/systems/location_system/LocationSystem.h"
+#include "core/systems/location_system/LocationSystem.h"
 
 class game_loop_render : public interface_render {
  private:

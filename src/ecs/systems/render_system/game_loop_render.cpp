@@ -20,10 +20,10 @@ game_loop_render::game_loop_render(const LocationSystem *input_location) {
 }
 
 game_loop_render::~game_loop_render() {
+  location = nullptr;
+
   terminal_clear();
   terminal_close();
-
-  location = nullptr;
 }
 
 void game_loop_render::set_target_creature(const Sentient *input_target) {
@@ -40,7 +40,7 @@ void game_loop_render::clear_area(unsigned in_x, unsigned in_y, unsigned out_x, 
 
 void game_loop_render::view_message(const char *input_first_string, const char *input_second_string, unsigned in_x,
                                     unsigned in_y, unsigned out_x, unsigned out_y) {
-  // cleaning up Area for message
+  // cleaning up area for message
   for (unsigned j = 0; j < out_y - in_y; j++) {
     for (unsigned i = 0; i < out_x - in_x; i++) {
       terminal_put(in_x + i, in_y + j, ' ');
@@ -57,6 +57,7 @@ void game_loop_render::view_message(const char *input_first_string, const char *
     terminal_put(in_x + i + 1, out_y, '-');
   }
 
+  // draw text
   terminal_print(in_x + 2, in_y + 2, input_first_string);
   terminal_print(in_x + 2, in_y + 3, input_second_string);
 }

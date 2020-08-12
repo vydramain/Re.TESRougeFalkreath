@@ -7,9 +7,9 @@
 #include <vector>
 
 #include "adds/CCMech.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
 class LocationsEntitiesSystem : public SentientsSystem, public MagwehrsSystem, public ItemsSystem {
  private:

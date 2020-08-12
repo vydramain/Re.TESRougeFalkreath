@@ -5,7 +5,7 @@
 #pragma once
 
 #include "core/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/LocationSystem.h"
+#include "core/systems/location_system/LocationSystem.h"
 
 class GLAControlPlayerUp : public IControl {
  private:

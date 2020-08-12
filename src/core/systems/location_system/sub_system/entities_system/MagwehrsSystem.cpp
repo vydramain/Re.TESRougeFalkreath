@@ -2,9 +2,7 @@
 // Created by vydra on 16.07.2020.
 //
 
-#include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
-
-#include <vector>
+#include "core/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
 
 MagwehrsSystem::MagwehrsSystem() = default;
 

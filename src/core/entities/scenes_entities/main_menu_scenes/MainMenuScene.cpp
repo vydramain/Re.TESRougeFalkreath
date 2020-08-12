@@ -4,12 +4,11 @@
 
 #include "core/entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 
-MainMenuScene::MainMenuScene() : IMainScene("main_menu") {
-  render = new main_menu_render();
+MainMenuScene::MainMenuScene(RenderSystem *input_system) : IMainScene("main_menu"), render_system(input_system) {
   mm_input = new MMControls(count_choices, highlighted);
+  render_system->set_main_menu_render(title, choices, count_choices, highlighted);
 }
 MainMenuScene::~MainMenuScene() {
-  delete render;
   delete mm_input;
 }
 
@@ -18,9 +17,7 @@ unsigned MainMenuScene::get_highlighted() const {
 }
 void MainMenuScene::run() {
   do {
-    render->view_choice(title, choices, count_choices, *highlighted);
-    render->render();
-
+    render_system->render();
     last_control = mm_input->update();
     last_control->execute();
   } while (std::strcmp(last_control->get_name(), "MMControlSelectExit") != 0 &&

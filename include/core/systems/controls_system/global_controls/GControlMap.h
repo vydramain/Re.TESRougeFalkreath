@@ -19,12 +19,13 @@ class GControlMap {
   std::map<unsigned, IControl *> main_map;
   std::map<unsigned, IControl *>::iterator main_iterator;
 
+  RenderSystem *render = new RenderSystem();
   unsigned *last_highlighted = new unsigned(0);
 
  public:
   explicit GControlMap() {
-    main_menu = new GControlMainMenu(last_highlighted);
-    new_game = new GControlNewGame(last_highlighted);
+    main_menu = new GControlMainMenu(render, last_highlighted);
+    new_game = new GControlNewGame(render, last_highlighted);
     exit = new GControlExit();
 
     main_map[0] = main_menu;
@@ -40,6 +41,7 @@ class GControlMap {
     delete exit;
 
     delete last_highlighted;
+    delete render;
   }
 
   unsigned get_highlighted() const {

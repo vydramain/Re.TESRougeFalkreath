@@ -8,13 +8,14 @@
 
 #include "core/entities/scenes_entities/IMainScene.h"
 #include "core/systems/controls_system/main_menu_controls/MMControls.h"
+#include "core/systems/render_system/RenderSystem.h"
 #include "ecs/systems/render_system/main_menu_render.h"
 
 class MainMenuScene : public IMainScene {
  private:
+  RenderSystem *render_system;
   static const unsigned EXIT_CHOICE = 2;
 
-  main_menu_render *render;
   MMControls *mm_input;
   IControl *last_control = nullptr;
 
@@ -24,7 +25,7 @@ class MainMenuScene : public IMainScene {
   unsigned *highlighted = new unsigned(1);
 
  public:
-  explicit MainMenuScene();
+  explicit MainMenuScene(RenderSystem *input_system);
   ~MainMenuScene() override;
 
   unsigned get_highlighted() const;

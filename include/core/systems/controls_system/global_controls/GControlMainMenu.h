@@ -9,14 +9,16 @@
 
 class GControlMainMenu : public IControl {
  private:
+  RenderSystem *render_system;
   unsigned *highlighted;
 
  public:
-  explicit GControlMainMenu(unsigned *input_pointer) : IControl("GControlMainMenu"), highlighted(input_pointer) {}
+  explicit GControlMainMenu(RenderSystem *input_system, unsigned *input_pointer)
+      : IControl("GControlMainMenu"), render_system(input_system), highlighted(input_pointer) {}
   ~GControlMainMenu() override = default;
 
   void execute() override {
-    auto *main_scene = new MainMenuScene();
+    auto *main_scene = new MainMenuScene(render_system);
     main_scene->run();
     *highlighted = main_scene->get_highlighted();
     delete main_scene;

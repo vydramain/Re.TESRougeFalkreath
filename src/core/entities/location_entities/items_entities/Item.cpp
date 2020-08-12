@@ -4,8 +4,9 @@
 
 #include "core/entities/location_enities/items_entities/Item.h"
 
-Item::Item(const char* input_name, bool input_pick, unsigned input_x, unsigned input_y)
-    : LocationsEntity(input_name), SubPickable(input_pick, input_x, input_y) {}
+Item::Item(const char* input_name, bool input_pick, const char input_tile, unsigned input_color,
+           unsigned input_x, unsigned input_y)
+    : LocationsEntity(input_name, input_tile, input_color), SubPickable(input_pick, input_x, input_y) {}
 
 Item::~Item() = default;
 

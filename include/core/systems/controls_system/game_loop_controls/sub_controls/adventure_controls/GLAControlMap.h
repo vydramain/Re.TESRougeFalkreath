@@ -5,6 +5,7 @@
 #pragma once
 
 #include <BearLibTerminal.h>
+
 #include <map>
 
 #include "core/systems/controls_system/game_loop_controls/sub_controls/adventure_controls/GLAControlEmpty.h"

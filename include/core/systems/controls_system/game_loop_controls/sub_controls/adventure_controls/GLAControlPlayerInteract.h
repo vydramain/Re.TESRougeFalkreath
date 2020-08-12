@@ -7,7 +7,7 @@
 #include <cstring>
 
 #include "core/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/LocationSystem.h"
+#include "core/systems/location_system/LocationSystem.h"
 
 class GLAControlPlayerInteract : public IControl {
  private:

@@ -9,7 +9,7 @@
 #include "core/systems/controls_system/game_loop_controls/GLControlAdventure.h"
 #include "core/systems/controls_system/game_loop_controls/GLControlEmpty.h"
 #include "core/systems/controls_system/game_loop_controls/GLControlExit.h"
-#include "ecs/systems/location_system/LocationSystem.h"
+#include "core/systems/location_system/LocationSystem.h"
 
 class GLControlMap {
  private:

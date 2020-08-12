@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
 SentientsSystem::SentientsSystem() = default;
 

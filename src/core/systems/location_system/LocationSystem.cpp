@@ -2,7 +2,7 @@
 // Created by vydra on 15.07.2020.
 //
 
-#include "ecs/systems/location_system/LocationSystem.h"
+#include "core/systems/location_system/LocationSystem.h"
 
 LocationSystem::LocationSystem(Area *input_area, LocationsEntitiesSystem *input_entites) {
   area = new Area(*input_area);

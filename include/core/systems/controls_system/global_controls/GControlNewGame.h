@@ -7,23 +7,25 @@
 #include "core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h"
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 #include "core/systems/controls_system/IControl.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
-#include "ecs/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
 class GControlNewGame : public IControl {
  private:
+  RenderSystem *render_system;
   unsigned *highlighted;
 
  public:
-  explicit GControlNewGame(unsigned *input_pointer) : IControl("GlobalControlNewGame"), highlighted(input_pointer) {}
+  explicit GControlNewGame(RenderSystem *input_system, unsigned *input_pointer)
+      : IControl("GlobalControlNewGame"), render_system(input_system), highlighted(input_pointer) {}
   ~GControlNewGame() override = default;
 
   void execute() override {
     delete highlighted;
     *highlighted = 0;
-    unsigned x = 70;
-    unsigned y = 50;
+    unsigned x = 100;
+    unsigned y = 110;
 
     char **m = new char *[x];
     for (unsigned i = 0; i < x; i++) {
@@ -36,15 +38,14 @@ class GControlNewGame : public IControl {
     }
 
     auto *entities = new LocationsEntitiesSystem();
-    entities->put_player(new Khadjiit("pl", 5, 2));
-    entities->put_item(new Item("Coin", false, 3, 2));
-    entities->put_item(new Item("Coin", false, 30, 20));
-    entities->put_item(new Item("Coin", false, 13, 12));
-    entities->put_item(new Item("Coin", false, 33, 22));
-    entities->put_item(new Item("Coin", false, 53, 42));
+    entities->put_player(new Khadjiit("pl", 'K', 0xffEEEEEE, 5, 2));
+    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 3, 2));
+    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 30, 20));
+    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 13, 12));
+    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 33, 22));
+    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 53, 42));
 
-    auto *main_scene = new GameLoopScene("test_map", new Area("test", x, y, m),
-                                         entities);
+    auto *main_scene = new GameLoopScene(render_system, "test_map", new Area("test", x, y, m), entities);
 
     delete highlighted;
     delete entities;

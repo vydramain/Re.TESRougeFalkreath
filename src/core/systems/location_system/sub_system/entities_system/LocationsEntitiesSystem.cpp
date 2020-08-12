@@ -2,7 +2,7 @@
 // Created by vydra on 8/10/20.
 //
 
-#include "ecs/systems/location_system/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "core/systems/location_system/sub_systems/entities_system/LocationsEntitiesSystem.h"
 
 LocationsEntitiesSystem::LocationsEntitiesSystem() = default;
 
