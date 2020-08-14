@@ -31,7 +31,7 @@ void RenderSystem::set_main_menu_render(const char *input_question, const char *
                               input_highlighted_choice);
 }
 
-void RenderSystem::set_pseudo_game_loop_render(LocationSystem *input_location_system) {
+void RenderSystem::set_pseudo_game_loop_render(ILocationSystem *input_location_system) {
   if (!render_entity) {
     delete render_entity;
   }

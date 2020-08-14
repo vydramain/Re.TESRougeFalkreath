@@ -23,7 +23,7 @@ class PseudoGameLoopRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
-  const LocationSystem *location_system = nullptr;
+  const ILocationSystem *location_system = nullptr;
   const Sentient *target = nullptr;
 
   unsigned camera_position_x = 0;
@@ -33,10 +33,10 @@ class PseudoGameLoopRender : public IRender {
 
  public:
   explicit PseudoGameLoopRender(unsigned input_screen_x, unsigned input_screen_y,
-                                LocationSystem *input_location_system);
+                                ILocationSystem *input_location_system);
   ~PseudoGameLoopRender() override;
 
-  void set_location_system(LocationSystem *input_location_system);
+  void set_location_system(ILocationSystem *input_location_system);
   void set_target(Sentient *input_target);
   void set_camera_position_x();
   void set_camera_position_y();

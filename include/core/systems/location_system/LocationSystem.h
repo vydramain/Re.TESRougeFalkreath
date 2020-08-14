@@ -5,12 +5,13 @@
 #pragma once
 
 #include "core/entities/location_enities/LocationsEntity.h"
+#include "core/systems/location_system/ILocationSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/ItemsSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/LocationsEntitiesSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
-class LocationSystem {
+class LocationSystem : public ILocationSystem {
  private:
   const unsigned size_x;
   const unsigned size_y;

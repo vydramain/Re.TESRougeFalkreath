@@ -16,7 +16,7 @@ void PseudoGameLoopRender::recount_fields(unsigned input_screen_x, unsigned inpu
 }
 
 PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                           LocationSystem *input_location_system)
+                                           ILocationSystem *input_location_system)
     : IRender() {
   recount_fields(input_screen_x, input_screen_y);
   set_location_system(input_location_system);
@@ -28,7 +28,7 @@ PseudoGameLoopRender::~PseudoGameLoopRender() {
   target = nullptr;
 }
 
-void PseudoGameLoopRender::set_location_system(LocationSystem *input_location_system) {
+void PseudoGameLoopRender::set_location_system(ILocationSystem *input_location_system) {
   location_system = input_location_system;
 }
 

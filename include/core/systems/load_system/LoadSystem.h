@@ -7,9 +7,10 @@
 #include <cstdio>
 
 #include "core/systems/controls_system/load_control/LControlMap.h"
+#include "core/systems/load_system/ILoadSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/LocationsEntitiesSystem.h"
 
-class LoadSystem {
+class LoadSystem : public ILoadSystem {
  private:
   unsigned location_size_x;
   unsigned location_size_y;
@@ -22,11 +23,11 @@ class LoadSystem {
 
  public:
   explicit LoadSystem();
-  ~LoadSystem();
+  ~LoadSystem() override;
 
-  void load_map(const char *input_map_name);
+  void load_map(const char *input_map_name) override;
 
-  LocationsEntitiesSystem *get_entities_system() const;
-  unsigned get_location_size_x() const;
-  unsigned get_location_size_y() const;
+  LocationsEntitiesSystem *get_entities_system() const override;
+  unsigned get_location_size_x() const override;
+  unsigned get_location_size_y() const override;
 };
