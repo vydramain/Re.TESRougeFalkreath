@@ -4,20 +4,23 @@
 
 #include "core/systems/location_system/LocationSystem.h"
 
-LocationSystem::LocationSystem(Area *input_area, LocationsEntitiesSystem *input_entites) {
-  area = new Area(*input_area);
+LocationSystem::LocationSystem(unsigned input_x, unsigned input_y, LocationsEntitiesSystem *input_entites)
+    : size_x(input_x), size_y(input_y) {
   entities = new LocationsEntitiesSystem(*input_entites);
 }
 
 LocationSystem::~LocationSystem() {
-  delete area;
   delete entities;
-}
-
-Area *LocationSystem::get_area() const {
-  return area;
 }
 
 LocationsEntitiesSystem *LocationSystem::get_entities() const {
   return entities;
+}
+
+unsigned LocationSystem::get_size_x() const {
+  return size_x;
+}
+
+unsigned LocationSystem::get_size_y() const {
+  return size_y;
 }

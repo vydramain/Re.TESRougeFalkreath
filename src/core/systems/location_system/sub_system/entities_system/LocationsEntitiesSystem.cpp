@@ -29,6 +29,11 @@ LocationsEntitiesSystem::~LocationsEntitiesSystem() {
   }
 }
 
+void LocationsEntitiesSystem::put_ambient(Ambient* input_ambient) {
+  entities.push_back(*input_ambient);
+  AmbientsSystem::put_ambient(input_ambient);
+}
+
 void LocationsEntitiesSystem::put_item(Item* input_entity) {
   entities.push_back(*input_entity);
   ItemsSystem::put_item(input_entity);
@@ -47,6 +52,10 @@ void LocationsEntitiesSystem::put_player(Sentient* input_entity) {
 void LocationsEntitiesSystem::put_sentient(Sentient* input_entity) {
   entities.push_back(*input_entity);
   SentientsSystem::put_sentient(input_entity);
+}
+
+Ambient* LocationsEntitiesSystem::remove_ambient(unsigned int input_index) {
+  return AmbientsSystem::remove_ambient(input_index);
 }
 
 Item* LocationsEntitiesSystem::remove_item(unsigned int input_index) {

@@ -4,10 +4,10 @@
 
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
-GameLoopScene::GameLoopScene(RenderSystem *input_system, Area *input_area,
+GameLoopScene::GameLoopScene(RenderSystem *input_system, unsigned input_x, unsigned input_y,
                              LocationsEntitiesSystem *input_entities)
     : IMainScene("MainLoopScene"), render_system(input_system) {
-  location = new LocationSystem(input_area, input_entities);
+  location = new LocationSystem(input_x, input_y, input_entities);
   render_system->set_pseudo_game_loop_render(location);
 }
 

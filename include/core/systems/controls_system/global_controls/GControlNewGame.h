@@ -27,16 +27,6 @@ class GControlNewGame : public IControl {
     unsigned x = 100;
     unsigned y = 110;
 
-    char **m = new char *[x];
-    for (unsigned i = 0; i < x; i++) {
-      m[i] = new char[y];
-    }
-    for (unsigned i = 0; i < x; i++) {
-      for (unsigned j = 0; j < y; j++) {
-        m[i][j] = '.';
-      }
-    }
-
     auto *entities = new LocationsEntitiesSystem();
     entities->put_player(new Khadjiit("player", 'K', 0xffEEEEEE, 5, 2));
     entities->put_magwehr(new Magwehr("Dragon", 'D', 0xeeFF2233, 25, 5));
@@ -46,13 +36,7 @@ class GControlNewGame : public IControl {
     entities->put_item(new Coin(33, 20));
     entities->put_item(new Coin(43, 42));
 
-    auto *main_scene = new GameLoopScene(render_system, new Area("test", x, y, m), entities);
-
-    delete entities;
-    for (unsigned i = 0; i < x; i++) {
-      delete[] m[i];
-    }
-    delete[] m;
+    auto *main_scene = new GameLoopScene(render_system, x, y, entities);
 
     main_scene->run();
     delete main_scene;

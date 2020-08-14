@@ -16,6 +16,6 @@ class GLAControlPlayerDown : public IControl {
       : IControl("GLAControlPlayerDown"), location(input_location) {}
 
   void execute() override {
-    location->get_entities()->get_player()->go_down(location->get_area()->get_size_y());
+    location->get_entities()->get_player()->go_down(location->get_size_y());
   }
 };

@@ -43,8 +43,8 @@ void PseudoGameLoopRender::set_camera_position_x() {
   if (target->get_current_x() < active_zone_in_x) {
     camera_position_x = 0;
   }
-  if (location_system->get_area()->get_size_x() - target->get_current_x() < active_zone_out_x) {
-    camera_position_x = location_system->get_area()->get_size_x() - passive_zone_out_x;
+  if (location_system->get_size_x() - target->get_current_x() < active_zone_out_x) {
+    camera_position_x = location_system->get_size_x() - passive_zone_out_x;
   }
 }
 
@@ -53,8 +53,8 @@ void PseudoGameLoopRender::set_camera_position_y() {
   if (target->get_current_y() < active_zone_in_y) {
     camera_position_y = 0;
   }
-  if (location_system->get_area()->get_size_y() - target->get_current_y() < active_zone_out_y) {
-    camera_position_y = location_system->get_area()->get_size_y() - passive_zone_out_y;
+  if (location_system->get_size_y() - target->get_current_y() < active_zone_out_y) {
+    camera_position_y = location_system->get_size_y() - passive_zone_out_y;
   }
 }
 
@@ -69,8 +69,8 @@ void PseudoGameLoopRender::update_camera_position_x() {
     }
     if (target_x > camera_position_x + active_zone_out_x) {
       camera_position_x = target_x - active_zone_out_x;
-      if (target_x >= location_system->get_area()->get_size_x() - active_zone_in_x) {
-        camera_position_x = location_system->get_area()->get_size_x() - passive_zone_out_x;
+      if (target_x >= location_system->get_size_x() - active_zone_in_x) {
+        camera_position_x = location_system->get_size_x() - passive_zone_out_x;
       }
     }
   }
@@ -87,8 +87,8 @@ void PseudoGameLoopRender::update_camera_position_y() {
     }
     if (target_y > camera_position_y + active_zone_out_y) {
       camera_position_y = target_y - active_zone_out_y;
-      if (target_y >= location_system->get_area()->get_size_y() - active_zone_in_y) {
-        camera_position_y = location_system->get_area()->get_size_y() - passive_zone_out_y;
+      if (target_y >= location_system->get_size_y() - active_zone_in_y) {
+        camera_position_y = location_system->get_size_y() - passive_zone_out_y;
       }
     }
   }
@@ -110,18 +110,6 @@ void PseudoGameLoopRender::check_interact() {
       TextPanelsRender::view_text(passive_zone_out_x / 2, passive_zone_out_y - 6,
                                   passive_zone_out_x - 2, passive_zone_out_y - 2,
                                   "Press 'E' to interact", "");
-    }
-  }
-}
-
-void PseudoGameLoopRender::render_area() {
-  char temp;
-  for (unsigned ii = 0; ii < passive_zone_out_y; ii++) {
-    for (unsigned i = 0; i < passive_zone_out_x; i++) {
-      terminal_color(0x77ffffff);
-      terminal_layer(1);
-      temp = location_system->get_area()->get_cell(camera_position_x + i, camera_position_y + ii);
-      terminal_put(i, ii, temp);
     }
   }
 }
@@ -215,7 +203,6 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  render_area();
   render_location_creatures();
   render_location_items();
   render_hud();

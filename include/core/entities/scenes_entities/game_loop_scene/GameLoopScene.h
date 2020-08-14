@@ -19,7 +19,7 @@ class GameLoopScene : public IMainScene {
   LocationSystem *location = nullptr;
 
  public:
-  explicit GameLoopScene(RenderSystem *input_system, Area *input_area,
+  explicit GameLoopScene(RenderSystem *input_system, unsigned input_x, unsigned input_y,
                          LocationsEntitiesSystem *input_entities);
   ~GameLoopScene() override;
 
