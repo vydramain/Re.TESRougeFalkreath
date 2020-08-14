@@ -54,6 +54,7 @@ void SubWalketh::go_down(const unsigned input_border) {
   }
   set_sight();
 }
+
 void SubWalketh::go_left() {
   current_direction = DIRECTION_LEFT;
   if (current_x > 0) {
@@ -61,10 +62,31 @@ void SubWalketh::go_left() {
   }
   set_sight();
 }
+
 void SubWalketh::go_right(const unsigned input_border) {
   current_direction = DIRECTION_RIGHT;
   if (current_x + 1 < input_border) {
     current_x++;
   }
+  set_sight();
+}
+
+void SubWalketh::look_up() {
+  current_direction = DIRECTION_UP;
+  set_sight();
+}
+
+void SubWalketh::look_down() {
+  current_direction = DIRECTION_DOWN;
+  set_sight();
+}
+
+void SubWalketh::look_left() {
+  current_direction = DIRECTION_LEFT;
+  set_sight();
+}
+
+void SubWalketh::look_right() {
+  current_direction = DIRECTION_RIGHT;
   set_sight();
 }

@@ -16,6 +16,17 @@ class GLAControlPlayerRight : public IControl {
       : IControl("GLAControlPlayerRight"), location(input_location) {}
 
   void execute() override {
-    location->get_entities()->get_player()->go_right(location->get_size_x());
+    unsigned new_x = location->get_entities()->get_player()->get_current_x() + 1;
+    unsigned new_y = location->get_entities()->get_player()->get_current_y();
+
+    int magwerh_index = location->get_entities()->get_magwehr_index(new_x, new_y);
+    int item_index = location->get_entities()->get_item_index(new_x, new_y);
+    int ambient_index = location->get_entities()->get_ambient_index(new_x, new_y);
+
+    if (item_index == -1 && ambient_index == -1 && magwerh_index == -1) {
+      location->get_entities()->get_player()->go_right(location->get_size_x());
+    } else {
+      location->get_entities()->get_player()->look_right();
+    }
   }
 };
