@@ -23,25 +23,30 @@ LocationsEntitiesSystem::LocationsEntitiesSystem(const LocationsEntitiesSystem& 
 }
 
 LocationsEntitiesSystem::~LocationsEntitiesSystem() {
-  entities.clear();
+//  entities.clear();
+  for (auto it = entities.begin(); it < entities.end(); it++) {
+    entities.erase(it);
+  }
 }
 
 void LocationsEntitiesSystem::put_item(Item* input_entity) {
-  ItemsSystem::put_item(input_entity);
   entities.push_back(*input_entity);
+  ItemsSystem::put_item(input_entity);
 }
 
 void LocationsEntitiesSystem::put_magwehr(Magwehr* input_entity) {
+  entities.push_back(*input_entity);
   MagwehrsSystem::put_magwehr(input_entity);
-  entities.push_back(*input_entity);
 }
+
 void LocationsEntitiesSystem::put_player(Sentient* input_entity) {
+  entities.push_back(*input_entity);
   SentientsSystem::put_player(input_entity);
-  entities.push_back(*input_entity);
 }
+
 void LocationsEntitiesSystem::put_sentient(Sentient* input_entity) {
-  SentientsSystem::put_sentient(input_entity);
   entities.push_back(*input_entity);
+  SentientsSystem::put_sentient(input_entity);
 }
 
 Item* LocationsEntitiesSystem::remove_item(unsigned int input_index) {

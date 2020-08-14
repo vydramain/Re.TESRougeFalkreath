@@ -12,7 +12,6 @@
 #include "core/systems/location_system/LocationSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/MagwehrsSystem.h"
 #include "core/systems/render_system/RenderSystem.h"
-#include "ecs/systems/render_system/game_loop_render.h"
 
 class GameLoopScene : public IMainScene {
  private:
@@ -20,7 +19,7 @@ class GameLoopScene : public IMainScene {
   LocationSystem *location = nullptr;
 
  public:
-  explicit GameLoopScene(RenderSystem *input_system, const char *input_area_name, Area *input_area,
+  explicit GameLoopScene(RenderSystem *input_system, Area *input_area,
                          LocationsEntitiesSystem *input_entities);
   ~GameLoopScene() override;
 

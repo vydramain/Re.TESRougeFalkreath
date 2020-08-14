@@ -8,6 +8,9 @@ class AbsPickable {
  protected:
   bool is_picked_up;
 
-  explicit AbsPickable(const bool has_picked_up) : is_picked_up(has_picked_up) {}
+  explicit AbsPickable(const bool has_picked_up) {
+    is_picked_up = has_picked_up;
+  }
+
   ~AbsPickable() = default;
 };

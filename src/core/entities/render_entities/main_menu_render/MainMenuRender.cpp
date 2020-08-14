@@ -19,6 +19,7 @@ MainMenuRender::~MainMenuRender() = default;
 
 void MainMenuRender::render() {
   CleanerRender::clean_all();
+  terminal_color("White");
   TextPanelsRender::view_question_with_a_choice(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, question, choices,
                                                 count_choices, *highlighted_choice);
   terminal_refresh();

@@ -9,6 +9,9 @@ class AbsLocatable {
   unsigned current_x;
   unsigned current_y;
 
-  explicit AbsLocatable(const unsigned input_x, const unsigned input_y) : current_x(input_x), current_y(input_y) {}
+  explicit AbsLocatable(const unsigned input_x, const unsigned input_y) {
+    current_x = input_x;
+    current_y = input_y;
+  }
   ~AbsLocatable() = default;
 };

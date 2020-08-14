@@ -4,7 +4,7 @@
 
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
-GameLoopScene::GameLoopScene(RenderSystem *input_system, const char *input_area_name, Area *input_area,
+GameLoopScene::GameLoopScene(RenderSystem *input_system, Area *input_area,
                              LocationsEntitiesSystem *input_entities)
     : IMainScene("MainLoopScene"), render_system(input_system) {
   location = new LocationSystem(input_area, input_entities);
@@ -20,6 +20,7 @@ void GameLoopScene::run() {
   IGLControl *current_ml_control = ml_control_map->get_start_control();
 
   do {
+    render_system->render();
     current_ml_control->execute();
     current_ml_control = ml_control_map->get_control(current_ml_control->get_last_control());
   } while (std::strcmp(current_ml_control->get_name(), "GLControlExit") != 0);

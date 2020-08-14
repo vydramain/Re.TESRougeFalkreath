@@ -20,11 +20,11 @@ class GLAControlMap {
  private:
   GLAControlExit *control_exit = new GLAControlExit();
   GLAControlEmpty *control_empty = new GLAControlEmpty();
-  GLAControlPlayerDown *control_player_down;
-  GLAControlPlayerLeft *control_player_left;
-  GLAControlPlayerRight *control_player_right;
-  GLAControlPlayerUp *control_player_up;
-  GLAControlPlayerInteract *control_player_interact;
+  GLAControlPlayerDown *control_player_down = nullptr;
+  GLAControlPlayerLeft *control_player_left = nullptr;
+  GLAControlPlayerRight *control_player_right = nullptr;
+  GLAControlPlayerUp *control_player_up = nullptr;
+  GLAControlPlayerInteract *control_player_interact = nullptr;
 
   std::map<int, IControl *> glas_map;
   std::map<int, IControl *>::iterator glas_iterator;

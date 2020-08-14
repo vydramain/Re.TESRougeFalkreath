@@ -15,6 +15,7 @@ class Magwehr : public LocationsEntity, public SubWalketh {
   Magwehr(Magwehr &&input_creature) noexcept;
   Magwehr &operator=(const Magwehr &input_creature);
   Magwehr &operator=(Magwehr &&input_creature) noexcept;
+  ~Magwehr() override;
 
   bool operator==(const Magwehr &rhs) const;
   bool operator!=(const Magwehr &rhs) const;

@@ -4,9 +4,9 @@
 
 #include "core/components/sub_components/SubPseudoRenderable.hpp"
 
-SubPseudoRenderable::SubPseudoRenderable(const char input_tile,
-                                         const unsigned int input_color)
+SubPseudoRenderable::SubPseudoRenderable(const char input_tile, const unsigned int input_color)
     : AbsPseudoRenderable(input_tile, input_color) {}
+
 SubPseudoRenderable::~SubPseudoRenderable() = default;
 
 void SubPseudoRenderable::set_tile(char input_tile) {

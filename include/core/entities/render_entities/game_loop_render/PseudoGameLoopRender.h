@@ -7,6 +7,7 @@
 #include "./BearLibTerminal.h"
 #include "core/entities/render_entities/CleanerRender.h"
 #include "core/entities/render_entities/IRender.h"
+#include "core/entities/render_entities/TextPanelsRender.h"
 #include "core/systems/location_system/LocationSystem.h"
 #include "core/systems/location_system/sub_systems/entities_system/SentientsSystem.h"
 
@@ -42,6 +43,8 @@ class PseudoGameLoopRender : public IRender {
 
   void update_camera_position_x();
   void update_camera_position_y();
+
+  void check_interact();
 
   void render_area();
   void render_location_creatures();

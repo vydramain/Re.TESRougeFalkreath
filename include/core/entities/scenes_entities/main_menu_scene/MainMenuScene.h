@@ -9,7 +9,6 @@
 #include "core/entities/scenes_entities/IMainScene.h"
 #include "core/systems/controls_system/main_menu_controls/MMControls.h"
 #include "core/systems/render_system/RenderSystem.h"
-#include "ecs/systems/render_system/main_menu_render.h"
 
 class MainMenuScene : public IMainScene {
  private:

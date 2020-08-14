@@ -11,7 +11,7 @@ MagwehrsSystem::~MagwehrsSystem() {
 }
 
 void MagwehrsSystem::put_magwehr(Magwehr *input_creature) {
-  magwehrs.push_back(input_creature);
+  magwehrs.insert(magwehrs.end(), input_creature);
 }
 
 Magwehr *MagwehrsSystem::remove_magwehr(unsigned int input_index) {

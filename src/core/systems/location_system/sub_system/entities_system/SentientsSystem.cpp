@@ -21,7 +21,7 @@ Sentient *SentientsSystem::remove_player() {
 }
 
 void SentientsSystem::put_sentient(Sentient *input_sentient) {
-  sentients.push_back(input_sentient);
+  sentients.insert(sentients.end(), input_sentient);
 }
 
 Sentient *SentientsSystem::remove_sentient(unsigned int input_index) {

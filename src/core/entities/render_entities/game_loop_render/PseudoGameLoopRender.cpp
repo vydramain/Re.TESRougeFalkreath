@@ -16,7 +16,8 @@ void PseudoGameLoopRender::recount_fields(unsigned input_screen_x, unsigned inpu
 }
 
 PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                           LocationSystem *input_location_system) : IRender() {
+                                           LocationSystem *input_location_system)
+    : IRender() {
   recount_fields(input_screen_x, input_screen_y);
   set_location_system(input_location_system);
   set_target(location_system->get_entities()->get_player());
@@ -93,11 +94,31 @@ void PseudoGameLoopRender::update_camera_position_y() {
   }
 }
 
+void PseudoGameLoopRender::check_interact() {
+  terminal_color(0xffffffff);
+  int index =
+      location_system->get_entities()->get_item_index(location_system->get_entities()->get_player()->get_sight_x(),
+                                                      location_system->get_entities()->get_player()->get_sight_y());
+  if (index != -1) {
+    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+      CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2, passive_zone_out_y - 2,
+                                  "Press 'E' to interact", "");
+    } else {
+      CleanerRender::clean_area(passive_zone_out_x / 2, passive_zone_out_y - 6,
+                                passive_zone_out_x - 1, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(passive_zone_out_x / 2, passive_zone_out_y - 6,
+                                  passive_zone_out_x - 2, passive_zone_out_y - 2,
+                                  "Press 'E' to interact", "");
+    }
+  }
+}
+
 void PseudoGameLoopRender::render_area() {
   char temp;
   for (unsigned ii = 0; ii < passive_zone_out_y; ii++) {
     for (unsigned i = 0; i < passive_zone_out_x; i++) {
-      terminal_color(0xaaffffff);
+      terminal_color(0x77ffffff);
       terminal_layer(1);
       temp = location_system->get_area()->get_cell(camera_position_x + i, camera_position_y + ii);
       terminal_put(i, ii, temp);
@@ -184,6 +205,8 @@ void PseudoGameLoopRender::render_hud() {
   terminal_print(passive_zone_out_x + 1, 5, "ОД:");
   terminal_color(0xFF6666FF);
   terminal_print(passive_zone_out_x + 1, 6, "OМ:");
+
+  check_interact();
 }
 
 void PseudoGameLoopRender::render() {

@@ -34,6 +34,8 @@ Sentient::Sentient(Sentient &&input_sentient) noexcept
   }
 }
 
+Sentient::~Sentient() = default;
+
 Sentient &Sentient::operator=(const Sentient &input_race) {
   set_name(input_race.get_name());
   set_tile(input_race.get_tile());

@@ -36,9 +36,9 @@ Area::Area(const Area &input_area)
 
 Area::~Area() {
   for (unsigned i = 0; i < size_x; i++) {
-    delete data[i];
+    delete[] data[i];
   }
-  delete data;
+  delete[] data;
 }
 
 unsigned Area::get_size_x() const {

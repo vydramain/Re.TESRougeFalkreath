@@ -4,7 +4,9 @@
 
 #include "core/entities/Entity.h"
 
-Entity::Entity(const char* input_name) : name(input_name) {}
+Entity::Entity(const char* input_name) {
+  name = input_name;
+}
 
 const char* Entity::get_name() const {
   return name;

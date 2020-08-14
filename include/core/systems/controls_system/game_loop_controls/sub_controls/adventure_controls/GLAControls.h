@@ -8,10 +8,12 @@
 
 class GLAControls {
  private:
-  GLAControlMap *control_map;
+  GLAControlMap *control_map = nullptr;
 
  public:
-  explicit GLAControls(LocationSystem *input_location) : control_map(new GLAControlMap(input_location)) {}
+  explicit GLAControls(LocationSystem *input_location) {
+    control_map = new GLAControlMap(input_location);
+  }
   ~GLAControls() = default;
 
   IControl *update() {

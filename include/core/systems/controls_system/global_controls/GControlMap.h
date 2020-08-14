@@ -12,18 +12,21 @@
 
 class GControlMap {
  private:
-  GControlMainMenu *main_menu;
-  GControlNewGame *new_game;
-  GControlExit *exit;
+  GControlMainMenu *main_menu = nullptr;
+  GControlNewGame *new_game = nullptr;
+  GControlExit *exit = nullptr;
 
   std::map<unsigned, IControl *> main_map;
   std::map<unsigned, IControl *>::iterator main_iterator;
 
-  RenderSystem *render = new RenderSystem();
-  unsigned *last_highlighted = new unsigned(0);
+  RenderSystem *render = nullptr;
+  unsigned *last_highlighted = nullptr;
 
  public:
   explicit GControlMap() {
+    render = new RenderSystem();
+    last_highlighted = new unsigned(0);
+
     main_menu = new GControlMainMenu(render, last_highlighted);
     new_game = new GControlNewGame(render, last_highlighted);
     exit = new GControlExit();

@@ -42,10 +42,11 @@ Magwehr &Magwehr::operator=(Magwehr &&input_magwehr) noexcept {
   return *this;
 }
 
+Magwehr::~Magwehr() = default;
+
 bool Magwehr::operator==(const Magwehr &rhs) const {
   return get_name() == rhs.get_name() && get_tile() == rhs.get_tile() && get_color() == rhs.get_color();
 }
-
 bool Magwehr::operator!=(const Magwehr &rhs) const {
   return !(rhs == *this);
 }

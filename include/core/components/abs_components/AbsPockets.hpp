@@ -21,8 +21,8 @@ class AbsPockets {
 
   ~AbsPockets() {
     for (unsigned int i = 0; i < pocket_size; i++) {
-      delete pocket[i];
+      delete[] pocket[i];
     }
-    delete pocket;
+    delete[] pocket;
   }
 };

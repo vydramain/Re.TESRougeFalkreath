@@ -11,7 +11,7 @@ ItemsSystem::~ItemsSystem() {
 }
 
 void ItemsSystem::put_item(Item *input_item) {
-  items.push_back(input_item);
+  items.insert(items.end(), input_item);
 }
 
 Item *ItemsSystem::remove_item(unsigned int input_index) {

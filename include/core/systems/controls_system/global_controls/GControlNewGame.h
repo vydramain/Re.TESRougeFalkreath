@@ -22,7 +22,6 @@ class GControlNewGame : public IControl {
   ~GControlNewGame() override = default;
 
   void execute() override {
-    delete highlighted;
     *highlighted = 0;
     unsigned x = 100;
     unsigned y = 110;
@@ -38,19 +37,19 @@ class GControlNewGame : public IControl {
     }
 
     auto *entities = new LocationsEntitiesSystem();
-    entities->put_player(new Khadjiit("pl", 'K', 0xffEEEEEE, 5, 2));
-    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 3, 2));
-    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 30, 20));
-    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 13, 12));
-    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 33, 22));
-    entities->put_item(new Item("Coin", false, '$', 0xddFFEB00, 53, 42));
+    entities->put_player(new Khadjiit("player", 'K', 0xffEEEEEE, 5, 2));
+    entities->put_magwehr(new Magwehr("Dragon", 'D', 0xeeFF2233, 25, 5));
+    entities->put_item(new Item("Coin", '$', 0xddFFEB00, false, 3, 2));
+    entities->put_item(new Item("Coin", '$', 0xddFFEB00, false, 4, 7));
+    entities->put_item(new Item("Coin", '$', 0xddFFEB00, false, 13, 12));
+    entities->put_item(new Item("Coin", '$', 0xddFFEB00, false, 33, 20));
+    entities->put_item(new Item("Coin", '$', 0xddFFEB00, false, 43, 42));
 
-    auto *main_scene = new GameLoopScene(render_system, "test_map", new Area("test", x, y, m), entities);
+    auto *main_scene = new GameLoopScene(render_system, new Area("test", x, y, m), entities);
 
-    delete highlighted;
     delete entities;
     for (unsigned i = 0; i < x; i++) {
-      delete m[i];
+      delete[] m[i];
     }
     delete[] m;
 
