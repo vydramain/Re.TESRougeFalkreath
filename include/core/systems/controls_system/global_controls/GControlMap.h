@@ -24,9 +24,11 @@ class GControlMap {
 
  public:
   explicit GControlMap() {
+    printf("%s", "[GControlMap] - Launch BearLibTerminal's render system\n");
     render = new RenderSystem();
     last_highlighted = new unsigned(0);
 
+    printf("%s", "[GControlMap] - Creating global controls\n");
     main_menu = new GControlMainMenu(render, last_highlighted);
     new_game = new GControlNewGame(render, last_highlighted);
     exit = new GControlExit();
@@ -37,6 +39,7 @@ class GControlMap {
   }
 
   ~GControlMap() {
+    printf("%s", "[GconrolMap] - Deleting global controls\n");
     main_map.clear();
 
     delete main_menu;

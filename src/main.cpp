@@ -8,6 +8,8 @@
 #include "core/systems/render_system/RenderSystem.h"
 
 int main() {
+  printf("%s", "starting...\n");
+  printf("%s", "--------re.TESFalkreath--------\n");
   auto *main_map = new GControlMap();
   IControl *main_control;
 

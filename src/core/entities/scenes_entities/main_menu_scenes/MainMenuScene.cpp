@@ -16,6 +16,7 @@ unsigned MainMenuScene::get_highlighted() const {
   return *highlighted;
 }
 void MainMenuScene::run() {
+  printf("%s", "[MainMenuScene] - Launch main menu\n");
   do {
     render_system->render();
     last_control = mm_input->update();

@@ -16,7 +16,9 @@ GameLoopScene::~GameLoopScene() {
 }
 
 void GameLoopScene::run() {
+  printf("%s", "[GameLoopScene] - Launch game loop\n");
   auto *ml_control_map = new GLControlMap(location);
+  printf("%s", "[GLControl] - Set start control\n");
   IGLControl *current_ml_control = ml_control_map->get_start_control();
 
   do {

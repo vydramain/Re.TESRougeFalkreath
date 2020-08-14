@@ -24,6 +24,7 @@ RenderSystem::~RenderSystem() {
 
 void RenderSystem::set_main_menu_render(const char *input_question, const char **input_choices,
                                         unsigned int input_count_choices, unsigned int *input_highlighted_choice) {
+  printf("%s", "[RenderSystem] - Setting up main menu render\n");
   if (!render_entity) {
     delete render_entity;
   }
@@ -32,6 +33,7 @@ void RenderSystem::set_main_menu_render(const char *input_question, const char *
 }
 
 void RenderSystem::set_pseudo_game_loop_render(ILocationSystem *input_location_system) {
+  printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   if (!render_entity) {
     delete render_entity;
   }

@@ -24,18 +24,21 @@ class GLControlMap {
 
  public:
   explicit GLControlMap(LocationSystem *input_location) {
+    printf("%s", "[GLControlMap] - Creating game loop controls\n");
     control_adventure = new GLControlAdventure(input_location);
 
     gl_map["GLAControlExit"] = control_exit;
   }
 
   ~GLControlMap() {
+    printf("%s", "[GLControlMap] - Delete game loop controls\n");
     delete control_exit;
     delete control_empty;
     delete control_adventure;
   }
 
   IGLControl *get_start_control() {
+    printf("%s", "[GLControlAdventure] - Launch adventure control at game loop\n");
     last_control = control_adventure;
     return control_adventure;
   }

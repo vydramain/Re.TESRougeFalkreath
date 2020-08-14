@@ -18,6 +18,7 @@ class GControlMainMenu : public IControl {
   ~GControlMainMenu() override = default;
 
   void execute() override {
+    printf("%s", "[GControlMainMenu] - Execute main menu control\n");
     auto *main_scene = new MainMenuScene(render_system);
     main_scene->run();
     *highlighted = main_scene->get_highlighted();

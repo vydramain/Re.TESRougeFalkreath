@@ -33,6 +33,7 @@ void LoadSystem::clear_fields() {
 }
 
 void LoadSystem::create_entities_system() {
+  printf("%s", "[LoadSystem] - Creating and completion location entities system\n");
   auto *i = new unsigned(0);
   auto *j = new unsigned(0);
   entities_system = new LocationsEntitiesSystem();
@@ -81,6 +82,7 @@ void LoadSystem::create_entities_system() {
 }
 
 void LoadSystem::load_map(const char *input_map_name) {
+  printf("%s%s%s", "[LoadSystem] - Load map ", input_map_name, "\n");
   delete entities_system;
 
   map_file_stream = fopen(input_map_name, "r");

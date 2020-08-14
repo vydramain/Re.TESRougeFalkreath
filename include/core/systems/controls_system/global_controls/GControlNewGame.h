@@ -25,13 +25,15 @@ class GControlNewGame : public IControl {
   ~GControlNewGame() override = default;
 
   void execute() override {
+    printf("%s", "[GControlNewGame] - Execute new game control\n");
     *highlighted = 0;
+    printf("%s", "[GControlNewGame] - Launch load system\n");
     auto *load = new LoadSystem();
-    load->load_map("../maps/Falkreath.bin");
-//    load->load_map("maps/Falkreath.bin");
+//    load->load_map("../maps/Falkreath.bin");
+    load->load_map("maps/Falkreath.bin");
 
     if (load->get_entities_system() == nullptr) {
-      printf("%s", "GControlNewGame: Map not found!\n");
+      printf("%s", "[GControlNewGame] - Map not found\n");
       delete load;
       return;
     }
@@ -42,6 +44,7 @@ class GControlNewGame : public IControl {
                                          load->get_entities_system());
     main_scene->run();
     delete main_scene;
+    printf("%s", "[GControlNewGame] - Stop load system\n");
     delete load;
   }
 };

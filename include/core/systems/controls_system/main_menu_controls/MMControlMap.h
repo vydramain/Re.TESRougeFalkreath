@@ -26,6 +26,7 @@ class MMControlMap {
 
  public:
   explicit MMControlMap(const unsigned input_count, unsigned *input_highlighted) {
+    printf("%s", "[MMControlMap] - Creating main menu controls\n");
     select_down = new MMControlSelectDown(input_count, input_highlighted);
     select_up = new MMControlSelectUp(input_count, input_highlighted);
     select_exit = new MMControlSelectExit();

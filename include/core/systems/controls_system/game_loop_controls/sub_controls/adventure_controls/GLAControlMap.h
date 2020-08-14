@@ -31,6 +31,7 @@ class GLAControlMap {
 
  public:
   explicit GLAControlMap(LocationSystem *input_location) {
+    printf("%s", "[GLAControlMap] - Creating game loop adventure controls\n");
     control_player_down = new GLAControlPlayerDown(input_location);
     control_player_left = new GLAControlPlayerLeft(input_location);
     control_player_right = new GLAControlPlayerRight(input_location);
@@ -49,6 +50,7 @@ class GLAControlMap {
   }
 
   ~GLAControlMap() {
+    printf("%s", "[CLAControlMap] - Delete game loop adventure controls\n");
     delete control_exit;
     delete control_empty;
     delete control_player_down;
