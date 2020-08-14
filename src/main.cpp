@@ -1,4 +1,6 @@
 
+#include <core/systems/controls_system/load_control/LControlMap.h>
+
 #include <cstring>
 
 #include "core/systems/controls_system/IControl.h"

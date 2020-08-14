@@ -23,6 +23,10 @@ class GLAControlPlayerUp : public IControl {
     int item_index = location->get_entities()->get_item_index(new_x, new_y);
     int ambient_index = location->get_entities()->get_ambient_index(new_x, new_y);
 
+    if (ambient_index != -1 && location->get_entities()->get_ambient(ambient_index)->get_floor()) {
+      ambient_index = -1;
+    }
+
     if (item_index == -1 && ambient_index == -1 && magwerh_index == -1) {
       location->get_entities()->get_player()->go_up();
     } else {

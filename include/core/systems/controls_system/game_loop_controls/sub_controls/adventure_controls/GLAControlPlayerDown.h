@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <core/entities/location_enities/ambient_entities/Roadbrick.h>
+
 #include "core/systems/controls_system/IControl.h"
 #include "core/systems/location_system/LocationSystem.h"
 
@@ -22,6 +24,10 @@ class GLAControlPlayerDown : public IControl {
     int magwerh_index = location->get_entities()->get_magwehr_index(new_x, new_y);
     int item_index = location->get_entities()->get_item_index(new_x, new_y);
     int ambient_index = location->get_entities()->get_ambient_index(new_x, new_y);
+
+    if (ambient_index != -1 && location->get_entities()->get_ambient(ambient_index)->get_floor()) {
+      ambient_index = -1;
+    }
 
     if (item_index == -1 && ambient_index == -1 && magwerh_index == -1) {
       location->get_entities()->get_player()->go_down(location->get_size_y());

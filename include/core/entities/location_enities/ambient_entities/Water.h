@@ -6,8 +6,8 @@
 
 #include "core/entities/location_enities/ambient_entities/Ambient.h"
 
-class Roadbrick : public Ambient {
+class Water : public Ambient {
  public:
-  explicit Roadbrick(unsigned input_x, unsigned input_y);
-  ~Roadbrick() override;
+  explicit Water(unsigned input_x, unsigned input_y);
+  ~Water() override;
 };

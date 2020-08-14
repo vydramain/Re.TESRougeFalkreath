@@ -5,8 +5,8 @@
 #include "core/entities/location_enities/ambient_entities/Ambient.h"
 
 Ambient::Ambient(const char *input_name, char input_tile, unsigned int input_color, unsigned int input_x,
-                 unsigned int input_y)
-    : LocationsEntity(input_name, input_tile, input_color), SubLocatable(input_x, input_y) {}
+                 unsigned int input_y, bool is_floor)
+    : LocationsEntity(input_name, input_tile, input_color), SubLocatable(input_x, input_y), SubFloor(is_floor) {}
 
 Ambient::~Ambient() = default;
 
