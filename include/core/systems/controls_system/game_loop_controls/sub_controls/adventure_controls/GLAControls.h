@@ -14,7 +14,9 @@ class GLAControls {
   explicit GLAControls(LocationSystem *input_location) {
     control_map = new GLAControlMap(input_location);
   }
-  ~GLAControls() = default;
+  ~GLAControls() {
+      delete control_map;
+  }
 
   IControl *update() {
     auto key = terminal_read();

@@ -34,6 +34,7 @@ class GControlNewGame : public IControl {
 
     if (load->get_entities_system() == nullptr) {
       printf("%s", "[GControlNewGame] - Map not found\n");
+      printf("%s", "[GControlNewGame] - Stop load system\n");
       delete load;
       return;
     }

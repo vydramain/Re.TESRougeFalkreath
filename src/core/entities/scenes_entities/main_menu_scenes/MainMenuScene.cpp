@@ -9,6 +9,7 @@ MainMenuScene::MainMenuScene(RenderSystem *input_system) : IMainScene("main_menu
   render_system->set_main_menu_render(title, choices, count_choices, highlighted);
 }
 MainMenuScene::~MainMenuScene() {
+  render_system = nullptr;
   delete mm_input;
 }
 

@@ -12,11 +12,9 @@ LoadSystem::LoadSystem() {
 }
 
 LoadSystem::~LoadSystem() {
+  delete entities_system;
   if (map_file_stream != nullptr) {
     fclose(map_file_stream);
-  }
-  if (entities_system != nullptr) {
-    delete entities_system;
   }
 }
 

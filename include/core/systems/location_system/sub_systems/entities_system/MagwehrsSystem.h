@@ -14,7 +14,7 @@ class MagwehrsSystem {
 
  public:
   explicit MagwehrsSystem();
-  virtual ~MagwehrsSystem();
+  ~MagwehrsSystem();
 
   unsigned get_magwehrs_size() const;
   int get_magwehr_index(Magwehr *input_magwehr);

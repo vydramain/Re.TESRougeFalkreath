@@ -12,10 +12,10 @@
 
 class MainMenuScene : public IMainScene {
  private:
-  RenderSystem *render_system;
+  RenderSystem *render_system = nullptr;
   static const unsigned EXIT_CHOICE = 2;
 
-  MMControls *mm_input;
+  MMControls *mm_input = nullptr;
   IControl *last_control = nullptr;
 
   const char *const title = "Главное меню:";

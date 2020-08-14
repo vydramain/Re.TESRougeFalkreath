@@ -15,7 +15,7 @@ class ItemsSystem {
 
  public:
   explicit ItemsSystem();
-  virtual ~ItemsSystem();
+  ~ItemsSystem();
 
   virtual unsigned get_items_size() const;
   int get_item_index(Item *input_item);

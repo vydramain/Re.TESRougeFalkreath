@@ -15,11 +15,11 @@
 
 class MMControlMap {
  private:
-  MMControlSelectExit *select_exit;
-  MMControlSelectEmpty *select_empty;
-  MMControlSelectEnter *select_enter;
-  MMControlSelectDown *select_down;
-  MMControlSelectUp *select_up;
+  MMControlSelectExit *select_exit = nullptr;
+  MMControlSelectEmpty *select_empty = nullptr;
+  MMControlSelectEnter *select_enter = nullptr;
+  MMControlSelectDown *select_down = nullptr;
+  MMControlSelectUp *select_up = nullptr;
 
   std::map<int, IControl *> mm_map;
   std::map<int, IControl *>::iterator mm_iterator;
@@ -33,11 +33,11 @@ class MMControlMap {
     select_empty = new MMControlSelectEmpty();
     select_enter = new MMControlSelectEnter();
 
-    mm_map[TK_CLOSE] = select_exit;
-    mm_map[TK_ESCAPE] = select_exit;
-    mm_map[TK_ENTER] = select_enter;
-    mm_map[TK_UP] = select_up;
-    mm_map[TK_DOWN] = select_down;
+    mm_map.insert(std::make_pair(TK_CLOSE, select_exit));
+    mm_map.insert(std::make_pair(TK_ESCAPE, select_exit));
+    mm_map.insert(std::make_pair(TK_ENTER, select_enter));
+    mm_map.insert(std::make_pair(TK_UP, select_up));
+    mm_map.insert(std::make_pair(TK_DOWN, select_down));
   }
 
   ~MMControlMap() {

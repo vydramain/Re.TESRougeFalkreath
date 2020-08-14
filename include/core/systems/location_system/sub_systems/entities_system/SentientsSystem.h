@@ -14,7 +14,7 @@ class SentientsSystem {
 
  public:
   explicit SentientsSystem();
-  virtual ~SentientsSystem();
+  ~SentientsSystem();
 
   virtual void put_player(Sentient *input_player);
   virtual Sentient *remove_player();

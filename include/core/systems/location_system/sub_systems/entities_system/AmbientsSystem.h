@@ -14,7 +14,7 @@ class AmbientsSystem {
 
  public:
   explicit AmbientsSystem();
-  virtual ~AmbientsSystem();
+  ~AmbientsSystem();
 
   virtual unsigned get_ambients_size() const;
   int get_ambient_index(Ambient *input_ambient);

@@ -9,28 +9,25 @@ LocationsEntitiesSystem::LocationsEntitiesSystem() = default;
 LocationsEntitiesSystem::LocationsEntitiesSystem(const LocationsEntitiesSystem& input_data)
     : SentientsSystem(), MagwehrsSystem(), ItemsSystem() {
   for (const auto sentient : input_data.sentients) {
-    sentients.push_back(sentient);
     entities.push_back(*sentient);
+    sentients.push_back(sentient);
   }
   for (const auto magwehr : input_data.magwehrs) {
-    magwehrs.push_back(magwehr);
     entities.push_back(*magwehr);
+    magwehrs.push_back(magwehr);
   }
   for (const auto item : input_data.items) {
-    items.push_back(item);
     entities.push_back(*item);
+    items.push_back(item);
   }
   for (const auto ambient : input_data.ambients) {
-    ambients.push_back(ambient);
     entities.push_back(*ambient);
+    ambients.push_back(ambient);
   }
 }
 
 LocationsEntitiesSystem::~LocationsEntitiesSystem() {
-//  entities.clear();
-  for (auto it = entities.begin(); it < entities.end(); it++) {
-    entities.erase(it);
-  }
+  entities.clear();
 }
 
 void LocationsEntitiesSystem::put_ambient(Ambient* input_ambient) {

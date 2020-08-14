@@ -22,7 +22,7 @@ class LocationsEntitiesSystem : public SentientsSystem,
  public:
   explicit LocationsEntitiesSystem();
   LocationsEntitiesSystem(const LocationsEntitiesSystem &input_data);
-  ~LocationsEntitiesSystem() override;
+  virtual ~LocationsEntitiesSystem();
 
   void put_ambient(Ambient *input_ambient) override;
   void put_item(Item *input_entity) override;
