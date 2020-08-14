@@ -46,6 +46,7 @@ class PseudoGameLoopRender : public IRender {
 
   void check_interact();
 
+  void render_ambient();
   void render_location_creatures();
   void render_location_items();
   void render_hud();

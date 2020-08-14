@@ -114,7 +114,24 @@ void PseudoGameLoopRender::check_interact() {
   }
 }
 
+void PseudoGameLoopRender::render_ambient() {
+  terminal_layer(1);
+  const Ambient *ambient;
+  for (unsigned i = 0; i < location_system->get_entities()->get_ambients_size(); i++) {
+    ambient = location_system->get_entities()->get_ambient(i);
+    unsigned race_x = ambient->get_current_x();
+    unsigned race_y = ambient->get_current_y();
+
+    if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
+        (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
+      terminal_color(ambient->get_color());
+      terminal_put(race_x - camera_position_x, race_y - camera_position_y, ambient->get_tile());
+    }
+  }
+}
+
 void PseudoGameLoopRender::render_location_creatures() {
+  terminal_layer(2);
   const Sentient *sentient;
   for (unsigned i = 0; i < location_system->get_entities()->get_sentients_size(); i++) {
     sentient = location_system->get_entities()->get_sentient(i);
@@ -123,7 +140,6 @@ void PseudoGameLoopRender::render_location_creatures() {
 
     if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
-      terminal_layer(2);
       terminal_color(sentient->get_color());
       terminal_put(race_x - camera_position_x, race_y - camera_position_y, sentient->get_tile());
     }
@@ -137,7 +153,6 @@ void PseudoGameLoopRender::render_location_creatures() {
 
     if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
-      terminal_layer(3);
       terminal_color(magwehr->get_color());
       terminal_put(race_x - camera_position_x, race_y - camera_position_y, magwehr->get_tile());
     }
@@ -160,7 +175,7 @@ void PseudoGameLoopRender::render_location_items() {
 }
 
 void PseudoGameLoopRender::render_hud() {
-  terminal_layer(5);
+  terminal_layer(10);
   terminal_color(0xffffffff);
   for (unsigned i = 0; i < passive_zone_out_y; i++) {
     terminal_print(passive_zone_out_x, i, "|");
@@ -203,8 +218,9 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  render_location_creatures();
+  render_ambient();
   render_location_items();
+  render_location_creatures();
   render_hud();
 
   terminal_refresh();

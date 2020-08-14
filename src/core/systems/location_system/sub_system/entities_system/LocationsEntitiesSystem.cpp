@@ -20,6 +20,10 @@ LocationsEntitiesSystem::LocationsEntitiesSystem(const LocationsEntitiesSystem& 
     items.push_back(item);
     entities.push_back(*item);
   }
+  for (const auto ambient : input_data.ambients) {
+    ambients.push_back(ambient);
+    entities.push_back(*ambient);
+  }
 }
 
 LocationsEntitiesSystem::~LocationsEntitiesSystem() {
