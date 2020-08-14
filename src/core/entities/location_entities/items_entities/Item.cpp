@@ -10,7 +10,7 @@ Item::Item(const char* input_name, char input_tile, unsigned input_color, unsign
 Item::~Item() = default;
 
 bool Item::operator==(const Item& rhs) const {
-  return get_name() == rhs.get_name();
+  return get_name() == rhs.get_name() && get_tile() == rhs.get_tile() && get_color() == rhs.get_color();
 }
 
 bool Item::operator!=(const Item& rhs) const {
