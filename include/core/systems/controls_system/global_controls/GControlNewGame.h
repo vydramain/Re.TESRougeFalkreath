@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "core/entities/location_enities/ambient_entities/Wall.h"
 #include "core/entities/location_enities/items_entities/Coin.h"
 #include "core/entities/location_enities/sentients_entities/beastfolks/Khadjiit.h"
 #include "core/entities/scenes_entities/game_loop_scene/GameLoopScene.h"
@@ -35,7 +36,7 @@ class GControlNewGame : public IControl {
     entities->put_item(new Coin(13, 12));
     entities->put_item(new Coin(33, 20));
     entities->put_item(new Coin(43, 42));
-    entities->put_ambient(new Ambient("Wall", '#', 0xaaffffff, 15, 15));
+    entities->put_ambient(new Wall(15, 15));
 
     auto *main_scene = new GameLoopScene(render_system, x, y, entities);
 
