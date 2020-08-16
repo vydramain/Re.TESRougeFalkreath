@@ -21,6 +21,9 @@ PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned
   recount_fields(input_screen_x, input_screen_y);
   set_location_system(input_location_system);
   set_target(location_system->get_entities()->get_player());
+  hud = new GameLoopHUDRender(input_location_system, target);
+  hud->update_fields(SCREENMODE_X, SCREENMODE_Y, passive_zone_out_x, passive_zone_out_y, active_zone_in_x,
+                     active_zone_in_y, active_zone_out_x, active_zone_out_y, camera_position_x, camera_position_y);
 }
 
 PseudoGameLoopRender::~PseudoGameLoopRender() {
@@ -94,57 +97,6 @@ void PseudoGameLoopRender::update_camera_position_y() {
   }
 }
 
-void PseudoGameLoopRender::check_interact() {
-  terminal_color(0xffffffff);
-
-  unsigned new_x = location_system->get_entities()->get_player()->get_sight_x();
-  unsigned new_y = location_system->get_entities()->get_player()->get_sight_y();
-
-  int ambient_index = location_system->get_entities()->get_ambient_index(new_x, new_y);
-  int item_index = location_system->get_entities()->get_item_index(new_x, new_y);
-
-  if (ambient_index != -1) {
-    if (std::strcmp(location_system->get_entities()->get_ambient(ambient_index)->get_name(), "Door") == 0) {
-      if (location_system->get_entities()->get_ambient(ambient_index)->get_floor()) {
-        if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-          CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-          TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                      "Нажмите 'E' чтобы закрыть", "");
-        } else {
-          CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                                    passive_zone_out_y - 1);
-          TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                      passive_zone_out_y - 2, "Нажмите 'E' закрыть", "");
-        }
-      } else {
-        if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-          CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-          TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                      "Нажмите 'E' чтобы открыть", "");
-        } else {
-          CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                                    passive_zone_out_y - 1);
-          TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                      passive_zone_out_y - 2, "Нажмите 'E' чтобы открыть", "");
-        }
-      }
-    }
-  }
-
-  if (item_index != -1) {
-    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-      CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                  "Нажмите 'E' для взаимодействия", "");
-    } else {
-      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                                passive_zone_out_y - 1);
-      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                  passive_zone_out_y - 2, "Нажмите 'E' для взаимодействия", "");
-    }
-  }
-}
-
 void PseudoGameLoopRender::render_ambient() {
   terminal_layer(1);
   const Ambient *ambient;
@@ -206,43 +158,8 @@ void PseudoGameLoopRender::render_location_items() {
 }
 
 void PseudoGameLoopRender::render_hud() {
-  terminal_layer(10);
-  terminal_color(0xffffffff);
-  for (unsigned i = 0; i < passive_zone_out_y; i++) {
-    terminal_print(passive_zone_out_x, i, "│");
-  }
-
-  terminal_print(passive_zone_out_x, 9, "├");
-  terminal_print(passive_zone_out_x, passive_zone_out_y - 5, "├");
-  for (unsigned i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
-    terminal_print(passive_zone_out_x + i + 1, 9, "─");
-    terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "─");
-  }
-
-  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
-  char wallet[4];
-  snprintf(wallet, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_wallet());
-  terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
-
-  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
-  char x[4], y[4];
-  snprintf(x, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_current_x());
-  snprintf(y, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_current_y());
-  terminal_print(passive_zone_out_x + 15, passive_zone_out_y - 3, x);
-  terminal_print(passive_zone_out_x + 18, passive_zone_out_y - 3, y);
-
-  terminal_print(passive_zone_out_x + 1, 1, "Имя:");
-  terminal_print(passive_zone_out_x + 1, 2, "Раса:");
-  terminal_print(passive_zone_out_x + 1, 3, "Статус:");
-
-  terminal_color(0xFFFF4444);
-  terminal_print(passive_zone_out_x + 1, 4, "ОЗ:");
-  terminal_color(0xFF44ff44);
-  terminal_print(passive_zone_out_x + 1, 5, "ОД:");
-  terminal_color(0xFF6666FF);
-  terminal_print(passive_zone_out_x + 1, 6, "OМ:");
-
-  check_interact();
+  hud->update_camera(camera_position_x, camera_position_y);
+  hud->render();
 }
 
 void PseudoGameLoopRender::render() {

@@ -7,11 +7,12 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
-#include "systems/location_systems/LocationSystem.h"
-#include "systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
+#include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
+#include "systems/location_systems/LocationSystem.h"
+#include "systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
 
 class PseudoGameLoopRender : public IRender {
  private:
@@ -31,6 +32,8 @@ class PseudoGameLoopRender : public IRender {
   unsigned camera_position_x = 0;
   unsigned camera_position_y = 0;
 
+  GameLoopHUDRender *hud = nullptr;
+
   void recount_fields(unsigned input_screen_x, unsigned input_screen_y);
 
  public:
@@ -45,8 +48,6 @@ class PseudoGameLoopRender : public IRender {
 
   void update_camera_position_x();
   void update_camera_position_y();
-
-  void check_interact();
 
   void render_ambient();
   void render_location_creatures();
