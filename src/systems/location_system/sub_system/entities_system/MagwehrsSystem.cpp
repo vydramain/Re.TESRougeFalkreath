@@ -42,6 +42,11 @@ int MagwehrsSystem::get_magwehr_index(unsigned int input_x, unsigned int input_y
   return -1;
 }
 
+Magwehr *MagwehrsSystem::get_magwehr(const unsigned int input_index) {
+  return magwehrs[input_index];
+}
+
+
 const Magwehr *MagwehrsSystem::get_magwehr(const unsigned int input_index) const {
   const Magwehr *pointer = magwehrs[input_index];
   return pointer;

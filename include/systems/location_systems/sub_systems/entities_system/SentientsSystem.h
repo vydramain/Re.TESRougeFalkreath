@@ -10,7 +10,7 @@
 
 class SentientsSystem {
  protected:
-  std::vector<Sentient*> sentients;
+  std::vector<Sentient *> sentients;
 
  public:
   explicit SentientsSystem();

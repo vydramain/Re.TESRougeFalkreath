@@ -20,6 +20,7 @@ class ItemsSystem {
   virtual unsigned get_items_size() const;
   int get_item_index(Item *input_item);
   int get_item_index(unsigned input_x, unsigned input_y);
+  Item *get_item(unsigned input_index);
   const Item *get_item(unsigned input_index) const;
 
  protected:

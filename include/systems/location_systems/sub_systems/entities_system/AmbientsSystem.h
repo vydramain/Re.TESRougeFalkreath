@@ -19,6 +19,7 @@ class AmbientsSystem {
   virtual unsigned get_ambients_size() const;
   int get_ambient_index(Ambient *input_ambient);
   int get_ambient_index(unsigned input_x, unsigned input_y);
+  Ambient *get_ambient(unsigned input_index);
   const Ambient *get_ambient(unsigned input_index) const;
 
  protected:

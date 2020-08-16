@@ -19,6 +19,7 @@ class MagwehrsSystem {
   unsigned get_magwehrs_size() const;
   int get_magwehr_index(Magwehr *input_magwehr);
   int get_magwehr_index(unsigned input_x, unsigned input_y);
+  Magwehr *get_magwehr(unsigned input_index);
   const Magwehr *get_magwehr(unsigned input_index) const;
 
  protected:

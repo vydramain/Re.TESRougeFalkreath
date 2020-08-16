@@ -13,6 +13,10 @@ LocationSystem::~LocationSystem() {
   delete entities;
 }
 
+LocationsEntitiesSystem *LocationSystem::get_entities() {
+  return entities;
+}
+
 LocationsEntitiesSystem *LocationSystem::get_entities() const {
   return entities;
 }

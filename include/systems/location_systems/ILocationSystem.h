@@ -12,5 +12,6 @@ class ILocationSystem {
 
   virtual unsigned get_size_x() const = 0;
   virtual unsigned get_size_y() const = 0;
+  virtual LocationsEntitiesSystem *get_entities() = 0;
   virtual LocationsEntitiesSystem *get_entities() const = 0;
 };

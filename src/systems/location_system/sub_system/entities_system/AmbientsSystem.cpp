@@ -32,7 +32,11 @@ int AmbientsSystem::get_ambient_index(unsigned int input_x, unsigned int input_y
   return -1;
 }
 
-const Ambient* AmbientsSystem::get_ambient(unsigned int input_index) const {
+Ambient *AmbientsSystem::get_ambient(unsigned int input_index) {
+  return ambients[input_index];
+}
+
+const Ambient *AmbientsSystem::get_ambient(unsigned int input_index) const {
   const Ambient *pointer = ambients[input_index];
   return pointer;
 }
@@ -41,7 +45,7 @@ void AmbientsSystem::put_ambient(Ambient *input_ambient) {
   ambients.insert(ambients.end(), input_ambient);
 }
 
-Ambient* AmbientsSystem::remove_ambient(unsigned int input_index) {
+Ambient *AmbientsSystem::remove_ambient(unsigned int input_index) {
   Ambient *returning_ambient = ambients[input_index];
   ambients.erase(ambients.begin() + input_index);
   return returning_ambient;

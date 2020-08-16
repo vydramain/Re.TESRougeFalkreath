@@ -96,20 +96,51 @@ void PseudoGameLoopRender::update_camera_position_y() {
 
 void PseudoGameLoopRender::check_interact() {
   terminal_color(0xffffffff);
-  int index =
-      location_system->get_entities()->get_item_index(location_system->get_entities()->get_player()->get_sight_x(),
-                                                      location_system->get_entities()->get_player()->get_sight_y());
-  if (index != -1) {
+
+  unsigned new_x = location_system->get_entities()->get_player()->get_sight_x();
+  unsigned new_y = location_system->get_entities()->get_player()->get_sight_y();
+
+  int ambient_index = location_system->get_entities()->get_ambient_index(new_x, new_y);
+  int item_index = location_system->get_entities()->get_item_index(new_x, new_y);
+
+  if (ambient_index != -1) {
+    if (std::strcmp(location_system->get_entities()->get_ambient(ambient_index)->get_name(), "Door") == 0) {
+      if (location_system->get_entities()->get_ambient(ambient_index)->get_floor()) {
+        if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+          CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+          TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                      "Нажмите 'E' чтобы закрыть", "");
+        } else {
+          CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
+                                    passive_zone_out_y - 1);
+          TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
+                                      passive_zone_out_y - 2, "Нажмите 'E' закрыть", "");
+        }
+      } else {
+        if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+          CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+          TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                      "Нажмите 'E' чтобы открыть", "");
+        } else {
+          CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
+                                    passive_zone_out_y - 1);
+          TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
+                                      passive_zone_out_y - 2, "Нажмите 'E' чтобы открыть", "");
+        }
+      }
+    }
+  }
+
+  if (item_index != -1) {
     if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
       CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
       TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
                                   "Нажмите 'E' для взаимодействия", "");
     } else {
-      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6,
-                                passive_zone_out_x - 1, passive_zone_out_y - 1);
-      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6,
-                                  passive_zone_out_x - 2, passive_zone_out_y - 2,
-                                  "Нажмите 'E' для взаимодействия", "");
+      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
+                                passive_zone_out_y - 1);
+      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
+                                  passive_zone_out_y - 2, "Нажмите 'E' для взаимодействия", "");
     }
   }
 }

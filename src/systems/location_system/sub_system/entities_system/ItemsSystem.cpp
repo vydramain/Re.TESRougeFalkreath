@@ -42,6 +42,10 @@ int ItemsSystem::get_item_index(unsigned int input_x, unsigned int input_y) {
   return -1;
 }
 
+Item *ItemsSystem::get_item(unsigned int input_index) {
+    return items[input_index];
+}
+
 const Item *ItemsSystem::get_item(unsigned int input_index) const {
   const Item *pointer = items[input_index];
   return pointer;

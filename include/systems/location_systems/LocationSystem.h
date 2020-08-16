@@ -23,5 +23,6 @@ class LocationSystem : public ILocationSystem {
 
   unsigned get_size_x() const;
   unsigned get_size_y() const;
+  LocationsEntitiesSystem *get_entities();
   LocationsEntitiesSystem *get_entities() const;
 };

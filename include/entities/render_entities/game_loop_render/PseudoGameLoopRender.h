@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <cstring>
+
 #include "./BearLibTerminal.h"
 #include "systems/location_systems/LocationSystem.h"
 #include "systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
