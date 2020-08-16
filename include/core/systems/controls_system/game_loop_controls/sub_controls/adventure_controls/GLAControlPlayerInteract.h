@@ -18,17 +18,17 @@ class GLAControlPlayerInteract : public IControl {
       : IControl("GLAControlPlayerInteract"), location(input_location) {}
 
   void execute() override {
-    int index = location->get_entities()->get_item_index(location->get_entities()->get_player()->get_sight_x(),
+    int item_index = location->get_entities()->get_item_index(location->get_entities()->get_player()->get_sight_x(),
                                                          location->get_entities()->get_player()->get_sight_y());
-    if (index != -1) {
-      if (std::strcmp(location->get_entities()->remove_item(index)->get_name(), "Coin") == 0) {
+    if (item_index != -1) {
+      if (std::strcmp(location->get_entities()->remove_item(item_index)->get_name(), "Coin") == 0) {
         printf("%s%s%s", "[GLAControlPlayerInteract] - ", location->get_entities()->get_player()->get_name(),
                " interact with Coin\n");
         location->get_entities()->get_player()->set_wallet(location->get_entities()->get_player()->get_wallet() + 1);
       } else {
         printf("%s%s%s%s%s", "[GLAControlPlayerInteract] - ", location->get_entities()->get_player()->get_name(),
-               " interact with ", location->get_entities()->get_item(index)->get_name(), "\n");
-        location->get_entities()->get_player()->put_item(location->get_entities()->remove_item(index));
+               " interact with ", location->get_entities()->get_item(item_index)->get_name(), "\n");
+        location->get_entities()->get_player()->put_item(location->get_entities()->remove_item(item_index));
       }
     }
   }
