@@ -10,6 +10,7 @@
 #include "core/systems/controls_system/load_control/ILControl.h"
 #include "core/systems/controls_system/load_control/LControlCobblestone.h"
 #include "core/systems/controls_system/load_control/LControlCoin.h"
+#include "core/systems/controls_system/load_control/LControlDoor.h"
 #include "core/systems/controls_system/load_control/LControlEmpty.h"
 #include "core/systems/controls_system/load_control/LControlHedge.h"
 #include "core/systems/controls_system/load_control/LControlPlant.h"
@@ -23,6 +24,7 @@ class LControlMap {
  private:
   LControlCobblestone *cobblestone = nullptr;
   LControlCoin *coin = nullptr;
+  LControlDoor *door = nullptr;
   LControlEmpty *empty = nullptr;
   LControlHedge *hedge = nullptr;
   LControlPlant *plant = nullptr;
@@ -38,6 +40,7 @@ class LControlMap {
   explicit LControlMap(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system) {
     cobblestone = new LControlCobblestone(input_x, input_y, input_entities_system);
     coin = new LControlCoin(input_x, input_y, input_entities_system);
+    door = new LControlDoor(input_x, input_y, input_entities_system);
     empty = new LControlEmpty();
     hedge = new LControlHedge(input_x, input_y, input_entities_system);
     plant = new LControlPlant(input_x, input_y, input_entities_system);
@@ -48,6 +51,7 @@ class LControlMap {
 
     load_map['c'] = cobblestone;
     load_map['$'] = coin;
+    load_map['d'] = door;
     load_map['h'] = hedge;
     load_map['p'] = plant;
     load_map['.'] = brick;

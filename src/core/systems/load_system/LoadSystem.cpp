@@ -80,7 +80,7 @@ void LoadSystem::create_entities_system() {
 }
 
 void LoadSystem::load_map(const char *input_map_name) {
-  printf("%s%s%s", "[LoadSystem] - Load map ", input_map_name, "\n");
+  printf("%s%s%s", "[LoadSystem] - Load map \"", input_map_name, "\"\n");
   delete entities_system;
 
   map_file_stream = fopen(input_map_name, "r");
