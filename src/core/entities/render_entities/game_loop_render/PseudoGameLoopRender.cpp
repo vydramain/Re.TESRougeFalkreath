@@ -178,12 +178,14 @@ void PseudoGameLoopRender::render_hud() {
   terminal_layer(10);
   terminal_color(0xffffffff);
   for (unsigned i = 0; i < passive_zone_out_y; i++) {
-    terminal_print(passive_zone_out_x, i, "|");
+    terminal_print(passive_zone_out_x, i, "│");
   }
 
+  terminal_print(passive_zone_out_x, 9, "├");
+  terminal_print(passive_zone_out_x, passive_zone_out_y - 5, "├");
   for (unsigned i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
-    terminal_print(passive_zone_out_x + i + 1, 9, "_");
-    terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "_");
+    terminal_print(passive_zone_out_x + i + 1, 9, "─");
+    terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "─");
   }
 
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");

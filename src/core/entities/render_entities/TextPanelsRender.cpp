@@ -14,13 +14,17 @@ void TextPanelsRender::view_text(unsigned int in_x, unsigned int in_y, unsigned 
   }
 
   // draw borders
-  for (unsigned j = 0; j < out_y - in_y; j++) {
-    terminal_put(in_x, in_y + j + 1, '|');
-    terminal_put(out_x, in_y + j, '|');
+  terminal_print(in_x, in_y, "┌");
+  terminal_print(out_x, in_y, "┐");
+  terminal_print(in_x, out_y, "└");
+  terminal_print(out_x, out_y, "┘");
+  for (unsigned j = 0; j < out_y - in_y - 1; j++) {
+    terminal_print(in_x, in_y + 1 + j, "│");
+    terminal_print(out_x, in_y + 1 + j, "│");
   }
-  for (unsigned i = 0; i < out_x - in_x; i++) {
-    terminal_put(in_x + i, in_y, '-');
-    terminal_put(in_x + i + 1, out_y, '-');
+  for (unsigned i = 0; i < out_x - in_x - 1; i++) {
+    terminal_print(in_x + 1 + i, in_y, "─");
+    terminal_print(in_x + 1 + i, out_y, "─");
   }
 
   terminal_print(in_x + 2, in_y + 2, input_first_string);
@@ -38,13 +42,17 @@ void TextPanelsRender::view_question_with_a_choice(unsigned in_x, unsigned int i
   }
 
   // draw borders
-  for (unsigned ii(0); ii < (out_y - in_y); ii++) {
-    terminal_put(in_x, in_y + 1 + ii, '|');
-    terminal_put(out_x, in_y + ii, '|');
+  terminal_print(in_x, in_y, "┌");
+  terminal_print(out_x, in_y, "┐");
+  terminal_print(in_x, out_y, "└");
+  terminal_print(out_x, out_y, "┘");
+  for (unsigned j = 0; j < out_y - in_y - 1; j++) {
+    terminal_print(in_x, in_y + 1 + j, "│");
+    terminal_print(out_x, in_y + 1 + j, "│");
   }
-  for (unsigned i(0); i < (out_x - in_x); i++) {
-    terminal_put(in_x + i, in_y, '-');
-    terminal_put(in_x + 1 + i, out_y, '-');
+  for (unsigned i = 0; i < out_x - in_x - 1; i++) {
+    terminal_print(in_x + 1 + i, in_y, "─");
+    terminal_print(in_x + 1 + i, out_y, "─");
   }
 
   // draw question
