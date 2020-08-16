@@ -1,9 +1,8 @@
 
 #include <cstring>
 
-#include "core/systems/controls_system/IControl.h"
-#include "core/systems/controls_system/global_controls/GControlMap.h"
-#include "core/systems/render_system/RenderSystem.h"
+#include "systems/controls_systems/IControl.h"
+#include "systems/controls_systems/global_controls/GControlMap.h"
 
 int main() {
   printf("%s", "starting...\n");
