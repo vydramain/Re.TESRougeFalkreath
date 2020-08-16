@@ -39,7 +39,7 @@ class GControlNewGame : public IControl {
       return;
     }
 
-    load->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 45, 12));
+    load->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 17, 96));
     auto *main_scene = new GameLoopScene(render_system, load->get_location_size_x(), load->get_location_size_y(),
                                          load->get_entities_system());
     main_scene->run();

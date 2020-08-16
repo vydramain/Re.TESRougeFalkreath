@@ -15,6 +15,7 @@
 #include "core/systems/controls_system/load_control/LControlHedge.h"
 #include "core/systems/controls_system/load_control/LControlPlant.h"
 #include "core/systems/controls_system/load_control/LControlRoadbrick.h"
+#include "core/systems/controls_system/load_control/LControlSouthGate.hpp"
 #include "core/systems/controls_system/load_control/LControlTree.h"
 #include "core/systems/controls_system/load_control/LControlWall.h"
 #include "core/systems/controls_system/load_control/LControlWater.h"
@@ -29,6 +30,7 @@ class LControlMap {
   LControlHedge *hedge = nullptr;
   LControlPlant *plant = nullptr;
   LControlRoadbrick *brick = nullptr;
+  LControlSouthGate *south_gate = nullptr;
   LControlTree *tree = nullptr;
   LControlWall *wall = nullptr;
   LControlWater *water = nullptr;
@@ -45,6 +47,7 @@ class LControlMap {
     hedge = new LControlHedge(input_x, input_y, input_entities_system);
     plant = new LControlPlant(input_x, input_y, input_entities_system);
     brick = new LControlRoadbrick(input_x, input_y, input_entities_system);
+    south_gate = new LControlSouthGate(input_x, input_y, input_entities_system);
     tree = new LControlTree(input_x, input_y, input_entities_system);
     wall = new LControlWall(input_x, input_y, input_entities_system);
     water = new LControlWater(input_x, input_y, input_entities_system);
@@ -55,6 +58,7 @@ class LControlMap {
     load_map['h'] = hedge;
     load_map['p'] = plant;
     load_map['.'] = brick;
+    load_map['q'] = south_gate;
     load_map['t'] = tree;
     load_map['#'] = wall;
     load_map['~'] = water;
@@ -63,10 +67,12 @@ class LControlMap {
   ~LControlMap() {
     delete cobblestone;
     delete coin;
+    delete door;
     delete empty;
     delete hedge;
     delete plant;
     delete brick;
+    delete south_gate;
     delete tree;
     delete wall;
     delete water;

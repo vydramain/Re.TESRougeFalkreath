@@ -37,8 +37,7 @@ class GLAControlMap {
     control_player_right = new GLAControlPlayerRight(input_location);
     control_player_up = new GLAControlPlayerUp(input_location);
     control_player_interact = new GLAControlPlayerInteract(input_location);
-
-    glas_map[TK_CLOSE] = control_exit;
+    
     glas_map[TK_ESCAPE] = control_exit;
     glas_map[TK_DOWN] = control_player_down;
     glas_map[TK_LEFT] = control_player_left;
