@@ -4,7 +4,7 @@
 
 #include "core/entities/location_enities/sentients_entities/Sentient.h"
 
-Sentient::Sentient(const char *input_name, const char input_tile, unsigned input_color, const unsigned input_current_x,
+Sentient::Sentient(const char *input_name, const char* input_tile, unsigned input_color, const unsigned input_current_x,
                    const unsigned input_current_y, const unsigned input_pocket_size, const unsigned input_wallet)
     : LocationsEntity(input_name, input_tile, input_color),
       SubWalketh(input_current_x, input_current_y),

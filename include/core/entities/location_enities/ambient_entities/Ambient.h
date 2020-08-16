@@ -11,8 +11,8 @@
 
 class Ambient : public LocationsEntity, public SubLocatable, public SubFloor {
  public:
-  explicit Ambient(const char* input_name, char input_tile, unsigned input_color, unsigned input_x, unsigned input_y,
-                   bool is_floor = false);
+  explicit Ambient(const char* input_name, const char* input_tile, unsigned input_color,
+                   unsigned input_x, unsigned input_y, bool is_floor = false);
   ~Ambient() override;
 
   bool operator==(const Ambient& rhs) const;

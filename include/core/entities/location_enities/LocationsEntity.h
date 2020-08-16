@@ -9,6 +9,6 @@
 
 class LocationsEntity : public Entity, public SubPseudoRenderable {
  public:
-  explicit LocationsEntity(const char* input_name, char input_tile, unsigned input_color);
+  explicit LocationsEntity(const char* input_name, const char* input_tile, unsigned input_color);
   ~LocationsEntity() override;
 };

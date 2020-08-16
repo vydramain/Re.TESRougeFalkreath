@@ -125,7 +125,7 @@ void PseudoGameLoopRender::render_ambient() {
     if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
       terminal_color(ambient->get_color());
-      terminal_put(race_x - camera_position_x, race_y - camera_position_y, ambient->get_tile());
+      terminal_print(race_x - camera_position_x, race_y - camera_position_y, ambient->get_tile());
     }
   }
 }
@@ -141,7 +141,7 @@ void PseudoGameLoopRender::render_location_creatures() {
     if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
       terminal_color(sentient->get_color());
-      terminal_put(race_x - camera_position_x, race_y - camera_position_y, sentient->get_tile());
+      terminal_print(race_x - camera_position_x, race_y - camera_position_y, sentient->get_tile());
     }
   }
 
@@ -154,7 +154,7 @@ void PseudoGameLoopRender::render_location_creatures() {
     if ((race_x >= camera_position_x && race_x < camera_position_x + passive_zone_out_x) &&
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
       terminal_color(magwehr->get_color());
-      terminal_put(race_x - camera_position_x, race_y - camera_position_y, magwehr->get_tile());
+      terminal_print(race_x - camera_position_x, race_y - camera_position_y, magwehr->get_tile());
     }
   }
 }
@@ -169,7 +169,7 @@ void PseudoGameLoopRender::render_location_items() {
         (race_y >= camera_position_y && race_y < camera_position_y + passive_zone_out_y)) {
       terminal_layer(4);
       terminal_color(item->get_color());
-      terminal_put(race_x - camera_position_x, race_y - camera_position_y, item->get_tile());
+      terminal_print(race_x - camera_position_x, race_y - camera_position_y, item->get_tile());
     }
   }
 }

@@ -9,13 +9,13 @@
 
 class SubPseudoRenderable : protected AbsPseudoRenderable {
  public:
-  explicit SubPseudoRenderable(char input_tile,
+  explicit SubPseudoRenderable(const char* input_tile,
                                unsigned input_color);
   ~SubPseudoRenderable();
 
-  void set_tile(char input_tile);
+  void set_tile(const char* input_tile);
   void set_color(unsigned input_color);
 
-  char get_tile() const;
+  const char* get_tile() const;
   unsigned get_color() const;
 };

@@ -6,11 +6,11 @@
 
 class AbsPseudoRenderable {
  protected:
-  char tile;
+  const char* tile;
   unsigned int color;
 
  public:
-  explicit AbsPseudoRenderable(const char input_tile, const unsigned int input_color) {
+  explicit AbsPseudoRenderable(const char* input_tile, const unsigned int input_color) {
     tile = input_tile;
     color = input_color;
   }

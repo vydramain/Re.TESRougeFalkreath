@@ -9,7 +9,7 @@
 
 class Magwehr : public LocationsEntity, public SubWalketh {
  public:
-  explicit Magwehr(const char *input_name, char input_tile, unsigned input_color, unsigned input_x = 0,
+  explicit Magwehr(const char *input_name, const char* input_tile, unsigned input_color, unsigned input_x = 0,
                    unsigned input_y = 0);
   Magwehr(const Magwehr &input_creature);
   Magwehr(Magwehr &&input_creature) noexcept;

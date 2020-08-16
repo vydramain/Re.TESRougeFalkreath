@@ -4,7 +4,7 @@
 
 #include "core/entities/location_enities/magwehrs_entities/Magwehr.h"
 
-Magwehr::Magwehr(const char *input_name, const char input_tile, unsigned input_color, const unsigned input_x,
+Magwehr::Magwehr(const char *input_name, const char *input_tile, unsigned input_color, const unsigned input_x,
                  const unsigned input_y)
     : LocationsEntity(input_name, input_tile, input_color), SubWalketh(input_x, input_y) {
   set_sight();
