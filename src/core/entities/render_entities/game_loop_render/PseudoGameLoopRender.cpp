@@ -101,15 +101,15 @@ void PseudoGameLoopRender::check_interact() {
                                                       location_system->get_entities()->get_player()->get_sight_y());
   if (index != -1) {
     if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-      CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2, passive_zone_out_y - 2,
-                                  "Press 'E' to interact", "");
+      CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                  "Нажмите 'E' для взаимодействия", "");
     } else {
-      CleanerRender::clean_area(passive_zone_out_x / 2, passive_zone_out_y - 6,
+      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6,
                                 passive_zone_out_x - 1, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(passive_zone_out_x / 2, passive_zone_out_y - 6,
+      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6,
                                   passive_zone_out_x - 2, passive_zone_out_y - 2,
-                                  "Press 'E' to interact", "");
+                                  "Нажмите 'E' для взаимодействия", "");
     }
   }
 }
