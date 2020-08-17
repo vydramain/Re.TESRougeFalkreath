@@ -10,7 +10,7 @@ class ILoadSystem {
  public:
   virtual ~ILoadSystem() = default;
 
-  virtual void load_map(const char *input_map_name) = 0;
+  virtual void load_map() = 0;
 
   virtual LocationsEntitiesSystem *get_entities_system() const = 0;
   virtual unsigned get_location_size_x() const = 0;

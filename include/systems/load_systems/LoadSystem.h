@@ -15,6 +15,8 @@ class LoadSystem : public ILoadSystem {
   unsigned location_size_x;
   unsigned location_size_y;
   LocationsEntitiesSystem *entities_system;
+
+  const char* file_name;
   FILE *map_file_stream;
 
   bool check_file();
@@ -22,10 +24,10 @@ class LoadSystem : public ILoadSystem {
   void create_entities_system();
 
  public:
-  explicit LoadSystem();
+  explicit LoadSystem(const char *input_map_name);
   ~LoadSystem() override;
 
-  void load_map(const char *input_map_name) override;
+  void load_map() override;
 
   LocationsEntitiesSystem *get_entities_system() const override;
   unsigned get_location_size_x() const override;

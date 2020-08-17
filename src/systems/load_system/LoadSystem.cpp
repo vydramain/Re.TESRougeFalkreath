@@ -4,11 +4,13 @@
 
 #include "systems/load_systems/LoadSystem.h"
 
-LoadSystem::LoadSystem() {
+LoadSystem::LoadSystem(const char *input_map_name) {
   location_size_x = 0;
   location_size_y = 0;
   entities_system = nullptr;
   map_file_stream = nullptr;
+
+  file_name = input_map_name;
 }
 
 LoadSystem::~LoadSystem() {
@@ -79,11 +81,11 @@ void LoadSystem::create_entities_system() {
   }
 }
 
-void LoadSystem::load_map(const char *input_map_name) {
-  printf("%s%s%s", "[LoadSystem] - Load map \"", input_map_name, "\"\n");
+void LoadSystem::load_map() {
+  printf("%s%s%s", "[LoadSystem] - Load map \"", file_name, "\"\n");
   delete entities_system;
 
-  map_file_stream = fopen(input_map_name, "r");
+  map_file_stream = fopen(file_name, "r");
   if (map_file_stream == nullptr) {
     return;
   }

@@ -28,9 +28,9 @@ class GControlNewGame : public IControl {
     printf("%s", "[GControlNewGame] - Execute new game control\n");
     *highlighted = 0;
     printf("%s", "[GControlNewGame] - Launch load system\n");
-    auto *load = new LoadSystem();
-    load->load_map("../maps/Falkreath.bin");
-    //    load->load_map("maps/Falkreath.bin");
+    auto *load = new LoadSystem("../maps/Falkreath.bin");
+    //    auto *load = new LoadSystem("maps/Falkreath.bin");
+    load->load_map();
 
     if (load->get_entities_system() == nullptr) {
       printf("%s", "[GControlNewGame] - Map not found\n");
