@@ -39,7 +39,7 @@ class GControlMap {
   }
 
   ~GControlMap() {
-    printf("%s", "[GconrolMap] - Deleting global controls\n");
+    printf("%s", "[GControlMap] - Deleting global controls\n");
     main_map.clear();
 
     delete main_menu;

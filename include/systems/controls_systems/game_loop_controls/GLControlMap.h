@@ -25,16 +25,15 @@ class GLControlMap {
   IGLControl *last_control = nullptr;
 
  public:
-  explicit GLControlMap(LocationSystem *input_location) {
+  explicit GLControlMap(LocationSystem *input_location, const unsigned input_count, unsigned *input_highlighted) {
     printf("%s", "[GLControlMap] - Creating game loop controls\n");
     control_adventure = new GLControlAdventure(input_location);
     control_empty = new GLControlEmpty();
-    control_ending = new GLControlEnding(input_location);
+    control_ending = new GLControlEnding(input_location, input_count, input_highlighted);
     control_exit = new GLControlExit();
 
     gl_map["GLAControlExit"] = control_exit;
-    gl_map["GLControlEnding"] = control_ending;
-    gl_map["GLControlAdventure"] = control_ending;
+    gl_map["GLAControlEnding"] = control_ending;
   }
 
   ~GLControlMap() {
@@ -46,7 +45,7 @@ class GLControlMap {
   }
 
   IGLControl *get_start_control() {
-    printf("%s", "[GLControlAdventure] - Launch adventure control at game loop\n");
+    printf("%s", "[GLControlMap] - Launch adventure control at game loop\n");
     last_control = control_adventure;
     return control_adventure;
   }

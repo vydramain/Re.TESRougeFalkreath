@@ -14,12 +14,14 @@ class GLControlEnding : public IGLControl {
   EndingScene *scene = nullptr;
 
  public:
-  explicit GLControlEnding(LocationSystem *input_location_system) {}
+  explicit GLControlEnding(LocationSystem *input_location_system, const unsigned input_count, unsigned *input_highlighted) {
+    scene = new EndingScene(input_location_system, input_count, input_highlighted);
+  }
   ~GLControlEnding() override {
     delete scene;
   }
 
-  IControl *get_last_control() override {
+  IControl *get_adventure_executed_control() override {
     return last_control;
   }
 

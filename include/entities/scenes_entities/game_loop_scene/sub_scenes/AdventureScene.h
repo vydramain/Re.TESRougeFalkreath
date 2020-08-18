@@ -12,13 +12,13 @@
 class AdventureScene : public IScene {
  private:
   GLAControls *mla_input;
-  IControl *last_control = nullptr;
+  IControl *control = nullptr;
 
  public:
   explicit AdventureScene(LocationSystem *input_location);
   ~AdventureScene() override;
 
-  IControl *get_last_control();
+  IControl *get_control();
 
   void run() override;
 };

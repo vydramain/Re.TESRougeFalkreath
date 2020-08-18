@@ -10,7 +10,7 @@
 
 class GLControlAdventure : public IGLControl {
  private:
-  IControl *last_control = nullptr;
+  IControl *adventure_executed_control = nullptr;
   AdventureScene *scene;
 
  public:
@@ -20,12 +20,12 @@ class GLControlAdventure : public IGLControl {
     delete scene;
   }
 
-  IControl *get_last_control() override {
-    return last_control;
+  IControl *get_adventure_executed_control() override {
+    return adventure_executed_control;
   }
 
   void execute() override {
     scene->run();
-    last_control = scene->get_last_control();
+    adventure_executed_control = scene->get_control();
   }
 };

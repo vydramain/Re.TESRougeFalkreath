@@ -11,11 +11,11 @@ AdventureScene::~AdventureScene() {
   delete mla_input;
 }
 
-IControl *AdventureScene::get_last_control() {
-  return last_control;
+IControl *AdventureScene::get_control() {
+  return control;
 }
 
 void AdventureScene::run() {
-  last_control = mla_input->update();
-  last_control->execute();
+  control = mla_input->update();
+  control->execute();
 }

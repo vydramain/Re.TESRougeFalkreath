@@ -18,6 +18,8 @@ class GameLoopScene : public IMainScene {
   IRenderSystem *render_system;
 
   LocationSystem *location_system = nullptr;
+
+  unsigned ending_count = 2;
   unsigned *ending_highlighted = new unsigned(1);
 
  public:

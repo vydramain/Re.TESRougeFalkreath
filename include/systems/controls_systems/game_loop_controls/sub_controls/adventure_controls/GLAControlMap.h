@@ -18,8 +18,8 @@
 
 class GLAControlMap {
  private:
-  GLAControlExit *control_exit = new GLAControlExit();
-  GLAControlEmpty *control_empty = new GLAControlEmpty();
+  GLAControlExit *control_exit = nullptr;
+  GLAControlEmpty *control_empty = nullptr;
   GLAControlPlayerDown *control_player_down = nullptr;
   GLAControlPlayerLeft *control_player_left = nullptr;
   GLAControlPlayerRight *control_player_right = nullptr;
@@ -32,6 +32,8 @@ class GLAControlMap {
  public:
   explicit GLAControlMap(LocationSystem *input_location) {
     printf("%s", "[GLAControlMap] - Creating game loop adventure controls\n");
+    control_exit = new GLAControlExit();
+    control_empty = new GLAControlEmpty();
     control_player_down = new GLAControlPlayerDown(input_location);
     control_player_left = new GLAControlPlayerLeft(input_location);
     control_player_right = new GLAControlPlayerRight(input_location);

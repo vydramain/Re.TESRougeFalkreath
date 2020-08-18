@@ -20,14 +20,15 @@ GameLoopScene::~GameLoopScene() {
 
 void GameLoopScene::run() {
   printf("%s", "[GameLoopScene] - Launch game loop\n");
-  auto *ml_control_map = new GLControlMap(location_system);
+  auto *gl_control_map = new GLControlMap(location_system, ending_count, ending_highlighted);
   printf("%s", "[GLControl] - Set start control\n");
-  IGLControl *current_ml_control = ml_control_map->get_start_control();
+  IGLControl *current_gl_control = gl_control_map->get_start_control();
 
   do {
     render_system->render();
-    current_ml_control->execute();
-    current_ml_control = ml_control_map->get_control(current_ml_control->get_last_control());
-  } while (std::strcmp(current_ml_control->get_name(), "GLControlExit") != 0);
-  delete ml_control_map;
+    current_gl_control->execute();
+    current_gl_control = gl_control_map->get_control(current_gl_control->get_adventure_executed_control());
+  } while (std::strcmp(current_gl_control->get_name(), "GLControlExit") != 0);
+
+  delete gl_control_map;
 }
