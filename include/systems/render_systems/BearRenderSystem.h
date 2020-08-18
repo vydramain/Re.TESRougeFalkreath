@@ -17,20 +17,28 @@
  * Class response all terminal options.
  * It means that resolution, window's title, fullscreen mode, graphic's type is under control by this class.
  */
-class RenderSystem : public IRenderSystem {
+class BearRenderSystem : public IRenderSystem {
  private:
   unsigned SCREENMODE_X = 0;
   unsigned SCREENMODE_Y = 0;
 
   IRender* render_entity = nullptr;
 
- public:
-  explicit RenderSystem();
-  ~RenderSystem() override;
+  const char* menu_title = nullptr;
+  const char** menu_choices = nullptr;
+  unsigned count_menu_choices = 0;
+  unsigned* highlighted_menu_choice = nullptr;
+  ILocationSystem* location_system = nullptr;
+  unsigned* ending_highlighted = nullptr;
 
-  void set_pseudo_game_loop_render(ILocationSystem* input_location_system, unsigned *input_highlighted) override;
-  void set_main_menu_render(const char* input_question, const char** input_choices, unsigned input_count_choices,
-                            unsigned* input_highlighted_choice) override;
+ public:
+  explicit BearRenderSystem(const char* input_menu_title, const char** input_menu_choices,
+                            unsigned input_count_menu_choices, unsigned* input_highlighted_menu_choice,
+                            ILocationSystem* input_location_system, unsigned* input_ending_highlighted);
+  ~BearRenderSystem() override;
+
+  void set_pseudo_game_loop_render() override;
+  void set_main_menu_render() override;
 
   void render() override;
 };
