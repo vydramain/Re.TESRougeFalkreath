@@ -26,6 +26,8 @@ class GLAControlPlayerInteract : public IControl {
 
     if (ambient_index != -1) {
       if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "Door") == 0) {
+        printf("%s%s%s%s%s", "[GLAControlPlayerInteract] - ", location->get_entities()->get_player()->get_name(),
+               " interact with ", location->get_entities()->get_ambient(ambient_index)->get_name(), "\n");
         if (location->get_entities()->get_ambient(ambient_index)->get_floor()) {
           location->get_entities()->get_ambient(ambient_index)->set_floor(false);
           location->get_entities()->get_ambient(ambient_index)->set_tile("┼");
@@ -36,6 +38,8 @@ class GLAControlPlayerInteract : public IControl {
       }
 
       if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "SouthGate") == 0) {
+        printf("%s%s%s%s%s", "[GLAControlPlayerInteract] - ", location->get_entities()->get_player()->get_name(),
+               " interact with ", location->get_entities()->get_ambient(ambient_index)->get_name(), "\n");
         location->story_is_over();
       }
     }
