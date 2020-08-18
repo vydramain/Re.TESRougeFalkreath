@@ -8,12 +8,11 @@
 
 class IScoreSystem {
  public:
-  virtual ~IScoreSystem();
+  virtual ~IScoreSystem() = default;
 
-  void set_location_data(ILocationSystem *input_location_system);
-  unsigned get_score_count() const;
-  const char* get_score_string() const;
+  virtual void set_location_system(ILocationSystem* input_location_system) = 0;
+  virtual unsigned get_score_count() const = 0;
+  virtual const char* get_score_string(unsigned index) const = 0;
 
-  void add_score();
-  void read_score();
+  virtual void add_score() = 0;
 };

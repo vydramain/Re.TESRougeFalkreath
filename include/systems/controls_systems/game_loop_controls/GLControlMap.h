@@ -10,14 +10,16 @@
 #include "systems/controls_systems/game_loop_controls/GLControlEmpty.h"
 #include "systems/controls_systems/game_loop_controls/GLControlEnding.hpp"
 #include "systems/controls_systems/game_loop_controls/GLControlExit.h"
+#include "systems/controls_systems/game_loop_controls/GLControlScoreSave.hpp"
 #include "systems/location_systems/LocationSystem.h"
 
 class GLControlMap {
  private:
+  GLControlAdventure *control_adventure = nullptr;
   GLControlExit *control_exit = nullptr;
   GLControlEmpty *control_empty = nullptr;
-  GLControlAdventure *control_adventure = nullptr;
   GLControlEnding *control_ending = nullptr;
+  GLControlScoreSave *control_score = nullptr;
 
   std::map<const char *, IGLControl *> gl_map;
   std::map<const char *, IGLControl *>::iterator gl_iterator;
@@ -26,19 +28,21 @@ class GLControlMap {
   IGLControl *last_control = nullptr;
 
  public:
-  explicit GLControlMap(LocationSystem *input_location, const unsigned input_count, unsigned *input_highlighted) {
+  explicit GLControlMap(LocationSystem *input_location_system, const unsigned input_count,
+                        unsigned *input_highlighted) {
     printf("%s", "[GLControlMap] - Creating game loop controls\n");
-    control_adventure = new GLControlAdventure(input_location);
+    control_adventure = new GLControlAdventure(input_location_system);
     control_empty = new GLControlEmpty();
-    control_ending = new GLControlEnding(input_location, input_count, input_highlighted);
+    control_ending = new GLControlEnding(input_location_system, input_count, input_highlighted);
     control_exit = new GLControlExit();
+    control_score = new GLControlScoreSave(input_location_system, input_count, input_highlighted);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
-    gl_map["GLEControlSelectEnter"] = control_exit;
+    gl_map["GLEControlSelectEnter"] = control_score;
     gl_map["GLEControlSelectExit"] = control_exit;
 
-    location_system = input_location;
+    location_system = input_location_system;
   }
 
   ~GLControlMap() {

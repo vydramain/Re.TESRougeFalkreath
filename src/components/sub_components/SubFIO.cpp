@@ -4,8 +4,8 @@
 
 #include "components/sub_components/SubFIO.hpp"
 
-SubFIO::SubFIO(const char* input_fio) {
-  if(strlen(input_fio) > 24){
+SubFIO::SubFIO(const char *input_fio) {
+  if (strlen(input_fio) > 24) {
     return;
   }
   fio = input_fio;
@@ -13,11 +13,15 @@ SubFIO::SubFIO(const char* input_fio) {
 
 SubFIO::~SubFIO() = default;
 
+unsigned SubFIO::get_chars_counts() const {
+  return char_counts;
+}
+
 const char *SubFIO::get_fio() const {
   return fio;
 }
 void SubFIO::set_fio(const char *input_fio) {
-  if(strlen(input_fio) > 24){
+  if (strlen(input_fio) > 24) {
     return;
   }
   fio = input_fio;

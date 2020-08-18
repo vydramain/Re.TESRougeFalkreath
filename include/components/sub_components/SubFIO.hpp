@@ -13,6 +13,7 @@ class SubFIO : protected AbsFIO {
   explicit SubFIO(const char* input_fio);
   ~SubFIO();
 
+  unsigned get_chars_counts() const;
   const char* get_fio() const;
   void set_fio(const char* input_fio);
 };

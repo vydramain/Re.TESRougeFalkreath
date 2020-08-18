@@ -14,7 +14,8 @@ class GLControlEnding : public IGLControl {
   EndingScene *scene = nullptr;
 
  public:
-  explicit GLControlEnding(LocationSystem *input_location_system, const unsigned input_count, unsigned *input_highlighted) : IGLControl("GLControlEnding") {
+  explicit GLControlEnding(LocationSystem *input_location_system, const unsigned input_count,
+                           unsigned *input_highlighted) : IGLControl("GLControlEnding") {
     scene = new EndingScene(input_location_system, input_count, input_highlighted);
   }
   ~GLControlEnding() override {
