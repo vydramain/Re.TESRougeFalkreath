@@ -38,16 +38,16 @@ void GameLoopHUDRender::update_camera(unsigned int input_camera_position_x, unsi
 
 void GameLoopHUDRender::check_item_interact(unsigned input_index) {
   terminal_color(0xffffffff);
-
+  const char *render_string[1] = {"Нажмите 'E' для взаимодействия"};
   if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
     CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
     TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                "Нажмите 'E' для взаимодействия", "");
+                                render_string, 1);
   } else {
     CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
                               passive_zone_out_y - 1);
     TextPanelsRender::view_text((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, "Нажмите 'E' для взаимодействия", "");
+                                passive_zone_out_y - 2, render_string, 1);
   }
 }
 
@@ -55,40 +55,43 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   terminal_color(0xffffffff);
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "Door") == 0) {
     if (location_system->get_entities()->get_ambient(input_index)->get_floor()) {
+      const char *render_string[1] = {"Нажмите 'E' чтобы закрыть"};
       if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
         CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
         TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                    "Нажмите 'E' чтобы закрыть", "");
+                                    render_string, 1);
       } else {
         CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
                                   passive_zone_out_y - 1);
         TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                    passive_zone_out_y - 2, "Нажмите 'E' чтобы закрыть", "");
+                                    passive_zone_out_y - 2, render_string, 1);
       }
     } else {
+      const char *render_string[1] = {"Нажмите 'E' чтобы открыть"};
       if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
         CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
         TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                    "Нажмите 'E' чтобы открыть", "");
+                                    render_string, 1);
       } else {
         CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
                                   passive_zone_out_y - 1);
         TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                    passive_zone_out_y - 2, "Нажмите 'E' чтобы открыть", "");
+                                    passive_zone_out_y - 2, render_string, 1);
       }
     }
   }
 
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "SouthGate") == 0) {
+    const char *render_string[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
     if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
       CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
       TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                  "Нажмите 'E' чтобы отправиться", "в дальние земли");
+                                  render_string, 2);
     } else {
       CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
                                 passive_zone_out_y - 1);
       TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                  passive_zone_out_y - 2, "Нажмите 'E' чтобы отправиться", "в дальние земли");
+                                  passive_zone_out_y - 2, render_string, 2);
     }
   }
 }
