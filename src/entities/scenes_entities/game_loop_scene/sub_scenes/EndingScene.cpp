@@ -4,13 +4,12 @@
 
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/EndingScene.hpp"
 
-EndingScene::EndingScene(LocationSystem* input_location) : IScene("EndingScene") {
-  gle_input = new GLEControls(input_location, count_choices, highlighted);
+EndingScene::EndingScene(LocationSystem* input_location, unsigned *input_highlighted) : IScene("EndingScene") {
+  gle_input = new GLEControls(input_location input_highlighted);
 }
 
 EndingScene::~EndingScene() {
   delete gle_input;
-  delete highlighted;
 }
 
 IControl* EndingScene::get_last_control() {

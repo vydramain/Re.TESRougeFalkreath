@@ -7,8 +7,8 @@
 #include <cstring>
 
 #include "entities/scenes_entities/IScene.h"
-#include "systems/location_systems/LocationSystem.h"
 #include "systems/controls_systems/game_loop_controls/sub_controls/ending_controls/GLEControls.h"
+#include "systems/location_systems/LocationSystem.h"
 
 class EndingScene : public IScene {
  private:
@@ -16,13 +16,7 @@ class EndingScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  static const unsigned EXIT_CHOICE = 2;
-  const char *const question = "Сохранить статистику?";
-  const char *choices[EXIT_CHOICE] = {"Да", "Нет"};
-  const unsigned count_choices = EXIT_CHOICE;
-  unsigned *highlighted = new unsigned(1);
-
-  explicit EndingScene(LocationSystem *input_location);
+  explicit EndingScene(LocationSystem *input_location, unsigned *input_highlighted);
   ~EndingScene() override;
 
   IControl *get_last_control();
