@@ -12,16 +12,16 @@
 
 class EndingScene : public IScene {
  private:
-  GLEControls *gle_input;
+  GLEControls *gle_input = nullptr;
   IControl *last_control = nullptr;
 
+ public:
   static const unsigned EXIT_CHOICE = 2;
   const char *const question = "Сохранить статистику?";
   const char *choices[EXIT_CHOICE] = {"Да", "Нет"};
   const unsigned count_choices = EXIT_CHOICE;
   unsigned *highlighted = new unsigned(1);
 
- public:
   explicit EndingScene(LocationSystem *input_location);
   ~EndingScene() override;
 

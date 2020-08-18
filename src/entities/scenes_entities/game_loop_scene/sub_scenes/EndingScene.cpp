@@ -13,19 +13,11 @@ EndingScene::~EndingScene() {
   delete highlighted;
 }
 
-IControl * EndingScene::get_last_control() {
+IControl* EndingScene::get_last_control() {
   return last_control;
 }
 
 void EndingScene::run() {
-  printf("%s", "[EndingScene] - Launch ending scene\n");
-  do {
-    last_control = gle_input->update();
-    last_control->execute();
-  } while (std::strcmp(last_control->get_name(), "GLEControlSelectExit") != 0 &&
-           std::strcmp(last_control->get_name(), "GLEControlSelectEnter") != 0);
-
-  if (std::strcmp(last_control->get_name(), "GLEControlSelectExit") == 0) {
-    *highlighted = EXIT_CHOICE;
-  }
+  last_control = gle_input->update();
+  last_control->execute();
 }
