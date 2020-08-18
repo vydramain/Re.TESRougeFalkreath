@@ -11,7 +11,7 @@
 
 class AdventureScene : public IScene {
  private:
-  GLAControls *mla_input;
+  GLAControls *gla_input;
   IControl *control = nullptr;
 
  public:
