@@ -40,16 +40,26 @@ void BearRenderSystem::set_game_loop_data(LocationSystem *input_location_system,
 void BearRenderSystem::set_main_menu_render() {
   printf("%s", "[RenderSystem] - Setting up main menu render\n");
   delete render_entity;
-  render_entity =
-      new MainMenuRender(SCREENMODE_X, SCREENMODE_Y, menu_title, menu_choices, count_menu_choices, menu_highlighted);
+  if(is_menu) {
+    render_entity =
+        new MainMenuRender(SCREENMODE_X, SCREENMODE_Y, menu_title, menu_choices, count_menu_choices, menu_highlighted);
+  }
 }
 
 void BearRenderSystem::set_pseudo_game_loop_render() {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
-  render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, location_system, ending_highlighted);
+  if(is_game_loop) {
+    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, location_system, ending_highlighted);
+  }
 }
 
 void BearRenderSystem::render() {
-  render_entity->render();
+  if(render_entity) {
+    render_entity->render();
+  } else {
+    terminal_clear();
+    terminal_print(0, 0, "Render is not set up");
+    terminal_refresh();
+  }
 }
