@@ -16,11 +16,11 @@
 
 class GControlNewGame : public IControl {
  private:
-  RenderSystem *render_system;
+  IRenderSystem *render_system;
   unsigned *highlighted;
 
  public:
-  explicit GControlNewGame(RenderSystem *input_system, unsigned *input_pointer)
+  explicit GControlNewGame(IRenderSystem *input_system, unsigned *input_pointer)
       : IControl("GlobalControlNewGame"), render_system(input_system), highlighted(input_pointer) {}
   ~GControlNewGame() override = default;
 

@@ -44,9 +44,9 @@ void GameLoopHUDRender::check_item_interact(unsigned input_index) {
     TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
                                 "Нажмите 'E' для взаимодействия", "");
   } else {
-    CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
+    CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
                               passive_zone_out_y - 1);
-    TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
+    TextPanelsRender::view_text((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
                                 passive_zone_out_y - 2, "Нажмите 'E' для взаимодействия", "");
   }
 }

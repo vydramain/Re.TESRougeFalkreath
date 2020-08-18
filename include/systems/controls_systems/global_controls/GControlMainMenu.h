@@ -9,11 +9,11 @@
 
 class GControlMainMenu : public IControl {
  private:
-  RenderSystem *render_system;
+  IRenderSystem *render_system;
   unsigned *highlighted;
 
  public:
-  explicit GControlMainMenu(RenderSystem *input_system, unsigned *input_pointer)
+  explicit GControlMainMenu(IRenderSystem *input_system, unsigned *input_pointer)
       : IControl("GControlMainMenu"), render_system(input_system), highlighted(input_pointer) {}
   ~GControlMainMenu() override = default;
 
