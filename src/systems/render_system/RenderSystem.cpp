@@ -29,10 +29,10 @@ void RenderSystem::set_main_menu_render(const char *input_question, const char *
                                      input_highlighted_choice);
 }
 
-void RenderSystem::set_pseudo_game_loop_render(ILocationSystem *input_location_system) {
+void RenderSystem::set_pseudo_game_loop_render(ILocationSystem *input_location_system, unsigned *input_highlighted) {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
-  render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, input_location_system);
+  render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, input_location_system, input_highlighted);
 }
 void RenderSystem::render() {
   render_entity->render();
