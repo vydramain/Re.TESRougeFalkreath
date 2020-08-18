@@ -11,7 +11,7 @@ class GLControlExit : public IGLControl {
  public:
   explicit GLControlExit() : IGLControl("GLControlExit") {}
 
-  IControl *get_adventure_executed_control() override {
+  IControl *get_last_executed_control() override {
     return nullptr;
   }
 

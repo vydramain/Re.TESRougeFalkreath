@@ -35,6 +35,8 @@ class GLControlMap {
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
+    gl_map["GLEControlSelectEnter"] = control_exit;
+    gl_map["GLEControlSelectExit"] = control_exit;
 
     location_system = input_location;
   }
@@ -54,14 +56,14 @@ class GLControlMap {
   }
 
   IGLControl *get_control(IControl *input_control) {
-    if (location_system->is_story_over()) {
-      return control_ending;
-    }
     for (gl_iterator = gl_map.begin(); gl_iterator != gl_map.end(); gl_iterator++) {
       if (std::strcmp(gl_iterator->first, input_control->get_name()) == 0) {
         last_control = gl_iterator->second;
         return gl_iterator->second;
       }
+    }
+    if (location_system->is_story_over()) {
+      return control_ending;
     }
     return last_control;
   }

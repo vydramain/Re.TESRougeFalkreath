@@ -20,7 +20,7 @@ class GLControlAdventure : public IGLControl {
     delete scene;
   }
 
-  IControl *get_adventure_executed_control() override {
+  IControl *get_last_executed_control() override {
     return adventure_executed_control;
   }
 

@@ -27,7 +27,7 @@ void GameLoopScene::run() {
   do {
     render_system->render();
     current_gl_control->execute();
-    current_gl_control = gl_control_map->get_control(current_gl_control->get_adventure_executed_control());
+    current_gl_control = gl_control_map->get_control(current_gl_control->get_last_executed_control());
   } while (std::strcmp(current_gl_control->get_name(), "GLControlExit") != 0);
 
   delete gl_control_map;
