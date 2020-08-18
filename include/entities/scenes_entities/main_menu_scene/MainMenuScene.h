@@ -6,13 +6,13 @@
 
 #include <cstring>
 
-#include "systems/controls_systems/main_menu_controls/MMControls.h"
-#include "systems/render_systems/RenderSystem.h"
 #include "entities/scenes_entities/IMainScene.h"
+#include "systems/controls_systems/main_menu_controls/MMControls.h"
+#include "systems/render_systems/BearRenderSystem.h"
 
 class MainMenuScene : public IMainScene {
  private:
-  RenderSystem *render_system = nullptr;
+  IRenderSystem *render_system = nullptr;
   static const unsigned EXIT_CHOICE = 2;
 
   MMControls *mm_input = nullptr;
@@ -24,7 +24,7 @@ class MainMenuScene : public IMainScene {
   unsigned *highlighted = new unsigned(1);
 
  public:
-  explicit MainMenuScene(RenderSystem *input_system);
+  explicit MainMenuScene(IRenderSystem *input_system);
   ~MainMenuScene() override;
 
   unsigned get_highlighted() const;

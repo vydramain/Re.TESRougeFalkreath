@@ -5,6 +5,7 @@
 #pragma once
 
 #include "systems/controls_systems/IControl.h"
+#include "systems/location_systems/LocationSystem.h"
 
 class GLEControlSelectEnter : public IControl {
  private:

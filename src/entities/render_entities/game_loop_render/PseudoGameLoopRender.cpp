@@ -178,7 +178,7 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  if(!is_end) {
+  if (!is_end) {
     render_ambient();
     render_location_items();
     render_location_creatures();
@@ -188,4 +188,4 @@ void PseudoGameLoopRender::render() {
   }
 
   terminal_refresh();
-}}
+}

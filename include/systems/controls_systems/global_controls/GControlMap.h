@@ -19,13 +19,13 @@ class GControlMap {
   std::map<unsigned, IControl *> main_map;
   std::map<unsigned, IControl *>::iterator main_iterator;
 
-  RenderSystem *render = nullptr;
+  IRenderSystem *render = nullptr;
   unsigned *last_highlighted = nullptr;
 
  public:
   explicit GControlMap() {
     printf("%s", "[GControlMap] - Launch BearLibTerminal's render system\n");
-    render = new RenderSystem();
+    render = new BearRenderSystem();
     last_highlighted = new unsigned(0);
 
     printf("%s", "[GControlMap] - Creating global controls\n");

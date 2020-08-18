@@ -4,9 +4,10 @@
 
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 
-MainMenuScene::MainMenuScene(RenderSystem *input_system) : IMainScene("main_menu"), render_system(input_system) {
+MainMenuScene::MainMenuScene(IRenderSystem *input_system) : IMainScene("main_menu"), render_system(input_system) {
   mm_input = new MMControls(count_choices, highlighted);
-  render_system->set_main_menu_render(title, choices, count_choices, highlighted);
+
+  render_system->set_main_menu_render();
 }
 MainMenuScene::~MainMenuScene() {
   render_system = nullptr;
