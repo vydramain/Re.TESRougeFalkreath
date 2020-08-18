@@ -4,22 +4,23 @@
 
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
-GameLoopScene::GameLoopScene(IRenderSystem *input_system, unsigned input_x, unsigned input_y,
+GameLoopScene::GameLoopScene(IRenderSystem *input_location_system, unsigned input_x, unsigned input_y,
                              LocationsEntitiesSystem *input_entities)
     : IMainScene("MainLoopScene"),
-      render_system(input_system),
-      location(new LocationSystem(input_x, input_y, input_entities)) {
+      render_system(input_location_system),
+      location_system(new LocationSystem(input_x, input_y, input_entities)) {
+  render_system->set_game_loop_data(location_system, ending_highlighted);
   render_system->set_pseudo_game_loop_render();
 }
 
 GameLoopScene::~GameLoopScene() {
   render_system = nullptr;
-  delete location;
+  delete location_system;
 }
 
 void GameLoopScene::run() {
   printf("%s", "[GameLoopScene] - Launch game loop\n");
-  auto *ml_control_map = new GLControlMap(location);
+  auto *ml_control_map = new GLControlMap(location_system);
   printf("%s", "[GLControl] - Set start control\n");
   IGLControl *current_ml_control = ml_control_map->get_start_control();
 

@@ -33,7 +33,7 @@ void LoadSystem::clear_fields() {
 }
 
 void LoadSystem::create_entities_system() {
-  printf("%s", "[LoadSystem] - Creating and completion location entities system\n");
+  printf("%s", "[LoadSystem] - Creating and completion location_system entities system\n");
   auto *i = new unsigned(0);
   auto *j = new unsigned(0);
   entities_system = new LocationsEntitiesSystem();

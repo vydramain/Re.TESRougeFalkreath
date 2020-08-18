@@ -39,8 +39,8 @@ class BearRenderSystem : public IRenderSystem {
   ~BearRenderSystem() override;
 
   void set_main_menu_data(const char *input_menu_title, const char **input_menu_choices,
-                          unsigned input_count_menu_choices, unsigned *input_menu_highlighted);
-  void set_game_loop_data(LocationSystem *input_location_system, unsigned *input_highlighted);
+                          unsigned input_count_menu_choices, unsigned *input_menu_highlighted) override;
+  void set_game_loop_data(LocationSystem *input_location_system, unsigned *input_highlighted) override;
 
   void set_pseudo_game_loop_render() override;
   void set_main_menu_render() override;

@@ -16,10 +16,12 @@
 class GameLoopScene : public IMainScene {
  private:
   IRenderSystem *render_system;
-  LocationSystem *location = nullptr;
+
+  LocationSystem *location_system = nullptr;
+  unsigned *ending_highlighted = new unsigned(1);
 
  public:
-  explicit GameLoopScene(IRenderSystem *input_system, unsigned input_x, unsigned input_y,
+  explicit GameLoopScene(IRenderSystem *input_location_system, unsigned input_x, unsigned input_y,
                          LocationsEntitiesSystem *input_entities);
   ~GameLoopScene() override;
 

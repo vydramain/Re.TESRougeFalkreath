@@ -7,6 +7,7 @@
 MainMenuScene::MainMenuScene(IRenderSystem *input_system) : IMainScene("main_menu"), render_system(input_system) {
   mm_input = new MMControls(count_choices, highlighted);
 
+  render_system->set_main_menu_data(title, choices, count_choices, highlighted);
   render_system->set_main_menu_render();
 }
 MainMenuScene::~MainMenuScene() {
