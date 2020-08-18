@@ -13,6 +13,14 @@ LocationSystem::~LocationSystem() {
   delete entities;
 }
 
+bool LocationSystem::is_story_over() {
+  return end_of_story;
+}
+
+void LocationSystem::story_is_over() {
+  end_of_story = true;
+}
+
 LocationsEntitiesSystem *LocationSystem::get_entities() {
   return entities;
 }
