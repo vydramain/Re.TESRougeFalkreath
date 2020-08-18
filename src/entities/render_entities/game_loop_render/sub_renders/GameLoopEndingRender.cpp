@@ -18,6 +18,6 @@ void GameLoopEndingRender::update_fields(unsigned int input_screen_x, unsigned i
 }
 
 void GameLoopEndingRender::render() {
-  TextPanelsRender::view_question_with_a_choice(0, 0, SCREENMODE_X, SCREENMODE_Y,
+  TextPanelsRender::view_question_with_a_choice(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1,
                                                 question, choices, count_choices, *highlighted);
 }

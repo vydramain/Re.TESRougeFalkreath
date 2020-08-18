@@ -63,10 +63,6 @@ void PseudoGameLoopRender::set_camera_position_y() {
   }
 }
 
-void PseudoGameLoopRender::set_end() {
-  is_end = true;
-}
-
 void PseudoGameLoopRender::update_camera_position_x() {
   unsigned target_x = target->get_current_x();
   if (target_x < camera_position_x + active_zone_in_x || target_x > camera_position_x + active_zone_out_x) {
@@ -178,13 +174,13 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  if (!is_end) {
+  if (location_system->is_story_over()) {
+    render_end();
+  } else {
     render_ambient();
     render_location_items();
     render_location_creatures();
     render_hud();
-  } else {
-    render_end();
   }
 
   terminal_refresh();

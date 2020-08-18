@@ -78,6 +78,19 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
       }
     }
   }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "SouthGate") == 0) {
+    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                  "Нажмите 'E' чтобы отправиться", "в дальние земли");
+    } else {
+      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
+                                passive_zone_out_y - 1);
+      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
+                                  passive_zone_out_y - 2, "Нажмите 'E' чтобы отправиться", "в дальние земли");
+    }
+  }
 }
 
 void GameLoopHUDRender::render_borders() {

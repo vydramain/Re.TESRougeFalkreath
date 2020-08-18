@@ -16,7 +16,7 @@ class EndingScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit EndingScene(LocationSystem *input_location, const unsigned input_count, unsigned *input_highlighted);
+  explicit EndingScene(LocationSystem *input_location, unsigned input_count, unsigned *input_highlighted);
   ~EndingScene() override;
 
   IControl *get_last_control();

@@ -27,7 +27,7 @@ class PseudoGameLoopRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
-  const ILocationSystem *location_system = nullptr;
+  ILocationSystem *location_system = nullptr;
   const Sentient *target = nullptr;
 
   unsigned camera_position_x = 0;
@@ -35,8 +35,6 @@ class PseudoGameLoopRender : public IRender {
 
   GameLoopHUDRender *hud = nullptr;
   GameLoopEndingRender *ending = nullptr;
-
-  bool is_end = false;
 
   void recount_fields(unsigned input_screen_x, unsigned input_screen_y);
 
@@ -49,7 +47,6 @@ class PseudoGameLoopRender : public IRender {
   void set_target(Sentient *input_target);
   void set_camera_position_x();
   void set_camera_position_y();
-  void set_end();
 
   void update_camera_position_x();
   void update_camera_position_y();

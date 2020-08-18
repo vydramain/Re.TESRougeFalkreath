@@ -22,6 +22,7 @@ class GLControlMap {
   std::map<const char *, IGLControl *> gl_map;
   std::map<const char *, IGLControl *>::iterator gl_iterator;
 
+  ILocationSystem *location_system = nullptr;
   IGLControl *last_control = nullptr;
 
  public:
@@ -34,6 +35,8 @@ class GLControlMap {
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
+
+    location_system = input_location;
   }
 
   ~GLControlMap() {
@@ -51,6 +54,9 @@ class GLControlMap {
   }
 
   IGLControl *get_control(IControl *input_control) {
+    if (location_system->is_story_over()) {
+      return control_ending;
+    }
     for (gl_iterator = gl_map.begin(); gl_iterator != gl_map.end(); gl_iterator++) {
       if (std::strcmp(gl_iterator->first, input_control->get_name()) == 0) {
         last_control = gl_iterator->second;

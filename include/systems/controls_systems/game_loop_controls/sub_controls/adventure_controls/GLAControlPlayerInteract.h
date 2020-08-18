@@ -34,6 +34,10 @@ class GLAControlPlayerInteract : public IControl {
           location->get_entities()->get_ambient(ambient_index)->set_tile("║");
         }
       }
+
+      if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "SouthGate") == 0) {
+        location->story_is_over();
+      }
     }
 
     if (item_index != -1) {
