@@ -30,7 +30,12 @@ void BearRenderSystem::set_main_menu_data(const char *input_menu_title, const ch
   menu_highlighted = input_menu_highlighted;
 }
 
-void BearRenderSystem::set_game_loop_data(LocationSystem *input_location_system,
+void BearRenderSystem::set_score_list_data(ScoreListData *input_score_list_data) {
+  is_score_list = true;
+  score_list_data = input_score_list_data;
+}
+
+void BearRenderSystem::set_game_loop_data(ILocationSystem *input_location_system,
                                           unsigned int *input_ending_highlighted) {
   is_game_loop = true;
   location_system = input_location_system;
@@ -43,6 +48,14 @@ void BearRenderSystem::set_main_menu_render() {
   if (is_menu) {
     render_entity =
         new MainMenuRender(SCREENMODE_X, SCREENMODE_Y, menu_title, menu_choices, count_menu_choices, menu_highlighted);
+  }
+}
+
+void BearRenderSystem::set_score_list_render() {
+  printf("%s", "[RenderSystem] - Setting up score list render\n");
+  delete render_entity;
+  if (is_score_list) {
+    render_entity = new ScoreListRender(SCREENMODE_X, SCREENMODE_Y, score_list_data);
   }
 }
 

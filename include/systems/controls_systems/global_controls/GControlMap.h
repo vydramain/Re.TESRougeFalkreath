@@ -9,12 +9,14 @@
 #include "systems/controls_systems/global_controls/GControlExit.h"
 #include "systems/controls_systems/global_controls/GControlMainMenu.h"
 #include "systems/controls_systems/global_controls/GControlNewGame.h"
+#include "systems/controls_systems/global_controls/GControlScoreList.hpp"
 
 class GControlMap {
  private:
+  GControlExit *exit = nullptr;
   GControlMainMenu *main_menu = nullptr;
   GControlNewGame *new_game = nullptr;
-  GControlExit *exit = nullptr;
+  GControlScoreList *score_list = nullptr;
 
   std::map<unsigned, IControl *> main_map;
   std::map<unsigned, IControl *>::iterator main_iterator;
@@ -29,22 +31,25 @@ class GControlMap {
     last_highlighted = new unsigned(0);
 
     printf("%s", "[GControlMap] - Creating global controls\n");
+    exit = new GControlExit();
     main_menu = new GControlMainMenu(render, last_highlighted);
     new_game = new GControlNewGame(render, last_highlighted);
-    exit = new GControlExit();
+    score_list = new GControlScoreList(render, last_highlighted);
 
     main_map[0] = main_menu;
     main_map[1] = new_game;
-    main_map[2] = exit;
+    main_map[2] = score_list;
+    main_map[3] = exit;
   }
 
   ~GControlMap() {
     printf("%s", "[GControlMap] - Deleting global controls\n");
     main_map.clear();
 
+    delete exit;
     delete main_menu;
     delete new_game;
-    delete exit;
+    delete score_list;
 
     delete last_highlighted;
     delete render;

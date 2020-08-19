@@ -13,13 +13,13 @@
 class MainMenuScene : public IMainScene {
  private:
   IRenderSystem *render_system = nullptr;
-  static const unsigned EXIT_CHOICE = 2;
+  static const unsigned EXIT_CHOICE = 3;
 
   MMControls *mm_input = nullptr;
   IControl *last_control = nullptr;
 
   const char *const title = "Главное меню:";
-  const char *choices[EXIT_CHOICE] = {"Играть", "Выход"};
+  const char *choices[EXIT_CHOICE] = {"Играть", "Рейтинг", "Выход"};
   const unsigned count_choices = EXIT_CHOICE;
   unsigned *highlighted = new unsigned(1);
 

@@ -10,12 +10,12 @@
 
 class StdScoreSystem : public IScoreSystem {
  private:
-  unsigned CHAR_IN_STRING = 61;
+  int CHAR_IN_STRING = 61;
 
   FILE *score_file = nullptr;
   ILocationSystem *location_system = nullptr;
 
-  unsigned score_count = 0;
+  unsigned records_count = 0;
 
  public:
   void set_location_system(ILocationSystem *input_location_system) override;
@@ -23,8 +23,9 @@ class StdScoreSystem : public IScoreSystem {
   explicit StdScoreSystem();
   ~StdScoreSystem() override;
 
-  unsigned get_score_count() const override;
+  unsigned get_records_count() const override;
   const char *get_score_string(unsigned index) const override;
 
   void add_score() override;
+  void free_file() override;
 };

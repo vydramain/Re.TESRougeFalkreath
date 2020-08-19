@@ -11,8 +11,9 @@ class IScoreSystem {
   virtual ~IScoreSystem() = default;
 
   virtual void set_location_system(ILocationSystem* input_location_system) = 0;
-  virtual unsigned get_score_count() const = 0;
+  virtual unsigned get_records_count() const = 0;
   virtual const char* get_score_string(unsigned index) const = 0;
 
   virtual void add_score() = 0;
+  virtual void free_file() = 0;
 };
