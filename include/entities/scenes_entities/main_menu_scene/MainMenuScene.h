@@ -24,7 +24,7 @@ class MainMenuScene : public IMainScene {
   unsigned *highlighted = new unsigned(1);
 
  public:
-  explicit MainMenuScene(IRenderSystem *input_system);
+  explicit MainMenuScene(IRenderSystem *input_render_system);
   ~MainMenuScene() override;
 
   unsigned get_highlighted() const;

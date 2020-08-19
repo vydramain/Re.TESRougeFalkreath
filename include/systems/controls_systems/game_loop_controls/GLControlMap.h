@@ -47,10 +47,11 @@ class GLControlMap {
 
   ~GLControlMap() {
     printf("%s", "[GLControlMap] - Delete game loop controls\n");
-    delete control_exit;
-    delete control_empty;
     delete control_adventure;
+    delete control_empty;
     delete control_ending;
+    delete control_exit;
+    delete control_score;
   }
 
   IGLControl *get_start_control() {
