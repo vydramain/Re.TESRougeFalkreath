@@ -7,7 +7,9 @@
 ItemsSystem::ItemsSystem() = default;
 
 ItemsSystem::~ItemsSystem() {
-  items.clear();
+  for (auto &item : items) {
+    delete item;
+  }
 }
 
 void ItemsSystem::put_item(Item *input_item) {

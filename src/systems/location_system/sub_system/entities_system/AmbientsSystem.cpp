@@ -7,7 +7,9 @@
 AmbientsSystem::AmbientsSystem() = default;
 
 AmbientsSystem::~AmbientsSystem() {
-  ambients.clear();
+  for (auto & ambient : ambients) {
+    delete ambient;
+  }
 }
 
 unsigned AmbientsSystem::get_ambients_size() const {

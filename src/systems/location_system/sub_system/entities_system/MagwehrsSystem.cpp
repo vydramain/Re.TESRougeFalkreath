@@ -7,7 +7,9 @@
 MagwehrsSystem::MagwehrsSystem() = default;
 
 MagwehrsSystem::~MagwehrsSystem() {
-  magwehrs.clear();
+  for (auto &magwehr : magwehrs) {
+    delete magwehr;
+  }
 }
 
 void MagwehrsSystem::put_magwehr(Magwehr *input_creature) {

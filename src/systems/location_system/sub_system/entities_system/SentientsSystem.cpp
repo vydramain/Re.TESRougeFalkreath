@@ -7,7 +7,9 @@
 SentientsSystem::SentientsSystem() = default;
 
 SentientsSystem::~SentientsSystem() {
-  sentients.clear();
+  for (auto &sentient : sentients) {
+    delete sentient;
+  }
 }
 
 void SentientsSystem::put_player(Sentient *input_player) {
