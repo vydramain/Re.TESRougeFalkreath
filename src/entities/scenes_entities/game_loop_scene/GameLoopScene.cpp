@@ -6,9 +6,9 @@
 
 GameLoopScene::GameLoopScene(IRenderSystem *input_location_system, unsigned input_x, unsigned input_y,
                              LocationsEntitiesSystem *input_entities)
-    : IMainScene("MainLoopScene"),
-      render_system(input_location_system),
-      location_system(new LocationSystem(input_x, input_y, input_entities)) {
+    : IMainScene("MainLoopScene") {
+  render_system = input_location_system;
+  location_system = new LocationSystem(input_x, input_y, input_entities);
   render_system->set_game_loop_data(location_system, ending_highlighted);
   render_system->set_pseudo_game_loop_render();
 }

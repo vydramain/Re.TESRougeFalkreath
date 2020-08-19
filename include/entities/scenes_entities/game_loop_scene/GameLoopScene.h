@@ -16,7 +16,6 @@
 class GameLoopScene : public IMainScene {
  private:
   IRenderSystem *render_system;
-
   LocationSystem *location_system = nullptr;
 
   unsigned ending_count = 2;
