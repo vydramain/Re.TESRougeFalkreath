@@ -31,6 +31,8 @@ PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned
 PseudoGameLoopRender::~PseudoGameLoopRender() {
   location_system = nullptr;
   target = nullptr;
+  delete hud;
+  delete ending;
 }
 
 void PseudoGameLoopRender::set_location_system(ILocationSystem *input_location_system) {
