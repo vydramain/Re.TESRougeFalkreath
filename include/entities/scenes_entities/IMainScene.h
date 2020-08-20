@@ -8,7 +8,7 @@
 
 class IMainScene : public IScene {
  public:
-  explicit IMainScene(const char *input_name = "MainScene") : IScene(input_name) {}
+  explicit IMainScene(const char *input_name = "ScenesSystem") : IScene(input_name) {}
   ~IMainScene() override = default;
 
   void run() override = 0;
