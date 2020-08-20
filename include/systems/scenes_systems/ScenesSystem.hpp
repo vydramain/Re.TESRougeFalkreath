@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <systems/controls_systems/IControl.h>
-#include <systems/controls_systems/global_controls/GControlMap.h>
+#include "systems/controls_systems/IControl.h"
+#include "systems/scenes_systems/scenes_launchers/ScenesLaunchersManager.h"
 
 class ScenesSystem {
  public:
