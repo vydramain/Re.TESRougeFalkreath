@@ -6,17 +6,18 @@
 
 #include <cstdio>
 
+#include "systems/rw_systems/writer_systems/score_writers/StdScoreWriter.hpp"
+#include "systems/rw_systems/reader_systems/score_readers/StdScoreReader.hpp"
+#include "systems/rw_systems/reader_systems/score_readers/IScoreReader.hpp"
+#include "systems/rw_systems/writer_systems/score_writers/IScoreWriter.hpp"
 #include "systems/score_systems/IScoreSystem.hpp"
 
 class StdScoreSystem : public IScoreSystem {
  private:
-  int CHAR_IN_STRING = 61;
+  IScoreReader *reader = nullptr;
+  IScoreWriter *writer = nullptr;
 
-  FILE *score_file = nullptr;
   ILocationSystem *location_system = nullptr;
-
-  unsigned records_count = 0;
-
  public:
   void set_location_system(ILocationSystem *input_location_system) override;
 
@@ -24,7 +25,7 @@ class StdScoreSystem : public IScoreSystem {
   ~StdScoreSystem() override;
 
   unsigned get_records_count() const override;
-  const char *get_score_string(unsigned index) const override;
+  const char *get_score_string(unsigned input_index) const override;
 
   void add_score() override;
   void free_file() override;
