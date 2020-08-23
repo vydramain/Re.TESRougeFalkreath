@@ -5,64 +5,37 @@
 #include "systems/load_systems/LoadSystem.h"
 
 LoadSystem::LoadSystem(const char *input_map_name) {
-  location_size_x = 0;
-  location_size_y = 0;
+  reader = new StdLocationReader(input_map_name);
   entities_system = nullptr;
-  map_file_stream = nullptr;
-
-  file_name = input_map_name;
 }
 
 LoadSystem::~LoadSystem() {
+  delete reader;
   delete entities_system;
-  if (map_file_stream != nullptr) {
-    fclose(map_file_stream);
-  }
 }
 
 bool LoadSystem::check_file() {
-  return feof(map_file_stream);
+  return reader->has_next();
 }
 
 void LoadSystem::clear_fields() {
-  location_size_x = 0;
-  location_size_y = 0;
-  if (!entities_system) {
-    delete entities_system;
-  }
+  delete reader;
+  delete entities_system;
 }
 
 void LoadSystem::create_entities_system() {
-  printf("%s", "[LoadSystem] - Creating and completion location_system entities system\n");
+  PseudoLogSystem::log("LoadSystem", "Creating and completion location_system entities system");
+
   auto *i = new unsigned(0);
   auto *j = new unsigned(0);
   entities_system = new LocationsEntitiesSystem();
   IControl *control;
   auto *map = new LControlMap(i, j, entities_system);
 
-  if (map_file_stream != nullptr) {
-    fscanf(map_file_stream, "%u", &location_size_x);
-    if (check_file()) {
-      clear_fields();
-      delete entities_system;
-      entities_system = nullptr;
-      delete map;
-      return;
-    }
 
-    fscanf(map_file_stream, "%u", &location_size_y);
-    if (check_file()) {
-      clear_fields();
-      delete entities_system;
-      entities_system = nullptr;
-      delete map;
-      return;
-    }
-
-    getc(map_file_stream);
-    for (*j = 0; *j < location_size_y; *j = *j + 1) {
-      for (*i = 0; *i < location_size_x; *i = *i + 1) {
-        control = map->get_control(getc(map_file_stream));
+    for (*j = 0; *j < reader->get_y_location_size(); *j = *j + 1) {
+      for (*i = 0; *i < reader->get_x_location_size(); *i = *i + 1) {
+        control = map->get_control(reader->get_char());
         control->execute();
         if (check_file()) {
           clear_fields();
@@ -75,27 +48,24 @@ void LoadSystem::create_entities_system() {
         }
       }
     }
-    delete i;
-    delete j;
-    delete map;
-  }
+
+  delete i;
+  delete j;
+  delete map;
 }
 
 void LoadSystem::load_map() {
-  printf("%s%s%s", "[LoadSystem] - Load map \"", file_name, "\"\n");
-  delete entities_system;
+  if (reader != nullptr) {
+    PseudoLogSystem::log("LoadSystem", "Load map", reader->get_file_name());
+    delete entities_system;
 
-  map_file_stream = fopen(file_name, "r");
-  if (map_file_stream == nullptr) {
+    if (!reader->open()) {
+      PseudoLogSystem::log("LoadSystem", "Map not found");
+    }
+    create_entities_system();
     return;
   }
-
-  fseek(map_file_stream, 0, SEEK_SET);
-  if (feof(map_file_stream)) {
-    fclose(map_file_stream);
-    map_file_stream = nullptr;
-  }
-  create_entities_system();
+  PseudoLogSystem::log("LoadSystem", "Reader not setting up");
 }
 
 LocationsEntitiesSystem *LoadSystem::get_entities_system() const {
@@ -103,9 +73,15 @@ LocationsEntitiesSystem *LoadSystem::get_entities_system() const {
 }
 
 unsigned LoadSystem::get_location_size_x() const {
-  return location_size_x;
+  if (reader == nullptr) {
+    return 0;
+  }
+  return reader->get_x_location_size();
 }
 
 unsigned int LoadSystem::get_location_size_y() const {
-  return location_size_y;
+  if (reader == nullptr) {
+    return 0;
+  }
+  return reader->get_y_location_size();
 }

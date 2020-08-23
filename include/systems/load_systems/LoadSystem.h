@@ -6,18 +6,17 @@
 
 #include <cstdio>
 
-#include "systems/load_systems/ILoadSystem.h"
 #include "systems/controls_systems/load_controls/LControlMap.h"
+#include "systems/load_systems/ILoadSystem.h"
 #include "systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems/pseudo_log_systems/PseudoLogSystem.hpp"
+#include "systems/rw_systems/reader_systems/location_readers/ILocationReader.hpp"
+#include "systems/rw_systems/reader_systems/location_readers/StdLocationReader.hpp"
 
 class LoadSystem : public ILoadSystem {
  private:
-  unsigned location_size_x;
-  unsigned location_size_y;
-  LocationsEntitiesSystem *entities_system;
-
-  const char* file_name;
-  FILE *map_file_stream;
+  ILocationReader *reader = nullptr;
+  LocationsEntitiesSystem *entities_system = nullptr;
 
   bool check_file();
   void clear_fields();
