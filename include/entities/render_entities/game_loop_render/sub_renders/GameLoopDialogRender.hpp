@@ -6,7 +6,7 @@
 
 #include "entities/location_entities/sentients_entities/Sentient.h"
 #include "entities/render_entities/IRender.h"
-#include "systems/location_systems/LocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
 class GameLoopDialogRender : public IRender {
  private:

@@ -5,13 +5,13 @@
 #pragma once
 
 #include <cstdio>
-#include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
 
 #include "entities/scenes_entities/IMainScene.h"
-#include "systems/controls_systems/score_list_controls/SLControls.hpp"
+#include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
+#include "systems/controls_systems/scenes_controls/score_list_controls/SLControls.hpp"
 #include "systems/render_systems/IRenderSystem.h"
-#include "systems/score_systems/IScoreSystem.hpp"
-#include "systems/score_systems/StdScoreSystem.hpp"
+#include "systems/scenes_systems/score_systems/IScoreSystem.hpp"
+#include "systems/scenes_systems/score_systems/StdScoreSystem.hpp"
 
 class ScoreListScene : public IMainScene {
  private:

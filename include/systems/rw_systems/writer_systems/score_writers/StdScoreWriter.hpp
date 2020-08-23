@@ -7,8 +7,8 @@
 #include <cstdio>
 
 #include "IScoreWriter.hpp"
+#include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/location_entities/sentients_entities/Sentient.h"
-#include "systems/pseudo_log_systems/PseudoLogSystem.hpp"
 
 class StdScoreWriter : public IScoreWriter {
  private:
@@ -20,5 +20,5 @@ class StdScoreWriter : public IScoreWriter {
   ~StdScoreWriter() override;
 
   void free_file() override;
-  void add_sentient_score(Sentient *input_sentient) override;
+  void add_sentient_score(Sentient* input_sentient) override;
 };

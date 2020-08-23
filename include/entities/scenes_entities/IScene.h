@@ -5,7 +5,6 @@
 #pragma once
 
 #include "entities/Entity.h"
-#include "systems/controls_systems/IControl.h"
 
 class IScene : public Entity {
  public:

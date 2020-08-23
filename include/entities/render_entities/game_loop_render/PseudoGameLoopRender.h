@@ -12,8 +12,9 @@
 #include "entities/render_entities/TextPanelsRender.h"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopEndingRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
-#include "systems/location_systems/LocationSystem.h"
-#include "systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
 
 class PseudoGameLoopRender : public IRender {
  private:

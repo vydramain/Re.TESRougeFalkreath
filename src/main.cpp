@@ -1,8 +1,8 @@
 
-#include "systems/scenes_systems/ScenesSystem.hpp"
+#include "systems/scenes_systems/launcher_system/LaunchersSystem.hpp"
 
 int main() {
-  ScenesSystem::run();
+  LaunchersSystem::run();
 
   return 0;
 }

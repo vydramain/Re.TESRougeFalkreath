@@ -11,8 +11,8 @@
 #include "entities/render_entities/game_loop_render/PseudoGameLoopRender.h"
 #include "entities/render_entities/main_menu_render/MainMenuRender.h"
 #include "entities/render_entities/score_list_render/ScoreListRender.hpp"
-#include "systems/location_systems/ILocationSystem.h"
 #include "systems/render_systems/IRenderSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
 /*
  * Class response all terminal options.
@@ -32,7 +32,7 @@ class BearRenderSystem : public IRenderSystem {
   unsigned* menu_highlighted = nullptr;
 
   bool is_score_list = false;
-  ScoreListData *score_list_data = nullptr;
+  ScoreListData* score_list_data = nullptr;
 
   bool is_game_loop = false;
   ILocationSystem* location_system = nullptr;
@@ -44,7 +44,7 @@ class BearRenderSystem : public IRenderSystem {
 
   void set_main_menu_data(const char* input_menu_title, const char** input_menu_choices,
                           unsigned input_count_menu_choices, unsigned* input_menu_highlighted) override;
-  void set_score_list_data(ScoreListData *input_score_list_data) override;
+  void set_score_list_data(ScoreListData* input_score_list_data) override;
   void set_game_loop_data(ILocationSystem* input_location_system, unsigned* input_highlighted) override;
 
   void set_main_menu_render() override;

@@ -2,7 +2,7 @@
 // Created by vydra on 8/21/20.
 //
 
-#include <systems/rw_systems/writer_systems/score_writers/StdScoreWriter.hpp>
+#include "systems/rw_systems/writer_systems/score_writers/StdScoreWriter.hpp"
 
 StdScoreWriter::StdScoreWriter(const char *input_file_name) {
   PseudoLogSystem::log("StdScoreWriter", "Try to open", input_file_name);

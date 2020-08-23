@@ -10,7 +10,7 @@
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
-#include "systems/location_systems/ILocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
 class GameLoopHUDRender : public IRender {
  private:

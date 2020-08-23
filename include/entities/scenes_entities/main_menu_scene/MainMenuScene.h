@@ -7,7 +7,7 @@
 #include <cstring>
 
 #include "entities/scenes_entities/IMainScene.h"
-#include "systems/controls_systems/main_menu_controls/MMControls.h"
+#include "systems/controls_systems/scenes_controls/main_menu_controls/MMControls.h"
 #include "systems/render_systems/BearRenderSystem.h"
 
 class MainMenuScene : public IMainScene {

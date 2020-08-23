@@ -5,7 +5,7 @@
 #pragma once
 
 #include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
-#include "systems/location_systems/ILocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
 class IRenderSystem {
  public:

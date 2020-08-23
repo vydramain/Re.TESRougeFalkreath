@@ -4,11 +4,12 @@
 
 #pragma once
 
+#include "systems/controls_systems/scenes_controls/game_loop_controls/sub_controls/ending_controls/GLEControls.h"
+#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+
 #include <cstring>
 
 #include "entities/scenes_entities/IScene.h"
-#include "systems/controls_systems/game_loop_controls/sub_controls/ending_controls/GLEControls.h"
-#include "systems/location_systems/LocationSystem.h"
 
 class EndingScene : public IScene {
  private:

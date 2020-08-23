@@ -6,7 +6,7 @@
 
 #include <cstdio>
 
-#include "systems/pseudo_log_systems/PseudoLogSystem.hpp"
+#include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/rw_systems/reader_systems/score_readers/IScoreReader.hpp"
 
 class StdScoreReader : public IScoreReader {
