@@ -6,7 +6,7 @@
 
 #include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/MoveSystem.hpp"
+#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/MoveAbilitySystem.hpp"
 
 class GLAControlPlayerDown : public IControl {
  private:
@@ -17,7 +17,7 @@ class GLAControlPlayerDown : public IControl {
       : IControl("GLAControlPlayerDown"), location(input_location) {}
 
   void execute() override {
-    if (MoveSystem::can_go_to(location, location->get_entities()->get_player()->get_current_x(),
+    if (MoveAbilitySystem::can_go_to(location, location->get_entities()->get_player()->get_current_x(),
                               location->get_entities()->get_player()->get_current_y() + 1)) {
       location->get_entities()->get_player()->go_down(location->get_size_y());
     } else {
