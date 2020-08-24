@@ -36,91 +36,63 @@ void GameLoopHUDRender::update_camera(unsigned int input_camera_position_x, unsi
   camera_position_y = input_camera_position_y;
 }
 
-void GameLoopHUDRender::check_item_interact(unsigned input_index) {
+void GameLoopHUDRender::view_one_string_message(const char **input_text) {
   terminal_color(0xffffffff);
-  const char *render_string[1] = {"Нажмите 'E' для взаимодействия"};
   if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
     CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
     TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                render_string, 1);
+                                input_text, 1);
   } else {
     CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
                               passive_zone_out_y - 1);
     TextPanelsRender::view_text((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, render_string, 1);
+                                passive_zone_out_y - 2, input_text, 1);
   }
+}
+
+void GameLoopHUDRender::view_two_string_message(const char **input_text) {
+  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+    CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+    TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                input_text, 2);
+  } else {
+    CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
+                              passive_zone_out_y - 1);
+    TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
+                                passive_zone_out_y - 2, input_text, 2);
+  }
+}
+
+void GameLoopHUDRender::check_item_interact(unsigned input_index) {
+  const char *text[1] = {"Нажмите 'E' для взаимодействия"};
+  view_one_string_message(text);
 }
 
 void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   terminal_color(0xffffffff);
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "Door") == 0) {
     if (location_system->get_entities()->get_ambient(input_index)->get_floor()) {
-      const char *render_string[1] = {"Нажмите 'E' чтобы закрыть"};
-      if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-        CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-        TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                    render_string, 1);
-      } else {
-        CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                                  passive_zone_out_y - 1);
-        TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                    passive_zone_out_y - 2, render_string, 1);
-      }
+      const char *text[1] = {"Нажмите 'E' чтобы закрыть"};
+      view_one_string_message(text);
     } else {
-      const char *render_string[1] = {"Нажмите 'E' чтобы открыть"};
-      if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-        CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-        TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                    render_string, 1);
-      } else {
-        CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                                  passive_zone_out_y - 1);
-        TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                    passive_zone_out_y - 2, render_string, 1);
-      }
+      const char *text[1] = {"Нажмите 'E' чтобы открыть"};
+      view_one_string_message(text);
     }
   }
 
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "SouthGate") == 0) {
-    const char *render_string[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
-    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                  render_string, 2);
-    } else {
-      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
-                                passive_zone_out_y - 1);
-      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                  passive_zone_out_y - 2, render_string, 2);
-    }
+    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
+    view_two_string_message(text);
   }
 
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "EastGate") == 0) {
-    const char *render_string[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
-    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                  render_string, 2);
-    } else {
-      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
-                                passive_zone_out_y - 1);
-      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                  passive_zone_out_y - 2, render_string, 2);
-    }
+    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
+    view_two_string_message(text);
   }
 
   if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "WestGate") == 0) {
-    const char *render_string[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
-    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                  render_string, 2);
-    } else {
-      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
-                                passive_zone_out_y - 1);
-      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                  passive_zone_out_y - 2, render_string, 2);
-    }
+    const char *text[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
+    view_two_string_message(text);
   }
 }
 

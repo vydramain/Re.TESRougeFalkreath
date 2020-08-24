@@ -41,8 +41,11 @@ class GameLoopHUDRender : public IRender {
                      unsigned input_camera_position_y);
   void update_camera(unsigned input_camera_position_x, unsigned input_camera_position_y);
 
-  void check_item_interact(unsigned input_idex);
-  void check_ambient_interact(unsigned input_idex);
+  void view_one_string_message(const char **input_text);
+  void view_two_string_message(const char **input_text);
+
+  void check_item_interact(unsigned input_index);
+  void check_ambient_interact(unsigned input_index);
 
   void render_borders();
   void render_nameplate();
