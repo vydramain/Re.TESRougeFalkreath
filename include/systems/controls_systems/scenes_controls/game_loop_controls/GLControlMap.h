@@ -13,6 +13,7 @@
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlExit.h"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlLocationChange.hpp"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlScoreSave.hpp"
+#include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
 class GLControlMap {
@@ -32,26 +33,28 @@ class GLControlMap {
   IGLControl *last_control = nullptr;
 
  public:
-  explicit GLControlMap(LocationSystem *input_location_system, const unsigned input_count,
-                        unsigned *input_highlighted) {
+  explicit GLControlMap(IRenderSystem *input_render_system, LocationSystem *input_location_system,
+                        const unsigned input_count, unsigned *input_highlighted) {
+    location_system = input_location_system;
+
     printf("%s", "[GLControlMap] - Creating game loop controls\n");
     control_adventure = new GLControlAdventure(input_location_system);
     control_empty = new GLControlEmpty();
     control_ending = new GLControlEnding(input_location_system, input_count, input_highlighted);
     control_exit = new GLControlExit();
-    control_load_falkreath = new GLControlLocationChange(input_location_system, "Falkreath", "../maps/Falkreath.bin");
-    control_load_west_forest =
-        new GLControlLocationChange(input_location_system, "West Forest", "../maps/WestForest.bin");
+    control_load_falkreath = new GLControlLocationChange(input_render_system, input_location_system, "Falkreath",
+                                                         "../maps/Falkreath.bin", 72, 13);
+    control_load_west_forest = new GLControlLocationChange(input_render_system, input_location_system, "West Forest",
+                                                           "../maps/WestForest.bin", 3, 13);
     control_score = new GLControlScoreSave(input_location_system, input_count, input_highlighted);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
     gl_map["GLAControlGoToWestForest"] = control_load_west_forest;
     gl_map["GLAControlGoToFalkreath"] = control_load_falkreath;
-    gl_map["GLEControlSelectEnter"] = control_score;
     gl_map["GLEControlSelectExit"] = control_exit;
-
-    location_system = input_location_system;
+    gl_map["GLEControlSelectEnter"] = control_score;
+    gl_map["GLControlLocationChange"] = control_adventure;
   }
 
   ~GLControlMap() {
@@ -65,9 +68,19 @@ class GLControlMap {
 
   IGLControl *get_start_control() {
     PseudoLogSystem::log("GLControlMap", "Load start map");
-    control_load_falkreath->execute();
+    auto *load_system = new LoadSystem("../maps/Falkreath.bin");
+    load_system->load_map();
+    if (load_system->get_entities_system() == nullptr) {
+      PseudoLogSystem::log("GLControlMap", "Map not found");
+      PseudoLogSystem::log("GLControlMap", "Stop load system");
+      delete load_system;
+      return control_exit;
+    }
+    location_system->set_location("Falkreath", load_system->get_location_size_x(), load_system->get_location_size_y(),
+                                  load_system->get_entities_system());
     location_system->get_entities()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 96));
     last_control = control_adventure;
+    delete load_system;
     return control_adventure;
   }
 
@@ -78,8 +91,16 @@ class GLControlMap {
         return gl_iterator->second;
       }
     }
-    if (location_system->is_story_over()) {
+    if (location_system->get_story_end()) {
       return control_ending;
+    }
+    if (location_system->get_go_to_west_forest()) {
+      location_system->set_go_to_west_forest(false);
+      return control_load_west_forest;
+    }
+    if (location_system->get_go_to_falkreath()) {
+      location_system->set_go_to_falkreath(false);
+      return control_load_falkreath;
     }
     return last_control;
   }

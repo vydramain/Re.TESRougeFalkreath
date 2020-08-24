@@ -6,7 +6,6 @@
 
 #include <map>
 
-#include "LControlWestGate.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlCobblestone.h"
@@ -21,6 +20,7 @@
 #include "systems/controls_systems/other_controls/load_controls/LControlTree.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlWall.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlWater.h"
+#include "systems/controls_systems/other_controls/load_controls/LControlWestGate.hpp"
 #include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
 
 class LControlMap {

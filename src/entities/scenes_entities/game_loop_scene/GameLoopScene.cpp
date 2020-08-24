@@ -16,7 +16,7 @@ GameLoopScene::~GameLoopScene() {
 
 void GameLoopScene::run() {
   PseudoLogSystem::log(get_name(), "Launch game loop");
-  auto *gl_control_map = new GLControlMap(location_system, ending_count, ending_highlighted);
+  auto *gl_control_map = new GLControlMap(render_system, location_system, ending_count, ending_highlighted);
   PseudoLogSystem::log(get_name(), "Set start control");
   IGLControl *current_gl_control = gl_control_map->get_start_control();
   PseudoLogSystem::log(get_name(), "Setting up render system");

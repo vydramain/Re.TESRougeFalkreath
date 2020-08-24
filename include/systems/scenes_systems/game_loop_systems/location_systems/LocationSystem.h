@@ -14,7 +14,9 @@
 class LocationSystem : public ILocationSystem {
  private:
   const char *name = nullptr;
-  bool end_of_story = false;
+  bool is_go_to_falkreath = false;
+  bool is_go_to_west_forest = false;
+  bool is_story_end = false;
 
   unsigned int size_x = 0;
   unsigned int size_y = 0;
@@ -28,8 +30,13 @@ class LocationSystem : public ILocationSystem {
 
   const char *get_name() const override;
 
-  bool is_story_over() override;
-  void story_is_over() override;
+  void set_go_to_falkreath(bool input_boolean) override;
+  void set_go_to_west_forest(bool input_boolean) override;
+  void set_story_end(bool input_boolean) override;
+
+  bool get_go_to_falkreath() const override;
+  bool get_go_to_west_forest() const override;
+  bool get_story_end() const override;
 
   unsigned get_size_x() const override;
   unsigned get_size_y() const override;

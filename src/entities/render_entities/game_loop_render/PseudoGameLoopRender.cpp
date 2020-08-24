@@ -176,7 +176,7 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  if (location_system->is_story_over()) {
+  if (location_system->get_story_end()) {
     render_end();
   } else {
     render_ambient();

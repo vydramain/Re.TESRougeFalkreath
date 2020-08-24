@@ -11,3 +11,8 @@ void PseudoLogSystem::log(const char *input_class_name, const char *input_log) {
 void PseudoLogSystem::log(const char *input_class_name, const char *input_first_log, const char *input_second_log) {
   printf("[%s] - %s %s\n", input_class_name, input_first_log, input_second_log);
 }
+
+void PseudoLogSystem::log(const char *input_class_name, const char *input_first_log, const char *input_second_log,
+                          const char *input_third_log) {
+  printf("[%s] - %s %s %s\n", input_class_name, input_first_log, input_second_log, input_third_log);
+}

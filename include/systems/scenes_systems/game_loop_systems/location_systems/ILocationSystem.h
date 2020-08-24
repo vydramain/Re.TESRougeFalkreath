@@ -12,8 +12,13 @@ class ILocationSystem {
 
   virtual const char* get_name() const = 0;
 
-  virtual bool is_story_over() = 0;
-  virtual void story_is_over() = 0;
+  virtual void set_go_to_falkreath(bool input_boolean) = 0;
+  virtual void set_go_to_west_forest(bool input_boolean) = 0;
+  virtual void set_story_end(bool input_boolean) = 0;
+
+  virtual bool get_go_to_falkreath() const = 0;
+  virtual bool get_go_to_west_forest() const = 0;
+  virtual bool get_story_end() const = 0;
 
   virtual unsigned get_size_x() const = 0;
   virtual unsigned get_size_y() const = 0;

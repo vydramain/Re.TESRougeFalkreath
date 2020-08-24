@@ -6,6 +6,7 @@
 
 #include <cstring>
 
+#include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
@@ -38,9 +39,21 @@ class GLAControlPlayerInteract : public IControl {
       }
 
       if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "SouthGate") == 0) {
-        printf("%s%s%s%s%s", "[GLAControlPlayerInteract] - ", location->get_entities()->get_player()->get_name(),
-               " interact with ", location->get_entities()->get_ambient(ambient_index)->get_name(), "\n");
-        location->story_is_over();
+        PseudoLogSystem::log("GLAControlPlayerInteract", location->get_entities()->get_player()->get_name(),
+                             "interact with", location->get_entities()->get_ambient(ambient_index)->get_name());
+        location->set_story_end(true);
+      }
+
+      if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "EastGate") == 0) {
+        PseudoLogSystem::log("GLAControlPlayerInteract", location->get_entities()->get_player()->get_name(),
+                             "interact with", location->get_entities()->get_ambient(ambient_index)->get_name());
+        location->set_go_to_west_forest(true);
+      }
+
+      if (std::strcmp(location->get_entities()->get_ambient(ambient_index)->get_name(), "WestGate") == 0) {
+        PseudoLogSystem::log("GLAControlPlayerInteract", location->get_entities()->get_player()->get_name(),
+                             "interact with", location->get_entities()->get_ambient(ambient_index)->get_name());
+        location->set_go_to_falkreath(true);
       }
     }
 

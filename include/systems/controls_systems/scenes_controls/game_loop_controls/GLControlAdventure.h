@@ -26,7 +26,6 @@ class GLControlAdventure : public IGLControl {
   }
 
   void execute() override {
-    PseudoLogSystem::log("GLControlAdventure", "Launch adventure control at game loop");
     scene->run();
     adventure_executed_control = scene->get_control();
   }

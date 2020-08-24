@@ -94,6 +94,34 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
                                   passive_zone_out_y - 2, render_string, 2);
     }
   }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "EastGate") == 0) {
+    const char *render_string[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
+    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                  render_string, 2);
+    } else {
+      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
+                                passive_zone_out_y - 1);
+      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
+                                  passive_zone_out_y - 2, render_string, 2);
+    }
+  }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "WestGate") == 0) {
+    const char *render_string[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
+    if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+      CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
+      TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                  render_string, 2);
+    } else {
+      CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
+                                passive_zone_out_y - 1);
+      TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
+                                  passive_zone_out_y - 2, render_string, 2);
+    }
+  }
 }
 
 void GameLoopHUDRender::render_borders() {
