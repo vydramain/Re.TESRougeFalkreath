@@ -17,8 +17,8 @@ class GLAControlPlayerUp : public IControl {
       : IControl("GLAControlPlayerUp"), location(input_location) {}
 
   void execute() override {
-    if (MoveAbilitySystem::can_go_to(location, location->get_entities()->get_player()->get_current_x(),
-                              location->get_entities()->get_player()->get_current_y() - 1)) {
+    if (MoveAbilitySystem::can_move_to(location, location->get_entities()->get_player()->get_current_x(),
+                                       location->get_entities()->get_player()->get_current_y() - 1)) {
       location->get_entities()->get_player()->go_up();
     } else {
       location->get_entities()->get_player()->look_up();

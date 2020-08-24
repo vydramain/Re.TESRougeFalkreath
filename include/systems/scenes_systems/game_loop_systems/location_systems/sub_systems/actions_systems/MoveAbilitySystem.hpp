@@ -8,6 +8,6 @@
 
 class MoveAbilitySystem {
  public:
-  static bool can_go_to(ILocationSystem *input_location_system, unsigned int input_new_x, unsigned int input_new_y);
+  static bool can_move_to(ILocationSystem *input_location_system, unsigned int input_new_x, unsigned int input_new_y);
 
 };

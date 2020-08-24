@@ -4,7 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/MoveAbilitySystem.hpp"
 
-bool MoveAbilitySystem::can_go_to(ILocationSystem *input_location_system, unsigned int input_new_x,
+bool MoveAbilitySystem::can_move_to(ILocationSystem *input_location_system, unsigned int input_new_x,
                                   unsigned int input_new_y) {
   int magwerh_index = input_location_system->get_entities()->get_magwehr_index(input_new_x, input_new_y);
   int item_index = input_location_system->get_entities()->get_item_index(input_new_x, input_new_y);
