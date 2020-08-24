@@ -4,13 +4,9 @@
 
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
-GameLoopScene::GameLoopScene(IRenderSystem *input_location_system, unsigned input_x, unsigned input_y,
-                             LocationsEntitiesSystem *input_entities)
-    : IMainScene("MainLoopScene") {
-  render_system = input_location_system;
-  location_system = new LocationSystem(input_x, input_y, input_entities);
-  render_system->set_game_loop_data(location_system, ending_highlighted);
-  render_system->set_pseudo_game_loop_render();
+GameLoopScene::GameLoopScene(IRenderSystem *input_render_system) : IMainScene("MainLoopScene") {
+  render_system = input_render_system;
+  location_system = new LocationSystem();
 }
 
 GameLoopScene::~GameLoopScene() {
@@ -19,10 +15,13 @@ GameLoopScene::~GameLoopScene() {
 }
 
 void GameLoopScene::run() {
-  printf("%s", "[GameLoopScene] - Launch game loop\n");
+  PseudoLogSystem::log(get_name(), "Launch game loop");
   auto *gl_control_map = new GLControlMap(location_system, ending_count, ending_highlighted);
-  printf("%s", "[GLControl] - Set start control\n");
+  PseudoLogSystem::log(get_name(), "Set start control");
   IGLControl *current_gl_control = gl_control_map->get_start_control();
+  PseudoLogSystem::log(get_name(), "Setting up render system");
+  render_system->set_game_loop_data(location_system, ending_highlighted);
+  render_system->set_pseudo_game_loop_render();
 
   do {
     render_system->render();

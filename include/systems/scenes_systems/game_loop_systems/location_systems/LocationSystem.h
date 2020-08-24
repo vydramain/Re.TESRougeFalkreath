@@ -13,21 +13,29 @@
 
 class LocationSystem : public ILocationSystem {
  private:
+  const char *name = nullptr;
   bool end_of_story = false;
 
-  const unsigned size_x;
-  const unsigned size_y;
+  unsigned int size_x = 0;
+  unsigned int size_y = 0;
   LocationsEntitiesSystem *entities;
 
  public:
-  explicit LocationSystem(unsigned input_x, unsigned input_y, LocationsEntitiesSystem *input_entites);
-  ~LocationSystem();
+  explicit LocationSystem();
+  explicit LocationSystem(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
+                          LocationsEntitiesSystem *input_entities_system);
+  ~LocationSystem() override;
 
-  bool is_story_over();
-  void story_is_over();
+  const char *get_name() const override;
 
-  unsigned get_size_x() const;
-  unsigned get_size_y() const;
-  LocationsEntitiesSystem *get_entities();
-  LocationsEntitiesSystem *get_entities() const;
+  bool is_story_over() override;
+  void story_is_over() override;
+
+  unsigned get_size_x() const override;
+  unsigned get_size_y() const override;
+  LocationsEntitiesSystem *get_entities() override;
+  LocationsEntitiesSystem *get_entities() const override;
+
+  void set_location(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
+                    LocationsEntitiesSystem *input_entities_system) override;
 };

@@ -6,19 +6,23 @@
 
 #include <map>
 
+#include "entities/location_entities/sentients_entities/beastfolks/Khadjiit.h"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlAdventure.h"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlEmpty.h"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlEnding.hpp"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlExit.h"
+#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlLocationChange.hpp"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlScoreSave.hpp"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
 class GLControlMap {
  private:
   GLControlAdventure *control_adventure = nullptr;
-  GLControlExit *control_exit = nullptr;
   GLControlEmpty *control_empty = nullptr;
   GLControlEnding *control_ending = nullptr;
+  GLControlExit *control_exit = nullptr;
+  GLControlLocationChange *control_load_falkreath = nullptr;
+  GLControlLocationChange *control_load_west_forest = nullptr;
   GLControlScoreSave *control_score = nullptr;
 
   std::map<const char *, IGLControl *> gl_map;
@@ -35,10 +39,15 @@ class GLControlMap {
     control_empty = new GLControlEmpty();
     control_ending = new GLControlEnding(input_location_system, input_count, input_highlighted);
     control_exit = new GLControlExit();
+    control_load_falkreath = new GLControlLocationChange(input_location_system, "Falkreath", "../maps/Falkreath.bin");
+    control_load_west_forest =
+        new GLControlLocationChange(input_location_system, "West Forest", "../maps/WestForest.bin");
     control_score = new GLControlScoreSave(input_location_system, input_count, input_highlighted);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
+    gl_map["GLAControlGoToWestForest"] = control_load_west_forest;
+    gl_map["GLAControlGoToFalkreath"] = control_load_falkreath;
     gl_map["GLEControlSelectEnter"] = control_score;
     gl_map["GLEControlSelectExit"] = control_exit;
 
@@ -55,7 +64,9 @@ class GLControlMap {
   }
 
   IGLControl *get_start_control() {
-    printf("%s", "[GLControlMap] - Launch adventure control at game loop\n");
+    PseudoLogSystem::log("GLControlMap", "Load start map");
+    control_load_falkreath->execute();
+    location_system->get_entities()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 96));
     last_control = control_adventure;
     return control_adventure;
   }

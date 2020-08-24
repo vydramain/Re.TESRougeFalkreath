@@ -6,6 +6,7 @@
 
 #include <map>
 
+#include "LControlWestGate.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlCobblestone.h"
@@ -34,6 +35,7 @@ class LControlMap {
   LControlTree *tree = nullptr;
   LControlWall *wall = nullptr;
   LControlWater *water = nullptr;
+  LControlWestGate *west_gate = nullptr;
 
   std::map<unsigned, ILControl *> load_map;
   std::map<unsigned, ILControl *>::iterator load_iterator;
@@ -51,6 +53,7 @@ class LControlMap {
     tree = new LControlTree(input_x, input_y, input_entities_system);
     wall = new LControlWall(input_x, input_y, input_entities_system);
     water = new LControlWater(input_x, input_y, input_entities_system);
+    west_gate = new LControlWestGate(input_x, input_y, input_entities_system);
 
     load_map['c'] = cobblestone;
     load_map['$'] = coin;
@@ -62,6 +65,7 @@ class LControlMap {
     load_map['t'] = tree;
     load_map['#'] = wall;
     load_map['~'] = water;
+    load_map['w'] = west_gate;
   }
 
   ~LControlMap() {
@@ -76,6 +80,7 @@ class LControlMap {
     delete tree;
     delete wall;
     delete water;
+    delete west_gate;
   }
 
   IControl *get_control(unsigned input_symbol) {

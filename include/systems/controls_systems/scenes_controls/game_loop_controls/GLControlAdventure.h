@@ -4,8 +4,9 @@
 
 #pragma once
 
-#include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
+#include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/AdventureScene.h"
+#include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
 class GLControlAdventure : public IGLControl {
@@ -25,6 +26,7 @@ class GLControlAdventure : public IGLControl {
   }
 
   void execute() override {
+    PseudoLogSystem::log("GLControlAdventure", "Launch adventure control at game loop");
     scene->run();
     adventure_executed_control = scene->get_control();
   }

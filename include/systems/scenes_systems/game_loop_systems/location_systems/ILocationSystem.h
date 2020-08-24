@@ -10,6 +10,8 @@ class ILocationSystem {
  public:
   virtual ~ILocationSystem() = default;
 
+  virtual const char* get_name() const = 0;
+
   virtual bool is_story_over() = 0;
   virtual void story_is_over() = 0;
 
@@ -17,4 +19,7 @@ class ILocationSystem {
   virtual unsigned get_size_y() const = 0;
   virtual LocationsEntitiesSystem *get_entities() = 0;
   virtual LocationsEntitiesSystem *get_entities() const = 0;
+
+  virtual void set_location(const char* input_name, unsigned input_size_x, unsigned input_size_y,
+                            LocationsEntitiesSystem *input_entities_systems) = 0;
 };

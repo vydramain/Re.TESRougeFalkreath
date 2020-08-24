@@ -11,7 +11,7 @@
 class LControlSouthGate : public ILControl {
  public:
   explicit LControlSouthGate(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
-      : ILControl("LControlRoadbrick", input_x, input_y, input_entities_system) {}
+      : ILControl("LControlSouthGate", input_x, input_y, input_entities_system) {}
   ~LControlSouthGate() override = default;
 
   void execute() override {

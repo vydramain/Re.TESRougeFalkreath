@@ -19,8 +19,7 @@ class GameLoopScene : public IMainScene {
   unsigned *ending_highlighted = new unsigned(1);
 
  public:
-  explicit GameLoopScene(IRenderSystem *input_location_system, unsigned input_x, unsigned input_y,
-                         LocationsEntitiesSystem *input_entities);
+  explicit GameLoopScene(IRenderSystem *input_render_system);
   ~GameLoopScene() override;
 
   void run() override;
