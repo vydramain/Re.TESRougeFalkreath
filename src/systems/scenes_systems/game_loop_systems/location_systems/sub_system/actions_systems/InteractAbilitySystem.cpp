@@ -4,15 +4,22 @@
 
 #include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/InteractAbilitySystem.hpp"
 
+#include <utility>
+
 InteractAbilitySystem::InteractAbilitySystem() {
   data = new InteractAbilityData();
 
-  item_interact_map["Coin"] = interact_with_coin;
+  item_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "Coin", std::bind(&InteractAbilitySystem::interact_with_coin, this)));
 
-  ambient_interact_map["Door"] = interact_with_door();
-  ambient_interact_map["EastGate"] = interact_with_east_gate();
-  ambient_interact_map["SouthGate"] = interact_with_south_gate();
-  ambient_interact_map["WestGate"] = interact_with_west_gate();
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "Door", std::bind(&InteractAbilitySystem::interact_with_door, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "EastGate", std::bind(&InteractAbilitySystem::interact_with_east_gate, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "SouthGate", std::bind(&InteractAbilitySystem::interact_with_south_gate, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "WestGate", std::bind(&InteractAbilitySystem::interact_with_west_gate, this)));
 }
 
 InteractAbilitySystem::~InteractAbilitySystem() {
@@ -39,12 +46,11 @@ void InteractAbilitySystem::interact_with_item(int input_index) {
     PseudoLogSystem::log("InteractAbilitySystem", location_system->get_entities()->get_player()->get_name(),
                          "interact with", location_system->get_entities()->get_item(input_index)->get_name());
     location_system->get_entities()->remove_item(input_index);
-    iterator = item_interact_map.find(location_system->get_entities()->get_item(input_index)->get_name());
-    iterator->second();
+    item_interact_map[location_system->get_entities()->get_item(input_index)->get_name()]();
   }
 }
 
-void* InteractAbilitySystem::interact_with_coin() {
+void InteractAbilitySystem::interact_with_coin() {
   location_system->get_entities()->get_player()->set_wallet(
       location_system->get_entities()->get_player()->get_wallet() + 1);
 }
@@ -53,8 +59,7 @@ void InteractAbilitySystem::interact_with_ambient(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log("InteractAbilitySystem", location_system->get_entities()->get_player()->get_name(),
                          "interact with", location_system->get_entities()->get_ambient(input_index)->get_name());
-    iterator = ambient_interact_map.find(location_system->get_entities()->get_ambient(input_index)->get_name());
-    iterator->second();
+    ambient_interact_map["Door"]();
   }
 }
 
