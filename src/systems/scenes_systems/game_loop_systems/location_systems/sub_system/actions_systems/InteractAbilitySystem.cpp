@@ -4,6 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/InteractAbilitySystem.hpp"
 
+#include <string>
 #include <utility>
 
 InteractAbilitySystem::InteractAbilitySystem() {
@@ -46,7 +47,10 @@ void InteractAbilitySystem::interact_with_item(int input_index) {
     PseudoLogSystem::log("InteractAbilitySystem", location_system->get_entities()->get_player()->get_name(),
                          "interact with", location_system->get_entities()->get_item(input_index)->get_name());
     location_system->get_entities()->remove_item(input_index);
-    item_interact_map[location_system->get_entities()->get_item(input_index)->get_name()]();
+    interact_iterator = item_interact_map.find(location_system->get_entities()->get_item(input_index)->get_name());
+    if (interact_iterator != item_interact_map.end()) {
+      interact_iterator->second();
+    }
   }
 }
 
@@ -59,9 +63,15 @@ void InteractAbilitySystem::interact_with_ambient(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log("InteractAbilitySystem", location_system->get_entities()->get_player()->get_name(),
                          "interact with", location_system->get_entities()->get_ambient(input_index)->get_name());
-    ambient_interact_map["Door"]();
+    interact_iterator =
+        ambient_interact_map.find(location_system->get_entities()->get_ambient(input_index)->get_name());
+    if (interact_iterator != ambient_interact_map.end()) {
+      interact_iterator->second();
+    }
   }
 }
+
+void InteractAbilitySystem::interact_with_nothing() {}
 
 void InteractAbilitySystem::interact_with_door() {
   if (location_system->get_entities()->get_ambient(data->get_ambient_index())->get_floor()) {

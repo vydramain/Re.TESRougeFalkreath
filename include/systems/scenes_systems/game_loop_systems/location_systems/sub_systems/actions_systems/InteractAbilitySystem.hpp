@@ -3,7 +3,6 @@
 //
 
 #pragma once
-
 #include <functional>
 #include <map>
 
@@ -16,8 +15,9 @@ class InteractAbilitySystem {
   InteractAbilityData *data = nullptr;
   ILocationSystem *location_system = nullptr;
 
-  std::map<const char *, std::function<void()>> item_interact_map;
-  std::map<const char *, std::function<void()>> ambient_interact_map;
+  std::map<std::string, std::function<void()>> item_interact_map;
+  std::map<std::string, std::function<void()>> ambient_interact_map;
+  std::map<std::string, std::function<void()>>::iterator interact_iterator;
 
  public:
   explicit InteractAbilitySystem();
@@ -29,6 +29,7 @@ class InteractAbilitySystem {
   void interact_with_coin();
 
   void interact_with_ambient(int input_index);
+  void interact_with_nothing();
   void interact_with_door();
   void interact_with_east_gate();
   void interact_with_south_gate();
