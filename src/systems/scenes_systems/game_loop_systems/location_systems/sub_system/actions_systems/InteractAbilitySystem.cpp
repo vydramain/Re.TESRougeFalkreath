@@ -7,7 +7,7 @@
 InteractAbilitySystem::InteractAbilitySystem() {
   data = new InteractAbilityData();
 
-  item_interact_map["Coin"] = interact_with_coin();
+  item_interact_map["Coin"] = interact_with_coin;
 
   ambient_interact_map["Door"] = interact_with_door();
   ambient_interact_map["EastGate"] = interact_with_east_gate();
@@ -44,10 +44,9 @@ void InteractAbilitySystem::interact_with_item(int input_index) {
   }
 }
 
-InteractAbilitySystem::method InteractAbilitySystem::interact_with_coin() {
+void* InteractAbilitySystem::interact_with_coin() {
   location_system->get_entities()->get_player()->set_wallet(
       location_system->get_entities()->get_player()->get_wallet() + 1);
-  return nullptr;
 }
 
 void InteractAbilitySystem::interact_with_ambient(int input_index) {
@@ -59,7 +58,7 @@ void InteractAbilitySystem::interact_with_ambient(int input_index) {
   }
 }
 
-InteractAbilitySystem::method InteractAbilitySystem::interact_with_door() {
+void InteractAbilitySystem::interact_with_door() {
   if (location_system->get_entities()->get_ambient(data->get_ambient_index())->get_floor()) {
     location_system->get_entities()->get_ambient(data->get_ambient_index())->set_floor(false);
     location_system->get_entities()->get_ambient(data->get_ambient_index())->set_tile("┼");
@@ -67,20 +66,16 @@ InteractAbilitySystem::method InteractAbilitySystem::interact_with_door() {
     location_system->get_entities()->get_ambient(data->get_ambient_index())->set_floor(true);
     location_system->get_entities()->get_ambient(data->get_ambient_index())->set_tile("║");
   }
-  return nullptr;
 }
 
-InteractAbilitySystem::method InteractAbilitySystem::interact_with_east_gate() {
+void InteractAbilitySystem::interact_with_east_gate() {
   location_system->set_go_to_west_forest(true);
-  return nullptr;
 }
 
-InteractAbilitySystem::method InteractAbilitySystem::interact_with_south_gate() {
+void InteractAbilitySystem::interact_with_south_gate() {
   location_system->set_story_end(true);
-  return nullptr;
 }
 
-InteractAbilitySystem::method InteractAbilitySystem::interact_with_west_gate() {
+void InteractAbilitySystem::interact_with_west_gate() {
   location_system->set_go_to_falkreath(true);
-  return nullptr;
 }

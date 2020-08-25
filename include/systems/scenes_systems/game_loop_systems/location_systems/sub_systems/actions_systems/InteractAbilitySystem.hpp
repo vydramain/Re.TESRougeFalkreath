@@ -16,10 +16,9 @@ class InteractAbilitySystem {
   InteractAbilityData *data = nullptr;
   ILocationSystem *location_system = nullptr;
 
-  typedef std::function<void()> method;
-  std::map<const char *, method> item_interact_map;
-  std::map<const char *, method> ambient_interact_map;
-  std::map<const char *, method>::iterator iterator;
+  std::map<const char *, void*()> item_interact_map;
+  std::map<const char *, void*()> ambient_interact_map;
+  std::map<const char *, void*()>::iterator iterator;
 
  public:
   explicit InteractAbilitySystem();
@@ -28,11 +27,13 @@ class InteractAbilitySystem {
   bool try_interact_with(ILocationSystem *input_location_system);
 
   void interact_with_item(int input_index);
-  method interact_with_coin();
+  void interact_with_coin();
 
   void interact_with_ambient(int input_index);
-  method interact_with_door();
-  method interact_with_east_gate();
-  method interact_with_south_gate();
-  method interact_with_west_gate();
+  void interact_with_door();
+  void interact_with_east_gate();
+  void interact_with_south_gate();
+  void interact_with_west_gate();
+
+  void (*interact_coin)() = interact_with_coin();
 };
