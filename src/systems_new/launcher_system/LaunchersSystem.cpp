@@ -7,14 +7,14 @@
 void LaunchersSystem::run() {
   printf("%s", "starting...\n");
   printf("%s", "--------re.TESFalkreath--------\n");
+  IControl *launcher_scene;
   auto *launcher_map = new ScenesLaunchersManager();
-  IControl *main_control;
+  launcher_scene = launcher_map->get_control(launcher_map->get_highlighted());
 
-  main_control = launcher_map->get_control(launcher_map->get_highlighted());
   do {
-    main_control->execute();
-    main_control = launcher_map->get_control(launcher_map->get_highlighted());
-  } while (std::strcmp(main_control->get_name(), "LauncherExitScene") != 0);
+    launcher_scene->execute();
+    launcher_scene = launcher_map->get_control(launcher_map->get_highlighted());
+  } while (std::strcmp(launcher_scene->get_name(), "ExitSceneLauncher") != 0);
 
   delete launcher_map;
 }

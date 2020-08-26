@@ -7,18 +7,18 @@
 ScenesLaunchersManager::ScenesLaunchersManager() {
   PseudoLogSystem::log("ScenesLaunchersManager", "Launch BearLibTerminal's render system");
   render = new BearRenderSystem();
-  last_highlighted = new unsigned(0);
+  scene = new SceneType(MAIN_MENU_SCENE);
 
-  PseudoLogSystem::log("ScenesLaunchersManager", "Creating global controls");
-  exit = new LauncherExitScene();
-  main_menu = new LauncherMainMenuScene(render, last_highlighted);
-  new_game = new LauncherGameLoopScene(render, last_highlighted);
-  score_list = new LauncherScoreListScene(render, last_highlighted);
+  PseudoLogSystem::log("ScenesLaunchersManager", "Creating scene's launchers");
+  exit = new ExitSceneLauncher();
+  new_game = new GameLoopSceneLauncher(render, scene);
+  main_menu = new MainMenuSceneLauncher(render, scene);
+  score_list = new ScoreListSceneLauncher(render, scene);
 
-  main_map[0] = main_menu;
-  main_map[1] = new_game;
-  main_map[2] = score_list;
-  main_map[3] = exit;
+  main_map[MAIN_MENU_SCENE] = main_menu;
+  main_map[NEW_GAME_SCENE] = new_game;
+  main_map[SCORE_LIST_SCENE] = score_list;
+  main_map[EXIT_SCENE] = exit;
 }
 
 ScenesLaunchersManager::~ScenesLaunchersManager() {
@@ -30,16 +30,16 @@ ScenesLaunchersManager::~ScenesLaunchersManager() {
   delete new_game;
   delete score_list;
 
-  delete last_highlighted;
   delete render;
+  delete scene;
 }
 
-unsigned ScenesLaunchersManager::get_highlighted() const {
-  return *last_highlighted;
+SceneType ScenesLaunchersManager::get_scene_type() const {
+  return *scene;
 }
 
-IControl* ScenesLaunchersManager::get_control(unsigned int input_highlighted) {
-  main_iterator = main_map.find(input_highlighted);
+IControl* ScenesLaunchersManager::get_control(SceneType input_scene_type) {
+  main_iterator = main_map.find(input_scene_type);
   if (main_iterator == main_map.end()) {
     return exit;
   }

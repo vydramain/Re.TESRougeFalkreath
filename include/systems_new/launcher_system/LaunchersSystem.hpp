@@ -4,6 +4,9 @@
 
 #pragma once
 
+#include <cstdio>
+#include <cstring>
+
 #include "systems/controls_systems/IControl.h"
 #include "systems_new/launcher_system/scenes_launchers/ScenesLaunchersManager.h"
 
