@@ -2,7 +2,7 @@
 // Created by vydra on 8/21/20.
 //
 
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherGameLoopScene.h"
+#include "systems_new/launcher_system/scenes_launchers/LauncherGameLoopScene.h"
 
 LauncherGameLoopScene::LauncherGameLoopScene(IRenderSystem *input_system, unsigned int *input_pointer)
     : IControl("GlobalControlNewGame"), render_system(input_system), highlighted(input_pointer) {}

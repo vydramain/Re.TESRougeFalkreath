@@ -2,7 +2,7 @@
 // Created by vydra on 8/21/20.
 //
 
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherMainMenuScene.h"
+#include "systems_new/launcher_system/scenes_launchers/LauncherMainMenuScene.h"
 
 LauncherMainMenuScene::LauncherMainMenuScene(IRenderSystem *input_system, unsigned int *input_pointer)
     : IControl("LauncherMainMenuScene"), render_system(input_system), highlighted(input_pointer) {}

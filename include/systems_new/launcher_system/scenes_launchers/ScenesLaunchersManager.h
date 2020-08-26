@@ -6,11 +6,11 @@
 
 #include <map>
 
+#include "LauncherExitScene.h"
+#include "LauncherGameLoopScene.h"
+#include "LauncherMainMenuScene.h"
+#include "LauncherScoreListScene.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherExitScene.h"
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherGameLoopScene.h"
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherMainMenuScene.h"
-#include "systems/scenes_systems/launcher_system/scenes_launchers/LauncherScoreListScene.hpp"
 
 class ScenesLaunchersManager {
  private:
