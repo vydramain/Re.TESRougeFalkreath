@@ -78,7 +78,7 @@ class GLControlMap {
     }
     location_system->set_location("Falkreath", load_system->get_location_size_x(), load_system->get_location_size_y(),
                                   load_system->get_entities_system());
-    location_system->get_entities()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 96));
+    location_system->get_entities()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 95));
     last_control = control_adventure;
     delete load_system;
     return control_adventure;
