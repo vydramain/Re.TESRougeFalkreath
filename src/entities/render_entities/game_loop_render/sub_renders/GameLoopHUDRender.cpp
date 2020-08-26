@@ -94,6 +94,21 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
     const char *text[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
     view_two_string_message(text);
   }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "UpperHatch") == 0) {
+    const char *text[2] = {"Нажмите 'E' чтобы спуститься", "в подземелье Кровавого Трона"};
+    view_two_string_message(text);
+  }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "LowerHatch") == 0) {
+    const char *text[2] = {"Нажмите 'E' чтобы подняться", "в руины форта Кровавого Трона"};
+    view_two_string_message(text);
+  }
+
+  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "CaveQuit") == 0) {
+    const char *text[2] = {"Нажмите 'E' чтобы выйти", "из подземелья"};
+    view_two_string_message(text);
+  }
 }
 
 void GameLoopHUDRender::render_borders() {
