@@ -21,6 +21,12 @@ InteractAbilitySystem::InteractAbilitySystem() {
       "SouthGate", std::bind(&InteractAbilitySystem::interact_with_south_gate, this)));
   ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
       "WestGate", std::bind(&InteractAbilitySystem::interact_with_west_gate, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "UpperHatch", std::bind(&InteractAbilitySystem::interact_with_upper_hatch, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "LowerHatch", std::bind(&InteractAbilitySystem::interact_with_lower_hatch, this)));
+  ambient_interact_map.insert(std::pair<const char *, std::function<void()> >(
+      "CaveQuit", std::bind(&InteractAbilitySystem::interact_with_cave_quit, this)));
 }
 
 InteractAbilitySystem::~InteractAbilitySystem() {
@@ -93,4 +99,16 @@ void InteractAbilitySystem::interact_with_south_gate() {
 
 void InteractAbilitySystem::interact_with_west_gate() {
   location_system->set_go_to_falkreath_from_west_forest(true);
+}
+
+void InteractAbilitySystem::interact_with_upper_hatch() {
+  location_system->set_go_to_bloodlet_throne_from_west_forest(true);
+}
+
+void InteractAbilitySystem::interact_with_lower_hatch() {
+  location_system->set_go_to_west_forest_from_bloodlet_throne_by_hatch(true);
+}
+
+void InteractAbilitySystem::interact_with_cave_quit() {
+  location_system->set_go_to_west_forest_from_bloodlet_throne_by_cave(true);
 }

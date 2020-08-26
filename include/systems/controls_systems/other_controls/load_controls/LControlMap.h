@@ -6,7 +6,6 @@
 
 #include <map>
 
-#include "systems/controls_systems/other_controls/load_controls/LControlGlacier.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlCaveQuit.hpp"
@@ -15,11 +14,13 @@
 #include "systems/controls_systems/other_controls/load_controls/LControlDoor.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlEastGate.hpp"
 #include "systems/controls_systems/other_controls/load_controls/LControlEmpty.h"
+#include "systems/controls_systems/other_controls/load_controls/LControlGlacier.hpp"
 #include "systems/controls_systems/other_controls/load_controls/LControlHedge.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlLowerHatch.hpp"
 #include "systems/controls_systems/other_controls/load_controls/LControlPlant.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlRoadbrick.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlSouthGate.hpp"
+#include "systems/controls_systems/other_controls/load_controls/LControlThrone.hpp"
 #include "systems/controls_systems/other_controls/load_controls/LControlTree.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlUpperHatch.hpp"
 #include "systems/controls_systems/other_controls/load_controls/LControlWall.h"
@@ -41,6 +42,7 @@ class LControlMap {
   LControlPlant *plant = nullptr;
   LControlRoadbrick *brick = nullptr;
   LControlSouthGate *south_gate = nullptr;
+  LControlThrone *throne = nullptr;
   LControlTree *tree = nullptr;
   LControlUpperHatch *upper_hatch = nullptr;
   LControlWall *wall = nullptr;
@@ -64,6 +66,7 @@ class LControlMap {
     plant = new LControlPlant(input_x, input_y, input_entities_system);
     brick = new LControlRoadbrick(input_x, input_y, input_entities_system);
     south_gate = new LControlSouthGate(input_x, input_y, input_entities_system);
+    throne = new LControlThrone(input_x, input_y, input_entities_system);
     tree = new LControlTree(input_x, input_y, input_entities_system);
     upper_hatch = new LControlUpperHatch(input_x, input_y, input_entities_system);
     wall = new LControlWall(input_x, input_y, input_entities_system);
@@ -81,6 +84,7 @@ class LControlMap {
     load_map['p'] = plant;
     load_map['.'] = brick;
     load_map['Q'] = south_gate;
+    load_map['T'] = throne;
     load_map['t'] = tree;
     load_map['U'] = upper_hatch;
     load_map['#'] = wall;

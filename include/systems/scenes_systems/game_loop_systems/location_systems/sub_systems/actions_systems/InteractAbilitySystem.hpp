@@ -34,4 +34,7 @@ class InteractAbilitySystem {
   void interact_with_east_gate();
   void interact_with_south_gate();
   void interact_with_west_gate();
+  void interact_with_upper_hatch();
+  void interact_with_lower_hatch();
+  void interact_with_cave_quit();
 };

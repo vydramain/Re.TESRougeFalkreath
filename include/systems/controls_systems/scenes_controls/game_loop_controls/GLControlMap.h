@@ -22,8 +22,11 @@ class GLControlMap {
   GLControlEmpty *control_empty = nullptr;
   GLControlEnding *control_ending = nullptr;
   GLControlExit *control_exit = nullptr;
-  GLControlLocationChange *control_load_falkreath = nullptr;
-  GLControlLocationChange *control_load_west_forest = nullptr;
+  GLControlLocationChange *control_load_bloodlet_throne_from_west_forest = nullptr;
+  GLControlLocationChange *control_load_west_forest_from_bloodlet_throne_by_hatch = nullptr;
+  GLControlLocationChange *control_load_west_forest_from_bloodlet_throne_by_cave = nullptr;
+  GLControlLocationChange *control_load_falkreath_from_west_forest = nullptr;
+  GLControlLocationChange *control_load_west_forest_from_falkreath = nullptr;
   GLControlScoreSave *control_score = nullptr;
 
   std::map<const char *, IGLControl *> gl_map;
@@ -42,16 +45,22 @@ class GLControlMap {
     control_empty = new GLControlEmpty();
     control_ending = new GLControlEnding(input_location_system, input_count, input_highlighted);
     control_exit = new GLControlExit();
-    control_load_falkreath = new GLControlLocationChange(input_render_system, input_location_system, "Falkreath",
-                                                         "../maps/Falkreath.bin", 72, 13);
-    control_load_west_forest = new GLControlLocationChange(input_render_system, input_location_system, "West Forest",
-                                                           "../maps/WestForest.bin", 3, 13);
+    control_load_bloodlet_throne_from_west_forest = new GLControlLocationChange(
+        input_render_system, input_location_system, "Bloodlet Throne", "../maps/BloodletThrone.bin", 5, 3);
+    control_load_west_forest_from_bloodlet_throne_by_cave = new GLControlLocationChange(
+        input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 218, 96);
+    control_load_west_forest_from_bloodlet_throne_by_hatch = new GLControlLocationChange(
+        input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 181, 95);
+    control_load_falkreath_from_west_forest = new GLControlLocationChange(input_render_system, input_location_system,
+                                                                          "Falkreath", "../maps/Falkreath.bin", 72, 13);
+    control_load_west_forest_from_falkreath = new GLControlLocationChange(
+        input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 3, 13);
     control_score = new GLControlScoreSave(input_location_system, input_count, input_highlighted);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
-    gl_map["GLAControlGoToWestForest"] = control_load_west_forest;
-    gl_map["GLAControlGoToFalkreath"] = control_load_falkreath;
+    gl_map["GLAControlGoToWestForest"] = control_load_west_forest_from_falkreath;
+    gl_map["GLAControlGoToFalkreath"] = control_load_falkreath_from_west_forest;
     gl_map["GLEControlSelectExit"] = control_exit;
     gl_map["GLEControlSelectEnter"] = control_score;
     gl_map["GLControlLocationChange"] = control_adventure;
@@ -96,11 +105,23 @@ class GLControlMap {
     }
     if (location_system->get_go_to_west_forest_from_falkreath()) {
       location_system->set_go_to_west_forest_form_falkreth(false);
-      return control_load_west_forest;
+      return control_load_west_forest_from_falkreath;
     }
     if (location_system->get_go_to_falkreath_from_west_forest()) {
       location_system->set_go_to_falkreath_from_west_forest(false);
-      return control_load_falkreath;
+      return control_load_falkreath_from_west_forest;
+    }
+    if (location_system->get_go_to_bloodlet_throne_from_west_forest()) {
+      location_system->set_go_to_bloodlet_throne_from_west_forest(false);
+      return control_load_bloodlet_throne_from_west_forest;
+    }
+    if (location_system->get_go_to_west_forest_from_bloodlet_throne_by_hatch()) {
+      location_system->set_go_to_west_forest_from_bloodlet_throne_by_hatch(false);
+      return control_load_west_forest_from_bloodlet_throne_by_hatch;
+    }
+    if (location_system->get_go_to_west_forest_from_bloodlet_throne_by_cave()) {
+      location_system->set_go_to_west_forest_from_bloodlet_throne_by_cave(false);
+      return control_load_west_forest_from_bloodlet_throne_by_cave;
     }
     return last_control;
   }
