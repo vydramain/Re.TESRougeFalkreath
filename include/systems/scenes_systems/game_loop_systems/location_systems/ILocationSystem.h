@@ -12,12 +12,18 @@ class ILocationSystem {
 
   virtual const char* get_name() const = 0;
 
-  virtual void set_go_to_falkreath(bool input_boolean) = 0;
-  virtual void set_go_to_west_forest(bool input_boolean) = 0;
+  virtual void set_go_to_bloodlet_throne_from_west_forest(bool input_boolean) = 0;
+  virtual void set_go_to_west_forest_from_bloodlet_throne_by_hatch(bool input_boolean) = 0;
+  virtual void set_go_to_west_forest_from_bloodlet_throne_by_cave(bool input_boolean) = 0;
+  virtual void set_go_to_falkreath_from_west_forest(bool input_boolean) = 0;
+  virtual void set_go_to_west_forest_form_falkreth(bool input_boolean) = 0;
   virtual void set_story_end(bool input_boolean) = 0;
 
-  virtual bool get_go_to_falkreath() const = 0;
-  virtual bool get_go_to_west_forest() const = 0;
+  virtual bool get_go_to_bloodlet_throne_from_west_forest() const = 0;
+  virtual bool get_go_to_west_forest_from_bloodlet_throne_by_hatch() const = 0;
+  virtual bool get_go_to_west_forest_from_bloodlet_throne_by_cave() const = 0;
+  virtual bool get_go_to_falkreath_from_west_forest() const = 0;
+  virtual bool get_go_to_west_forest_from_falkreath() const = 0;
   virtual bool get_story_end() const = 0;
 
   virtual unsigned get_size_x() const = 0;

@@ -14,8 +14,11 @@
 class LocationSystem : public ILocationSystem {
  private:
   const char *name = nullptr;
-  bool is_go_to_falkreath = false;
-  bool is_go_to_west_forest = false;
+  bool is_go_to_bloodlet_throne_from_west_forest = false;
+  bool is_go_to_west_forest_from_bloodlet_throne_by_hatch = false;
+  bool is_go_to_west_forest_from_bloodlet_throne_by_cave = false;
+  bool is_go_to_falkreath_from_west_forest = false;
+  bool is_go_to_west_forest_from_falkreath = false;
   bool is_story_end = false;
 
   unsigned int size_x = 0;
@@ -30,12 +33,18 @@ class LocationSystem : public ILocationSystem {
 
   const char *get_name() const override;
 
-  void set_go_to_falkreath(bool input_boolean) override;
-  void set_go_to_west_forest(bool input_boolean) override;
+  void set_go_to_bloodlet_throne_from_west_forest(bool input_boolean) override;
+  void set_go_to_west_forest_from_bloodlet_throne_by_hatch(bool input_boolean) override;
+  void set_go_to_west_forest_from_bloodlet_throne_by_cave(bool input_boolean) override;
+  void set_go_to_falkreath_from_west_forest(bool input_boolean) override;
+  void set_go_to_west_forest_form_falkreth(bool input_boolean) override;
   void set_story_end(bool input_boolean) override;
 
-  bool get_go_to_falkreath() const override;
-  bool get_go_to_west_forest() const override;
+  bool get_go_to_bloodlet_throne_from_west_forest() const override;
+  bool get_go_to_west_forest_from_bloodlet_throne_by_hatch() const override;
+  bool get_go_to_west_forest_from_bloodlet_throne_by_cave() const override;
+  bool get_go_to_falkreath_from_west_forest() const override;
+  bool get_go_to_west_forest_from_falkreath() const override;
   bool get_story_end() const override;
 
   unsigned get_size_x() const override;

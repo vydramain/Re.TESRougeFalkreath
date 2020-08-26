@@ -84,7 +84,7 @@ void InteractAbilitySystem::interact_with_door() {
 }
 
 void InteractAbilitySystem::interact_with_east_gate() {
-  location_system->set_go_to_west_forest(true);
+  location_system->set_go_to_west_forest_form_falkreth(true);
 }
 
 void InteractAbilitySystem::interact_with_south_gate() {
@@ -92,5 +92,5 @@ void InteractAbilitySystem::interact_with_south_gate() {
 }
 
 void InteractAbilitySystem::interact_with_west_gate() {
-  location_system->set_go_to_falkreath(true);
+  location_system->set_go_to_falkreath_from_west_forest(true);
 }

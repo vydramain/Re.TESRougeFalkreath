@@ -94,12 +94,12 @@ class GLControlMap {
     if (location_system->get_story_end()) {
       return control_ending;
     }
-    if (location_system->get_go_to_west_forest()) {
-      location_system->set_go_to_west_forest(false);
+    if (location_system->get_go_to_west_forest_from_falkreath()) {
+      location_system->set_go_to_west_forest_form_falkreth(false);
       return control_load_west_forest;
     }
-    if (location_system->get_go_to_falkreath()) {
-      location_system->set_go_to_falkreath(false);
+    if (location_system->get_go_to_falkreath_from_west_forest()) {
+      location_system->set_go_to_falkreath_from_west_forest(false);
       return control_load_falkreath;
     }
     return last_control;

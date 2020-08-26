@@ -27,22 +27,47 @@ const char *LocationSystem::get_name() const {
   return name;
 }
 
-void LocationSystem::set_go_to_falkreath(bool input_boolean) {
-  is_go_to_falkreath = input_boolean;
+void LocationSystem::set_go_to_bloodlet_throne_from_west_forest(bool input_boolean) {
+  is_go_to_bloodlet_throne_from_west_forest = input_boolean;
 }
-void LocationSystem::set_go_to_west_forest(bool input_boolean) {
-  is_go_to_west_forest = input_boolean;
+
+void LocationSystem::set_go_to_west_forest_from_bloodlet_throne_by_hatch(bool input_boolean) {
+  is_go_to_west_forest_from_bloodlet_throne_by_hatch = input_boolean;
+}
+void LocationSystem::set_go_to_west_forest_from_bloodlet_throne_by_cave(bool input_boolean) {
+  is_go_to_west_forest_from_bloodlet_throne_by_cave = input_boolean;
+}
+
+void LocationSystem::set_go_to_falkreath_from_west_forest(bool input_boolean) {
+  is_go_to_falkreath_from_west_forest = input_boolean;
+}
+void LocationSystem::set_go_to_west_forest_form_falkreth(bool input_boolean) {
+  is_go_to_west_forest_from_falkreath = input_boolean;
 }
 void LocationSystem::set_story_end(bool input_boolean) {
   is_story_end = input_boolean;
 }
 
-bool LocationSystem::get_go_to_falkreath() const {
-  return is_go_to_falkreath;
+bool LocationSystem::get_go_to_bloodlet_throne_from_west_forest() const {
+  return is_go_to_bloodlet_throne_from_west_forest;
 }
-bool LocationSystem::get_go_to_west_forest() const {
-  return is_go_to_west_forest;
+
+bool LocationSystem::get_go_to_west_forest_from_bloodlet_throne_by_hatch() const {
+  return is_go_to_west_forest_from_bloodlet_throne_by_hatch;
 }
+
+bool LocationSystem::get_go_to_west_forest_from_bloodlet_throne_by_cave() const {
+  return is_go_to_west_forest_from_bloodlet_throne_by_cave;
+}
+
+bool LocationSystem::get_go_to_falkreath_from_west_forest() const {
+  return is_go_to_falkreath_from_west_forest;
+}
+
+bool LocationSystem::get_go_to_west_forest_from_falkreath() const {
+  return is_go_to_west_forest_from_falkreath;
+}
+
 bool LocationSystem::get_story_end() const {
   return is_story_end;
 }
