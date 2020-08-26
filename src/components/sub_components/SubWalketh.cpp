@@ -36,7 +36,11 @@ unsigned int SubWalketh::get_sight_x() const {
 }
 
 unsigned int SubWalketh::get_sight_y() const {
-    return sight_y;
+  return sight_y;
+}
+
+unsigned SubWalketh::get_steps_count() const {
+  return steps_count;
 }
 
 void SubWalketh::go_up() {
@@ -45,6 +49,7 @@ void SubWalketh::go_up() {
     current_y--;
   }
   set_sight();
+  steps_count++;
 }
 
 void SubWalketh::go_down(const unsigned input_border) {
@@ -53,6 +58,7 @@ void SubWalketh::go_down(const unsigned input_border) {
     current_y++;
   }
   set_sight();
+  steps_count++;
 }
 
 void SubWalketh::go_left() {
@@ -61,6 +67,7 @@ void SubWalketh::go_left() {
     current_x--;
   }
   set_sight();
+  steps_count++;
 }
 
 void SubWalketh::go_right(const unsigned input_border) {
@@ -69,6 +76,7 @@ void SubWalketh::go_right(const unsigned input_border) {
     current_x++;
   }
   set_sight();
+  steps_count++;
 }
 
 void SubWalketh::look_up() {

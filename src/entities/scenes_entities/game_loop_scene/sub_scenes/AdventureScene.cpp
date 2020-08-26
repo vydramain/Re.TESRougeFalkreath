@@ -5,17 +5,17 @@
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/AdventureScene.h"
 
 AdventureScene::AdventureScene(LocationSystem *input_location)
-    : IScene("AdventureScene"), mla_input(new GLAControls(input_location)) {}
+    : IScene("AdventureScene"), gla_input(new GLAControls(input_location)) {}
 
 AdventureScene::~AdventureScene() {
-  delete mla_input;
+  delete gla_input;
 }
 
-IControl *AdventureScene::get_last_control() {
-  return last_control;
+IControl *AdventureScene::get_control() {
+  return control;
 }
 
 void AdventureScene::run() {
-  last_control = mla_input->update();
-  last_control->execute();
+  control = gla_input->update();
+  control->execute();
 }

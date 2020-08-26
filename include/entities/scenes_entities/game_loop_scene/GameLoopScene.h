@@ -6,21 +6,20 @@
 
 #include <cstring>
 
-#include "systems/controls_systems/game_loop_controls/GLControlMap.h"
-#include "systems/controls_systems/game_loop_controls/IGLControl.h"
-#include "systems/location_systems/LocationSystem.h"
-#include "systems/location_systems/sub_systems/entities_system/MagwehrsSystem.h"
-#include "systems/render_systems/RenderSystem.h"
 #include "entities/scenes_entities/IMainScene.h"
+#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlMap.h"
+#include "systems/render_systems/BearRenderSystem.h"
 
 class GameLoopScene : public IMainScene {
  private:
-  RenderSystem *render_system;
-  LocationSystem *location = nullptr;
+  IRenderSystem *render_system;
+  LocationSystem *location_system = nullptr;
+
+  unsigned ending_count = 2;
+  unsigned *ending_highlighted = new unsigned(1);
 
  public:
-  explicit GameLoopScene(RenderSystem *input_system, unsigned input_x, unsigned input_y,
-                         LocationsEntitiesSystem *input_entities);
+  explicit GameLoopScene(IRenderSystem *input_render_system);
   ~GameLoopScene() override;
 
   void run() override;

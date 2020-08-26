@@ -16,7 +16,7 @@ void PseudoGameLoopRender::recount_fields(unsigned input_screen_x, unsigned inpu
 }
 
 PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                           ILocationSystem *input_location_system)
+                                           ILocationSystem *input_location_system, unsigned *input_highlighted)
     : IRender() {
   recount_fields(input_screen_x, input_screen_y);
   set_location_system(input_location_system);
@@ -24,11 +24,15 @@ PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned
   hud = new GameLoopHUDRender(input_location_system, target);
   hud->update_fields(SCREENMODE_X, SCREENMODE_Y, passive_zone_out_x, passive_zone_out_y, active_zone_in_x,
                      active_zone_in_y, active_zone_out_x, active_zone_out_y, camera_position_x, camera_position_y);
+  ending = new GameLoopEndingRender(input_highlighted);
+  ending->update_fields(SCREENMODE_X, SCREENMODE_Y);
 }
 
 PseudoGameLoopRender::~PseudoGameLoopRender() {
   location_system = nullptr;
   target = nullptr;
+  delete hud;
+  delete ending;
 }
 
 void PseudoGameLoopRender::set_location_system(ILocationSystem *input_location_system) {
@@ -162,16 +166,24 @@ void PseudoGameLoopRender::render_hud() {
   hud->render();
 }
 
+void PseudoGameLoopRender::render_end() {
+  ending->render();
+}
+
 void PseudoGameLoopRender::render() {
   CleanerRender::clean_all();
 
   update_camera_position_x();
   update_camera_position_y();
 
-  render_ambient();
-  render_location_items();
-  render_location_creatures();
-  render_hud();
+  if (location_system->get_story_end()) {
+    render_end();
+  } else {
+    render_ambient();
+    render_location_items();
+    render_location_creatures();
+    render_hud();
+  }
 
   terminal_refresh();
 }

@@ -7,7 +7,7 @@ build:
 	cd cmake-build-debug;make
 
 exec:
-	./cmake-build-debug/re.TESRougeFalkreath
+	cd cmake-build-debug;./re.TESRougeFalkreath
 
 clean:
 	rm -rf cmake-build-debug
