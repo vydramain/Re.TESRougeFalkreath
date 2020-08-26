@@ -5,6 +5,6 @@
 #include "entities/location_entities/ambient_entities/CaveQuit.hpp"
 
 CaveQuit::CaveQuit(unsigned int input_x, unsigned int input_y)
-    : Ambient("CaveQuit", "¶", 0xff989898, input_x, input_y) {}
+    : Ambient("CaveQuit", "¶", 0xffdbdbdb, input_x, input_y) {}
 
 CaveQuit::~CaveQuit() {}

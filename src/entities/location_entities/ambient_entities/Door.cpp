@@ -4,6 +4,6 @@
 
 #include "entities/location_entities/ambient_entities/Door.h"
 
-Door::Door(unsigned int input_x, unsigned int input_y) : Ambient("Door", "┼", 0xff6a4000, input_x, input_y) {}
+Door::Door(unsigned int input_x, unsigned int input_y) : Ambient("Door", "┼", 0xff99692c, input_x, input_y) {}
 
 Door::~Door() = default;
