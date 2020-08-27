@@ -4,8 +4,7 @@
 
 #pragma once
 
-#include "entities/MenuData.hpp"
-
+#include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
@@ -13,9 +12,9 @@ class IRenderSystem {
  public:
   virtual ~IRenderSystem() = default;
 
-  virtual void set_main_menu_data(MenuData *input_menu_data) = 0;
+  virtual void set_main_menu_data(ParameterQueryData *input_menu_data) = 0;
   virtual void set_score_list_data(ScoreListData *input_score_list_data) = 0;
-  virtual void set_game_loop_data(ILocationSystem *input_location_system, MenuData *input_ending_data) = 0;
+  virtual void set_game_loop_data(ILocationSystem *input_location_system, ParameterQueryData *input_ending_data) = 0;
 
   virtual void set_main_menu_render() = 0;
   virtual void set_score_list_render() = 0;

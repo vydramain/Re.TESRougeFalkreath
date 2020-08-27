@@ -32,7 +32,7 @@ void TextPanelsRender::view_text(unsigned int in_x, unsigned int in_y, unsigned 
   }
 }
 
-void TextPanelsRender::view_question_with_a_choice(unsigned in_x, unsigned int in_y, unsigned int out_x,
+void TextPanelsRender::view_parameter_query(unsigned in_x, unsigned int in_y, unsigned int out_x,
                                                    unsigned int out_y, std::string *question,
                                                    std::string **input_choices, unsigned int input_count_choices,
                                                    unsigned int highlighted_choice) {

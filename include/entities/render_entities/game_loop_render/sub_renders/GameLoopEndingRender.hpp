@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "entities/MenuData.hpp"
+#include "entities/ParameterQueryData.hpp"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 
@@ -13,10 +13,10 @@ class GameLoopEndingRender : public IRender {
   unsigned SCREENMODE_X = 0;
   unsigned SCREENMODE_Y = 0;
 
-  MenuData *ending_data;
+  ParameterQueryData *ending_data;
 
  public:
-  explicit GameLoopEndingRender(MenuData *input_ending_data);
+  explicit GameLoopEndingRender(ParameterQueryData *input_ending_data);
   ~GameLoopEndingRender() override;
 
   void update_fields(unsigned input_screen_x, unsigned input_screen_y);

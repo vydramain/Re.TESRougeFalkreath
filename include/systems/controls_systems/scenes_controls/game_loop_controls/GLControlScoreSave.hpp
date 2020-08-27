@@ -12,11 +12,11 @@
 
 class GLControlScoreSave : public IGLControl {
  private:
-  MenuData *ending_data = nullptr;
+  ParameterQueryData *ending_data = nullptr;
   IScoreSystem *score_system = nullptr;
 
  public:
-  explicit GLControlScoreSave(ILocationSystem *input_location_system, MenuData *input_ending_data)
+  explicit GLControlScoreSave(ILocationSystem *input_location_system, ParameterQueryData *input_ending_data)
       : IGLControl("GLControlScoreSave") {
     ending_data = input_ending_data;
     score_system = new StdScoreSystem();

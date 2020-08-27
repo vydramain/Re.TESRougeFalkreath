@@ -6,10 +6,10 @@
 
 class MMControlSelectDown : public IControl {
  private:
-  MenuData *menu_data;
+  ParameterQueryData *menu_data;
 
  public:
-  explicit MMControlSelectDown(MenuData *input_menu_data) : IControl("MMControlSelectDown") {
+  explicit MMControlSelectDown(ParameterQueryData *input_menu_data) : IControl("MMControlSelectDown") {
     menu_data = input_menu_data;
   }
   ~MMControlSelectDown() override = default;

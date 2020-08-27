@@ -26,22 +26,22 @@ class BearRenderSystem : public IRenderSystem {
   IRender* render_entity = nullptr;
 
   bool is_menu = false;
-  MenuData *menu_data = nullptr;
+  ParameterQueryData*menu_data = nullptr;
 
   bool is_score_list = false;
   ScoreListData* score_list_data = nullptr;
 
   bool is_game_loop = false;
   ILocationSystem* location_system = nullptr;
-  MenuData *ending_data = nullptr;
+  ParameterQueryData*ending_data = nullptr;
 
  public:
   explicit BearRenderSystem();
   ~BearRenderSystem() override;
 
-  void set_main_menu_data(MenuData *input_menu_data) override;
+  void set_main_menu_data(ParameterQueryData*input_menu_data) override;
   void set_score_list_data(ScoreListData* input_score_list_data) override;
-  void set_game_loop_data(ILocationSystem* input_location_system, MenuData *input_ending_data) override;
+  void set_game_loop_data(ILocationSystem* input_location_system, ParameterQueryData*input_ending_data) override;
 
   void set_main_menu_render() override;
   void set_score_list_render() override;

@@ -6,10 +6,10 @@
 
 class GLEControlSelectDown : public IControl {
  private:
-  MenuData *ending_data;
+  ParameterQueryData *ending_data;
 
  public:
-  explicit GLEControlSelectDown(MenuData *input_ending_data)
+  explicit GLEControlSelectDown(ParameterQueryData *input_ending_data)
       : IControl("GLEControlSelectUp") {
     ending_data = input_ending_data;
   }

@@ -21,7 +21,7 @@ BearRenderSystem::~BearRenderSystem() {
   terminal_close();
 }
 
-void BearRenderSystem::set_main_menu_data(MenuData *input_menu_data) {
+void BearRenderSystem::set_main_menu_data(ParameterQueryData *input_menu_data) {
   is_menu = true;
   menu_data = input_menu_data;
 }
@@ -32,7 +32,7 @@ void BearRenderSystem::set_score_list_data(ScoreListData *input_score_list_data)
 }
 
 void BearRenderSystem::set_game_loop_data(ILocationSystem *input_location_system,
-                                          MenuData *input_ending_data) {
+                                          ParameterQueryData *input_ending_data) {
   is_game_loop = true;
   location_system = input_location_system;
   ending_data = input_ending_data;

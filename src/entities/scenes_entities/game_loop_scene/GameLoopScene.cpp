@@ -8,7 +8,7 @@ GameLoopScene::GameLoopScene(IRenderSystem *input_render_system) : IMainScene("M
   auto **menu_choice = new std::string*[2];
   menu_choice[0] = new std::string("Да");
   menu_choice[1] = new std::string("Нет");
-  ending_data = new MenuData(new std::string("Сохранить статистику?"), 2, menu_choice);
+  ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"), 2, menu_choice);
 
   render_system = input_render_system;
   location_system = new LocationSystem();

@@ -37,7 +37,7 @@ class GLControlMap {
 
  public:
   explicit GLControlMap(IRenderSystem *input_render_system, LocationSystem *input_location_system,
-                        MenuData *input_ending_data) {
+                        ParameterQueryData *input_ending_data) {
     location_system = input_location_system;
 
     printf("%s", "[GLControlMap] - Creating game loop controls\n");

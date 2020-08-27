@@ -25,7 +25,7 @@ class MMControlMap {
   std::map<int, IControl *>::iterator mm_iterator;
 
  public:
-  explicit MMControlMap(MenuData *input_menu_data) {
+  explicit MMControlMap(ParameterQueryData *input_menu_data) {
     PseudoLogSystem::log("MMControlMap", "Create main menu controls");
     select_down = new MMControlSelectDown(input_menu_data);
     select_up = new MMControlSelectUp(input_menu_data);

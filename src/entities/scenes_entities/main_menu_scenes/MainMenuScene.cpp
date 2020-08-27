@@ -9,7 +9,7 @@ MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("M
   menu_choice[0] = new std::string("Новая игра");
   menu_choice[1] = new std::string("Рейтинг");
   menu_choice[2] = new std::string("Выход");
-  data = new MenuData(new std::string("Главное меню:"), 3, menu_choice);
+  data = new ParameterQueryData(new std::string("Главное меню:"), 3, menu_choice);
 
   mm_input = new MMControls(data);
 

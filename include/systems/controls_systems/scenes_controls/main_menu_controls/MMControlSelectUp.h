@@ -8,10 +8,10 @@
 
 class MMControlSelectUp : public IControl {
  private:
-  MenuData* menu_data;
+  ParameterQueryData* menu_data;
 
  public:
-  explicit MMControlSelectUp(MenuData* input_menu_data) : IControl("MMControlSelectUp") {
+  explicit MMControlSelectUp(ParameterQueryData* input_menu_data) : IControl("MMControlSelectUp") {
     menu_data = input_menu_data;
   }
   ~MMControlSelectUp() override = default;

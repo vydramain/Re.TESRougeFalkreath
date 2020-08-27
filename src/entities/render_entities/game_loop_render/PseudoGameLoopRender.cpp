@@ -16,7 +16,8 @@ void PseudoGameLoopRender::recount_fields(unsigned input_screen_x, unsigned inpu
 }
 
 PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                           ILocationSystem *input_location_system, MenuData *input_ending_data)
+                                           ILocationSystem *input_location_system,
+                                           ParameterQueryData *input_ending_data)
     : IRender() {
   recount_fields(input_screen_x, input_screen_y);
   set_location_system(input_location_system);

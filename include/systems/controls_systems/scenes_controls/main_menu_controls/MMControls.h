@@ -13,7 +13,7 @@ class MMControls {
   MMControlMap *control_map;
 
  public:
-  explicit MMControls(MenuData *input_menu_data) {
+  explicit MMControls(ParameterQueryData *input_menu_data) {
     control_map = new MMControlMap(input_menu_data);
   }
   ~MMControls() {

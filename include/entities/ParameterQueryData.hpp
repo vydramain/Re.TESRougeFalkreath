@@ -8,7 +8,7 @@
 
 #include "entities/scenes_entities/SceneType.hpp"
 
-class MenuData {
+class ParameterQueryData {
  private:
   std::string *title;
   unsigned count_choices;
@@ -16,8 +16,8 @@ class MenuData {
   unsigned highlighted;
 
  public:
-  explicit MenuData(std::string *input_title, unsigned input_count_choices, std::string **input_choices);
-  ~MenuData();
+  explicit ParameterQueryData(std::string *input_title, unsigned input_count_choices, std::string **input_choices);
+  ~ParameterQueryData();
 
   std::string *get_title() const;
   unsigned int get_count_choices() const;

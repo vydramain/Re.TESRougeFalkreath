@@ -7,7 +7,7 @@
 #include <cstring>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/MenuData.hpp"
+#include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/controls_systems/IControl.h"
 #include "systems/controls_systems/scenes_controls/main_menu_controls/MMControls.h"
@@ -15,7 +15,7 @@
 
 class MainMenuScene : public IMainScene {
  private:
-  MenuData *data = nullptr;
+  ParameterQueryData *data = nullptr;
   IRenderSystem *render_system = nullptr;
 
   MMControls *mm_input = nullptr;
