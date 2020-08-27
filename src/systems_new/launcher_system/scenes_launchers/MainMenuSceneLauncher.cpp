@@ -16,6 +16,6 @@ void MainMenuSceneLauncher::execute() {
   PseudoLogSystem::log(get_name(), "Launch main menu scene");
   auto *scene = new MainMenuScene(render_system);
   scene->run();
-  *scene_type = scene->get_highlighted();
+  *scene_type = static_cast<SceneType>(scene->get_highlighted());
   delete scene;
 }

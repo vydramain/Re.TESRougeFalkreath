@@ -8,7 +8,7 @@
 #include "entities/scenes_entities/score_list_scene/ScoreListScene.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"
-#include "systems_new/launcher_system/scenes_launchers/ScenesLaunchersManager.h"
+#include "entities/scenes_entities/SceneType.hpp"
 
 class ScoreListSceneLauncher : public IControl {
  private:

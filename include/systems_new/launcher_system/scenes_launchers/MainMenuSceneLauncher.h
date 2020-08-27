@@ -5,10 +5,10 @@
 #pragma once
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
+#include "entities/scenes_entities/SceneType.hpp"
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 #include "systems/controls_systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"
-#include "systems_new/launcher_system/scenes_launchers/ScenesLaunchersManager.h"
 
 class MainMenuSceneLauncher : public IControl {
  private:
