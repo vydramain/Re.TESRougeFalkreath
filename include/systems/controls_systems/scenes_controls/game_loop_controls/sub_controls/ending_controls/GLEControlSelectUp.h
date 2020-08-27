@@ -8,19 +8,18 @@
 
 class GLEControlSelectUp : public IControl {
  private:
-  const unsigned count_choices;
-  unsigned *highlighted;
+  MenuData *ending_data;
 
  public:
-  explicit GLEControlSelectUp(const unsigned input_count, unsigned *input_highlighted)
-      : IControl("GLEControlSelectUp"), count_choices(input_count) {
-    highlighted = input_highlighted;
+  explicit GLEControlSelectUp(MenuData *input_ending_data)
+      : IControl("GLEControlSelectUp") {
+    ending_data = input_ending_data;
   }
   ~GLEControlSelectUp() override = default;
 
   void execute() override {
-    if (*highlighted > 1) {
-      *highlighted -= 1;
+    if (ending_data->get_highlighted() > 1) {
+      ending_data->set_highlighted(ending_data->get_highlighted() - 1);
     }
   }
 };

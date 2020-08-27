@@ -25,11 +25,10 @@ class GLEControlMap {
   std::map<int, IControl *>::iterator gle_iterator;
 
  public:
-  explicit GLEControlMap(LocationSystem *input_location_system, const unsigned input_count,
-                         unsigned *input_highlighted) {
+  explicit GLEControlMap(LocationSystem *input_location_system, MenuData *input_ending_data) {
     printf("%s", "[MMControlMap] - Creating main menu controls\n");
-    select_down = new GLEControlSelectDown(input_count, input_highlighted);
-    select_up = new GLEControlSelectUp(input_count, input_highlighted);
+    select_down = new GLEControlSelectDown(input_ending_data);
+    select_up = new GLEControlSelectUp(input_ending_data);
     select_exit = new GLEControlSelectExit();
     select_empty = new GLEControlSelectEmpty();
     select_enter = new GLEControlSelectEnter(input_location_system);

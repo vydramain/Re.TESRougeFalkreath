@@ -25,10 +25,10 @@ class MMControlMap {
   std::map<int, IControl *>::iterator mm_iterator;
 
  public:
-  explicit MMControlMap(const unsigned input_count, unsigned *input_highlighted) {
-    printf("%s", "[MMControlMap] - Creating main menu controls\n");
-    select_down = new MMControlSelectDown(input_count, input_highlighted);
-    select_up = new MMControlSelectUp(input_count, input_highlighted);
+  explicit MMControlMap(MenuData *input_menu_data) {
+    PseudoLogSystem::log("MMControlMap", "Create main menu controls");
+    select_down = new MMControlSelectDown(input_menu_data);
+    select_up = new MMControlSelectUp(input_menu_data);
     select_exit = new MMControlSelectExit();
     select_empty = new MMControlSelectEmpty();
     select_enter = new MMControlSelectEnter();
@@ -41,6 +41,7 @@ class MMControlMap {
   }
 
   ~MMControlMap() {
+    PseudoLogSystem::log("MMControlMap", "Delete main menu controls");
     delete select_exit;
     delete select_empty;
     delete select_enter;

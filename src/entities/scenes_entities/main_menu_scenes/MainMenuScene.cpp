@@ -5,10 +5,16 @@
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 
 MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("MainMenuScene") {
-  mm_input = new MMControls(count_choices, highlighted);
+  auto **menu_choice = new std::string*[3];
+  menu_choice[0] = new std::string("Новая игра");
+  menu_choice[1] = new std::string("Рейтинг");
+  menu_choice[2] = new std::string("Выход");
+  data = new MenuData(new std::string("Главное меню:"), 3, menu_choice);
+
+  mm_input = new MMControls(data);
 
   render_system = input_render_system;
-  render_system->set_main_menu_data(title, choices, count_choices, highlighted);
+  render_system->set_main_menu_data(data);
   render_system->set_main_menu_render();
 }
 MainMenuScene::~MainMenuScene() {
@@ -17,10 +23,11 @@ MainMenuScene::~MainMenuScene() {
 }
 
 unsigned MainMenuScene::get_highlighted() const {
-  return *highlighted;
+  return data->get_highlighted();
 }
+
 void MainMenuScene::run() {
-  printf("%s", "[MainMenuScene] - Launch main menu\n");
+  PseudoLogSystem::log("MainMenuScene", "Launch main menu");
   do {
     render_system->render();
     last_control = mm_input->update();
@@ -29,6 +36,6 @@ void MainMenuScene::run() {
            std::strcmp(last_control->get_name(), "MMControlSelectEnter") != 0);
 
   if (std::strcmp(last_control->get_name(), "MMControlSelectExit") == 0) {
-    *highlighted = EXIT_CHOICE;
+    data->set_highlighted(data->get_count_choices());
   }
 }

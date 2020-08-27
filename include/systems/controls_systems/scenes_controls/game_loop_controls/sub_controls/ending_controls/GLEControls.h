@@ -13,8 +13,8 @@ class GLEControls {
   GLEControlMap *control_map;
 
  public:
-  explicit GLEControls(LocationSystem *input_location_system, const unsigned input_count, unsigned *input_highlighted) {
-    control_map = new GLEControlMap(input_location_system, input_count, input_highlighted);
+  explicit GLEControls(LocationSystem *input_location_system, MenuData *input_ending_data) {
+    control_map = new GLEControlMap(input_location_system, input_ending_data);
   }
   ~GLEControls() {
     delete control_map;

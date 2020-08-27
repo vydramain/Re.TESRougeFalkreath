@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "entities/MenuData.hpp"
+
 #include "IGLControl.h"
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/EndingScene.hpp"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
@@ -14,10 +16,9 @@ class GLControlEnding : public IGLControl {
   EndingScene *scene = nullptr;
 
  public:
-  explicit GLControlEnding(LocationSystem *input_location_system, const unsigned input_count,
-                           unsigned *input_highlighted)
+  explicit GLControlEnding(LocationSystem *input_location_system, MenuData *input_ending_data)
       : IGLControl("GLControlEnding") {
-    scene = new EndingScene(input_location_system, input_count, input_highlighted);
+    scene = new EndingScene(input_location_system, input_ending_data);
   }
   ~GLControlEnding() override {
     delete scene;

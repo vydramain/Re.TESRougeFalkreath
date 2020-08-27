@@ -12,14 +12,13 @@
 
 class GLControlScoreSave : public IGLControl {
  private:
-  unsigned *highlighted;
+  MenuData *ending_data = nullptr;
   IScoreSystem *score_system = nullptr;
 
  public:
-  explicit GLControlScoreSave(ILocationSystem *input_location_system, const unsigned input_count,
-                              unsigned *input_highlighted)
+  explicit GLControlScoreSave(ILocationSystem *input_location_system, MenuData *input_ending_data)
       : IGLControl("GLControlScoreSave") {
-    highlighted = input_highlighted;
+    ending_data = input_ending_data;
     score_system = new StdScoreSystem();
     score_system->set_location_system(input_location_system);
   }
@@ -32,7 +31,7 @@ class GLControlScoreSave : public IGLControl {
   }
 
   void execute() override {
-    if (*highlighted == 1) {
+    if (ending_data->get_highlighted() == 1) {
       score_system->add_score();
     }
   }

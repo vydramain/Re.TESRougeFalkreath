@@ -33,8 +33,9 @@ void TextPanelsRender::view_text(unsigned int in_x, unsigned int in_y, unsigned 
 }
 
 void TextPanelsRender::view_question_with_a_choice(unsigned in_x, unsigned int in_y, unsigned int out_x,
-                                                   unsigned int out_y, const char *question, const char **input_choices,
-                                                   unsigned int input_count_choices, unsigned int highlighted_choice) {
+                                                   unsigned int out_y, std::string *question,
+                                                   std::string **input_choices, unsigned int input_count_choices,
+                                                   unsigned int highlighted_choice) {
   // cleaning up area
   for (unsigned ii(0); ii < (out_y - in_y); ii++) {
     for (unsigned i(0); i < (out_x - in_x); i++) {
@@ -57,11 +58,11 @@ void TextPanelsRender::view_question_with_a_choice(unsigned in_x, unsigned int i
   }
 
   // draw question
-  terminal_print(in_x + 7, in_y + 2, question);
+  terminal_print(in_x + 7, in_y + 2, question->data());
   for (unsigned i(1); i < input_count_choices + 1; i++) {
     if (highlighted_choice == i) {
       terminal_print(in_x + 3, in_y + 3 + i, "-->");
     }
-    terminal_print(in_x + 7, in_y + 3 + i, input_choices[i - 1]);
+    terminal_print(in_x + 7, in_y + 3 + i, input_choices[i - 1]->data());
   }
 }

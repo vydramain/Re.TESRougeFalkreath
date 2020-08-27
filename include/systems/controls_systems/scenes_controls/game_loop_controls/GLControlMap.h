@@ -37,13 +37,13 @@ class GLControlMap {
 
  public:
   explicit GLControlMap(IRenderSystem *input_render_system, LocationSystem *input_location_system,
-                        const unsigned input_count, unsigned *input_highlighted) {
+                        MenuData *input_ending_data) {
     location_system = input_location_system;
 
     printf("%s", "[GLControlMap] - Creating game loop controls\n");
     control_adventure = new GLControlAdventure(input_location_system);
     control_empty = new GLControlEmpty();
-    control_ending = new GLControlEnding(input_location_system, input_count, input_highlighted);
+    control_ending = new GLControlEnding(input_location_system, input_ending_data);
     control_exit = new GLControlExit();
     control_load_bloodlet_throne_from_west_forest = new GLControlLocationChange(
         input_render_system, input_location_system, "Bloodlet Throne", "../maps/BloodletThrone.bin", 5, 3);
@@ -55,7 +55,7 @@ class GLControlMap {
                                                                           "Falkreath", "../maps/Falkreath.bin", 72, 13);
     control_load_west_forest_from_falkreath = new GLControlLocationChange(
         input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 3, 13);
-    control_score = new GLControlScoreSave(input_location_system, input_count, input_highlighted);
+    control_score = new GLControlScoreSave(input_location_system, input_ending_data);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;

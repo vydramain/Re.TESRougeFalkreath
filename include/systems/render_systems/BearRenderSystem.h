@@ -26,26 +26,22 @@ class BearRenderSystem : public IRenderSystem {
   IRender* render_entity = nullptr;
 
   bool is_menu = false;
-  const char* menu_title = nullptr;
-  const char** menu_choices = nullptr;
-  unsigned count_menu_choices = 0;
-  unsigned* menu_highlighted = nullptr;
+  MenuData *menu_data = nullptr;
 
   bool is_score_list = false;
   ScoreListData* score_list_data = nullptr;
 
   bool is_game_loop = false;
   ILocationSystem* location_system = nullptr;
-  unsigned* ending_highlighted = nullptr;
+  MenuData *ending_data = nullptr;
 
  public:
   explicit BearRenderSystem();
   ~BearRenderSystem() override;
 
-  void set_main_menu_data(const char* input_menu_title, const char** input_menu_choices,
-                          unsigned input_count_menu_choices, unsigned* input_menu_highlighted) override;
+  void set_main_menu_data(MenuData *input_menu_data) override;
   void set_score_list_data(ScoreListData* input_score_list_data) override;
-  void set_game_loop_data(ILocationSystem* input_location_system, unsigned* input_highlighted) override;
+  void set_game_loop_data(ILocationSystem* input_location_system, MenuData *input_ending_data) override;
 
   void set_main_menu_render() override;
   void set_score_list_render() override;

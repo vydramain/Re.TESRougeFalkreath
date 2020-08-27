@@ -21,13 +21,9 @@ BearRenderSystem::~BearRenderSystem() {
   terminal_close();
 }
 
-void BearRenderSystem::set_main_menu_data(const char *input_menu_title, const char **input_menu_choices,
-                                          unsigned int input_count_menu_choices, unsigned int *input_menu_highlighted) {
+void BearRenderSystem::set_main_menu_data(MenuData *input_menu_data) {
   is_menu = true;
-  menu_title = input_menu_title;
-  menu_choices = input_menu_choices;
-  count_menu_choices = input_count_menu_choices;
-  menu_highlighted = input_menu_highlighted;
+  menu_data = input_menu_data;
 }
 
 void BearRenderSystem::set_score_list_data(ScoreListData *input_score_list_data) {
@@ -36,18 +32,17 @@ void BearRenderSystem::set_score_list_data(ScoreListData *input_score_list_data)
 }
 
 void BearRenderSystem::set_game_loop_data(ILocationSystem *input_location_system,
-                                          unsigned int *input_ending_highlighted) {
+                                          MenuData *input_ending_data) {
   is_game_loop = true;
   location_system = input_location_system;
-  ending_highlighted = input_ending_highlighted;
+  ending_data = input_ending_data;
 }
 
 void BearRenderSystem::set_main_menu_render() {
   printf("%s", "[RenderSystem] - Setting up main menu render\n");
   delete render_entity;
   if (is_menu) {
-    render_entity =
-        new MainMenuRender(SCREENMODE_X, SCREENMODE_Y, menu_title, menu_choices, count_menu_choices, menu_highlighted);
+    render_entity = new MainMenuRender(SCREENMODE_X, SCREENMODE_Y, menu_data);
   }
 }
 
@@ -63,7 +58,7 @@ void BearRenderSystem::set_pseudo_game_loop_render() {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
   if (is_game_loop) {
-    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, location_system, ending_highlighted);
+    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, location_system, ending_data);
   }
 }
 

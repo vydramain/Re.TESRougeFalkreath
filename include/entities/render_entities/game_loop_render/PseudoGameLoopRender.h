@@ -41,7 +41,7 @@ class PseudoGameLoopRender : public IRender {
 
  public:
   explicit PseudoGameLoopRender(unsigned input_screen_x, unsigned input_screen_y,
-                                ILocationSystem *input_location_system, unsigned *input_highlighted);
+                                ILocationSystem *input_location_system, MenuData *input_ending_data);
   ~PseudoGameLoopRender() override;
 
   void set_location_system(ILocationSystem *input_location_system);

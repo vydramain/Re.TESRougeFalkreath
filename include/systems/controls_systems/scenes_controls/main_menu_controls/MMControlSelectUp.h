@@ -8,19 +8,17 @@
 
 class MMControlSelectUp : public IControl {
  private:
-  const unsigned count_choices;
-  unsigned *highlighted;
+  MenuData* menu_data;
 
  public:
-  explicit MMControlSelectUp(const unsigned input_count, unsigned *input_highlighted)
-      : IControl("MMControlSelectUp"), count_choices(input_count) {
-    highlighted = input_highlighted;
+  explicit MMControlSelectUp(MenuData* input_menu_data) : IControl("MMControlSelectUp") {
+    menu_data = input_menu_data;
   }
   ~MMControlSelectUp() override = default;
 
   void execute() override {
-    if (*highlighted > 1) {
-      *highlighted -= 1;
+    if (menu_data->get_highlighted() > 1) {
+      menu_data->set_highlighted(menu_data->get_highlighted() - 1);
     }
   }
 };
