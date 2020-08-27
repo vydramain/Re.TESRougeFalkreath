@@ -34,7 +34,7 @@ void ScoreListScene::update_fields() {
 }
 
 void ScoreListScene::run() {
-  printf("%s", "[ScoreListScene] - Launch score list\n");
+  PseudoLogSystem::log(get_name(), "Launch score list");
   do {
     render_system->render();
     last_control = sl_input->update();
