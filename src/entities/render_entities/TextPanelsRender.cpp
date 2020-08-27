@@ -4,8 +4,8 @@
 
 #include "entities/render_entities/TextPanelsRender.h"
 
-void TextPanelsRender::view_text(unsigned int in_x, unsigned int in_y, unsigned int out_x, unsigned int out_y,
-                                 const char **input_strings, unsigned input_count_strings) {
+void TextPanelsRender::view_strings_list(unsigned int in_x, unsigned int in_y, unsigned int out_x, unsigned int out_y,
+                                         std::string **input_strings, unsigned input_count_strings) {
   // cleaning up Area for message
   for (unsigned j = 0; j < out_y - in_y; j++) {
     for (unsigned i = 0; i < out_x - in_x; i++) {
@@ -28,14 +28,13 @@ void TextPanelsRender::view_text(unsigned int in_x, unsigned int in_y, unsigned 
   }
 
   for (unsigned int i = 0; i < input_count_strings; i++) {
-    terminal_print(in_x + 2, in_y + 2 + i, input_strings[i]);
+    terminal_print(in_x + 2, in_y + 2 + i, input_strings[i]->data());
   }
 }
 
-void TextPanelsRender::view_parameter_query(unsigned in_x, unsigned int in_y, unsigned int out_x,
-                                                   unsigned int out_y, std::string *question,
-                                                   std::string **input_choices, unsigned int input_count_choices,
-                                                   unsigned int highlighted_choice) {
+void TextPanelsRender::view_parameter_query(unsigned in_x, unsigned int in_y, unsigned int out_x, unsigned int out_y,
+                                            std::string *question, std::string **input_choices,
+                                            unsigned int input_count_choices, unsigned int highlighted_choice) {
   // cleaning up area
   for (unsigned ii(0); ii < (out_y - in_y); ii++) {
     for (unsigned i(0); i < (out_x - in_x); i++) {

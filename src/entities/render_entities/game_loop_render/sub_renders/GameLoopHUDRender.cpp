@@ -37,30 +37,41 @@ void GameLoopHUDRender::update_camera(unsigned int input_camera_position_x, unsi
 }
 
 void GameLoopHUDRender::view_one_string_message(const char **input_text) {
+  auto **temp_text = new std::string *[1];
+  temp_text[0] = new std::string(input_text[0]);
   terminal_color(0xffffffff);
   if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
     CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                input_text, 1);
+    TextPanelsRender::view_strings_list(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                        temp_text, 1);
   } else {
     CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
                               passive_zone_out_y - 1);
-    TextPanelsRender::view_text((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, input_text, 1);
+    TextPanelsRender::view_strings_list((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
+                                        passive_zone_out_y - 2, temp_text, 1);
   }
+  delete temp_text[0];
+  delete[] temp_text;
 }
 
 void GameLoopHUDRender::view_two_string_message(const char **input_text) {
+  auto **temp_text = new std::string *[2];
+  temp_text[0] = new std::string(input_text[0]);
+  temp_text[1] = new std::string(input_text[1]);
+  terminal_color(0xffffffff);
   if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
     CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                input_text, 2);
+    TextPanelsRender::view_strings_list(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
+                                        temp_text, 2);
   } else {
     CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
                               passive_zone_out_y - 1);
-    TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, input_text, 2);
+    TextPanelsRender::view_strings_list((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
+                                        passive_zone_out_y - 2, temp_text, 2);
   }
+  delete temp_text[0];
+  delete temp_text[1];
+  delete[] temp_text;
 }
 
 void GameLoopHUDRender::check_item_interact(unsigned input_index) {

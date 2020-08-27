@@ -39,8 +39,9 @@ void StringsListData::set_records_count(unsigned int input_count) {
 }
 
 void StringsListData::set_record(unsigned int input_index, std::string *input_record) {
-  delete records[input_index];
-  records[input_index] = input_record;
+  if (input_index < records_count) {
+    records[input_index] = input_record;
+  }
 }
 
 void StringsListData::set_pages_count(unsigned int input_count) {
