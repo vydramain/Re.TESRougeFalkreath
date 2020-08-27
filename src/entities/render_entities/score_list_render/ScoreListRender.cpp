@@ -31,6 +31,11 @@ void ScoreListRender::render_filled_list() {
     i = 15;
   }
   std::string **render_records = create_records();
+  printf("\n");
+  for(unsigned j = 0; j < score_list_data->get_records_count(); j++) {
+    printf("%s\n", render_records[j]->data());
+  }
+  printf("\n");
   TextPanelsRender::view_strings_list(0, 5, SCREENMODE_X - 1, SCREENMODE_Y - 1, render_records, i);
 
   std::string *render_message[1] = {new std::string("Нажмите 'Delete', чтобы отчистить")};
