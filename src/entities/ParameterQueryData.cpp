@@ -64,3 +64,18 @@ void ParameterQueryData::set_choices(std::string **input_choices) {
 void ParameterQueryData::set_highlighted(unsigned int input_highlighted) {
   highlighted = input_highlighted;
 }
+
+std::string **ParameterQueryData::create_choices(unsigned int input_count_choices, const char **input_choices) {
+  auto **temp_choices = new std::string*[input_count_choices];
+  for(unsigned int i = 0; i < input_count_choices; i++ ) {
+    temp_choices[i] = new std::string(input_choices[i]);
+  }
+  return temp_choices;
+}
+std::string **ParameterQueryData::create_choices(unsigned int input_count_choices, std::string *input_choices) {
+  auto **temp_choices = new std::string*[input_count_choices];
+  for(unsigned int i = 0; i < input_count_choices; i++ ) {
+    temp_choices[i] = new std::string(input_choices[i]);
+  }
+  return temp_choices;
+}

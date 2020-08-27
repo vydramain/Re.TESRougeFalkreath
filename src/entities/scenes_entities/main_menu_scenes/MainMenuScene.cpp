@@ -5,14 +5,13 @@
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 
 MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("MainMenuScene") {
-  auto **menu_choice = new std::string*[3];
-  menu_choice[0] = new std::string("Новая игра");
-  menu_choice[1] = new std::string("Рейтинг");
-  menu_choice[2] = new std::string("Выход");
-  data = new ParameterQueryData(new std::string("Главное меню:"), 3, menu_choice);
+  std::string temp_choices[3] = {"Новая игра", "Статистика", "Выход"};
+  data =
+      new ParameterQueryData(new std::string("Главное меню:"), 3, ParameterQueryData::create_choices(3, temp_choices));
 
   mm_input = new MMControls(data);
 
+  PseudoLogSystem::log("MainMenuScene", "Set up render system");
   render_system = input_render_system;
   render_system->set_main_menu_data(data);
   render_system->set_main_menu_render();
