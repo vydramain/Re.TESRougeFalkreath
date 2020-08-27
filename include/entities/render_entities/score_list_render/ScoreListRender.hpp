@@ -17,6 +17,11 @@ class ScoreListRender : public IRender {
 
   StringsListData*score_list_data = nullptr;
 
+  void render_title();
+  std::string **create_records();
+  void render_filled_list();
+  void render_empty_list();
+
  public:
   explicit ScoreListRender(unsigned input_screen_x, unsigned input_screen_y, StringsListData* input_score_list_data);
   ~ScoreListRender() override;
