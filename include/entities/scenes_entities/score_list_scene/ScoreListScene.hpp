@@ -15,13 +15,13 @@
 
 class ScoreListScene : public IMainScene {
  private:
+  ScoreListData *data = nullptr;
   IRenderSystem *render_system = nullptr;
 
-  IScoreSystem *score_system = nullptr;
   SLControls *sl_input = nullptr;
   IControl *last_control = nullptr;
 
-  ScoreListData *data = nullptr;
+  IScoreSystem *score_system = nullptr;
 
  public:
   explicit ScoreListScene(IRenderSystem *input_render_system);

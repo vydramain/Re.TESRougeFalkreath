@@ -19,7 +19,6 @@ ScoreListScene::~ScoreListScene() {
   delete data;
   delete sl_input;
   delete score_system;
-  render_system = nullptr;
 }
 
 void ScoreListScene::update_fields() {
