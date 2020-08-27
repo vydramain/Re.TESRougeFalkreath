@@ -25,7 +25,7 @@ class SLControlMap {
   std::map<int, IControl *>::iterator sl_iterator;
 
  public:
-  explicit SLControlMap(IScoreSystem *input_score_system, ScoreListData *input_score_list_data) {
+  explicit SLControlMap(IScoreSystem *input_score_system, StringsListData *input_score_list_data) {
     control_empty = new SLControlEmpty();
     control_delete = new SLControlSelectDelete(input_score_system, input_score_list_data);
     control_exit = new SLControlSelectExit();

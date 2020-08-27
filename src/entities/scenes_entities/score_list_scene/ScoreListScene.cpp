@@ -5,7 +5,7 @@
 #include "entities/scenes_entities/score_list_scene/ScoreListScene.hpp"
 
 ScoreListScene::ScoreListScene(IRenderSystem *input_render_system) {
-  data = new ScoreListData();
+  data = new StringsListData();
   score_system = new StdScoreSystem();
   update_fields();
   sl_input = new SLControls(score_system, data);
@@ -25,7 +25,7 @@ void ScoreListScene::update_fields() {
   if (score_system != nullptr && data != nullptr) {
     data->set_records_count(score_system->get_records_count());
     for (unsigned i = 0; i < data->get_records_count(); i++) {
-      data->set_record(i, score_system->get_score_string(i));
+      data->set_record(i, new std::string(score_system->get_score_string(i)));
     }
     data->set_pages_count(data->get_records_count() / 15);
     data->set_current_page(0);

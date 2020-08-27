@@ -8,10 +8,10 @@
 
 class SLControlSelectLeft : public IControl {
  private:
-  ScoreListData *score_list_data = nullptr;
+  StringsListData *score_list_data = nullptr;
 
  public:
-  explicit SLControlSelectLeft(ScoreListData *input_score_list_data) : IControl("SLControlSelectLeft") {
+  explicit SLControlSelectLeft(StringsListData *input_score_list_data) : IControl("SLControlSelectLeft") {
     score_list_data = input_score_list_data;
   }
   ~SLControlSelectLeft() override {

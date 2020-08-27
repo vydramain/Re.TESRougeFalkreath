@@ -5,7 +5,7 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
-#include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
+#include "entities/StringsListData.hpp"
 #include "systems/controls_systems/scenes_controls/score_list_controls/SLControlMap.hpp"
 #include "systems/scenes_systems/score_systems/IScoreSystem.hpp"
 
@@ -14,7 +14,7 @@ class SLControls {
   SLControlMap *control_map;
 
  public:
-  explicit SLControls(IScoreSystem *input_score_system, ScoreListData *input_score_list_data) {
+  explicit SLControls(IScoreSystem *input_score_system, StringsListData *input_score_list_data) {
     control_map = new SLControlMap(input_score_system, input_score_list_data);
   }
 

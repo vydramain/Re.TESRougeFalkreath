@@ -6,8 +6,8 @@
 
 #include <cstdio>
 
+#include "entities/StringsListData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
-#include "entities/scenes_entities/score_list_scene/scenes_data/ScoreListData.hpp"
 #include "systems/controls_systems/scenes_controls/score_list_controls/SLControls.hpp"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/score_systems/IScoreSystem.hpp"
@@ -15,7 +15,7 @@
 
 class ScoreListScene : public IMainScene {
  private:
-  ScoreListData *data = nullptr;
+  StringsListData *data = nullptr;
   IRenderSystem *render_system = nullptr;
 
   SLControls *sl_input = nullptr;

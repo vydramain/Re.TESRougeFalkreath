@@ -5,7 +5,7 @@
 #include "entities/render_entities/score_list_render/ScoreListRender.hpp"
 
 ScoreListRender::ScoreListRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                 ScoreListData *input_score_list_data) {
+                                 StringsListData *input_score_list_data) {
   SCREENMODE_X = input_screen_x;
   SCREENMODE_Y = input_screen_y;
 

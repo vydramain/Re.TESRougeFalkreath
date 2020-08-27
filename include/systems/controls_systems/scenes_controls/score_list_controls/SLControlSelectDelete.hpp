@@ -10,10 +10,10 @@
 class SLControlSelectDelete : public IControl {
  private:
   IScoreSystem *score_system = nullptr;
-  ScoreListData *score_list_data = nullptr;
+  StringsListData *score_list_data = nullptr;
 
  public:
-  explicit SLControlSelectDelete(IScoreSystem *input_score_system, ScoreListData *input_score_list_data)
+  explicit SLControlSelectDelete(IScoreSystem *input_score_system, StringsListData *input_score_list_data)
       : IControl("SLControlSelectDelete") {
     score_system = input_score_system;
     score_list_data = input_score_list_data;

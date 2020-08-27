@@ -26,7 +26,7 @@ void BearRenderSystem::set_main_menu_data(ParameterQueryData *input_menu_data) {
   menu_data = input_menu_data;
 }
 
-void BearRenderSystem::set_score_list_data(ScoreListData *input_score_list_data) {
+void BearRenderSystem::set_score_list_data(StringsListData *input_score_list_data) {
   is_score_list = true;
   score_list_data = input_score_list_data;
 }
