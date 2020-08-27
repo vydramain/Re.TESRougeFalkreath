@@ -10,7 +10,7 @@
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 
-class ScoreListRender : public IRender {
+class StatisticsRender : public IRender {
  private:
   unsigned SCREENMODE_X = 0;
   unsigned SCREENMODE_Y = 0;
@@ -23,8 +23,8 @@ class ScoreListRender : public IRender {
   void render_empty_list();
 
  public:
-  explicit ScoreListRender(unsigned input_screen_x, unsigned input_screen_y, StringsListData* input_score_list_data);
-  ~ScoreListRender() override;
+  explicit StatisticsRender(unsigned input_screen_x, unsigned input_screen_y, StringsListData* input_score_list_data);
+  ~StatisticsRender() override;
 
   void render() override;
 };

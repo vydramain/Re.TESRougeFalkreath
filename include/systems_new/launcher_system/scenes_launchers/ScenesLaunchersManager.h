@@ -9,7 +9,7 @@
 #include "ExitSceneLauncher.h"
 #include "GameLoopSceneLauncher.h"
 #include "MainMenuSceneLauncher.h"
-#include "ScoreListSceneLauncher.hpp"
+#include "StatisticsSceneLauncher.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/controls_systems/IControl.h"
@@ -21,7 +21,7 @@ class ScenesLaunchersManager {
   ExitSceneLauncher *exit = nullptr;
   GameLoopSceneLauncher *new_game = nullptr;
   MainMenuSceneLauncher *main_menu = nullptr;
-  ScoreListSceneLauncher *score_list = nullptr;
+  StatisticsSceneLauncher *score_list = nullptr;
 
   std::map<SceneType, IControl *> main_map;
   std::map<SceneType, IControl *>::iterator main_iterator;

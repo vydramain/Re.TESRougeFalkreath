@@ -6,9 +6,9 @@
 
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
-class IScoreSystem {
+class IStatisticsSystem {
  public:
-  virtual ~IScoreSystem() = default;
+  virtual ~IStatisticsSystem() = default;
 
   virtual void set_location_system(ILocationSystem* input_location_system) = 0;
   virtual unsigned get_records_count() const = 0;

@@ -13,7 +13,7 @@ ScenesLaunchersManager::ScenesLaunchersManager() {
   exit = new ExitSceneLauncher();
   new_game = new GameLoopSceneLauncher(render, expected_scene);
   main_menu = new MainMenuSceneLauncher(render, expected_scene);
-  score_list = new ScoreListSceneLauncher(render, expected_scene);
+  score_list = new StatisticsSceneLauncher(render, expected_scene);
 
   main_map[MAIN_MENU_SCENE] = main_menu;
   main_map[NEW_GAME_SCENE] = new_game;

@@ -7,19 +7,19 @@
 #include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlExit.h"
 #include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
-#include "systems/scenes_systems/score_systems/IScoreSystem.hpp"
-#include "systems/scenes_systems/score_systems/StdScoreSystem.hpp"
+#include "systems_new/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
+#include "systems_new/scenes_systems/statistics_systems/StdStatisticsSystem.hpp"
 
 class GLControlScoreSave : public IGLControl {
  private:
   ParameterQueryData *ending_data = nullptr;
-  IScoreSystem *score_system = nullptr;
+  IStatisticsSystem *score_system = nullptr;
 
  public:
   explicit GLControlScoreSave(ILocationSystem *input_location_system, ParameterQueryData *input_ending_data)
       : IGLControl("GLControlScoreSave") {
     ending_data = input_ending_data;
-    score_system = new StdScoreSystem();
+    score_system = new StdStatisticsSystem();
     score_system->set_location_system(input_location_system);
   }
   ~GLControlScoreSave() override {

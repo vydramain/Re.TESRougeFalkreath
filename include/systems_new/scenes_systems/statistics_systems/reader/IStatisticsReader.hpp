@@ -4,9 +4,9 @@
 
 #pragma once
 
-class IScoreReader {
+class IStatisticsReader {
  public:
-  virtual ~IScoreReader() = default;
+  virtual ~IStatisticsReader() = default;
 
   virtual unsigned get_strings_count() = 0;
   virtual const char* get_string(unsigned input_index) = 0;

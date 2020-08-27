@@ -5,20 +5,20 @@
 #pragma once
 
 #include "systems/controls_systems/IControl.h"
-#include "systems/scenes_systems/score_systems/IScoreSystem.hpp"
+#include "systems_new/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
 
-class SLControlSelectDelete : public IControl {
+class SControlSelectDelete : public IControl {
  private:
-  IScoreSystem *score_system = nullptr;
+  IStatisticsSystem *score_system = nullptr;
   StringsListData *score_list_data = nullptr;
 
  public:
-  explicit SLControlSelectDelete(IScoreSystem *input_score_system, StringsListData *input_score_list_data)
-      : IControl("SLControlSelectDelete") {
+  explicit SControlSelectDelete(IStatisticsSystem *input_score_system, StringsListData *input_score_list_data)
+      : IControl("SControlSelectDelete") {
     score_system = input_score_system;
     score_list_data = input_score_list_data;
   }
-  ~SLControlSelectDelete() override {
+  ~SControlSelectDelete() override {
     score_system = nullptr;
   }
 

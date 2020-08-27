@@ -2,14 +2,14 @@
 // Created by vydra on 8/19/20.
 //
 
-#include "entities/render_entities/score_list_render/ScoreListRender.hpp"
+#include "entities/render_entities/statistics_render/StatisticsRender.hpp"
 
-void ScoreListRender::render_title() {
+void StatisticsRender::render_title() {
   std::string *render_title[1] = {score_list_data->get_title()};
   TextPanelsRender::view_strings_list(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, render_title, 1);
 }
 
-std::string **ScoreListRender::create_records() {
+std::string **StatisticsRender::create_records() {
   std::string **records;
   if (score_list_data->get_records_count() < 15) {
     records = new std::string *[score_list_data->get_records_count()];
@@ -25,17 +25,12 @@ std::string **ScoreListRender::create_records() {
   return records;
 }
 
-void ScoreListRender::render_filled_list() {
+void StatisticsRender::render_filled_list() {
   unsigned i = score_list_data->get_records_count();
   if (i > 15) {
     i = 15;
   }
   std::string **render_records = create_records();
-  printf("\n");
-  for(unsigned j = 0; j < score_list_data->get_records_count(); j++) {
-    printf("%s\n", render_records[j]->data());
-  }
-  printf("\n");
   TextPanelsRender::view_strings_list(0, 5, SCREENMODE_X - 1, SCREENMODE_Y - 1, render_records, i);
 
   std::string *render_message[1] = {new std::string("Нажмите 'Delete', чтобы отчистить")};
@@ -47,12 +42,12 @@ void ScoreListRender::render_filled_list() {
   }
 }
 
-void ScoreListRender::render_empty_list() {
+void StatisticsRender::render_empty_list() {
   std::string *render_records[1] = {new std::string("Результаты отсутствуют")};
   TextPanelsRender::view_strings_list(0, 5, SCREENMODE_X - 1, SCREENMODE_Y - 1, render_records, 1);
 }
 
-ScoreListRender::ScoreListRender(unsigned int input_screen_x, unsigned int input_screen_y,
+StatisticsRender::StatisticsRender(unsigned int input_screen_x, unsigned int input_screen_y,
                                  StringsListData *input_score_list_data) {
   SCREENMODE_X = input_screen_x;
   SCREENMODE_Y = input_screen_y;
@@ -60,11 +55,11 @@ ScoreListRender::ScoreListRender(unsigned int input_screen_x, unsigned int input
   score_list_data = input_score_list_data;
 }
 
-ScoreListRender::~ScoreListRender() {
+StatisticsRender::~StatisticsRender() {
   score_list_data = nullptr;
 }
 
-void ScoreListRender::render() {
+void StatisticsRender::render() {
   CleanerRender::clean_all();
   terminal_color(0xFFcccccc);
   render_title();

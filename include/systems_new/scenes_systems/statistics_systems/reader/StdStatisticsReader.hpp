@@ -6,10 +6,10 @@
 
 #include <cstdio>
 
+#include "IStatisticsReader.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/rw_systems/reader_systems/score_readers/IScoreReader.hpp"
 
-class StdScoreReader : public IScoreReader {
+class StdStatisticsReader : public IStatisticsReader {
  private:
   int char_in_string = 61;
   unsigned strings_count = 0;
@@ -18,8 +18,8 @@ class StdScoreReader : public IScoreReader {
   FILE* current_file = nullptr;
 
  public:
-  explicit StdScoreReader(const char* input_file_name);
-  ~StdScoreReader() override;
+  explicit StdStatisticsReader(const char* input_file_name);
+  ~StdStatisticsReader() override;
 
   unsigned get_strings_count() override;
   const char* get_string(unsigned input_index) override;

@@ -2,10 +2,10 @@
 // Created by vydra on 8/21/20.
 //
 
-#include "systems/rw_systems/reader_systems/score_readers/StdScoreReader.hpp"
+#include "systems_new/scenes_systems/statistics_systems/reader/StdStatisticsReader.hpp"
 
-StdScoreReader::StdScoreReader(const char* input_file_name) {
-  PseudoLogSystem::log("StdScoreReader", "Try to open", input_file_name);
+StdStatisticsReader::StdStatisticsReader(const char* input_file_name) {
+  PseudoLogSystem::log("StdStatisticsReader", "Try to open", input_file_name);
   if (input_file_name != nullptr) {
     current_file = fopen(input_file_name, "r");
     if (current_file != nullptr) {
@@ -13,16 +13,16 @@ StdScoreReader::StdScoreReader(const char* input_file_name) {
       return;
     }
   }
-  PseudoLogSystem::log("StdScoreReader", "Can not open", input_file_name);
+  PseudoLogSystem::log("StdStatisticsReader", "Can not open", input_file_name);
 }
 
-StdScoreReader::~StdScoreReader() {
+StdStatisticsReader::~StdStatisticsReader() {
   if (current_file != nullptr) {
     fclose(current_file);
   }
 }
 
-unsigned StdScoreReader::get_strings_count() {
+unsigned StdStatisticsReader::get_strings_count() {
   unsigned count = 0;
   fseek(current_file, 0, SEEK_SET);
   do {
@@ -34,7 +34,7 @@ unsigned StdScoreReader::get_strings_count() {
   return count;
 }
 
-const char* StdScoreReader::get_string(unsigned int input_index) {
+const char* StdStatisticsReader::get_string(unsigned int input_index) {
   if (current_file && input_index < strings_count) {
     fseek(current_file, 0, SEEK_SET);
     unsigned counter = 0;

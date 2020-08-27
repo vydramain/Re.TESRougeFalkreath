@@ -6,10 +6,10 @@
 
 #include "systems/controls_systems/IControl.h"
 
-class SLControlEmpty : public IControl {
+class SControlEmpty : public IControl {
  public:
-  explicit SLControlEmpty() : IControl("SLControlEmpty") {}
-  ~SLControlEmpty() override {}
+  explicit SControlEmpty() : IControl("SControlEmpty") {}
+  ~SControlEmpty() override {}
 
   void execute() override {}
 };

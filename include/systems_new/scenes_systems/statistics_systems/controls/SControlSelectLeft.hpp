@@ -6,15 +6,15 @@
 
 #include "systems/controls_systems/IControl.h"
 
-class SLControlSelectLeft : public IControl {
+class SControlSelectLeft : public IControl {
  private:
   StringsListData *score_list_data = nullptr;
 
  public:
-  explicit SLControlSelectLeft(StringsListData *input_score_list_data) : IControl("SLControlSelectLeft") {
+  explicit SControlSelectLeft(StringsListData *input_score_list_data) : IControl("SControlSelectLeft") {
     score_list_data = input_score_list_data;
   }
-  ~SLControlSelectLeft() override {
+  ~SControlSelectLeft() override {
     score_list_data = nullptr;
   }
 

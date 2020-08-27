@@ -50,7 +50,7 @@ void BearRenderSystem::set_score_list_render() {
   printf("%s", "[RenderSystem] - Setting up score list render\n");
   delete render_entity;
   if (is_score_list) {
-    render_entity = new ScoreListRender(SCREENMODE_X, SCREENMODE_Y, score_list_data);
+    render_entity = new StatisticsRender(SCREENMODE_X, SCREENMODE_Y, score_list_data);
   }
 }
 
