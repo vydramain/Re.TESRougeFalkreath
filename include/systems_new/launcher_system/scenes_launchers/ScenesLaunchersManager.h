@@ -27,12 +27,12 @@ class ScenesLaunchersManager {
   std::map<SceneType, IControl *>::iterator main_iterator;
 
   IRenderSystem *render = nullptr;
-  SceneType *scene = nullptr;
+  SceneType *expected_scene = nullptr;
 
  public:
   explicit ScenesLaunchersManager();
   ~ScenesLaunchersManager();
 
-  SceneType get_scene_type() const;
+  SceneType get_expected_scene_type() const;
   IControl *get_control(SceneType input_scene_type);
 };

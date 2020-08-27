@@ -10,7 +10,7 @@ MainMenuSceneLauncher::MainMenuSceneLauncher(IRenderSystem *input_render_system,
   scene_type = input_scene_type;
 }
 
-MainMenuSceneLauncher::~MainMenuSceneLauncher() {}
+MainMenuSceneLauncher::~MainMenuSceneLauncher() = default;
 
 void MainMenuSceneLauncher::execute() {
   PseudoLogSystem::log(get_name(), "Launch main menu scene");

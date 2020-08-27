@@ -7,13 +7,13 @@
 ScenesLaunchersManager::ScenesLaunchersManager() {
   PseudoLogSystem::log("ScenesLaunchersManager", "Launch BearLibTerminal's render system");
   render = new BearRenderSystem();
-  scene = new SceneType(MAIN_MENU_SCENE);
+  expected_scene = new SceneType(MAIN_MENU_SCENE);
 
-  PseudoLogSystem::log("ScenesLaunchersManager", "Creating scene's launchers");
+  PseudoLogSystem::log("ScenesLaunchersManager", "Creating expected scene's controls launchers");
   exit = new ExitSceneLauncher();
-  new_game = new GameLoopSceneLauncher(render, scene);
-  main_menu = new MainMenuSceneLauncher(render, scene);
-  score_list = new ScoreListSceneLauncher(render, scene);
+  new_game = new GameLoopSceneLauncher(render, expected_scene);
+  main_menu = new MainMenuSceneLauncher(render, expected_scene);
+  score_list = new ScoreListSceneLauncher(render, expected_scene);
 
   main_map[MAIN_MENU_SCENE] = main_menu;
   main_map[NEW_GAME_SCENE] = new_game;
@@ -22,7 +22,7 @@ ScenesLaunchersManager::ScenesLaunchersManager() {
 }
 
 ScenesLaunchersManager::~ScenesLaunchersManager() {
-  PseudoLogSystem::log("ScenesLaunchersManager", "Deleting global controls");
+  PseudoLogSystem::log("ScenesLaunchersManager", "Deleting expected scene's controls launchers");
   main_map.clear();
 
   delete exit;
@@ -31,11 +31,11 @@ ScenesLaunchersManager::~ScenesLaunchersManager() {
   delete score_list;
 
   delete render;
-  delete scene;
+  delete expected_scene;
 }
 
-SceneType ScenesLaunchersManager::get_scene_type() const {
-  return *scene;
+SceneType ScenesLaunchersManager::get_expected_scene_type() const {
+  return *expected_scene;
 }
 
 IControl* ScenesLaunchersManager::get_control(SceneType input_scene_type) {
