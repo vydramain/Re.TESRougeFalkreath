@@ -5,8 +5,8 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
+#include "MMControlMap.h"
 #include "systems/controls_systems/IControl.h"
-#include "systems/controls_systems/scenes_controls/main_menu_controls/MMControlMap.h"
 
 class MMControls {
  private:
