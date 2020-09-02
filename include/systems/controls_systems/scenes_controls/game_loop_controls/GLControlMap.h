@@ -46,11 +46,11 @@ class GLControlMap {
     control_ending = new GLControlEnding(input_location_system, input_ending_data);
     control_exit = new GLControlExit();
     control_load_bloodlet_throne_from_west_forest = new GLControlLocationChange(
-        input_render_system, input_location_system, "Bloodlet Throne", "../maps/BloodletThrone.bin", 5, 3);
+        input_render_system, input_location_system, "Bloodlet Throne", "../maps/location-system/BloodletThrone-location-system.bin", 5, 3);
     control_load_west_forest_from_bloodlet_throne_by_cave = new GLControlLocationChange(
-        input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 218, 96);
+        input_render_system, input_location_system, "West Forest", "../maps/location-system/WestForest-location-system.bin", 218, 96);
     control_load_west_forest_from_bloodlet_throne_by_hatch = new GLControlLocationChange(
-        input_render_system, input_location_system, "West Forest", "../maps/WestForest.bin", 181, 95);
+        input_render_system, input_location_system, "West Forest", "../maps/location-system/WestForest-location-system.bin", 181, 95);
     control_load_falkreath_from_west_forest = new GLControlLocationChange(input_render_system, input_location_system,
                                                                           "Falkreath", "../maps/Falkreath.bin", 72, 13);
     control_load_west_forest_from_falkreath = new GLControlLocationChange(
