@@ -4,7 +4,11 @@
 
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/MapSystem.hpp"
 
-MapSystem::MapSystem(unsigned int input_size_x, unsigned int input_size_y, IEntitiesSystem* input_entities_system) {
+#include <utility>
+
+MapSystem::MapSystem(std::string input_name, unsigned int input_size_x, unsigned int input_size_y,
+                     IEntitiesSystem* input_entities_system) {
+  name = std::move(input_name);
   size_x = input_size_x;
   size_y = input_size_y;
   entities_system = input_entities_system;
@@ -12,6 +16,10 @@ MapSystem::MapSystem(unsigned int input_size_x, unsigned int input_size_y, IEnti
 
 MapSystem::~MapSystem() {
   delete entities_system;
+}
+
+std::string MapSystem::get_name() {
+  return name;
 }
 
 unsigned MapSystem::get_size_x() {

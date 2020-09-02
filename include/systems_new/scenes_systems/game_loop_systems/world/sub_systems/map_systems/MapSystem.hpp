@@ -8,14 +8,16 @@
 
 class MapSystem : public IMapSystem {
  private:
+  std::string name;
   unsigned size_x;
   unsigned size_y;
   IEntitiesSystem *entities_system;
 
  public:
-  explicit MapSystem(unsigned input_size_x, unsigned input_size_y, IEntitiesSystem *input_entities_system);
+  explicit MapSystem(std::string input_name, unsigned input_size_x, unsigned input_size_y, IEntitiesSystem *input_entities_system);
   ~MapSystem() override;
 
+  std::string get_name() override;
   unsigned get_size_x() override;
   unsigned get_size_y() override;
   IEntitiesSystem *get_entities_system() override;

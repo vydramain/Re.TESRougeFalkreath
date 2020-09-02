@@ -4,14 +4,16 @@
 
 #pragma once
 
+#include <string>
+
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/IEntitiesSystem.hpp"
 
 class IMapSystem {
  public:
   virtual ~IMapSystem() = default;
 
+  virtual std::string get_name() = 0;
   virtual unsigned get_size_x() = 0;
   virtual unsigned get_size_y() = 0;
-
   virtual IEntitiesSystem *get_entities_system() = 0;
 };
