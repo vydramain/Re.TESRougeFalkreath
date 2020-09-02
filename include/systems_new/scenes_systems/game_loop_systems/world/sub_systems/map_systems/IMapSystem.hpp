@@ -12,5 +12,5 @@ class IMapSystem {
   virtual unsigned get_size_x() = 0;
   virtual unsigned get_size_y() = 0;
 
-  virtual IEntitiesSystem get_entities() = 0;
+  virtual IEntitiesSystem *get_entities_system() = 0;
 };
