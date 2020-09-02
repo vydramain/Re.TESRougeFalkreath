@@ -7,6 +7,7 @@
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/IEntitiesSystem.hpp"
 
 class IMapSystem {
+ public:
   virtual ~IMapSystem() = default;
 
   virtual unsigned get_size_x() = 0;
