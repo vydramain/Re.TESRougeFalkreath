@@ -9,7 +9,7 @@
 
 class LControlUpperHatch : public ILControl {
  public:
-  explicit LControlUpperHatch(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlUpperHatch(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlUpperHatch", input_x, input_y, input_entities_system) {}
   ~LControlUpperHatch() override = default;
 

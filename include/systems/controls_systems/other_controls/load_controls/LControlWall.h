@@ -4,13 +4,13 @@
 
 #pragma once
 
-#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "entities/location_entities/ambient_entities/Wall.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlWall : public ILControl {
  public:
-  explicit LControlWall(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlWall(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlWall", input_x, input_y, input_entities_system) {}
   ~LControlWall() override = default;
 

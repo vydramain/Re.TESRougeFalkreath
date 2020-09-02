@@ -2,7 +2,7 @@
 // Created by vydra on 16.07.2020.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/MagwehrsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/MagwehrsSystem.h"
 
 MagwehrsSystem::MagwehrsSystem() = default;
 

@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "systems/controls_systems/scenes_controls/game_loop_controls/sub_controls/adventure_controls/GLAControlMap.h"
+#include "GLAControlMap.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
 class GLAControls {

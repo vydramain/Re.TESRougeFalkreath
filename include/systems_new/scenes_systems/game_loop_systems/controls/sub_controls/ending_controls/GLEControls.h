@@ -5,8 +5,8 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
+#include "GLEControlMap.h"
 #include "systems/controls_systems/IControl.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/sub_controls/ending_controls/GLEControlMap.h"
 
 class GLEControls {
  private:

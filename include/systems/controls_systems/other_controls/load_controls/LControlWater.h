@@ -4,13 +4,13 @@
 
 #pragma once
 
-#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "entities/location_entities/ambient_entities/Water.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlWater : public ILControl {
  public:
-  explicit LControlWater(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlWater(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlWater", input_x, input_y, input_entities_system) {}
   ~LControlWater() override = default;
 

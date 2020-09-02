@@ -9,7 +9,7 @@
 
 class LControlCaveQuit : public ILControl {
  public:
-  explicit LControlCaveQuit(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlCaveQuit(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlCaveQuit", input_x, input_y, input_entities_system) {}
   ~LControlCaveQuit() override = default;
 

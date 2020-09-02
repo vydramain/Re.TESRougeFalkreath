@@ -6,11 +6,11 @@
 
 #include "ILControl.h"
 #include "entities/location_entities/ambient_entities/SouthGate.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlSouthGate : public ILControl {
  public:
-  explicit LControlSouthGate(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlSouthGate(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlSouthGate", input_x, input_y, input_entities_system) {}
   ~LControlSouthGate() override = default;
 

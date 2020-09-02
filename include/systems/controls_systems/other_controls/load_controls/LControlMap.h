@@ -26,7 +26,7 @@
 #include "systems/controls_systems/other_controls/load_controls/LControlWall.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlWater.h"
 #include "systems/controls_systems/other_controls/load_controls/LControlWestGate.hpp"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlMap {
  private:
@@ -53,7 +53,7 @@ class LControlMap {
   std::map<unsigned, ILControl *>::iterator load_iterator;
 
  public:
-  explicit LControlMap(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system) {
+  explicit LControlMap(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system) {
     cave_quit = new LControlCaveQuit(input_x, input_y, input_entities_system);
     cobblestone = new LControlCobblestone(input_x, input_y, input_entities_system);
     coin = new LControlCoin(input_x, input_y, input_entities_system);

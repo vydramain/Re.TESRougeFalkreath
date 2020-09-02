@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class ILocationSystem {
  public:
@@ -28,9 +28,9 @@ class ILocationSystem {
 
   virtual unsigned get_size_x() const = 0;
   virtual unsigned get_size_y() const = 0;
-  virtual LocationsEntitiesSystem *get_entities() = 0;
-  virtual LocationsEntitiesSystem *get_entities() const = 0;
+  virtual EntitiesSystem *get_entities() = 0;
+  virtual EntitiesSystem *get_entities() const = 0;
 
   virtual void set_location(const char* input_name, unsigned input_size_x, unsigned input_size_y,
-                            LocationsEntitiesSystem *input_entities_systems) = 0;
+                            EntitiesSystem *input_entities_systems) = 0;
 };

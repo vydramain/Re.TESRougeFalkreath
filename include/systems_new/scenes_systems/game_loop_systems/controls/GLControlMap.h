@@ -6,13 +6,13 @@
 
 #include <map>
 
+#include "GLControlAdventure.h"
+#include "GLControlEmpty.h"
+#include "GLControlEnding.hpp"
+#include "GLControlExit.h"
+#include "GLControlLocationChange.hpp"
+#include "GLControlScoreSave.hpp"
 #include "entities/location_entities/sentients_entities/beastfolks/Khadjiit.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlAdventure.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlEmpty.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlEnding.hpp"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlExit.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlLocationChange.hpp"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlScoreSave.hpp"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 

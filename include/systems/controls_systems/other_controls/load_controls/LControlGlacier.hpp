@@ -9,7 +9,7 @@
 
 class LControlGlacier : public ILControl {
  public:
-  explicit LControlGlacier(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlGlacier(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlGlacier", input_x, input_y, input_entities_system) {}
   ~LControlGlacier() override = default;
 

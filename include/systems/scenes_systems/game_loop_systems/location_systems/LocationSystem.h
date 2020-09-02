@@ -6,10 +6,10 @@
 
 #include "entities/location_entities/LocationsEntity.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/ItemsSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/LocationsEntitiesSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/MagwehrsSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/ItemsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/MagwehrsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 
 class LocationSystem : public ILocationSystem {
  private:
@@ -23,12 +23,12 @@ class LocationSystem : public ILocationSystem {
 
   unsigned int size_x = 0;
   unsigned int size_y = 0;
-  LocationsEntitiesSystem *entities;
+  EntitiesSystem *entities;
 
  public:
   explicit LocationSystem();
   explicit LocationSystem(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
-                          LocationsEntitiesSystem *input_entities_system);
+                          EntitiesSystem *input_entities_system);
   ~LocationSystem() override;
 
   const char *get_name() const override;
@@ -49,9 +49,9 @@ class LocationSystem : public ILocationSystem {
 
   unsigned get_size_x() const override;
   unsigned get_size_y() const override;
-  LocationsEntitiesSystem *get_entities() override;
-  LocationsEntitiesSystem *get_entities() const override;
+  EntitiesSystem *get_entities() override;
+  EntitiesSystem *get_entities() const override;
 
   void set_location(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
-                    LocationsEntitiesSystem *input_entities_system) override;
+                    EntitiesSystem *input_entities_system) override;
 };

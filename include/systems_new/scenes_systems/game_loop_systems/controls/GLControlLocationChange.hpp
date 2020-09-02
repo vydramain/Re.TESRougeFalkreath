@@ -4,8 +4,8 @@
 
 #pragma once
 
+#include "IGLControl.h"
 #include "systems/controls_systems/IControl.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/load_systems/LoadSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"

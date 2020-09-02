@@ -12,7 +12,7 @@ LocationSystem::LocationSystem() {
 }
 
 LocationSystem::LocationSystem(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
-                               LocationsEntitiesSystem *input_entities_system) {
+                               EntitiesSystem *input_entities_system) {
   name = input_name;
   size_x = input_size_x;
   size_y = input_size_y;
@@ -72,11 +72,11 @@ bool LocationSystem::get_story_end() const {
   return is_story_end;
 }
 
-LocationsEntitiesSystem *LocationSystem::get_entities() {
+EntitiesSystem *LocationSystem::get_entities() {
   return entities;
 }
 
-LocationsEntitiesSystem *LocationSystem::get_entities() const {
+EntitiesSystem *LocationSystem::get_entities() const {
   return entities;
 }
 
@@ -89,10 +89,10 @@ unsigned LocationSystem::get_size_y() const {
 }
 
 void LocationSystem::set_location(const char *input_name, unsigned int input_size_x, unsigned int input_size_y,
-                                  LocationsEntitiesSystem *input_entities_system) {
+                                  EntitiesSystem *input_entities_system) {
   name = input_name;
   size_x = input_size_x;
   size_y = input_size_y;
   delete entities;
-  entities = new LocationsEntitiesSystem(*input_entities_system);
+  entities = new EntitiesSystem(*input_entities_system);
 }

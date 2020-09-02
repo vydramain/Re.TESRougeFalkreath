@@ -9,7 +9,7 @@
 
 class LControlThrone : public ILControl {
  public:
-  explicit LControlThrone(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlThrone(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlThrone", input_x, input_y, input_entities_system) {}
   ~LControlThrone() override = default;
 

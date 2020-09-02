@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "systems/controls_systems/scenes_controls/game_loop_controls/GLControlExit.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
+#include "GLControlExit.h"
+#include "IGLControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 #include "systems_new/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
 #include "systems_new/scenes_systems/statistics_systems/StdStatisticsSystem.hpp"

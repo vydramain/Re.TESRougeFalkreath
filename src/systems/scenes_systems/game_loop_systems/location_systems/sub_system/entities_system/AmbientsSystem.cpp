@@ -2,7 +2,7 @@
 // Created by vydra on 8/14/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/AmbientsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/AmbientsSystem.h"
 
 AmbientsSystem::AmbientsSystem() = default;
 

@@ -2,7 +2,7 @@
 // Created by vydra on 8/3/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/entities_system/SentientsSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 
 SentientsSystem::SentientsSystem() = default;
 

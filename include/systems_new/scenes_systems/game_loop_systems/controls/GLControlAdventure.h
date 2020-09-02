@@ -4,9 +4,9 @@
 
 #pragma once
 
+#include "IGLControl.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/AdventureScene.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/IGLControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 
 class GLControlAdventure : public IGLControl {

@@ -28,7 +28,7 @@ void LoadSystem::create_entities_system() {
 
   auto *i = new unsigned(0);
   auto *j = new unsigned(0);
-  entities_system = new LocationsEntitiesSystem();
+  entities_system = new EntitiesSystem();
   IControl *control;
   auto *map = new LControlMap(i, j, entities_system);
 
@@ -68,7 +68,7 @@ void LoadSystem::load_map() {
   PseudoLogSystem::log("LoadSystem", "Reader not setting up");
 }
 
-LocationsEntitiesSystem *LoadSystem::get_entities_system() const {
+EntitiesSystem *LoadSystem::get_entities_system() const {
   return entities_system;
 }
 

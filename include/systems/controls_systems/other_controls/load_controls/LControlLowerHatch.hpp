@@ -9,7 +9,7 @@
 
 class LControlLowerHatch : public ILControl {
  public:
-  explicit LControlLowerHatch(unsigned *input_x, unsigned *input_y, LocationsEntitiesSystem *input_entities_system)
+  explicit LControlLowerHatch(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
       : ILControl("LControlLowerHatch", input_x, input_y, input_entities_system) {}
   ~LControlLowerHatch() override = default;
 
