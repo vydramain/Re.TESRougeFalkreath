@@ -2,7 +2,7 @@
 // Created by vydra on 8/25/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/data/InteractAbilityData.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/actions/data/InteractAbilityData.hpp"
 
 void InteractAbilityData::set_item_index(int input_index) {
   item_index = input_index;

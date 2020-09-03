@@ -8,7 +8,7 @@
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/data/InteractAbilityData.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/actions/data/InteractAbilityData.hpp"
 
 class InteractAbilitySystem {
  private:

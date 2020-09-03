@@ -2,7 +2,7 @@
 // Created by vydra on 8/25/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/MoveAbilitySystem.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/actions/MoveAbilitySystem.hpp"
 
 bool MoveAbilitySystem::can_move_to(ILocationSystem *input_location_system, unsigned int input_new_x,
                                   unsigned int input_new_y) {

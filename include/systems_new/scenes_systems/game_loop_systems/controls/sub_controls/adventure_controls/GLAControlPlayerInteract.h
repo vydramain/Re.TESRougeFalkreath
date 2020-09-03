@@ -9,7 +9,7 @@
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/InteractAbilitySystem.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/actions/InteractAbilitySystem.hpp"
 
 class GLAControlPlayerInteract : public IControl {
  private:

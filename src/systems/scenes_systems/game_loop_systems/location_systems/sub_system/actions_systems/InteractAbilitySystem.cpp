@@ -2,7 +2,7 @@
 // Created by vydra on 8/25/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/sub_systems/actions_systems/InteractAbilitySystem.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/actions/InteractAbilitySystem.hpp"
 
 #include <string>
 #include <utility>
