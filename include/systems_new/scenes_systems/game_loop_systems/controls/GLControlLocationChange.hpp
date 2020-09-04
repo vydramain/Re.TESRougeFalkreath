@@ -7,9 +7,9 @@
 #include "IGLControl.h"
 #include "systems/controls_systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"
-#include "systems/scenes_systems/game_loop_systems/load_systems/LoadSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/load/LoadSystem.h"
 
 class GLControlLocationChange : public IGLControl {
  private:

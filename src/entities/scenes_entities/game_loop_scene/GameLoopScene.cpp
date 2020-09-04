@@ -5,7 +5,7 @@
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
 GameLoopScene::GameLoopScene(IRenderSystem *input_render_system) : IMainScene("MainLoopScene") {
-  auto **menu_choice = new std::string*[2];
+  auto **menu_choice = new std::string *[2];
   menu_choice[0] = new std::string("Да");
   menu_choice[1] = new std::string("Нет");
   ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"), 2, menu_choice);
@@ -24,6 +24,9 @@ void GameLoopScene::run() {
   auto *gl_control_map = new GLControlMap(render_system, location_system, ending_data);
   PseudoLogSystem::log(get_name(), "Set start control");
   IGLControl *current_gl_control = gl_control_map->get_start_control();
+  if (std::strcmp(current_gl_control->get_name(), "GLControlExit") == 0) {
+    return;
+  }
   PseudoLogSystem::log(get_name(), "Setting up render system");
   render_system->set_game_loop_data(location_system, ending_data);
   render_system->set_pseudo_game_loop_render();

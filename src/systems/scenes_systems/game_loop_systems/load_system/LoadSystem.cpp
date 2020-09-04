@@ -2,7 +2,7 @@
 // Created by vydra on 8/14/20.
 //
 
-#include "systems/scenes_systems/game_loop_systems/load_systems/LoadSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/load/LoadSystem.h"
 
 LoadSystem::LoadSystem(const char *input_map_name) {
   reader = new StdLocationReader(input_map_name);
@@ -59,17 +59,18 @@ void LoadSystem::load_map() {
     PseudoLogSystem::log("LoadSystem", "Load map", reader->get_file_name());
     delete entities_system;
 
-    if (!reader->open()) {
-      PseudoLogSystem::log("LoadSystem", "Map not found");
+    if (reader->open()) {
+      create_entities_system();
+      return;
     }
-    create_entities_system();
+    PseudoLogSystem::log("LoadSystem", "Map not found");
     return;
   }
   PseudoLogSystem::log("LoadSystem", "Reader not setting up");
 }
 
-EntitiesSystem *LoadSystem::get_entities_system() const {
-  return entities_system;
+std::string LoadSystem::get_map_name() const {
+  return std::string("none");
 }
 
 unsigned LoadSystem::get_location_size_x() const {
@@ -84,4 +85,8 @@ unsigned int LoadSystem::get_location_size_y() const {
     return 0;
   }
   return reader->get_y_location_size();
+}
+
+EntitiesSystem *LoadSystem::get_entities_system() const {
+  return entities_system;
 }

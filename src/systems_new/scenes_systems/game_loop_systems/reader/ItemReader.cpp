@@ -44,7 +44,7 @@ bool ItemReader::load_item() {
       for (unsigned i = 0; i < items_count; i++) {
         if (fscanf(file, "%u %u", &temp_x, &temp_y) == 0) {
           getc(file);
-      items_location.insert(std::pair<unsigned, unsigned>(temp_x, temp_y);
+      items_location.emplace_back(temp_x, temp_y);
         }
       }
       return true;

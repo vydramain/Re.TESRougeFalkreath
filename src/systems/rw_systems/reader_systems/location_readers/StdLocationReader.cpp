@@ -20,15 +20,17 @@ const char* StdLocationReader::get_file_name() {
 
 bool StdLocationReader::open() {
   file = fopen(file_name, "r");
-  if (file != nullptr || feof(file)) {
-    if (fscanf(file, "%u %u", &x_location_size, &y_location_size) == 0) {
-      x_location_size = 0;
-      y_location_size = 0;
-      file = nullptr;
-      return false;
+  if (file != nullptr) {
+    if (!feof(file)) {
+      if (fscanf(file, "%u %u", &x_location_size, &y_location_size) == 0) {
+        x_location_size = 0;
+        y_location_size = 0;
+        file = nullptr;
+        return false;
+      }
+      getc(file);
+      return true;
     }
-    getc(file);
-    return true;
   }
   return false;
 }
