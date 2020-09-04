@@ -90,3 +90,6 @@ unsigned int LoadSystem::get_location_size_y() const {
 EntitiesSystem *LoadSystem::get_entities_system() const {
   return entities_system;
 }
+IMapSystem *LoadSystem::get_map_system() const {
+  return nullptr;
+}

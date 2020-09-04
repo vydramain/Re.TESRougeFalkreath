@@ -2,40 +2,30 @@
 // Created by vydra on 9/4/20.
 //
 
-#include "systems_new/scenes_systems/game_loop_systems/reader/ItemReader.hpp"
+#include "systems_new/scenes_systems/game_loop_systems/reader/map/MapItemReader.hpp"
 
-void ItemReader::clear_item_data() {
+void MapItemReader::clear_item_data() {
   items_count = 0;
   item_type = nullptr;
   items_location.clear();
 }
 
-ItemReader::ItemReader(const char* input_file_name) {
-  file_name = input_file_name;
-}
+MapItemReader::MapItemReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
 
-ItemReader::~ItemReader() {
-  if (file != nullptr) {
-    fclose(file);
-  }
-}
+MapItemReader::~MapItemReader() = default;
 
-const char* ItemReader::get_file_name() {
-  return file_name;
-}
-
-bool ItemReader::open() {
-  file = fopen(file_name, "r");
+bool MapItemReader::open() {
+  file = fopen(file_name.data(), "r");
   if (file != nullptr || feof(file)) {
     return true;
   }
   return false;
 }
 
-bool ItemReader::has_item() {
+bool MapItemReader::has_item() {
   return feof(file);
 }
-bool ItemReader::load_item() {
+bool MapItemReader::load_item() {
   clear_item_data();
   if (fscanf(file, "%s", item_type) == 0) {
     getc(file);
@@ -44,7 +34,7 @@ bool ItemReader::load_item() {
       for (unsigned i = 0; i < items_count; i++) {
         if (fscanf(file, "%u %u", &temp_x, &temp_y) == 0) {
           getc(file);
-      items_location.emplace_back(temp_x, temp_y);
+          items_location.emplace_back(temp_x, temp_y);
         }
       }
       return true;
@@ -53,18 +43,18 @@ bool ItemReader::load_item() {
   clear_item_data();
   return false;
 }
-std::string ItemReader::get_item_type() {
+std::string MapItemReader::get_item_type() {
   return std::string(item_type);
 }
 
-unsigned ItemReader::get_items_count() {
+unsigned MapItemReader::get_items_count() {
   return items_count;
 }
 
-unsigned ItemReader::get_item_x(unsigned int input_item_index) {
+unsigned MapItemReader::get_item_x(unsigned int input_item_index) {
   return items_location[input_item_index].first;
 }
 
-unsigned ItemReader::get_item_y(unsigned int input_item_index) {
+unsigned MapItemReader::get_item_y(unsigned int input_item_index) {
   return items_location[input_item_index].second;
 }

@@ -8,11 +8,10 @@
 #include <string>
 #include <vector>
 
-class ItemReader {
- private:
-  const char* file_name = nullptr;
-  FILE* file = nullptr;
+#include "systems_new/scenes_systems/game_loop_systems/reader/map//MapReader.hpp"
 
+class MapItemReader : public MapReader {
+ private:
   char* item_type = nullptr;
   unsigned items_count = 0;
   std::vector<std::pair<unsigned, unsigned>> items_location;
@@ -20,12 +19,10 @@ class ItemReader {
   void clear_item_data();
 
  public:
-  explicit ItemReader(const char* input_file_name);
-  ~ItemReader();
+  explicit MapItemReader(std::string input_file_name);
+  ~MapItemReader() override;
 
-  const char* get_file_name();
-
-  bool open();
+  bool open() override;
   bool has_item();
   bool load_item();
   std::string get_item_type();

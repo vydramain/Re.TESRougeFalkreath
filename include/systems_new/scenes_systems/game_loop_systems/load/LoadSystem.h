@@ -28,7 +28,8 @@ class LoadSystem : public IMapLoadSystem {
 
   void load_map() override;
 
-  std::string get_map_name() const;
+  std::string get_map_name() const override;
+  IMapSystem *get_map_system() const override;
   EntitiesSystem *get_entities_system() const override;
   unsigned get_location_size_x() const override;
   unsigned get_location_size_y() const override;
