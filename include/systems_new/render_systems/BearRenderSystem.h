@@ -32,7 +32,7 @@ class BearRenderSystem : public IRenderSystem {
   StringsListData* score_list_data = nullptr;
 
   bool is_game_loop = false;
-  ILocationSystem* location_system = nullptr;
+  IWorldSystem* world_system = nullptr;
   ParameterQueryData*ending_data = nullptr;
 
  public:
@@ -41,7 +41,7 @@ class BearRenderSystem : public IRenderSystem {
 
   void set_main_menu_data(ParameterQueryData*input_menu_data) override;
   void set_score_list_data(StringsListData* input_score_list_data) override;
-  void set_game_loop_data(ILocationSystem* input_location_system, ParameterQueryData*input_ending_data) override;
+  void set_game_loop_data(IWorldSystem* input_world_system, ParameterQueryData*input_ending_data) override;
 
   void set_main_menu_render() override;
   void set_score_list_render() override;

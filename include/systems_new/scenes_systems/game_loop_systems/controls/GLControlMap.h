@@ -22,52 +22,34 @@ class GLControlMap {
   GLControlEmpty *control_empty = nullptr;
   GLControlEnding *control_ending = nullptr;
   GLControlExit *control_exit = nullptr;
-  GLControlLocationChange *control_load_bloodlet_throne_from_west_forest = nullptr;
-  GLControlLocationChange *control_load_west_forest_from_bloodlet_throne_by_hatch = nullptr;
-  GLControlLocationChange *control_load_west_forest_from_bloodlet_throne_by_cave = nullptr;
-  GLControlLocationChange *control_load_falkreath_from_west_forest = nullptr;
-  GLControlLocationChange *control_load_west_forest_from_falkreath = nullptr;
   GLControlScoreSave *control_score = nullptr;
 
   std::map<const char *, IGLControl *> gl_map;
   std::map<const char *, IGLControl *>::iterator gl_iterator;
 
-  ILocationSystem *location_system = nullptr;
+  IWorldSystem *world_system = nullptr;
   IGLControl *last_control = nullptr;
 
  public:
-  explicit GLControlMap(IRenderSystem *input_render_system, LocationSystem *input_location_system,
+  explicit GLControlMap(IRenderSystem *input_render_system, IWorldSystem *input_world_system,
                         ParameterQueryData *input_ending_data) {
-    location_system = input_location_system;
+    world_system = input_world_system;
 
-    printf("%s", "[GLControlMap] - Creating game loop controls\n");
-    control_adventure = new GLControlAdventure(input_location_system);
+    PseudoLogSystem::log("GLControlMap", "Creating game loop controls");
+    control_adventure = new GLControlAdventure(input_world_system);
     control_empty = new GLControlEmpty();
-    control_ending = new GLControlEnding(input_location_system, input_ending_data);
+    control_ending = new GLControlEnding(input_world_system, input_ending_data);
     control_exit = new GLControlExit();
-    control_load_bloodlet_throne_from_west_forest = new GLControlLocationChange(
-        input_render_system, input_location_system, "Bloodlet Throne", "../maps/alocation-system/BloodletThrone-location-system.bin", 5, 3);
-    control_load_west_forest_from_bloodlet_throne_by_cave = new GLControlLocationChange(
-        input_render_system, input_location_system, "West Forest", "../maps/alocation-system/WestForest-location-system.bin", 218, 96);
-    control_load_west_forest_from_bloodlet_throne_by_hatch = new GLControlLocationChange(
-        input_render_system, input_location_system, "West Forest", "../maps/alocation-system/WestForest-location-system.bin", 181, 95);
-    control_load_falkreath_from_west_forest = new GLControlLocationChange(input_render_system, input_location_system,
-                                                                          "Falkreath", "../maps/alocation-system/Falkreath-location-system.bin", 72, 13);
-    control_load_west_forest_from_falkreath = new GLControlLocationChange(
-        input_render_system, input_location_system, "West Forest", "../maps/alocation-system/WestForest-location-system.bin", 3, 13);
-    control_score = new GLControlScoreSave(input_location_system, input_ending_data);
+    control_score = new GLControlScoreSave(input_world_system, input_ending_data);
 
     gl_map["GLAControlExit"] = control_exit;
     gl_map["GLAControlEnding"] = control_ending;
-    gl_map["GLAControlGoToWestForest"] = control_load_west_forest_from_falkreath;
-    gl_map["GLAControlGoToFalkreath"] = control_load_falkreath_from_west_forest;
     gl_map["GLEControlSelectExit"] = control_exit;
     gl_map["GLEControlSelectEnter"] = control_score;
-    gl_map["GLControlLocationChange"] = control_adventure;
   }
 
   ~GLControlMap() {
-    printf("%s", "[GLControlMap] - Delete game loop controls\n");
+    PseudoLogSystem::log("GLControlMap", "Delete game loop controls");
     delete control_adventure;
     delete control_empty;
     delete control_ending;
@@ -76,20 +58,17 @@ class GLControlMap {
   }
 
   IGLControl *get_start_control() {
-    PseudoLogSystem::log("GLControlMap", "Load start map");
-    auto *load_system = new LoadSystem("../maps/alocation-system/Falkreath-location-system.bin");
-    load_system->load_map();
-    if (load_system->get_entities_system() == nullptr) {
-      PseudoLogSystem::log("GLControlMap", "Map not found");
-      PseudoLogSystem::log("GLControlMap", "Stop load system");
-      delete load_system;
+    PseudoLogSystem::log("GLControlMap", "Creating world");
+    world_system->add_new_map("../maps/falkreath");
+    world_system->add_new_map("../maps/west_forest");
+    world_system->add_new_map("../maps/bloodlet_throne");
+    world_system->set_current_map(std::string("Falkreath"));
+    if (world_system->get_current_map() == nullptr) {
+      PseudoLogSystem::log("GLControlMap", "Can not start loop");
       return control_exit;
     }
-    location_system->set_location("Falkreath", load_system->get_location_size_x(), load_system->get_location_size_y(),
-                                  load_system->get_entities_system());
-    location_system->get_entities()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 95));
+    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 95));
     last_control = control_adventure;
-    delete load_system;
     return control_adventure;
   }
 
@@ -100,28 +79,8 @@ class GLControlMap {
         return gl_iterator->second;
       }
     }
-    if (location_system->get_story_end()) {
+    if(world_system->get_ending_game()){
       return control_ending;
-    }
-    if (location_system->get_go_to_west_forest_from_falkreath()) {
-      location_system->set_go_to_west_forest_form_falkreth(false);
-      return control_load_west_forest_from_falkreath;
-    }
-    if (location_system->get_go_to_falkreath_from_west_forest()) {
-      location_system->set_go_to_falkreath_from_west_forest(false);
-      return control_load_falkreath_from_west_forest;
-    }
-    if (location_system->get_go_to_bloodlet_throne_from_west_forest()) {
-      location_system->set_go_to_bloodlet_throne_from_west_forest(false);
-      return control_load_bloodlet_throne_from_west_forest;
-    }
-    if (location_system->get_go_to_west_forest_from_bloodlet_throne_by_hatch()) {
-      location_system->set_go_to_west_forest_from_bloodlet_throne_by_hatch(false);
-      return control_load_west_forest_from_bloodlet_throne_by_hatch;
-    }
-    if (location_system->get_go_to_west_forest_from_bloodlet_throne_by_cave()) {
-      location_system->set_go_to_west_forest_from_bloodlet_throne_by_cave(false);
-      return control_load_west_forest_from_bloodlet_throne_by_cave;
     }
     return last_control;
   }

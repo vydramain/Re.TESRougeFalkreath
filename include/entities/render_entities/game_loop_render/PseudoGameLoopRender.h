@@ -5,6 +5,7 @@
 #pragma once
 
 #include <cstring>
+#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 #include "./BearLibTerminal.h"
 #include "entities/render_entities/CleanerRender.h"
@@ -28,7 +29,7 @@ class PseudoGameLoopRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
-  ILocationSystem *location_system = nullptr;
+  IWorldSystem *world_system = nullptr;
   const Sentient *target = nullptr;
 
   unsigned camera_position_x = 0;
@@ -41,10 +42,10 @@ class PseudoGameLoopRender : public IRender {
 
  public:
   explicit PseudoGameLoopRender(unsigned input_screen_x, unsigned input_screen_y,
-                                ILocationSystem *input_location_system, ParameterQueryData *input_ending_data);
+                                IWorldSystem *input_world_system, ParameterQueryData *input_ending_data);
   ~PseudoGameLoopRender() override;
 
-  void set_location_system(ILocationSystem *input_location_system);
+  void set_location_system(IWorldSystem *input_world_system);
   void set_target(Sentient *input_target);
   void set_camera_position_x();
   void set_camera_position_y();

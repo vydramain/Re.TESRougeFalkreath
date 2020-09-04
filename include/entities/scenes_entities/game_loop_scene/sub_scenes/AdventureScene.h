@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
+
 #include "entities/scenes_entities/IScene.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 #include "systems_new/IControl.h"
@@ -15,7 +17,7 @@ class AdventureScene : public IScene {
   IControl *control = nullptr;
 
  public:
-  explicit AdventureScene(LocationSystem *input_location);
+  explicit AdventureScene(IWorldSystem *input_world_system);
   ~AdventureScene() override;
 
   IControl *get_control();

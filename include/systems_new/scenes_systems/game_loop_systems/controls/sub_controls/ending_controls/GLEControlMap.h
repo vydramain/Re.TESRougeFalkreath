@@ -25,7 +25,7 @@ class GLEControlMap {
   std::map<int, IControl *>::iterator gle_iterator;
 
  public:
-  explicit GLEControlMap(LocationSystem *input_location_system, ParameterQueryData *input_ending_data) {
+  explicit GLEControlMap(IWorldSystem *input_location_system, ParameterQueryData *input_ending_data) {
     printf("%s", "[MMControlMap] - Creating main menu controls\n");
     select_down = new GLEControlSelectDown(input_ending_data);
     select_up = new GLEControlSelectUp(input_ending_data);

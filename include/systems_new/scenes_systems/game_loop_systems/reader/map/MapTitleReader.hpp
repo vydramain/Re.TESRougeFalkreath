@@ -12,7 +12,7 @@
 
 class MapTitleReader : public MapReader {
  private:
-  char* map_name = nullptr;
+  std::string map_name;
   unsigned size_x = 0;
   unsigned size_y = 0;
 

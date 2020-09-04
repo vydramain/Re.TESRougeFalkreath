@@ -26,7 +26,7 @@ class LoadSystem : public IMapLoadSystem {
   explicit LoadSystem(const char *input_map_name);
   ~LoadSystem() override;
 
-  void load_map() override;
+  void load_new_map() override;
 
   std::string get_map_name() const override;
   IMapSystem *get_map_system() const override;

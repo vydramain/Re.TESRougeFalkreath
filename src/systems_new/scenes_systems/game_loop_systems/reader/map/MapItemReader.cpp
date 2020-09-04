@@ -16,8 +16,10 @@ MapItemReader::~MapItemReader() = default;
 
 bool MapItemReader::open() {
   file = fopen(file_name.data(), "r");
-  if (file != nullptr || feof(file)) {
-    return true;
+  if (file != nullptr) {
+    if (!feof(file)) {
+      return true;
+    }
   }
   return false;
 }

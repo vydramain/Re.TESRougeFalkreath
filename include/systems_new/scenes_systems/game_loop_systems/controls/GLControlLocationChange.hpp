@@ -18,11 +18,11 @@ class GLControlLocationChange : public IGLControl {
 
   const char* locations_name = nullptr;
   const char* locations_file_name = nullptr;
-  ILocationSystem* location_system = nullptr;
+  IWorldSystem* location_system = nullptr;
   IRenderSystem* render_system = nullptr;
 
  public:
-  explicit GLControlLocationChange(IRenderSystem* input_render_system, LocationSystem* input_location_system,
+  explicit GLControlLocationChange(IRenderSystem* input_render_system, IWorldSystem* input_world_system,
                                    const char* input_locations_name, const char* input_locations_file_name,
                                    unsigned int input_x, unsigned int input_y)
       : IGLControl("GLControlLocationChange") {
@@ -31,7 +31,7 @@ class GLControlLocationChange : public IGLControl {
 
     locations_name = input_locations_name;
     locations_file_name = input_locations_file_name;
-    location_system = input_location_system;
+    location_system = input_world_system;
     render_system = input_render_system;
   }
   ~GLControlLocationChange() override {
@@ -42,25 +42,5 @@ class GLControlLocationChange : public IGLControl {
     return this;
   }
 
-  void execute() override {
-    Sentient* player = new Sentient(*location_system->get_entities()->get_player());
-    player->set_current_x(x);
-    player->set_current_y(y);
-
-    auto* load_system = new LoadSystem(locations_file_name);
-    load_system->load_map();
-    if (load_system->get_entities_system() == nullptr) {
-      PseudoLogSystem::log(get_name(), "Map not found");
-      PseudoLogSystem::log(get_name(), "Stop load system");
-      delete load_system;
-      return;
-    }
-
-    location_system->set_location(locations_name, load_system->get_location_size_x(),
-                                  load_system->get_location_size_y(), load_system->get_entities_system());
-    location_system->get_entities()->put_player(player);
-    render_system->set_pseudo_game_loop_render();
-
-    delete load_system;
-  }
+  void execute() override {}
 };

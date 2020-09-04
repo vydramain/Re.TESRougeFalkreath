@@ -11,6 +11,7 @@
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class GameLoopHUDRender : public IRender {
  private:
@@ -24,14 +25,14 @@ class GameLoopHUDRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
-  const ILocationSystem *location_system = nullptr;
+  const IWorldSystem *world_system = nullptr;
   const Sentient *target = nullptr;
 
   unsigned camera_position_x = 0;
   unsigned camera_position_y = 0;
 
  public:
-  explicit GameLoopHUDRender(ILocationSystem *input_system, const Sentient *input_target);
+  explicit GameLoopHUDRender(IWorldSystem *input_world_system, const Sentient *input_target);
   ~GameLoopHUDRender() override;
 
   void update_fields(unsigned input_screen_x, unsigned input_screen_y, unsigned input_passive_zone_out_x,

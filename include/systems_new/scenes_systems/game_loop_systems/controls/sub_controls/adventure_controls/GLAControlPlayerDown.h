@@ -10,18 +10,20 @@
 
 class GLAControlPlayerDown : public IControl {
  private:
-  LocationSystem* location;
+  IWorldSystem* world_system;
 
  public:
-  explicit GLAControlPlayerDown(LocationSystem* input_location)
-      : IControl("GLAControlPlayerDown"), location(input_location) {}
+  explicit GLAControlPlayerDown(IWorldSystem* input_world_system)
+      : IControl("GLAControlPlayerDown"), world_system(input_world_system) {}
 
   void execute() override {
-    if (MoveAbilitySystem::can_move_to(location, location->get_entities()->get_player()->get_current_x(),
-                                       location->get_entities()->get_player()->get_current_y() + 1)) {
-      location->get_entities()->get_player()->go_down(location->get_size_y());
+    if (MoveAbilitySystem::can_move_to(
+            world_system, world_system->get_current_map()->get_entities_system()->get_player()->get_current_x(),
+            world_system->get_current_map()->get_entities_system()->get_player()->get_current_y() + 1)) {
+      world_system->get_current_map()->get_entities_system()->get_player()->go_down(
+          world_system->get_current_map()->get_size_y());
     } else {
-      location->get_entities()->get_player()->look_down();
+      world_system->get_current_map()->get_entities_system()->get_player()->look_down();
     }
   }
 };

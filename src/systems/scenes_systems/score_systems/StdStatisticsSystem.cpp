@@ -13,11 +13,11 @@ StdStatisticsSystem::~StdStatisticsSystem() {
   delete reader;
   delete writer;
 
-  location_system = nullptr;
+  world_system = nullptr;
 }
 
-void StdStatisticsSystem::set_location_system(ILocationSystem *input_location_system) {
-  location_system = input_location_system;
+void StdStatisticsSystem::set_location_system(IWorldSystem * input_world_system) {
+  world_system = input_world_system;
 }
 
 unsigned StdStatisticsSystem::get_records_count() const {
@@ -29,7 +29,7 @@ const char* StdStatisticsSystem::get_score_string(unsigned int input_index) cons
 }
 
 void StdStatisticsSystem::add_score() {
-  writer->add_sentient_score(location_system->get_entities()->get_player());
+  writer->add_sentient_score(world_system->get_current_map()->get_entities_system()->get_player());
 }
 
 void StdStatisticsSystem::free_file() {

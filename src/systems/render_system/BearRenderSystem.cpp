@@ -31,10 +31,10 @@ void BearRenderSystem::set_score_list_data(StringsListData *input_score_list_dat
   score_list_data = input_score_list_data;
 }
 
-void BearRenderSystem::set_game_loop_data(ILocationSystem *input_location_system,
+void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system,
                                           ParameterQueryData *input_ending_data) {
   is_game_loop = true;
-  location_system = input_location_system;
+  world_system = input_world_system;
   ending_data = input_ending_data;
 }
 
@@ -58,7 +58,7 @@ void BearRenderSystem::set_pseudo_game_loop_render() {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
   if (is_game_loop) {
-    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, location_system, ending_data);
+    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, ending_data);
   }
 }
 

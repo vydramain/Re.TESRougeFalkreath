@@ -14,19 +14,19 @@
 class GLAControlPlayerInteract : public IControl {
  private:
   InteractAbilitySystem* interact_ability_system = nullptr;
-  LocationSystem* location_system;
+  IWorldSystem* world_system;
 
  public:
-  explicit GLAControlPlayerInteract(LocationSystem* input_location_system)
+  explicit GLAControlPlayerInteract(IWorldSystem* input_location_system)
       : IControl("GLAControlPlayerInteract"),
         interact_ability_system(new InteractAbilitySystem()),
-        location_system(input_location_system) {}
+        world_system(input_location_system) {}
   ~GLAControlPlayerInteract() override {
     delete interact_ability_system;
-    location_system = nullptr;
+    world_system = nullptr;
   }
 
   void execute() override {
-    interact_ability_system->try_interact_with(location_system);
+    interact_ability_system->try_interact_with(world_system);
   }
 };

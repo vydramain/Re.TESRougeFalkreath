@@ -13,21 +13,23 @@ MapTitleReader::~MapTitleReader() = default;
 bool MapTitleReader::open() {
   if (file == nullptr) {
     file = fopen(file_name.data(), "r");
-    if (file != nullptr || feof(file)) {
-      if (fscanf(file, "%s", map_name)) {
-        getc(file);
-        if (fscanf(file, "%u %u", &size_x, &size_y) == 0) {
-          size_x = 0;
-          size_y = 0;
-          file = nullptr;
-          return false;
+    if (file != nullptr) {
+      if (!feof(file)) {
+        map_name.clear();
+        char temp_character = getc(file);
+        while (temp_character != '\n' && !feof(file)) {
+          map_name.append(sizeof(char), temp_character);
+          temp_character = getc(file);
+        }
+        if (fscanf(file, "%u %u", &size_x, &size_y) != 0) {
+          return true;
         }
       }
-      getc(file);
-      return true;
     }
   }
-
+  map_name = nullptr;
+  size_x = 0;
+  size_y = 0;
   return false;
 }
 

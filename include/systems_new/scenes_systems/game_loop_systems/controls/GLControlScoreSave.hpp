@@ -16,11 +16,11 @@ class GLControlScoreSave : public IGLControl {
   IStatisticsSystem *score_system = nullptr;
 
  public:
-  explicit GLControlScoreSave(ILocationSystem *input_location_system, ParameterQueryData *input_ending_data)
+  explicit GLControlScoreSave(IWorldSystem *input_world_system, ParameterQueryData *input_ending_data)
       : IGLControl("GLControlScoreSave") {
     ending_data = input_ending_data;
     score_system = new StdStatisticsSystem();
-    score_system->set_location_system(input_location_system);
+    score_system->set_location_system(input_world_system);
   }
   ~GLControlScoreSave() override {
     delete score_system;

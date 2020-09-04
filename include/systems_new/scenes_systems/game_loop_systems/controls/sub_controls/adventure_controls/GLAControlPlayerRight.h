@@ -10,18 +10,20 @@
 
 class GLAControlPlayerRight : public IControl {
  private:
-  LocationSystem* location;
+  IWorldSystem* world_system;
 
  public:
-  explicit GLAControlPlayerRight(LocationSystem* input_location)
-      : IControl("GLAControlPlayerRight"), location(input_location) {}
+  explicit GLAControlPlayerRight(IWorldSystem* input_world_system)
+      : IControl("GLAControlPlayerRight"), world_system(input_world_system) {}
 
   void execute() override {
-    if (MoveAbilitySystem::can_move_to(location, location->get_entities()->get_player()->get_current_x() + 1,
-                                       location->get_entities()->get_player()->get_current_y())) {
-      location->get_entities()->get_player()->go_right(location->get_size_x());
+    if (MoveAbilitySystem::can_move_to(
+            world_system, world_system->get_current_map()->get_entities_system()->get_player()->get_current_x() + 1,
+            world_system->get_current_map()->get_entities_system()->get_player()->get_current_y())) {
+      world_system->get_current_map()->get_entities_system()->get_player()->go_right(
+          world_system->get_current_map()->get_size_x());
     } else {
-      location->get_entities()->get_player()->look_right();
+      world_system->get_current_map()->get_entities_system()->get_player()->look_right();
     }
   }
 };

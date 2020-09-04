@@ -7,11 +7,11 @@
 #include <utility>
 
 MapSystem::MapSystem(std::string input_name, unsigned int input_size_x, unsigned int input_size_y,
-                     IEntitiesSystem* input_entities_system) {
+                     EntitiesSystem *input_entities_system) {
   name = std::move(input_name);
   size_x = input_size_x;
   size_y = input_size_y;
-  entities_system = input_entities_system;
+  entities_system = new EntitiesSystem(*input_entities_system);
 }
 
 MapSystem::~MapSystem() {
@@ -30,6 +30,6 @@ unsigned MapSystem::get_size_y() {
   return size_y;
 }
 
-IEntitiesSystem* MapSystem::get_entities_system() {
+EntitiesSystem* MapSystem::get_entities_system() {
   return entities_system;
 }

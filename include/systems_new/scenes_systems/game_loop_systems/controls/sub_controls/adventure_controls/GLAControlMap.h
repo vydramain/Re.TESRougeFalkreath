@@ -31,16 +31,16 @@ class GLAControlMap {
   std::map<int, IControl *>::iterator glas_iterator;
 
  public:
-  explicit GLAControlMap(LocationSystem *input_location) {
-    printf("%s", "[GLAControlMap] - Creating game loop adventure controls\n");
+  explicit GLAControlMap(IWorldSystem *input_world_system) {
+    PseudoLogSystem::log("GLAControlMap", "Creating game loop adventure controls");
     control_empty = new GLAControlEmpty();
     control_ending = new GLAControlEnding();
     control_exit = new GLAControlExit();
-    control_player_down = new GLAControlPlayerDown(input_location);
-    control_player_left = new GLAControlPlayerLeft(input_location);
-    control_player_right = new GLAControlPlayerRight(input_location);
-    control_player_up = new GLAControlPlayerUp(input_location);
-    control_player_interact = new GLAControlPlayerInteract(input_location);
+    control_player_down = new GLAControlPlayerDown(input_world_system);
+    control_player_left = new GLAControlPlayerLeft(input_world_system);
+    control_player_right = new GLAControlPlayerRight(input_world_system);
+    control_player_up = new GLAControlPlayerUp(input_world_system);
+    control_player_interact = new GLAControlPlayerInteract(input_world_system);
 
     glas_map[TK_ESCAPE] = control_exit;
     glas_map[TK_DOWN] = control_player_down;
@@ -53,7 +53,7 @@ class GLAControlMap {
   }
 
   ~GLAControlMap() {
-    printf("%s", "[CLAControlMap] - Delete game loop adventure controls\n");
+    PseudoLogSystem::log("CLAControlMap", "Delete game loop adventure controls");
     delete control_empty;
     delete control_ending;
     delete control_exit;

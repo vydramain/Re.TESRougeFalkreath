@@ -6,20 +6,26 @@
 
 #include <vector>
 
+#include "systems_new/scenes_systems/game_loop_systems/load/SectionalLoadSystem.hpp"
 #include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class WorldSystem : public IWorldSystem {
  private:
+  bool ending = false;
   std::vector<IMapSystem*> maps;
-  IMapSystem *current_map = nullptr;
+  IMapSystem* current_map = nullptr;
 
  public:
   explicit WorldSystem();
   ~WorldSystem() override;
 
-  void add_world(IMapSystem *input_map_system) override;
+  void add_new_map(std::string input_map_address) override;
+  void add_old_map(std::string input_map_address) override;
   void set_current_map(std::string input_name) override;
+  void set_ending_game(bool input_ending) override;
 
+  bool get_ending_game() override;
   IMapSystem* get_current_map() override;
   IMapSystem* get_current_map() const override;
+  std::vector<std::string>* get_maps_names() override;
 };

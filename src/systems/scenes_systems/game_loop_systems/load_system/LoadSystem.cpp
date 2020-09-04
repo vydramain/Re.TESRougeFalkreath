@@ -54,7 +54,7 @@ void LoadSystem::create_entities_system() {
   delete map;
 }
 
-void LoadSystem::load_map() {
+void LoadSystem::load_new_map() {
   if (reader != nullptr) {
     PseudoLogSystem::log("LoadSystem", "Load map", reader->get_file_name());
     delete entities_system;

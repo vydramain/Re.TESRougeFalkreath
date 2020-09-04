@@ -6,16 +6,14 @@
 
 MapAmbientReader::MapAmbientReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
 
-MapAmbientReader::~MapAmbientReader() {
-  if (file != nullptr) {
-    fclose(file);
-  }
-}
+MapAmbientReader::~MapAmbientReader() = default;
 
 bool MapAmbientReader::open() {
   file = fopen(file_name.data(), "r");
-  if (file != nullptr || feof(file)) {
-    return true;
+  if (file != nullptr) {
+    if (!feof(file)) {
+      return true;
+    }
   }
   return false;
 }

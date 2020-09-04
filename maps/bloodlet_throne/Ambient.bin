@@ -1,47 +1,46 @@
-100 60
 ###################################################################################################
 ##ccccccccccccccccc################################################################################
-##c      c   c $$ccggg   ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg###############
-##c L  c c c c cccggg          gggggggggggggggggggggggggggggggggggggggggggggggggggg################
+##c      c   c   ccggg   ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg###############
+##c L  ccc c c   cccc          gggggggggggggggggggggggggggggggggggggggggggggggggggg################
 ##c          c                                                ggggggggggggggggggggg################
-##cc ccccccc c  ccccggggg              gggggggggggg     gggg#  #gggggggggggggggg####gggg###########
-##c      c      cgggggggg       ggggg   gggggggggggg   ##ggg#  ggggggggggggggggggggggggggg#########
-##cc           ccggghhghhhhhhhhhhhhhh     gggggggggg    #ggg#  gggggggggggggggggggggggggggggg######
+##cc ccccccc c  cccccgggg              gggggggggggg     gggg#  #gggggggggggggggg####gggg###########
+##c      c   c  cgggggggg       ggggg   gggggggggggg   ##ggg#  ggggggggggggggggggggggggggg#########
+##cc         c ccggghhghhhhhhhhhhhhhh     gggggggggg    #ggg#  gggggggggggggggggggggggggggggg######
 ###cccccccc    cgghh gg                   gggggggggg     #ggg                  gggg#ggggggggggg####
-########ccc    cgh      hhhhhhhhhhhhh    ggggggggggg     ##g   g#ggggggggggg#    #ggggggggggg######
+########ccc  cccgh      hhhhhhhhhhhhh    ggggggggggg     ##g   g#ggggggggggg#    #ggggggggggg######
 ###gggggggg  ggggh     hggggggggggggggggggggggggggg   ##ggg  ggg#gggggggggg###      g#gggggg#######
 ###ggggggg    gghh      hhhhhhhgggggggg##############        gggggggg##ggg#####   ggggggggggggg####
 ##gg            h              hggggggggg#############################gggggggg#   ggg#ggggggggg####
 #gg             ghhhhhh         hhhgggggg######################################   gg#g###g#########
 #gg              gggghhhhhhhhh    hggggg###############################                     #######
-#ggg   $$$        ggggggggggghh   hgggggggg############################    ############     #######
-##ggg  $$$             ggggghh    hhgggggggg###########################    ############     #######
-###ggg $$$               gggggg  gggggg################################    ############     #######
+#ggg              ggggggggggghh   hgggggggg############################    ############     #######
+##ggg                  ggggghh    hhgggggggg###########################    ############     #######
+###ggg                   gggggg  gggggg################################    ############     #######
 ###gggg     gggggggggggggggggg  gggggggg###############################    ############     #######
 ####ggggggggggggggggggggggggg    ggggg#######ccccccccccccccccccccccc###                     #######
 #####ggggggggggggggggggggggggg  gggg########  ccccc           ccccc                       #########
-#####gggggggggggggggggggggggg#g  gggggg####   $$$ ccc   T    ccc$$$                     ###########
-#######gggggggggggggggggggggggg gggggg###     $$$$ ccc     ccc$$$$$$                  #############
-##gggggggggggggggggggggggggggg#  ggggg######  $$$$$  cc   cc$$$$$$       ##########################
-####ggggg                 ggg      ggggg####   $  $$$        $$$$       ###########################
-#ggggggggg                       gggggggg#####   $$$$$      $$$       #############################
-ggggggggggg                      ggggg##########  $$$$$$  $$$$$     ###############################
+#####gggggggggggggggggggggggg#g  gggggg####       ccc   T    ccc                        ###########
+#######gggggggggggggggggggggggg gggggg###          ccc     ccc                        #############
+##gggggggggggggggggggggggggggg#  ggggg######         cc   cc             ##########################
+####ggggg                 ggg      ggggg####                            ###########################
+#ggggggggg                       gggggggg#####                        #############################
+ggggggggggg                      ggggg##########                    ###############################
 ggggggggggggg                    ggggggg#######                  ######## 9########################
 ggggggggggggg                     ggggg##########              #####      #########################
 gggggggggg                         ggggg#####                              ########################
-ggggggggg                         gggg######       $$$$$$                ##########################
-gggggggggg                        gggg#####      $$$$$$            ################################
-gggggg                            gggg######      $$$$$$$   #######################################
-ggggggg#                         ggggggg#####       $$$$$$ ########################################
-ggggggggg                         ggggggggg## ####    $$   ########################################
+ggggggggg                         gggg######                             ##########################
+gggggggggg                        gggg#####                        ################################
+gggggg                            gggg######                #######################################
+ggggggg#                         ggggggg#####              ########################################
+ggggggggg                         ggggggggg## ####         ########################################
 gggggg                               ggggg##  #####        $#######################################
 ggggggggggg                         gggg###  ######       $$$######################################
-gggggg   $$$                       gggg##   ########     $$$$######################################
-gggg#  $$$$$$$$                     gg###  ########     $$$$#######################################
-##gg  $$$$$$$$$$$                 ggg##   ##########  #############################################
-#ggg   $$$$$$$                     gg##        #####  #############################################
-#ggg    $$$$                      ggg#  ##gggg  #### ###gg#gg######################################
-###ggg   $$                    gggg###   ##gggg  ###  #ggggg#######################################
+gggggg                             gggg##   ########     $$$$######################################
+gggg#                               gg###  ########     $$$$#######################################
+##gg                              ggg##   ##########  #############################################
+#ggg                               gg##        #####  #############################################
+#ggg                              ggg#  ##gggg  #### ###gg#gg######################################
+###ggg                         gggg###   ##gggg  ###  #ggggg#######################################
 ##ggg                            ggg###  #gggggg  ##   ggggg#######################################
 ##ggggg                         gggg#### ##gggggg     ##ggggg######################################
 #ggggggg                          gg###            gggggg#g########################################

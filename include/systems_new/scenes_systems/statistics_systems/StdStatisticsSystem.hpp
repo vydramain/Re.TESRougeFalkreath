@@ -5,6 +5,7 @@
 #pragma once
 
 #include <cstdio>
+#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 #include "IStatisticsSystem.hpp"
 #include "systems_new/scenes_systems/statistics_systems/reader/IStatisticsReader.hpp"
@@ -17,10 +18,10 @@ class StdStatisticsSystem : public IStatisticsSystem {
   IStatisticsReader *reader = nullptr;
   IStatisticsWriter *writer = nullptr;
 
-  ILocationSystem *location_system = nullptr;
+  IWorldSystem *world_system = nullptr;
 
  public:
-  void set_location_system(ILocationSystem *input_location_system) override;
+  void set_location_system(IWorldSystem *input_world_system) override;
 
   explicit StdStatisticsSystem();
   ~StdStatisticsSystem() override;

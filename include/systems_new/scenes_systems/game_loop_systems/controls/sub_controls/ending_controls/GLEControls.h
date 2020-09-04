@@ -13,7 +13,7 @@ class GLEControls {
   GLEControlMap *control_map;
 
  public:
-  explicit GLEControls(LocationSystem *input_location_system, ParameterQueryData *input_ending_data) {
+  explicit GLEControls(IWorldSystem *input_location_system, ParameterQueryData *input_ending_data) {
     control_map = new GLEControlMap(input_location_system, input_ending_data);
   }
   ~GLEControls() {

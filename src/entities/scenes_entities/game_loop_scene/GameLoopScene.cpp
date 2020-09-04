@@ -11,24 +11,24 @@ GameLoopScene::GameLoopScene(IRenderSystem *input_render_system) : IMainScene("M
   ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"), 2, menu_choice);
 
   render_system = input_render_system;
-  location_system = new LocationSystem();
+  world_system = new WorldSystem();
 }
 
 GameLoopScene::~GameLoopScene() {
   render_system = nullptr;
-  delete location_system;
+  delete world_system;
 }
 
 void GameLoopScene::run() {
   PseudoLogSystem::log(get_name(), "Launch game loop");
-  auto *gl_control_map = new GLControlMap(render_system, location_system, ending_data);
+  auto *gl_control_map = new GLControlMap(render_system, world_system, ending_data);
   PseudoLogSystem::log(get_name(), "Set start control");
   IGLControl *current_gl_control = gl_control_map->get_start_control();
   if (std::strcmp(current_gl_control->get_name(), "GLControlExit") == 0) {
     return;
   }
   PseudoLogSystem::log(get_name(), "Setting up render system");
-  render_system->set_game_loop_data(location_system, ending_data);
+  render_system->set_game_loop_data(world_system, ending_data);
   render_system->set_pseudo_game_loop_render();
 
   do {

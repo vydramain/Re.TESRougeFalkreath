@@ -8,24 +8,19 @@
 
 #include "adds/CCMech.h"
 #include "entities/location_entities/LocationsEntity.h"
-#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/IEntitiesSystem.hpp"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/AmbientsSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/ItemsSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/MagwehrsSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 
-class EntitiesSystem : public IEntitiesSystem,
-                       public SentientsSystem,
-                       public MagwehrsSystem,
-                       public ItemsSystem,
-                       public AmbientsSystem {
+class EntitiesSystem : public AmbientsSystem, public ItemsSystem, public MagwehrsSystem, public SentientsSystem {
  private:
   std::vector<LocationsEntity> entities;
 
  public:
   explicit EntitiesSystem();
   EntitiesSystem(const EntitiesSystem &input_data);
-  ~EntitiesSystem() override;
+  virtual ~EntitiesSystem();
 
   void put_ambient(Ambient *input_ambient) override;
   void put_item(Item *input_entity) override;
@@ -39,6 +34,6 @@ class EntitiesSystem : public IEntitiesSystem,
   Sentient *remove_player() override;
   Sentient *remove_sentient(unsigned input_index) override;
 
-  LocationsEntity *get_entity(unsigned input_index) override;
-  const LocationsEntity *get_entity(unsigned input_index) const override;
+  LocationsEntity *get_entity(unsigned input_index);
+  const LocationsEntity *get_entity(unsigned input_index) const;
 };

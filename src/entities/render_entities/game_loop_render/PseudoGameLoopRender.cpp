@@ -16,13 +16,13 @@ void PseudoGameLoopRender::recount_fields(unsigned input_screen_x, unsigned inpu
 }
 
 PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                                           ILocationSystem *input_location_system,
+                                           IWorldSystem *input_world_system,
                                            ParameterQueryData *input_ending_data)
     : IRender() {
   recount_fields(input_screen_x, input_screen_y);
-  set_location_system(input_location_system);
-  set_target(location_system->get_entities()->get_player());
-  hud = new GameLoopHUDRender(input_location_system, target);
+  set_location_system(input_world_system);
+  set_target(world_system->get_current_map()->get_entities_system()->get_player());
+  hud = new GameLoopHUDRender(input_world_system, target);
   hud->update_fields(SCREENMODE_X, SCREENMODE_Y, passive_zone_out_x, passive_zone_out_y, active_zone_in_x,
                      active_zone_in_y, active_zone_out_x, active_zone_out_y, camera_position_x, camera_position_y);
   ending = new GameLoopEndingRender(input_ending_data);
@@ -30,14 +30,14 @@ PseudoGameLoopRender::PseudoGameLoopRender(unsigned int input_screen_x, unsigned
 }
 
 PseudoGameLoopRender::~PseudoGameLoopRender() {
-  location_system = nullptr;
+  world_system = nullptr;
   target = nullptr;
   delete hud;
   delete ending;
 }
 
-void PseudoGameLoopRender::set_location_system(ILocationSystem *input_location_system) {
-  location_system = input_location_system;
+void PseudoGameLoopRender::set_location_system(IWorldSystem *input_world_system) {
+  world_system = input_world_system;
 }
 
 void PseudoGameLoopRender::set_target(Sentient *input_target) {
@@ -51,8 +51,8 @@ void PseudoGameLoopRender::set_camera_position_x() {
   if (target->get_current_x() < active_zone_in_x) {
     camera_position_x = 0;
   }
-  if (location_system->get_size_x() - target->get_current_x() < active_zone_out_x) {
-    camera_position_x = location_system->get_size_x() - passive_zone_out_x;
+  if (world_system->get_current_map()->get_size_x() - target->get_current_x() < active_zone_out_x) {
+    camera_position_x = world_system->get_current_map()->get_size_x() - passive_zone_out_x;
   }
 }
 
@@ -61,8 +61,8 @@ void PseudoGameLoopRender::set_camera_position_y() {
   if (target->get_current_y() < active_zone_in_y) {
     camera_position_y = 0;
   }
-  if (location_system->get_size_y() - target->get_current_y() < active_zone_out_y) {
-    camera_position_y = location_system->get_size_y() - passive_zone_out_y;
+  if (world_system->get_current_map()->get_size_y() - target->get_current_y() < active_zone_out_y) {
+    camera_position_y = world_system->get_current_map()->get_size_y() - passive_zone_out_y;
   }
 }
 
@@ -77,8 +77,8 @@ void PseudoGameLoopRender::update_camera_position_x() {
     }
     if (target_x > camera_position_x + active_zone_out_x) {
       camera_position_x = target_x - active_zone_out_x;
-      if (target_x >= location_system->get_size_x() - active_zone_in_x) {
-        camera_position_x = location_system->get_size_x() - passive_zone_out_x;
+      if (target_x >= world_system->get_current_map()->get_size_x() - active_zone_in_x) {
+        camera_position_x = world_system->get_current_map()->get_size_x() - passive_zone_out_x;
       }
     }
   }
@@ -95,8 +95,8 @@ void PseudoGameLoopRender::update_camera_position_y() {
     }
     if (target_y > camera_position_y + active_zone_out_y) {
       camera_position_y = target_y - active_zone_out_y;
-      if (target_y >= location_system->get_size_y() - active_zone_in_y) {
-        camera_position_y = location_system->get_size_y() - passive_zone_out_y;
+      if (target_y >= world_system->get_current_map()->get_size_y() - active_zone_in_y) {
+        camera_position_y = world_system->get_current_map()->get_size_y() - passive_zone_out_y;
       }
     }
   }
@@ -105,8 +105,8 @@ void PseudoGameLoopRender::update_camera_position_y() {
 void PseudoGameLoopRender::render_ambient() {
   terminal_layer(1);
   const Ambient *ambient;
-  for (unsigned i = 0; i < location_system->get_entities()->get_ambients_size(); i++) {
-    ambient = location_system->get_entities()->get_ambient(i);
+  for (unsigned i = 0; i < world_system->get_current_map()->get_entities_system()->get_ambients_size(); i++) {
+    ambient = world_system->get_current_map()->get_entities_system()->get_ambient(i);
     unsigned race_x = ambient->get_current_x();
     unsigned race_y = ambient->get_current_y();
 
@@ -121,8 +121,8 @@ void PseudoGameLoopRender::render_ambient() {
 void PseudoGameLoopRender::render_location_creatures() {
   terminal_layer(2);
   const Sentient *sentient;
-  for (unsigned i = 0; i < location_system->get_entities()->get_sentients_size(); i++) {
-    sentient = location_system->get_entities()->get_sentient(i);
+  for (unsigned i = 0; i < world_system->get_current_map()->get_entities_system()->get_sentients_size(); i++) {
+    sentient = world_system->get_current_map()->get_entities_system()->get_sentient(i);
     unsigned race_x = sentient->get_current_x();
     unsigned race_y = sentient->get_current_y();
 
@@ -134,8 +134,8 @@ void PseudoGameLoopRender::render_location_creatures() {
   }
 
   const Magwehr *magwehr;
-  for (unsigned i = 0; i < location_system->get_entities()->get_magwehrs_size(); i++) {
-    magwehr = location_system->get_entities()->get_magwehr(i);
+  for (unsigned i = 0; i < world_system->get_current_map()->get_entities_system()->get_magwehrs_size(); i++) {
+    magwehr = world_system->get_current_map()->get_entities_system()->get_magwehr(i);
     unsigned race_x = magwehr->get_current_x();
     unsigned race_y = magwehr->get_current_y();
 
@@ -148,8 +148,8 @@ void PseudoGameLoopRender::render_location_creatures() {
 }
 void PseudoGameLoopRender::render_location_items() {
   const Item *item;
-  for (unsigned i = 0; i < location_system->get_entities()->get_items_size(); i++) {
-    item = location_system->get_entities()->get_item(i);
+  for (unsigned i = 0; i < world_system->get_current_map()->get_entities_system()->get_items_size(); i++) {
+    item = world_system->get_current_map()->get_entities_system()->get_item(i);
     unsigned race_x = item->get_current_x();
     unsigned race_y = item->get_current_y();
 
@@ -177,7 +177,8 @@ void PseudoGameLoopRender::render() {
   update_camera_position_x();
   update_camera_position_y();
 
-  if (location_system->get_story_end()) {
+  // Wrong if parameter
+  if (world_system->get_ending_game()) {
     render_end();
   } else {
     render_ambient();

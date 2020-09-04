@@ -13,7 +13,8 @@ class IMapLoadSystem {
  public:
   virtual ~IMapLoadSystem() = default;
 
-  virtual void load_map() = 0;
+  virtual void load_new_map() = 0;
+  virtual void load_old_map() = 0;
 
   virtual std::string get_map_name() const = 0;
   virtual unsigned get_location_size_x() const = 0;

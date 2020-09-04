@@ -5,9 +5,9 @@
 #pragma once
 
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
+#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class MoveAbilitySystem {
  public:
-  static bool can_move_to(ILocationSystem *input_location_system, unsigned int input_new_x, unsigned int input_new_y);
-
+  static bool can_move_to(IWorldSystem *input_location_system, unsigned int input_new_x, unsigned int input_new_y);
 };

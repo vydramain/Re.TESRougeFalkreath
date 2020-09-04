@@ -12,8 +12,8 @@ class GLAControls {
   GLAControlMap *control_map = nullptr;
 
  public:
-  explicit GLAControls(LocationSystem *input_location) {
-    control_map = new GLAControlMap(input_location);
+  explicit GLAControls(IWorldSystem *input_world_system) {
+    control_map = new GLAControlMap(input_world_system);
   }
   ~GLAControls() {
     delete control_map;

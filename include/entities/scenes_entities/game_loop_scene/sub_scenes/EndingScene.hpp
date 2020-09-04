@@ -17,7 +17,7 @@ class EndingScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit EndingScene(LocationSystem *input_location, ParameterQueryData *input_ending_data);
+  explicit EndingScene(IWorldSystem *input_location, ParameterQueryData *input_ending_data);
   ~EndingScene() override;
 
   IControl *get_last_control();
