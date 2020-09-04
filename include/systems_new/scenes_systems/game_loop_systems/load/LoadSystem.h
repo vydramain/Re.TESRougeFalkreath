@@ -8,7 +8,7 @@
 
 #include "IMapLoadSystem.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/controls_systems/other_controls/load_controls/LControlMap.h"
+#include "systems_new/scenes_systems//game_loop_systems/load/controls/LControlMap.h"
 #include "systems/rw_systems/reader_systems/location_readers/ILocationReader.hpp"
 #include "systems/rw_systems/reader_systems/location_readers/StdLocationReader.hpp"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"

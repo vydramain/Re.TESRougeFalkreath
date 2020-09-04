@@ -6,7 +6,7 @@
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/controls_systems/IControl.h"
-#include "systems/controls_systems/other_controls/load_controls/LControlMap.h"
+#include "systems_new/scenes_systems//game_loop_systems/load/controls/LControlMap.h"
 #include "systems_new/scenes_systems/game_loop_systems/load/IMapLoadSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/reader/map/MapAmbientReader.hpp"
 #include "systems_new/scenes_systems/game_loop_systems/reader/map/MapItemReader.hpp"

@@ -4,8 +4,8 @@
 
 #pragma once
 
+#include "ILControl.h"
 #include "entities/location_entities/items_entities/Coin.h"
-#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlCoin : public ILControl {

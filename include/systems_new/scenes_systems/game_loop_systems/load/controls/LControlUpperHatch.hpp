@@ -4,8 +4,8 @@
 
 #pragma once
 
+#include "ILControl.h"
 #include "entities/location_entities/ambient_entities/UpperHatch.hpp"
-#include "systems/controls_systems/other_controls/load_controls/ILControl.h"
 
 class LControlUpperHatch : public ILControl {
  public:
