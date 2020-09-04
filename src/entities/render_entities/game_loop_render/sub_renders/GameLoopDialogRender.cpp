@@ -4,11 +4,11 @@
 
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopDialogRender.hpp"
 
-GameLoopDialogRender::GameLoopDialogRender(ILocationSystem *input_system, const Sentient *input_target)
-    : location_system(input_system), target(input_target) {}
+GameLoopDialogRender::GameLoopDialogRender(IWorldSystem *input_system, const Sentient *input_target)
+    : world_system(input_system), target(input_target) {}
 
 GameLoopDialogRender::~GameLoopDialogRender() {
-  location_system = nullptr;
+  world_system = nullptr;
   target = nullptr;
 }
 

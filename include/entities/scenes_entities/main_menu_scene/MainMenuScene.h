@@ -9,9 +9,9 @@
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
-#include "systems_new/IControl.h"
-#include "systems_new/render_systems/IRenderSystem.h"
-#include "systems_new/scenes_systems/main_menu_systems/controls/MMControls.h"
+#include "systems/IControl.h"
+#include "systems/render_systems/IRenderSystem.h"
+#include "systems/scenes_systems/main_menu_systems/controls/MMControls.h"
 
 class MainMenuScene : public IMainScene {
  private:

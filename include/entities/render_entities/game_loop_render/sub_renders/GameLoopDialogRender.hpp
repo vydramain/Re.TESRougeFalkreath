@@ -6,7 +6,7 @@
 
 #include "entities/location_entities/sentients_entities/Sentient.h"
 #include "entities/render_entities/IRender.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class GameLoopDialogRender : public IRender {
  private:
@@ -20,7 +20,7 @@ class GameLoopDialogRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
-  const ILocationSystem *location_system = nullptr;
+  const IWorldSystem *world_system = nullptr;
   const Sentient *target = nullptr;
 
   unsigned camera_position_x = 0;
@@ -35,7 +35,7 @@ class GameLoopDialogRender : public IRender {
   unsigned *highlighted = nullptr;
 
  public:
-  explicit GameLoopDialogRender(ILocationSystem *input_system, const Sentient *input_target);
+  explicit GameLoopDialogRender(IWorldSystem *input_system, const Sentient *input_target);
   ~GameLoopDialogRender() override;
 
   void update_fields(unsigned input_screen_x, unsigned input_screen_y, unsigned input_passive_zone_out_x,

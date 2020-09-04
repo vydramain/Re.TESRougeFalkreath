@@ -8,10 +8,11 @@
 
 #include "entities/StringsListData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
-#include "systems_new/render_systems/IRenderSystem.h"
-#include "systems_new/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
-#include "systems_new/scenes_systems/statistics_systems/StdStatisticsSystem.hpp"
-#include "systems_new/scenes_systems/statistics_systems/controls/SControls.hpp"
+#include "systems/IControl.h"
+#include "systems/render_systems/IRenderSystem.h"
+#include "systems/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
+#include "systems/scenes_systems/statistics_systems/StdStatisticsSystem.hpp"
+#include "systems/scenes_systems/statistics_systems/controls/SControls.hpp"
 
 class StatisticsScene : public IMainScene {
  private:

@@ -5,7 +5,6 @@
 #pragma once
 
 #include <cstring>
-#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 #include "./BearLibTerminal.h"
 #include "entities/render_entities/CleanerRender.h"
@@ -13,9 +12,8 @@
 #include "entities/render_entities/TextPanelsRender.h"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopEndingRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
-#include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
-#include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
+#include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 
 class PseudoGameLoopRender : public IRender {
  private:
@@ -41,8 +39,8 @@ class PseudoGameLoopRender : public IRender {
   void recount_fields(unsigned input_screen_x, unsigned input_screen_y);
 
  public:
-  explicit PseudoGameLoopRender(unsigned input_screen_x, unsigned input_screen_y,
-                                IWorldSystem *input_world_system, ParameterQueryData *input_ending_data);
+  explicit PseudoGameLoopRender(unsigned input_screen_x, unsigned input_screen_y, IWorldSystem *input_world_system,
+                                ParameterQueryData *input_ending_data);
   ~PseudoGameLoopRender() override;
 
   void set_location_system(IWorldSystem *input_world_system);

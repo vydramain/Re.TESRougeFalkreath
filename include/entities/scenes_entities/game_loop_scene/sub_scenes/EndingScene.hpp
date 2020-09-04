@@ -8,8 +8,9 @@
 
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IScene.h"
-#include "systems_new/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControls.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems/IControl.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControls.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class EndingScene : public IScene {
  private:

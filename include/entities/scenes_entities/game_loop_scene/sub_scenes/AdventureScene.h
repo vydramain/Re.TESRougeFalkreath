@@ -4,12 +4,10 @@
 
 #pragma once
 
-#include "systems_new/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
-
 #include "entities/scenes_entities/IScene.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
-#include "systems_new/IControl.h"
-#include "systems_new/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControls.h"
+#include "systems/IControl.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControls.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class AdventureScene : public IScene {
  private:
