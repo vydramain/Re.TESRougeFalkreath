@@ -5,7 +5,7 @@
 #pragma once
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 
 class ExitSceneLauncher : public IControl {
  public:

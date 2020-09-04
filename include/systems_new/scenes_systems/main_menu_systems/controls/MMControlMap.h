@@ -11,7 +11,7 @@
 #include "MMControlSelectEnter.h"
 #include "MMControlSelectExit.h"
 #include "MMControlSelectUp.h"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 
 class MMControlMap {
  private:

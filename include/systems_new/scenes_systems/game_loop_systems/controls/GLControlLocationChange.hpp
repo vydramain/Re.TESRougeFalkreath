@@ -5,9 +5,9 @@
 #pragma once
 
 #include "IGLControl.h"
-#include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems_new/IControl.h"
 #include "systems_new/render_systems/IRenderSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/load/LoadSystem.h"
 

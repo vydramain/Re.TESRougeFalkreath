@@ -7,8 +7,8 @@
 #include <cstring>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems_new/IControl.h"
 #include "systems_new/scenes_systems/game_loop_systems/actions/InteractAbilitySystem.hpp"
 
 class GLAControlPlayerInteract : public IControl {

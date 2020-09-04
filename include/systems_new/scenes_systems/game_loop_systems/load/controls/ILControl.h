@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 #include "systems_new/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class ILControl : public IControl {

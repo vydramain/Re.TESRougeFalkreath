@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "systems/controls_systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems_new/IControl.h"
 #include "systems_new/scenes_systems/game_loop_systems/actions/MoveAbilitySystem.hpp"
 
 class GLAControlPlayerRight : public IControl {

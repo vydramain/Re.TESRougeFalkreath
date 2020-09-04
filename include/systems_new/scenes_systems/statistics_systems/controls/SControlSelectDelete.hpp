@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 #include "systems_new/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
 
 class SControlSelectDelete : public IControl {

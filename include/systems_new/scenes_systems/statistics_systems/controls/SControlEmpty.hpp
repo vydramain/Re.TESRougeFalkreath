@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 
 class SControlEmpty : public IControl {
  public:

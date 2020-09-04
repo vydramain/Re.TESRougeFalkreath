@@ -6,7 +6,7 @@
 
 #include "./BearLibTerminal.h"
 #include "MMControlMap.h"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 
 class MMControls {
  private:

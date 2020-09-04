@@ -6,7 +6,7 @@
 
 #include "./BearLibTerminal.h"
 #include "GLEControlMap.h"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 
 class GLEControls {
  private:

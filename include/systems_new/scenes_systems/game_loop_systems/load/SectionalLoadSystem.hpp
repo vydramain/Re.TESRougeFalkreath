@@ -5,7 +5,7 @@
 #pragma once
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 #include "systems_new/scenes_systems//game_loop_systems/load/controls/LControlMap.h"
 #include "systems_new/scenes_systems/game_loop_systems/load/IMapLoadSystem.h"
 #include "systems_new/scenes_systems/game_loop_systems/reader/map/MapAmbientReader.hpp"

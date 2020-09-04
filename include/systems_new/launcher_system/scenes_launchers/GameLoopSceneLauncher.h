@@ -7,7 +7,7 @@
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 #include "systems_new/render_systems/IRenderSystem.h"
 
 class GameLoopSceneLauncher : public IControl {

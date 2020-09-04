@@ -12,7 +12,7 @@
 #include "StatisticsSceneLauncher.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
-#include "systems/controls_systems/IControl.h"
+#include "systems_new/IControl.h"
 #include "systems_new/render_systems/BearRenderSystem.h"
 #include "systems_new/render_systems/IRenderSystem.h"
 
