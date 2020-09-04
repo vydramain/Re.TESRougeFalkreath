@@ -13,10 +13,12 @@ ScenesLaunchersManager::ScenesLaunchersManager() {
   exit = new ExitSceneLauncher();
   new_game = new GameLoopSceneLauncher(render, expected_scene);
   main_menu = new MainMenuSceneLauncher(render, expected_scene);
+  settings = new SettingsSceneLauncher(render, expected_scene);
   score_list = new StatisticsSceneLauncher(render, expected_scene);
 
   main_map[MAIN_MENU_SCENE] = main_menu;
   main_map[NEW_GAME_SCENE] = new_game;
+  main_map[SETTINGS_SCENE] = settings;
   main_map[SCORE_LIST_SCENE] = score_list;
   main_map[EXIT_SCENE] = exit;
 }
@@ -28,6 +30,7 @@ ScenesLaunchersManager::~ScenesLaunchersManager() {
   delete exit;
   delete main_menu;
   delete new_game;
+  delete settings;
   delete score_list;
 
   delete render;

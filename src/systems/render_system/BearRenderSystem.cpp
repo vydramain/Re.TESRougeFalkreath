@@ -31,6 +31,11 @@ void BearRenderSystem::set_score_list_data(StringsListData *input_score_list_dat
   score_list_data = input_score_list_data;
 }
 
+void BearRenderSystem::set_settings_data(ParameterQueryData *input_settings_data) {
+  is_settings_list = true;
+  settings_data = input_settings_data;
+}
+
 void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system,
                                           ParameterQueryData *input_ending_data) {
   is_game_loop = true;
@@ -51,6 +56,14 @@ void BearRenderSystem::set_score_list_render() {
   delete render_entity;
   if (is_score_list) {
     render_entity = new StatisticsRender(SCREENMODE_X, SCREENMODE_Y, score_list_data);
+  }
+}
+
+void BearRenderSystem::set_setting_render() {
+  PseudoLogSystem::log("RenderSystem", "Setting up setting render");
+  delete render_entity;
+  if (is_settings_list) {
+    render_entity = new SettingsRender(SCREENMODE_X, SCREENMODE_Y, settings_data);
   }
 }
 

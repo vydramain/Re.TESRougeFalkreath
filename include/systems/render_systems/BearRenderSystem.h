@@ -5,13 +5,15 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
-#include "systems/render_systems/IRenderSystem.h"
+#include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 #include "entities/render_entities/game_loop_render/PseudoGameLoopRender.h"
 #include "entities/render_entities/main_menu_render/MainMenuRender.h"
+#include "entities/render_entities/settings_render/SettingsRender.hpp"
 #include "entities/render_entities/statistics_render/StatisticsRender.hpp"
+#include "systems/render_systems/IRenderSystem.h"
 
 /*
  * Class response all terminal options.
@@ -25,25 +27,30 @@ class BearRenderSystem : public IRenderSystem {
   IRender* render_entity = nullptr;
 
   bool is_menu = false;
-  ParameterQueryData*menu_data = nullptr;
+  ParameterQueryData* menu_data = nullptr;
 
   bool is_score_list = false;
   StringsListData* score_list_data = nullptr;
 
+  bool is_settings_list = false;
+  ParameterQueryData* settings_data = nullptr;
+
   bool is_game_loop = false;
   IWorldSystem* world_system = nullptr;
-  ParameterQueryData*ending_data = nullptr;
+  ParameterQueryData* ending_data = nullptr;
 
  public:
   explicit BearRenderSystem();
   ~BearRenderSystem() override;
 
-  void set_main_menu_data(ParameterQueryData*input_menu_data) override;
+  void set_main_menu_data(ParameterQueryData* input_menu_data) override;
   void set_score_list_data(StringsListData* input_score_list_data) override;
-  void set_game_loop_data(IWorldSystem* input_world_system, ParameterQueryData*input_ending_data) override;
+  void set_settings_data(ParameterQueryData* input_settings_data) override;
+  void set_game_loop_data(IWorldSystem* input_world_system, ParameterQueryData* input_ending_data) override;
 
   void set_main_menu_render() override;
   void set_score_list_render() override;
+  void set_setting_render() override;
   void set_pseudo_game_loop_render() override;
 
   void render() override;

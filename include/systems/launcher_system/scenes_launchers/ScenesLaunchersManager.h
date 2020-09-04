@@ -12,6 +12,7 @@
 #include "systems/launcher_system/scenes_launchers/ExitSceneLauncher.h"
 #include "systems/launcher_system/scenes_launchers/GameLoopSceneLauncher.h"
 #include "systems/launcher_system/scenes_launchers/MainMenuSceneLauncher.h"
+#include "systems/launcher_system/scenes_launchers/SettingsSceneLauncher.hpp"
 #include "systems/launcher_system/scenes_launchers/StatisticsSceneLauncher.hpp"
 #include "systems/render_systems/BearRenderSystem.h"
 #include "systems/render_systems/IRenderSystem.h"
@@ -21,6 +22,7 @@ class ScenesLaunchersManager {
   ExitSceneLauncher *exit = nullptr;
   GameLoopSceneLauncher *new_game = nullptr;
   MainMenuSceneLauncher *main_menu = nullptr;
+  SettingsSceneLauncher *settings = nullptr;
   StatisticsSceneLauncher *score_list = nullptr;
 
   std::map<SceneType, IControl *> main_map;

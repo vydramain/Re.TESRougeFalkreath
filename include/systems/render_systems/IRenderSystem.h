@@ -14,10 +14,12 @@ class IRenderSystem {
 
   virtual void set_main_menu_data(ParameterQueryData *input_menu_data) = 0;
   virtual void set_score_list_data(StringsListData *input_score_list_data) = 0;
+  virtual void set_settings_data(ParameterQueryData *input_settings_data) = 0;
   virtual void set_game_loop_data(IWorldSystem *input_world_system, ParameterQueryData *input_ending_data) = 0;
 
   virtual void set_main_menu_render() = 0;
   virtual void set_score_list_render() = 0;
+  virtual void set_setting_render() = 0;
   virtual void set_pseudo_game_loop_render() = 0;
 
   virtual void render() = 0;
