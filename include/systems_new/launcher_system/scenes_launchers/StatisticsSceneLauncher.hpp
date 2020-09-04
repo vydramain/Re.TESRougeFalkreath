@@ -8,7 +8,7 @@
 #include "entities/scenes_entities/SceneType.hpp"
 #include "entities/scenes_entities/statistics_scene/StatisticsScene.hpp"
 #include "systems/controls_systems/IControl.h"
-#include "systems/render_systems/IRenderSystem.h"
+#include "systems_new/render_systems/IRenderSystem.h"
 
 class StatisticsSceneLauncher : public IControl {
  private:

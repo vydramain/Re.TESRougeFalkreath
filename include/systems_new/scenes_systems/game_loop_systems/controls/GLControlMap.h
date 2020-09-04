@@ -13,8 +13,8 @@
 #include "GLControlLocationChange.hpp"
 #include "GLControlScoreSave.hpp"
 #include "entities/location_entities/sentients_entities/beastfolks/Khadjiit.h"
-#include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
+#include "systems_new/render_systems/IRenderSystem.h"
 
 class GLControlMap {
  private:

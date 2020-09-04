@@ -10,7 +10,7 @@
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/controls_systems/IControl.h"
-#include "systems/render_systems/IRenderSystem.h"
+#include "systems_new/render_systems/IRenderSystem.h"
 #include "systems_new/scenes_systems/main_menu_systems/controls/MMControls.h"
 
 class MainMenuScene : public IMainScene {

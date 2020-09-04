@@ -13,8 +13,8 @@
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/controls_systems/IControl.h"
-#include "systems/render_systems/BearRenderSystem.h"
-#include "systems/render_systems/IRenderSystem.h"
+#include "systems_new/render_systems/BearRenderSystem.h"
+#include "systems_new/render_systems/IRenderSystem.h"
 
 class ScenesLaunchersManager {
  private:

@@ -5,13 +5,13 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
+#include "IRenderSystem.h"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 #include "entities/render_entities/game_loop_render/PseudoGameLoopRender.h"
 #include "entities/render_entities/main_menu_render/MainMenuRender.h"
 #include "entities/render_entities/statistics_render/StatisticsRender.hpp"
-#include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/location_systems/ILocationSystem.h"
 
 /*

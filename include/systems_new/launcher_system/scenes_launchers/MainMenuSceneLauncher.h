@@ -8,7 +8,7 @@
 #include "entities/scenes_entities/SceneType.hpp"
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 #include "systems/controls_systems/IControl.h"
-#include "systems/render_systems/IRenderSystem.h"
+#include "systems_new/render_systems/IRenderSystem.h"
 
 class MainMenuSceneLauncher : public IControl {
  private:

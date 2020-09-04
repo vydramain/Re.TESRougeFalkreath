@@ -2,7 +2,7 @@
 // Created by vydra on 8/12/20.
 //
 
-#include "systems/render_systems/BearRenderSystem.h"
+#include "systems_new/render_systems/BearRenderSystem.h"
 
 BearRenderSystem::BearRenderSystem() {
   SCREENMODE_X = 100;
