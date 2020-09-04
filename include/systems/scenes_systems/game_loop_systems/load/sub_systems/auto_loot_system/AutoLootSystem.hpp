@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <ctime>
 #include <cstdlib>
 
 #include "entities/location_entities/items_entities/Coin.h"

@@ -12,7 +12,7 @@
 
 class MapItemReader : public MapReader {
  private:
-  char* item_type = nullptr;
+  std::string item_type;
   unsigned items_count = 0;
   std::vector<std::pair<unsigned, unsigned>> items_location;
 

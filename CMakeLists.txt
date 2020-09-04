@@ -29,6 +29,6 @@ install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME})
 
 
 # Add linting before compilation
-include(CppLint)
-ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
-add_dependencies(${PROJECT_NAME} lint)
+#include(CppLint)
+#ADD_STYLE_CHECK_TARGET(lint ${PROJECT_NAME} ${PROJECT_HEADERS_DIR} ${PROJECT_SOURCES_DIR})
+#add_dependencies(${PROJECT_NAME} lint)

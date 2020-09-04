@@ -8,7 +8,7 @@
 
 void MapItemReader::clear_item_data() {
   items_count = 0;
-  item_type = nullptr;
+  item_type.clear();
   items_location.clear();
 }
 
@@ -27,28 +27,32 @@ bool MapItemReader::open() {
 }
 
 bool MapItemReader::has_item() {
-  return feof(file);
+  return !feof(file);
 }
 bool MapItemReader::load_item() {
   clear_item_data();
-  if (fscanf(file, "%s", item_type) == 0) {
+  char temp_character = getc(file);
+  while (temp_character != ' ' && !feof(file)) {
+    item_type.append(sizeof(char), temp_character);
+    temp_character = getc(file);
+  }
+  if (fscanf(file, "%u", &items_count) != 0) {
     getc(file);
-    if (fscanf(file, "%u", &items_count) == 0) {
-      unsigned temp_x, temp_y;
-      for (unsigned i = 0; i < items_count; i++) {
-        if (fscanf(file, "%u %u", &temp_x, &temp_y) == 0) {
-          getc(file);
-          items_location.emplace_back(temp_x, temp_y);
-        }
+    unsigned temp_x, temp_y;
+    for (unsigned i = 0; i < items_count; i++) {
+      if (fscanf(file, "%u %u", &temp_x, &temp_y) != 0) {
+        getc(file);
+        items_location.emplace_back(temp_x, temp_y);
       }
-      return true;
     }
+    return true;
   }
   clear_item_data();
   return false;
 }
+
 std::string MapItemReader::get_item_type() {
-  return std::string(item_type);
+  return item_type;
 }
 
 unsigned MapItemReader::get_items_count() {
