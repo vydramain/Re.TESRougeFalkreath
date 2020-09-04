@@ -4,6 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/reader/map/MapTitleReader.hpp"
 
+#include <string>
+
 MapTitleReader::MapTitleReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
 
 MapTitleReader::~MapTitleReader() = default;

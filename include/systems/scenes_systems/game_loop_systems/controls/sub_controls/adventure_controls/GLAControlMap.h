@@ -7,14 +7,14 @@
 #include <map>
 
 #include "./BearLibTerminal.h"
-#include "GLAControlEmpty.h"
-#include "GLAControlEnding.hpp"
-#include "GLAControlExit.h"
-#include "GLAControlPlayerDown.h"
-#include "GLAControlPlayerInteract.h"
-#include "GLAControlPlayerLeft.h"
-#include "GLAControlPlayerRight.h"
-#include "GLAControlPlayerUp.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlEmpty.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlEnding.hpp"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlExit.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlPlayerDown.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlPlayerInteract.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlPlayerLeft.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlPlayerRight.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControlPlayerUp.h"
 
 class GLAControlMap {
  private:

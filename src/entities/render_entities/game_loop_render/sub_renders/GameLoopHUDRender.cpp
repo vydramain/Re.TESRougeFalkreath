@@ -2,7 +2,9 @@
 // Created by vydra on 8/17/20.
 //
 
-#include <entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp>
+#include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
+
+#include <string>
 
 GameLoopHUDRender::GameLoopHUDRender(IWorldSystem *input_world_system, const Sentient *input_target)
     : world_system(input_world_system), target(input_target) {}
@@ -81,7 +83,8 @@ void GameLoopHUDRender::check_item_interact(unsigned input_index) {
 
 void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   terminal_color(0xffffffff);
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "Door") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "Door") == 0) {
     if (world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_floor()) {
       const char *text[1] = {"Нажмите 'E' чтобы закрыть"};
       view_one_string_message(text);
@@ -91,32 +94,38 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
     }
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "SouthGate") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "SouthGate") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
     view_two_string_message(text);
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "EastGate") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "EastGate") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
     view_two_string_message(text);
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "WestGate") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "WestGate") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
     view_two_string_message(text);
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "UpperHatch") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "UpperHatch") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы спуститься", "в подземелье Кровавого Трона"};
     view_two_string_message(text);
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "LowerHatch") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "LowerHatch") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы подняться", "в руины форта Кровавого Трона"};
     view_two_string_message(text);
   }
 
-  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(), "CaveQuit") == 0) {
+  if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+                  "CaveQuit") == 0) {
     const char *text[2] = {"Нажмите 'E' чтобы выйти", "из подземелья"};
     view_two_string_message(text);
   }
@@ -155,7 +164,8 @@ void GameLoopHUDRender::render_inventory() {
   terminal_color(0xffffffff);
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
   char wallet[7];
-  snprintf(wallet, (size_t) "%u", "%u", world_system->get_current_map()->get_entities_system()->get_player()->get_wallet());
+  snprintf(wallet, (size_t) "%u", "%u",
+           world_system->get_current_map()->get_entities_system()->get_player()->get_wallet());
   terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
 }
 
@@ -163,8 +173,10 @@ void GameLoopHUDRender::render_coordinates() {
   terminal_color(0xffffffff);
   terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
   char x[4], y[4];
-  snprintf(x, (size_t) "%u", "%u", world_system->get_current_map()->get_entities_system()->get_player()->get_current_x());
-  snprintf(y, (size_t) "%u", "%u", world_system->get_current_map()->get_entities_system()->get_player()->get_current_y());
+  snprintf(x, (size_t) "%u", "%u",
+           world_system->get_current_map()->get_entities_system()->get_player()->get_current_x());
+  snprintf(y, (size_t) "%u", "%u",
+           world_system->get_current_map()->get_entities_system()->get_player()->get_current_y());
   terminal_print(passive_zone_out_x + 15, passive_zone_out_y - 3, x);
   terminal_print(passive_zone_out_x + 20, passive_zone_out_y - 3, y);
 }

@@ -4,6 +4,8 @@
 
 #include "entities/render_entities/statistics_render/StatisticsRender.hpp"
 
+#include <string>
+
 void StatisticsRender::render_title() {
   std::string *render_title[1] = {score_list_data->get_title()};
   TextPanelsRender::view_strings_list(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, render_title, 1);

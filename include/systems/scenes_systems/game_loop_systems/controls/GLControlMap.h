@@ -5,6 +5,7 @@
 #pragma once
 
 #include <map>
+#include <string>
 
 #include "entities/location_entities/sentients_entities/beastfolks/Khadjiit.h"
 #include "systems/render_systems/IRenderSystem.h"

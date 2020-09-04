@@ -4,6 +4,8 @@
 
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 
+#include <string>
+
 GameLoopScene::GameLoopScene(IRenderSystem *input_render_system) : IMainScene("MainLoopScene") {
   auto **menu_choice = new std::string *[2];
   menu_choice[0] = new std::string("Да");

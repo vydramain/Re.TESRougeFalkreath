@@ -4,6 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/reader/map/MapAmbientReader.hpp"
 
+#include <string>
+
 MapAmbientReader::MapAmbientReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
 
 MapAmbientReader::~MapAmbientReader() = default;

@@ -4,9 +4,10 @@
 
 #include "entities/ParameterQueryData.hpp"
 
-#include <utility>
+#include <string>
 
-ParameterQueryData::ParameterQueryData(std::string *input_title, unsigned int input_count_choices, std::string **input_choices) {
+ParameterQueryData::ParameterQueryData(std::string *input_title, unsigned int input_count_choices,
+                                       std::string **input_choices) {
   title = input_title;
   count_choices = input_count_choices;
   choices = input_choices;
@@ -66,15 +67,15 @@ void ParameterQueryData::set_highlighted(unsigned int input_highlighted) {
 }
 
 std::string **ParameterQueryData::create_choices(unsigned int input_count_choices, const char **input_choices) {
-  auto **temp_choices = new std::string*[input_count_choices];
-  for(unsigned int i = 0; i < input_count_choices; i++ ) {
+  auto **temp_choices = new std::string *[input_count_choices];
+  for (unsigned int i = 0; i < input_count_choices; i++) {
     temp_choices[i] = new std::string(input_choices[i]);
   }
   return temp_choices;
 }
 std::string **ParameterQueryData::create_choices(unsigned int input_count_choices, std::string *input_choices) {
-  auto **temp_choices = new std::string*[input_count_choices];
-  for(unsigned int i = 0; i < input_count_choices; i++ ) {
+  auto **temp_choices = new std::string *[input_count_choices];
+  for (unsigned int i = 0; i < input_count_choices; i++) {
     temp_choices[i] = new std::string(input_choices[i]);
   }
   return temp_choices;

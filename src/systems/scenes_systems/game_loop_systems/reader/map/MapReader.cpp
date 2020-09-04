@@ -4,6 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/reader/map/MapReader.hpp"
 
+#include <string>
+
 MapReader::MapReader(std::string input_file_name) {
   file_name = std::move(input_file_name);
 }
@@ -19,8 +21,8 @@ std::string MapReader::get_file_name() {
 }
 
 bool MapReader::is_file() {
-  if(file != nullptr) {
-    if(!feof(file)){
+  if (file != nullptr) {
+    if (!feof(file)) {
       return true;
     }
   }

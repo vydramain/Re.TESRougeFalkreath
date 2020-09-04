@@ -4,6 +4,8 @@
 
 #include "entities/scenes_entities/main_menu_scene/MainMenuScene.h"
 
+#include <string>
+
 MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("MainMenuScene") {
   std::string temp_choices[3] = {"Новая игра", "Статистика", "Выход"};
   data =

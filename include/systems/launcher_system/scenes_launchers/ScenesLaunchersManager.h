@@ -6,13 +6,13 @@
 
 #include <map>
 
-#include "ExitSceneLauncher.h"
-#include "GameLoopSceneLauncher.h"
-#include "MainMenuSceneLauncher.h"
-#include "StatisticsSceneLauncher.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/IControl.h"
+#include "systems/launcher_system/scenes_launchers/ExitSceneLauncher.h"
+#include "systems/launcher_system/scenes_launchers/GameLoopSceneLauncher.h"
+#include "systems/launcher_system/scenes_launchers/MainMenuSceneLauncher.h"
+#include "systems/launcher_system/scenes_launchers/StatisticsSceneLauncher.hpp"
 #include "systems/render_systems/BearRenderSystem.h"
 #include "systems/render_systems/IRenderSystem.h"
 

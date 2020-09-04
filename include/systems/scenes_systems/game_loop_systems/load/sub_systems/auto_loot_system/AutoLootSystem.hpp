@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <cstdlib>
+
 #include "entities/location_entities/items_entities/Coin.h"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 

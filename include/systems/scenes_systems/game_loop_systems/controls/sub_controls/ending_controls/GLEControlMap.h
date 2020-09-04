@@ -7,11 +7,11 @@
 #include <map>
 
 #include "./BearLibTerminal.h"
-#include "GLEControlSelectDown.h"
-#include "GLEControlSelectEmpty.h"
-#include "GLEControlSelectEnter.h"
-#include "GLEControlSelectExit.h"
-#include "GLEControlSelectUp.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectDown.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectEmpty.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectEnter.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectExit.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectUp.h"
 
 class GLEControlMap {
  private:

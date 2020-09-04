@@ -4,6 +4,9 @@
 
 #include "systems/scenes_systems/game_loop_systems/world/WorldSystem.hpp"
 
+#include <vector>
+#include <string>
+
 WorldSystem::WorldSystem() = default;
 
 WorldSystem::~WorldSystem() {
@@ -12,17 +15,17 @@ WorldSystem::~WorldSystem() {
 }
 
 void WorldSystem::add_new_map(std::string input_map_address) {
-  auto *load_system = new SectionalLoadSystem(input_map_address);
+  auto* load_system = new SectionalLoadSystem(input_map_address);
   load_system->load_new_map();
-  auto *map = load_system->get_map_system();
+  auto* map = load_system->get_map_system();
   maps.push_back(map);
   delete load_system;
 }
 
 void WorldSystem::add_old_map(std::string input_map_address) {
-  auto *load_system = new SectionalLoadSystem(input_map_address);
+  auto* load_system = new SectionalLoadSystem(input_map_address);
   load_system->load_old_map();
-  auto *map = load_system->get_map_system();
+  auto* map = load_system->get_map_system();
   maps.push_back(map);
   delete load_system;
 }
@@ -54,7 +57,7 @@ std::vector<std::string>* WorldSystem::get_maps_names() {
 }
 
 void WorldSystem::set_ending_game(bool input_ending) {
-   ending = input_ending;
+  ending = input_ending;
 }
 bool WorldSystem::get_ending_game() {
   return ending;

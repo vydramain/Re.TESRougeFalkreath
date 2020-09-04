@@ -4,6 +4,8 @@
 
 #include "entities/render_entities/TextPanelsRender.h"
 
+#include <string>
+
 void TextPanelsRender::view_strings_list(unsigned int in_x, unsigned int in_y, unsigned int out_x, unsigned int out_y,
                                          std::string **input_strings, unsigned input_count_strings) {
   // cleaning up Area for message

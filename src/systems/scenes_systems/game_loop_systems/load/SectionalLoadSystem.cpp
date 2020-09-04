@@ -4,6 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/load/SectionalLoadSystem.hpp"
 
+#include <string>
+
 bool SectionalLoadSystem::check_files() {
   return !ambient_reader->is_file() && !item_reader->is_file();
 }

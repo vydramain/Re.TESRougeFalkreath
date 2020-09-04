@@ -31,6 +31,6 @@ class ParameterQueryData {
   void set_choices(std::string **input_choices);
   void set_highlighted(unsigned int input_highlighted);
 
-  static std::string** create_choices(unsigned int input_count_choices, const char** input_choices);
-  static std::string** create_choices(unsigned int input_count_choices, std::string* input_choices);
+  static std::string **create_choices(unsigned int input_count_choices, const char **input_choices);
+  static std::string **create_choices(unsigned int input_count_choices, std::string *input_choices);
 };

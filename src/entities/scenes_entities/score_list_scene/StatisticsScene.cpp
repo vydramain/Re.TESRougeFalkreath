@@ -4,6 +4,8 @@
 
 #include "entities/scenes_entities/statistics_scene/StatisticsScene.hpp"
 
+#include <string>
+
 StatisticsScene::StatisticsScene(IRenderSystem *input_render_system) {
   data = new StringsListData();
   score_system = new StdStatisticsSystem();

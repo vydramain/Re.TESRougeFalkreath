@@ -4,6 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/reader/map/MapItemReader.hpp"
 
+#include <string>
+
 void MapItemReader::clear_item_data() {
   items_count = 0;
   item_type = nullptr;

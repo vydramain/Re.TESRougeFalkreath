@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "IGLControl.h"
+#include "systems/scenes_systems/game_loop_systems/controls/IGLControl.h"
 
 class GLControlExit : public IGLControl {
  private:
