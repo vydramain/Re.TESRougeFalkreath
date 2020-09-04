@@ -4,16 +4,16 @@
 
 #include "systems/launcher_system/scenes_launchers/ScenesLaunchersManager.h"
 
-ScenesLaunchersManager::ScenesLaunchersManager() {
+ScenesLaunchersManager::ScenesLaunchersManager(GameSettingsData* input_settings_data) {
   PseudoLogSystem::log("ScenesLaunchersManager", "Launch BearLibTerminal's render system");
   render = new BearRenderSystem();
   expected_scene = new SceneType(MAIN_MENU_SCENE);
 
   PseudoLogSystem::log("ScenesLaunchersManager", "Creating expected scene's controls launchers");
   exit = new ExitSceneLauncher();
-  new_game = new GameLoopSceneLauncher(render, expected_scene);
+  new_game = new GameLoopSceneLauncher(render, expected_scene, input_settings_data);
   main_menu = new MainMenuSceneLauncher(render, expected_scene);
-  settings = new SettingsSceneLauncher(render, expected_scene);
+  settings = new SettingsSceneLauncher(render, expected_scene, input_settings_data);
   score_list = new StatisticsSceneLauncher(render, expected_scene);
 
   main_map[MAIN_MENU_SCENE] = main_menu;

@@ -13,8 +13,8 @@ class SEControls {
   SEControlMap *control_map;
 
  public:
-  explicit SEControls(ParameterQueryData *input_settings_data) {
-    control_map = new SEControlMap(input_settings_data);
+  explicit SEControls(ParameterQueryData *input_settings_data, GameSettingsData* input_global_settings_data) {
+    control_map = new SEControlMap(input_settings_data, input_global_settings_data);
   }
 
   ~SEControls() {

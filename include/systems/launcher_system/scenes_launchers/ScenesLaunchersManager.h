@@ -7,6 +7,7 @@
 #include <map>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
+#include "entities/GameSettingsData.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/IControl.h"
 #include "systems/launcher_system/scenes_launchers/ExitSceneLauncher.h"
@@ -32,7 +33,7 @@ class ScenesLaunchersManager {
   SceneType *expected_scene = nullptr;
 
  public:
-  explicit ScenesLaunchersManager();
+  explicit ScenesLaunchersManager(GameSettingsData *input_settings_data);
   ~ScenesLaunchersManager();
 
   SceneType get_expected_scene_type() const;

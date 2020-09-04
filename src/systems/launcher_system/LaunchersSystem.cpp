@@ -3,13 +3,16 @@
 //
 
 #include "systems/launcher_system/LaunchersSystem.hpp"
+#include "entities/GameSettingsData.hpp"
 
 void LaunchersSystem::run() {
   printf("%s", "starting...\n");
   printf("%s", "--------re.TESFalkreath--------\n");
 
+  auto *settings_data = new GameSettingsData();
+
   IControl *launcher_scene;
-  auto *launcher_map = new ScenesLaunchersManager();
+  auto *launcher_map = new ScenesLaunchersManager(settings_data);
   launcher_scene = launcher_map->get_control(launcher_map->get_expected_scene_type());
 
   do {
@@ -18,4 +21,5 @@ void LaunchersSystem::run() {
   } while (std::strcmp(launcher_scene->get_name(), "ExitSceneLauncher") != 0);
 
   delete launcher_map;
+  delete settings_data;
 }

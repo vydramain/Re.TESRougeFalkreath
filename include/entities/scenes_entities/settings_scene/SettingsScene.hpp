@@ -7,6 +7,7 @@
 #include <cstring>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
+#include "entities/GameSettingsData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/IControl.h"
@@ -15,6 +16,7 @@
 
 class SettingsScene : public IMainScene {
  private:
+  GameSettingsData* global_settings_data = nullptr;
   ParameterQueryData *data = nullptr;
   IRenderSystem *render_system = nullptr;
 
@@ -22,7 +24,7 @@ class SettingsScene : public IMainScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit SettingsScene(IRenderSystem *input_render_system);
+  explicit SettingsScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data);
   ~SettingsScene() override;
 
   unsigned get_highlighted() const;

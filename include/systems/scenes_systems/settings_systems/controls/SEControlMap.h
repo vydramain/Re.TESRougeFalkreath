@@ -28,10 +28,10 @@ class SEControlMap {
   std::map<int, IControl *>::iterator s_iterator;
 
  public:
-  explicit SEControlMap(ParameterQueryData *input_settings_data) {
+  explicit SEControlMap(ParameterQueryData *input_settings_data, GameSettingsData* input_global_settings_data) {
     PseudoLogSystem::log("SEControlMap", "Create settings controls");
-    down = new SEControlSelectDown(input_settings_data);
-    up = new SEControlSelectUp(input_settings_data);
+    down = new SEControlSelectDown(input_settings_data, input_global_settings_data);
+    up = new SEControlSelectUp(input_settings_data, input_global_settings_data);
     exit = new SEControlSelectExit();
     empty = new SEControlSelectEmpty();
     enter = new SEControlSelectEnter();
