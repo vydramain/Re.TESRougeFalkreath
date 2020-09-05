@@ -68,13 +68,12 @@ class GLControlMap {
     } else {
       world_system->add_new_map("../maps/bloodlet_throne");
     }
-    world_system->set_current_map(std::string("WestForest"));
+    world_system->set_current_map(std::string("Falkreath"));
     if (world_system->get_current_map() == nullptr) {
       PseudoLogSystem::log("GLControlMap", "Can not start loop");
       return control_exit;
     }
-    // Falkreath - 18 94
-    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 182, 95));
+    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 95));
     last_control = control_adventure;
     return control_adventure;
   }
