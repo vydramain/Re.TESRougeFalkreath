@@ -8,10 +8,11 @@
 class SEControlSelectDown : public IControl {
  private:
   GameSettingsData* global_settings_data;
-  ParameterQueryData *settings_data;
+  ParameterQueryData* settings_data;
 
  public:
-  explicit SEControlSelectDown(ParameterQueryData *input_settings_data, GameSettingsData* input_global_settings_data) : IControl("SEControlSelectDown") {
+  explicit SEControlSelectDown(ParameterQueryData* input_settings_data, GameSettingsData* input_global_settings_data)
+      : IControl("SEControlSelectDown") {
     settings_data = input_settings_data;
     global_settings_data = input_global_settings_data;
   }

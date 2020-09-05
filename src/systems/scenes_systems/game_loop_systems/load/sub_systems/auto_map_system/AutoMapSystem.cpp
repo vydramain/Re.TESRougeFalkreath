@@ -4,7 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/load/sub_systems/auto_map_system/AutoMapSystem.hpp"
 
-#include <systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/MapSystem.hpp>
+#include <string>
 
 AutoMapSystem::AutoMapSystem(std::string input_map_name) {
   map_name = std::move(input_map_name);
@@ -20,18 +20,20 @@ IMapSystem *AutoMapSystem::generate_location() {
   size_y = 150;
   entities_system = new EntitiesSystem();
 
-  unsigned room_x = 3;
-  unsigned room_y = 1;
+  unsigned *room_x = new unsigned(3);
+  unsigned *room_y = new unsigned(1);
   unsigned last_random;
-  generate_entrance(room_x + rand() % 5 + 2, room_y + rand() % 5 + 2);
-  generate_random_room(room_x, room_y, rand() % 3);
-  unsigned random_count = rand() % 5 + 2;
+  unsigned seed;
+
+  generate_entrance(*room_x + rand_r(&seed) % 5 + 2, *room_y + rand_r(&seed) % 5 + 2);
+  generate_random_room(room_x, room_y, rand_r(&seed) % 3);
+  unsigned random_count = rand_r(&seed) % 5 + 2;
   for (unsigned i = 0; i < random_count; i++) {
-    last_random = generate_random_corridor(room_x, room_y, 1 + rand() % 1);
-    generate_random_room(room_x, room_y, rand() % 3, last_random);
-    generate_coins(room_x - 2, room_y - 2);
+    last_random = generate_random_corridor(room_x, room_y, 1 + rand_r(&seed) % 1);
+    generate_random_room(room_x, room_y, rand_r(&seed) % 3, last_random);
+    generate_coins(*room_x - 2, *room_y - 2);
   }
-  generate_exit(room_x - rand() % 6 - 2, room_y - rand() % 6 - 2);
+  generate_exit(*room_x - rand_r(&seed) % 6 - 2, *room_y - rand_r(&seed) % 6 - 2);
 
   return new MapSystem(map_name, size_x, size_y, entities_system);
 }
@@ -98,38 +100,38 @@ void AutoMapSystem::generate_coins(unsigned int input_x, unsigned int input_y) {
   randomizer->generate_group_of_coins(1, input_x, input_y);
 }
 
-void AutoMapSystem::generate_random_room(unsigned int &input_x, unsigned int &input_y, unsigned input_random,
+void AutoMapSystem::generate_random_room(unsigned int *input_x, unsigned int *input_y, unsigned input_random,
                                          unsigned last_random) {
   if (input_random == 0) {
-    generate_small_room(input_x, input_y);
-    clear_entrance_to_room(input_x, input_y, last_random);
-    input_x += small_room_size_x;
-    input_y += small_room_size_y;
+    generate_small_room(*input_x, *input_y);
+    clear_entrance_to_room(*input_x, *input_y, last_random);
+    *input_x += small_room_size_x;
+    *input_y += small_room_size_y;
   }
   if (input_random == 1) {
-    generate_middle_room(input_x, input_y);
-    clear_entrance_to_room(input_x, input_y, last_random);
-    input_x += middle_room_size_x;
-    input_y += middle_room_size_y;
+    generate_middle_room(*input_x, *input_y);
+    clear_entrance_to_room(*input_x, *input_y, last_random);
+    *input_x += middle_room_size_x;
+    *input_y += middle_room_size_y;
   }
   if (input_random == 2) {
-    generate_large_room(input_x, input_y);
-    clear_entrance_to_room(input_x, input_y, last_random);
-    input_x += large_room_size_x;
-    input_y += large_room_size_y;
+    generate_large_room(*input_x, *input_y);
+    clear_entrance_to_room(*input_x, *input_y, last_random);
+    *input_x += large_room_size_x;
+    *input_y += large_room_size_y;
   }
 }
 
-unsigned AutoMapSystem::generate_random_corridor(unsigned int &input_x, unsigned int &input_y, unsigned input_random) {
+unsigned AutoMapSystem::generate_random_corridor(unsigned int *input_x, unsigned int *input_y, unsigned input_random) {
   if (input_random == 1) {
-    generate_corridors_horizontal(input_x, input_y - corridor_size_length);
-    input_x += corridor_size_length;
-    input_y -= 7;
+    generate_corridors_horizontal(*input_x, *input_y - corridor_size_length);
+    *input_x += corridor_size_length;
+    *input_y -= 7;
   }
   if (input_random == 2) {
-    generate_corridors_vertical(input_x - corridor_size_length, input_y);
-    input_x -= 7;
-    input_y += corridor_size_length;
+    generate_corridors_vertical(*input_x - corridor_size_length, *input_y);
+    *input_x -= 7;
+    *input_y += corridor_size_length;
   }
   return input_random;
 }

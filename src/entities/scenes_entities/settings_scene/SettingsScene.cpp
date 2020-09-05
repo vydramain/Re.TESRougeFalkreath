@@ -4,11 +4,11 @@
 
 #include "entities/scenes_entities/settings_scene/SettingsScene.hpp"
 
-SettingsScene::SettingsScene(IRenderSystem *input_render_system, GameSettingsData* input_settings_data) {
-  std::string temp_choices[2] = {"Включить рандомную генерацию подемелий", "Выключить рандомную генерацию подемелий"};
-  data =
-      new ParameterQueryData(new std::string("Настройки:"), 2, ParameterQueryData::create_choices(2, temp_choices));
+#include <string>
 
+SettingsScene::SettingsScene(IRenderSystem* input_render_system, GameSettingsData* input_settings_data) {
+  std::string temp_choices[2] = {"Включить рандомную генерацию подемелий", "Выключить рандомную генерацию подемелий"};
+  data = new ParameterQueryData(new std::string("Настройки:"), 2, ParameterQueryData::create_choices(2, temp_choices));
   s_input = new SEControls(data, input_settings_data);
 
   global_settings_data = input_settings_data;
@@ -39,6 +39,5 @@ void SettingsScene::run() {
   if (std::strcmp(last_control->get_name(), "SEControlSelectExit") == 0) {
     data->set_highlighted(2);
     global_settings_data->set_rouge(false);
-
   }
 }

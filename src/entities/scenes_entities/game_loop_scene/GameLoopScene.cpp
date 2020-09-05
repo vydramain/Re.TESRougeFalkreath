@@ -6,7 +6,8 @@
 
 #include <string>
 
-GameLoopScene::GameLoopScene(IRenderSystem *input_render_system, GameSettingsData* input_settings_data) : IMainScene("MainLoopScene") {
+GameLoopScene::GameLoopScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data)
+    : IMainScene("MainLoopScene") {
   auto **menu_choice = new std::string *[2];
   menu_choice[0] = new std::string("Да");
   menu_choice[1] = new std::string("Нет");

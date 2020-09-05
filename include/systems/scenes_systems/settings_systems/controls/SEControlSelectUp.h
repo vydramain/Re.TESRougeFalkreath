@@ -13,7 +13,8 @@ class SEControlSelectUp : public IControl {
   ParameterQueryData* settings_data;
 
  public:
-  explicit SEControlSelectUp(ParameterQueryData* input_settings_data, GameSettingsData* input_global_settings_data) : IControl("SEControlSelectUp") {
+  explicit SEControlSelectUp(ParameterQueryData* input_settings_data, GameSettingsData* input_global_settings_data)
+      : IControl("SEControlSelectUp") {
     settings_data = input_settings_data;
     global_settings_data = input_global_settings_data;
   }

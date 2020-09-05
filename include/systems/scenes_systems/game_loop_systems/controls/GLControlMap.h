@@ -27,13 +27,13 @@ class GLControlMap {
   std::map<const char *, IGLControl *> gl_map;
   std::map<const char *, IGLControl *>::iterator gl_iterator;
 
-  GameSettingsData* settings_data = nullptr;
+  GameSettingsData *settings_data = nullptr;
   IWorldSystem *world_system = nullptr;
   IGLControl *last_control = nullptr;
 
  public:
   explicit GLControlMap(IRenderSystem *input_render_system, IWorldSystem *input_world_system,
-                        ParameterQueryData *input_ending_data, GameSettingsData* input_settings_data) {
+                        ParameterQueryData *input_ending_data, GameSettingsData *input_settings_data) {
     settings_data = input_settings_data;
     world_system = input_world_system;
 
@@ -63,7 +63,7 @@ class GLControlMap {
     PseudoLogSystem::log("GLControlMap", "Creating world");
     world_system->add_new_map("../maps/falkreath");
     world_system->add_new_map("../maps/west_forest");
-    if(settings_data->get_rouge()) {
+    if (settings_data->get_rouge()) {
       world_system->add_rnd_map("BloodletThrone");
     } else {
       world_system->add_new_map("../maps/bloodlet_throne");

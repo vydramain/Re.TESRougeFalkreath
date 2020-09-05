@@ -16,7 +16,8 @@ void AutoLootSystem::generate_group_of_coins(unsigned int input_group_size, unsi
     for (unsigned i = input_x_center_of_group - input_group_size - 1; i < input_x_center_of_group + input_group_size;
          i++) {
       srand48(time(nullptr));
-      unsigned temp = rand() % 10;
+      unsigned seed;
+      unsigned temp = rand_r(&seed) % 10;
       if (temp < 4) {
         entities_system->put_item(new Coin(i, j));
       }

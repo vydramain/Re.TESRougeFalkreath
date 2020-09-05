@@ -12,6 +12,7 @@
 #include "entities/location_entities/items_entities/Coin.h"
 #include "systems/scenes_systems/game_loop_systems/load/sub_systems/auto_loot_system/AutoLootSystem.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/IMapSystem.hpp"
+#include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/MapSystem.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class AutoMapSystem {
@@ -25,7 +26,6 @@ class AutoMapSystem {
 
   unsigned corridor_size_length = 5;
   unsigned corridor_size_width = 3;
-
 
   std::string map_name;
   unsigned size_x = 0;
@@ -47,8 +47,8 @@ class AutoMapSystem {
   void generate_entrance(unsigned input_x, unsigned input_y);
   void generate_coins(unsigned input_x, unsigned input_y);
 
-  void generate_random_room(unsigned &input_x, unsigned &input_y, unsigned input_random, unsigned last_random = 0);
-  unsigned int generate_random_corridor(unsigned int &input_x, unsigned int &input_y, unsigned int input_random);
+  void generate_random_room(unsigned *input_x, unsigned *input_y, unsigned input_random, unsigned last_random = 0);
+  unsigned int generate_random_corridor(unsigned int *input_x, unsigned int *input_y, unsigned int input_random);
 
  public:
   explicit AutoMapSystem(std::string input_map_name);
