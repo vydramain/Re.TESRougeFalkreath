@@ -133,6 +133,6 @@ void InteractAbilitySystem::interact_with_cave_quit() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
   world_system->set_current_map("WestForest");
   world_system->get_current_map()->get_entities_system()->put_player(player);
-  world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(218);
+  world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(218); // 248
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(96);
 }

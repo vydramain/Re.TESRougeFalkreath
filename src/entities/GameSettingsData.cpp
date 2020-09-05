@@ -5,7 +5,7 @@
 #include "entities/GameSettingsData.hpp"
 
 GameSettingsData::GameSettingsData() {
-  rouge_set = false;
+  rouge_set = true;
 }
 
 GameSettingsData::~GameSettingsData() = default;

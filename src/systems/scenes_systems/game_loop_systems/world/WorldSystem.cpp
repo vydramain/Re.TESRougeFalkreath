@@ -4,8 +4,8 @@
 
 #include "systems/scenes_systems/game_loop_systems/world/WorldSystem.hpp"
 
-#include <vector>
 #include <string>
+#include <vector>
 
 WorldSystem::WorldSystem() = default;
 
@@ -20,6 +20,13 @@ void WorldSystem::add_new_map(std::string input_map_address) {
   auto* map = load_system->get_map_system();
   maps.push_back(map);
   delete load_system;
+}
+
+void WorldSystem::add_rnd_map(std::string input_map_name) {
+  auto* automap = new AutoMapSystem(input_map_name);
+  auto* map = automap->generate_location();
+  maps.push_back(map);
+  delete automap;
 }
 
 void WorldSystem::add_old_map(std::string input_map_address) {
