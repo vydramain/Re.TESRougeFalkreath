@@ -28,11 +28,15 @@ class AutoMapSystem {
   void generate_corridors_horizontal(unsigned input_x, unsigned input_y);
   void generate_corridors_vertical(unsigned input_x, unsigned input_y);
 
+  void clear_entrance_to_room(unsigned input_x, unsigned input_y, unsigned last_random);
+  void clear_entrance_to_corridor_horizon(unsigned input_x, unsigned input_y);
+  void clear_entrance_to_corridor_vertical(unsigned input_x, unsigned input_y);
+
   void generate_exit(unsigned input_x, unsigned input_y);
   void generate_entrance(unsigned input_x, unsigned input_y);
   void generate_coins(unsigned input_x, unsigned input_y);
 
-  void generate_random_room(unsigned &input_x, unsigned &input_y, unsigned input_random, unsigned last_random= 0);
+  void generate_random_room(unsigned &input_x, unsigned &input_y, unsigned input_random, unsigned last_random = 0);
   unsigned int generate_random_corridor(unsigned int &input_x, unsigned int &input_y, unsigned int input_random);
 
  public:

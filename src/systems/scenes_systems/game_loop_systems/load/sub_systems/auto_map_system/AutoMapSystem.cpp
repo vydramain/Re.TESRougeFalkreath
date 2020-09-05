@@ -16,8 +16,8 @@ AutoMapSystem::~AutoMapSystem() {
 
 IMapSystem *AutoMapSystem::generate_location() {
   srand48(time(nullptr));
-  size_x = 100;
-  size_y = 100;
+  size_x = 150;
+  size_y = 150;
   entities_system = new EntitiesSystem();
 
   unsigned room_x = 3;
@@ -25,12 +25,13 @@ IMapSystem *AutoMapSystem::generate_location() {
   unsigned last_random;
   generate_entrance(room_x + rand() % 5 + 2, room_y + rand() % 5 + 2);
   generate_random_room(room_x, room_y, rand() % 3);
-  last_random = generate_random_corridor(room_x, room_y, rand() % 3 + 1);
-  generate_random_room(room_x, room_y, rand() % 3, last_random);
-  last_random = generate_random_corridor(room_x, room_y, rand() % 3 + 1);
-  generate_random_room(room_x, room_y, rand() % 3, last_random);
-  generate_coins(room_x - 2, room_y - 2);
-  generate_exit(room_x - rand() % 4 + 1, room_y - rand() % 4 + 1);
+  unsigned random_count = rand() % 5 + 2;
+  for (unsigned i = 0; i < random_count; i++) {
+    last_random = generate_random_corridor(room_x, room_y, 1 + rand() % 1);
+    generate_random_room(room_x, room_y, rand() % 3, last_random);
+    generate_coins(room_x - 2, room_y - 2);
+  }
+  generate_exit(room_x - rand() % 6 - 2, room_y - rand() % 6 - 2);
 
   return new MapSystem(map_name, size_x, size_y, entities_system);
 }
@@ -69,8 +70,7 @@ void AutoMapSystem::generate_large_room(unsigned input_x, unsigned input_y) {
 }
 
 void AutoMapSystem::generate_corridors_horizontal(unsigned input_x, unsigned input_y) {
-  entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 1));
-  entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 2));
+  clear_entrance_to_corridor_horizon(input_x, input_y);
   for (unsigned int i = input_x; i < input_x + 5; i++) {
     entities_system->put_ambient(new Cobblestone(i, input_y));
     entities_system->put_ambient(new Cobblestone(i, input_y + 3));
@@ -78,8 +78,7 @@ void AutoMapSystem::generate_corridors_horizontal(unsigned input_x, unsigned inp
 }
 
 void AutoMapSystem::generate_corridors_vertical(unsigned input_x, unsigned input_y) {
-  entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 1, input_y));
-  entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 2, input_y));
+  clear_entrance_to_corridor_vertical(input_x, input_y);
   for (unsigned int j = input_y; j < input_y + 5; j++) {
     entities_system->put_ambient(new Cobblestone(input_x, j));
     entities_system->put_ambient(new Cobblestone(input_x + 3, j));
@@ -103,40 +102,19 @@ void AutoMapSystem::generate_random_room(unsigned int &input_x, unsigned int &in
                                          unsigned last_random) {
   if (input_random == 0) {
     generate_small_room(input_x, input_y);
-    if (last_random == 1) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 3));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 4));
-    }
-    if (last_random == 2) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 3, input_y));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 4, input_y));
-    }
+    clear_entrance_to_room(input_x, input_y, last_random);
     input_x += 10;
     input_y += 5;
   }
   if (input_random == 1) {
     generate_middle_room(input_x, input_y);
-    if (last_random == 1) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 3));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 4));
-    }
-    if (last_random == 2) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 3, input_y));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 4, input_y));
-    }
+    clear_entrance_to_room(input_x, input_y, last_random);
     input_x += 10;
     input_y += 10;
   }
   if (input_random == 2) {
     generate_large_room(input_x, input_y);
-    if (last_random == 1) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 3));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 4));
-    }
-    if (last_random == 2) {
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 3, input_y));
-      entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 4, input_y));
-    }
+    clear_entrance_to_room(input_x, input_y, last_random);
     input_x += 20;
     input_y += 15;
   }
@@ -154,4 +132,25 @@ unsigned AutoMapSystem::generate_random_corridor(unsigned int &input_x, unsigned
     input_y += 5;
   }
   return input_random;
+}
+
+void AutoMapSystem::clear_entrance_to_room(unsigned int input_x, unsigned int input_y, unsigned int last_random) {
+  if (last_random == 1) {
+    entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 3));
+    entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 4));
+  }
+  if (last_random == 2) {
+    entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 3, input_y));
+    entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 4, input_y));
+  }
+}
+
+void AutoMapSystem::clear_entrance_to_corridor_horizon(unsigned int input_x, unsigned int input_y) {
+  entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 1));
+  entities_system->remove_ambient(entities_system->get_ambient_index(input_x, input_y + 2));
+}
+
+void AutoMapSystem::clear_entrance_to_corridor_vertical(unsigned int input_x, unsigned int input_y) {
+  entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 1, input_y));
+  entities_system->remove_ambient(entities_system->get_ambient_index(input_x + 2, input_y));
 }
