@@ -16,6 +16,17 @@
 
 class AutoMapSystem {
  private:
+  unsigned large_room_size_x = 40;
+  unsigned large_room_size_y = 15;
+  unsigned middle_room_size_x = 20;
+  unsigned middle_room_size_y = 10;
+  unsigned small_room_size_x = 10;
+  unsigned small_room_size_y = 10;
+
+  unsigned corridor_size_length = 5;
+  unsigned corridor_size_width = 3;
+
+
   std::string map_name;
   unsigned size_x = 0;
   unsigned size_y = 0;
