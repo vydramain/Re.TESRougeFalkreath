@@ -7,7 +7,8 @@
 #include <string>
 
 GamePlayConfigurationScene::GamePlayConfigurationScene(IRenderSystem *input_render_system,
-                                                       GameConfigurationData *input_configuration_data) {
+                                                       GameConfigurationData *input_configuration_data)
+    : IScene("GamePlayConfigurationScene") {
   std::string temp_choices[2] = {"Включить рандомную генерацию подемелий", "Выключить рандомную генерацию подемелий"};
   data = new ParameterQueryData(new std::string("Конфигурация особенностей игрового процесса:"),
                                 ParameterQueryData::create_choices(2, temp_choices));

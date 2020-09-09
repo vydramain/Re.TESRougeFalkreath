@@ -7,6 +7,7 @@
 #include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/configuration_scene/sub_scenes/GamePlayConfigurationScene.hpp"
+#include "entities/scenes_entities/configuration_scene/sub_scenes/GraphicConfigurationScene.hpp"
 #include "systems/IControl.h"
 
 class COControlSelectEnter : public IControl {
@@ -25,12 +26,17 @@ class COControlSelectEnter : public IControl {
   ~COControlSelectEnter() override = default;
 
   void execute() override {
+    IScene *scene = nullptr;
     if (type_configuration->get_highlighted() == 1) {
-      auto *scene = new GamePlayConfigurationScene(render_system, global_configuration_data);
+      scene = new GamePlayConfigurationScene(render_system, global_configuration_data);
       scene->run();
-      delete scene;
-      render_system->set_settings_data(type_configuration);
-      render_system->set_setting_render();
     }
+    if (type_configuration->get_highlighted() == 2) {
+      scene = new GraphicConfigurationScene(render_system, global_configuration_data);
+      scene->run();
+    }
+    delete scene;
+    render_system->set_settings_data(type_configuration);
+    render_system->set_setting_render();
   }
 };

@@ -4,12 +4,11 @@
 
 #pragma once
 
-#include "systems/render_systems/IRenderSystem.h"
-
 #include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IScene.h"
 #include "systems/IControl.h"
+#include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/configuration_systems/controls/sub_controls/game_play_configuration_controls/GPCOControls.h"
 
 class GamePlayConfigurationScene : public IScene {
@@ -22,7 +21,8 @@ class GamePlayConfigurationScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit GamePlayConfigurationScene(IRenderSystem *input_render_system, GameConfigurationData *input_configuration_data);
+  explicit GamePlayConfigurationScene(IRenderSystem *input_render_system,
+                                      GameConfigurationData *input_configuration_data);
   ~GamePlayConfigurationScene() override;
 
   unsigned get_highlighted() const;
