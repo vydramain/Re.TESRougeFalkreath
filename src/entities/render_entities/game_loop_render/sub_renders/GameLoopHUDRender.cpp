@@ -5,6 +5,7 @@
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
 
 #include <string>
+#include <vector>
 
 GameLoopHUDRender::GameLoopHUDRender(IWorldSystem *input_world_system, const Sentient *input_target)
     : world_system(input_world_system), target(input_target) {}
@@ -29,6 +30,8 @@ void GameLoopHUDRender::update_fields(unsigned int input_screen_x, unsigned int 
   active_zone_out_x = input_active_zone_out_x;
   active_zone_out_y = input_active_zone_out_y;
 
+  update_message_data();
+
   camera_position_x = input_camera_position_x;
   camera_position_y = input_camera_position_y;
 }
@@ -38,47 +41,66 @@ void GameLoopHUDRender::update_camera(unsigned int input_camera_position_x, unsi
   camera_position_y = input_camera_position_y;
 }
 
-void GameLoopHUDRender::view_one_string_message(const char **input_text) {
-  auto **temp_text = new std::string *[1];
-  temp_text[0] = new std::string(input_text[0]);
-  terminal_color(0xffffffff);
-  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-    CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_strings_list(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                        temp_text, 1);
+void GameLoopHUDRender::update_message_data() {
+  if (passive_zone_out_x > 40) {
+    text_size = passive_zone_out_x / 2 - 6;
   } else {
-    CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                              passive_zone_out_y - 1);
-    TextPanelsRender::view_strings_list((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                        passive_zone_out_y - 2, temp_text, 1);
+    text_size = passive_zone_out_x - 6;
   }
-  delete temp_text[0];
-  delete[] temp_text;
+  if (passive_zone_out_x / 2 - 2 < text_size + 4) {
+    message_right_in_x = 1;
+  } else {
+    message_right_in_x = passive_zone_out_x / 2 - 2;
+  }
+  if (passive_zone_out_x / 2 + 2 < text_size + 4) {
+    message_left_out_x = text_size + 4;
+  } else {
+    message_left_out_x = passive_zone_out_x / 2 + 2;
+  }
 }
 
-void GameLoopHUDRender::view_two_string_message(const char **input_text) {
-  auto **temp_text = new std::string *[2];
-  temp_text[0] = new std::string(input_text[0]);
-  temp_text[1] = new std::string(input_text[1]);
-  terminal_color(0xffffffff);
-  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-    CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_strings_list(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                        temp_text, 2);
-  } else {
-    CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
-                              passive_zone_out_y - 1);
-    TextPanelsRender::view_strings_list((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                        passive_zone_out_y - 2, temp_text, 2);
+std::vector<std::string *> *GameLoopHUDRender::prepare_string_message(std::string *input_text) const {
+  unsigned counter_words = 0;
+  unsigned counter_strings = 0;
+  auto return_text = new std::vector<std::string *>;
+  auto words = CCMech::split(input_text);
+  return_text->push_back(new std::string);
+  for (auto &word : words) {
+    counter_words += word->size();
+    if (counter_words > text_size * 2) {
+      counter_words = word->size();
+      counter_strings++;
+      return_text->push_back(new std::string);
+    }
+    return_text->at(counter_strings)->append(*word);
   }
-  delete temp_text[0];
-  delete temp_text[1];
-  delete[] temp_text;
+  return return_text;
+}
+
+void GameLoopHUDRender::view_string_message(std::vector<std::string *> *input_text) {
+  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
+    CleanerRender::clean_area(1, passive_zone_out_y - 5 - input_text->size(), message_left_out_x,
+                              passive_zone_out_y - 1);
+    TextPanelsRender::view_strings_list(1, passive_zone_out_y - 5 - input_text->size(), message_left_out_x,
+                                        passive_zone_out_y - 2, input_text);
+  } else {
+    CleanerRender::clean_area(message_right_in_x, passive_zone_out_y - 5 - input_text->size(), passive_zone_out_x - 1,
+                              passive_zone_out_y - 1);
+    TextPanelsRender::view_strings_list(message_right_in_x, passive_zone_out_y - 5 - input_text->size(),
+                                        passive_zone_out_x - 2, passive_zone_out_y - 2, input_text);
+  }
+}
+
+void GameLoopHUDRender::produce_string_message(std::string *input_text) {
+  auto temp_text = prepare_string_message(input_text);
+  terminal_color(0xffffffff);
+  view_string_message(temp_text);
+  temp_text->clear();
+  delete temp_text;
 }
 
 void GameLoopHUDRender::check_item_interact(unsigned input_index) {
-  const char *text[1] = {"Нажмите 'E' для взаимодействия"};
-  view_one_string_message(text);
+  produce_string_message(new std::string("Нажмите 'E', для взаимодействия"));
 }
 
 void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
@@ -86,48 +108,40 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "Door") == 0) {
     if (world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_floor()) {
-      const char *text[1] = {"Нажмите 'E' чтобы закрыть"};
-      view_one_string_message(text);
+      produce_string_message(new std::string("Нажмите 'E', чтобы закрыть"));
     } else {
-      const char *text[1] = {"Нажмите 'E' чтобы открыть"};
-      view_one_string_message(text);
+      produce_string_message(new std::string("Нажмите 'E', чтобы открыть"));
     }
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "SouthGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в дальние земли"));
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "EastGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в восточный лес"));
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "WestGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы вернуться в Фолкрит"));
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "UpperHatch") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы спуститься", "в подземелье Кровавого Трона"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы спуститься в подземелье Кровавого Трона"));
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "LowerHatch") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы подняться", "в руины форта Кровавого Трона"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы подняться в руины форта Кровавого Трона"));
   }
 
   if (std::strcmp(world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
                   "CaveQuit") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы выйти", "из подземелья"};
-    view_two_string_message(text);
+    produce_string_message(new std::string("Нажмите 'E', чтобы выйти из подземелья"));
   }
 }
 

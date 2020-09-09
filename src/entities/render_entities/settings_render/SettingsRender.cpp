@@ -18,7 +18,6 @@ void SettingsRender::render() {
   CleanerRender::clean_all();
   terminal_color("White");
   TextPanelsRender::view_parameter_query(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, settings_data->get_title(),
-                                         settings_data->get_choices(), settings_data->get_count_choices(),
-                                         settings_data->get_highlighted());
+                                         settings_data->get_choices(), settings_data->get_highlighted());
   terminal_refresh();
 }

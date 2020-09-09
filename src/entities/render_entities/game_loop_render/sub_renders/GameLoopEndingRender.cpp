@@ -17,6 +17,6 @@ void GameLoopEndingRender::update_fields(unsigned int input_screen_x, unsigned i
 
 void GameLoopEndingRender::render() {
   TextPanelsRender::view_parameter_query(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, ending_data->get_title(),
-                                         ending_data->get_choices(), ending_data->get_count_choices(),
+                                         ending_data->get_choices(),
                                          ending_data->get_highlighted());
 }

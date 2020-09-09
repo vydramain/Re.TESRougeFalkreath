@@ -15,10 +15,12 @@ class StatisticsRender : public IRender {
   unsigned SCREENMODE_X = 0;
   unsigned SCREENMODE_Y = 0;
 
+  unsigned records_count = 8;
+
   StringsListData*score_list_data = nullptr;
 
   void render_title();
-  std::string **create_records();
+  std::vector<std::string *> *create_records();
   void render_filled_list();
   void render_empty_list();
 

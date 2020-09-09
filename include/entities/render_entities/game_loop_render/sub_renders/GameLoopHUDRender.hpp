@@ -25,6 +25,10 @@ class GameLoopHUDRender : public IRender {
   unsigned active_zone_out_x = 0;
   unsigned active_zone_out_y = 0;
 
+  unsigned text_size = 0;
+  unsigned message_right_in_x = 0;
+  unsigned message_left_out_x = 0;
+
   const IWorldSystem *world_system = nullptr;
   const Sentient *target = nullptr;
 
@@ -41,9 +45,11 @@ class GameLoopHUDRender : public IRender {
                      unsigned input_active_zone_out_y, unsigned input_camera_position_x,
                      unsigned input_camera_position_y);
   void update_camera(unsigned input_camera_position_x, unsigned input_camera_position_y);
+  void update_message_data();
 
-  void view_one_string_message(const char **input_text);
-  void view_two_string_message(const char **input_text);
+  std::vector<std::string *> *prepare_string_message(std::string *input_text) const;
+  void view_string_message(std::vector<std::string *> *input_text);
+  void produce_string_message(std::string *input_text);
 
   void check_item_interact(unsigned input_index);
   void check_ambient_interact(unsigned input_index);

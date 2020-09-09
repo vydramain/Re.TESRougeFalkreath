@@ -8,7 +8,7 @@
 
 SettingsScene::SettingsScene(IRenderSystem* input_render_system, GameSettingsData* input_settings_data) {
   std::string temp_choices[2] = {"Включить рандомную генерацию подемелий", "Выключить рандомную генерацию подемелий"};
-  data = new ParameterQueryData(new std::string("Настройки:"), 2, ParameterQueryData::create_choices(2, temp_choices));
+  data = new ParameterQueryData(new std::string("Настройки:"), ParameterQueryData::create_choices(2, temp_choices));
   s_input = new SEControls(data, input_settings_data);
 
   global_settings_data = input_settings_data;

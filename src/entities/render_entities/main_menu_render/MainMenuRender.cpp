@@ -17,7 +17,6 @@ void MainMenuRender::render() {
   CleanerRender::clean_all();
   terminal_color("White");
   TextPanelsRender::view_parameter_query(0, 0, SCREENMODE_X - 1, SCREENMODE_Y - 1, menu_data->get_title(),
-                                         menu_data->get_choices(), menu_data->get_count_choices(),
-                                         menu_data->get_highlighted());
+                                         menu_data->get_choices(), menu_data->get_highlighted());
   terminal_refresh();
 }

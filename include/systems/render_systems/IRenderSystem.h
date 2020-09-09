@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "entities/ParameterQueryData.hpp"
 #include "entities/StringsListData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
@@ -11,6 +13,9 @@
 class IRenderSystem {
  public:
   virtual ~IRenderSystem() = default;
+
+  virtual void set_resolution_1280x720() = 0;
+  virtual void set_resolution_1920x1080() = 0;
 
   virtual void set_main_menu_data(ParameterQueryData *input_menu_data) = 0;
   virtual void set_score_list_data(StringsListData *input_score_list_data) = 0;

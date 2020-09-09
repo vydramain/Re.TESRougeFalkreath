@@ -8,10 +8,9 @@
 
 GameLoopScene::GameLoopScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data)
     : IMainScene("MainLoopScene") {
-  auto **menu_choice = new std::string *[2];
-  menu_choice[0] = new std::string("Да");
-  menu_choice[1] = new std::string("Нет");
-  ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"), 2, menu_choice);
+  const char *menu_choice[2] = {"Да", "Нет"};
+  ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"),
+                                       ParameterQueryData::create_choices(2, menu_choice));
 
   settings_data = input_settings_data;
   render_system = input_render_system;

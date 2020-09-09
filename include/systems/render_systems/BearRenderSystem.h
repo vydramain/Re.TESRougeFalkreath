@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "./BearLibTerminal.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "entities/render_entities/CleanerRender.h"
@@ -40,6 +42,9 @@ class BearRenderSystem : public IRenderSystem {
   ParameterQueryData* ending_data = nullptr;
 
  public:
+  void set_resolution_1280x720() override;
+  void set_resolution_1920x1080() override;
+
   explicit BearRenderSystem();
   ~BearRenderSystem() override;
 

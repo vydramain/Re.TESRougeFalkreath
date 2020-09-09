@@ -4,16 +4,36 @@
 
 #include "systems/render_systems/BearRenderSystem.h"
 
-BearRenderSystem::BearRenderSystem() {
-  SCREENMODE_X = 100;
-  SCREENMODE_Y = 40;
+#include <string>
+
+void BearRenderSystem::set_resolution_1280x720() {
+  SCREENMODE_X = 64;
+  SCREENMODE_Y = 20;
   render_entity = nullptr;
 
   terminal_open();
-  terminal_set("window: title='re.TESRougeFalkreath', size=100x40, fullscreen=true;");
-  terminal_layer(0);
+  terminal_set(
+      "window: title='re.TESRougeFalkreath', size=64x20, fullscreen=true;"
+      " font: ../fonts/Determenation2.ttf, size='20x36'");
   terminal_clear();
   terminal_refresh();
+}
+
+void BearRenderSystem::set_resolution_1920x1080() {
+  SCREENMODE_X = 96;
+  SCREENMODE_Y = 30;
+  render_entity = nullptr;
+
+  terminal_open();
+  terminal_set(
+      "window: title='re.TESRougeFalkreath', size=96x30, fullscreen=true;"
+      " font: ../fonts/Determenation2.ttf, size='20x36'");
+  terminal_clear();
+  terminal_refresh();
+}
+
+BearRenderSystem::BearRenderSystem() {
+  set_resolution_1920x1080();
 }
 
 BearRenderSystem::~BearRenderSystem() {
@@ -36,8 +56,7 @@ void BearRenderSystem::set_settings_data(ParameterQueryData *input_settings_data
   settings_data = input_settings_data;
 }
 
-void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system,
-                                          ParameterQueryData *input_ending_data) {
+void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system, ParameterQueryData *input_ending_data) {
   is_game_loop = true;
   world_system = input_world_system;
   ending_data = input_ending_data;
