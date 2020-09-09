@@ -67,7 +67,7 @@ std::vector<std::string *> *GameLoopHUDRender::prepare_string_message(std::strin
   return_text->push_back(new std::string);
   for (auto &word : words) {
     counter_words += word->size();
-    if (counter_words > text_size * 2) {
+    if (counter_words > text_size * 1.8) {
       counter_words = word->size();
       counter_strings++;
       return_text->push_back(new std::string);

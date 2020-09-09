@@ -33,7 +33,7 @@ void BearRenderSystem::set_resolution_1920x1080() {
 }
 
 BearRenderSystem::BearRenderSystem() {
-  set_resolution_1920x1080();
+  set_resolution_1280x720();
 }
 
 BearRenderSystem::~BearRenderSystem() {
