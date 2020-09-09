@@ -4,13 +4,13 @@
 
 #pragma once
 
-class GameSettingsData {
+class GameConfigurationData {
  private:
   bool rouge_set;
 
  public:
-  explicit GameSettingsData();
-  ~GameSettingsData();
+  explicit GameConfigurationData();
+  ~GameConfigurationData();
 
   void set_rouge(bool input_set);
   bool get_rouge();

@@ -5,7 +5,7 @@
 #include "systems/launcher_system/scenes_launchers/GameLoopSceneLauncher.h"
 
 GameLoopSceneLauncher::GameLoopSceneLauncher(IRenderSystem *input_render_system, SceneType *input_scene_type,
-                                             GameSettingsData *input_settings_data)
+                                             GameConfigurationData *input_settings_data)
     : IControl("GameLoopSceneLauncher") {
   settings_data = input_settings_data;
   render_system = input_render_system;

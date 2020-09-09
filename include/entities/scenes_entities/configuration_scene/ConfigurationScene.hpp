@@ -7,25 +7,25 @@
 #include <cstring>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameSettingsData.hpp"
+#include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"
-#include "systems/scenes_systems/settings_systems/controls/SEControls.h"
+#include "systems/scenes_systems/configuration_systems/controls/COControls.h"
 
-class SettingsScene : public IMainScene {
+class ConfigurationScene : public IMainScene {
  private:
-  GameSettingsData* global_settings_data = nullptr;
+  GameConfigurationData *global_configuration_data = nullptr;
   ParameterQueryData *data = nullptr;
   IRenderSystem *render_system = nullptr;
 
-  SEControls *s_input = nullptr;
+  COControls *co_input = nullptr;
   IControl *last_control = nullptr;
 
  public:
-  explicit SettingsScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data);
-  ~SettingsScene() override;
+  explicit ConfigurationScene(IRenderSystem *input_render_system, GameConfigurationData *input_configuration_data);
+  ~ConfigurationScene() override;
 
   unsigned get_highlighted() const;
 

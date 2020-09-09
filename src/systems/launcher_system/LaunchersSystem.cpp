@@ -3,13 +3,14 @@
 //
 
 #include "systems/launcher_system/LaunchersSystem.hpp"
-#include "entities/GameSettingsData.hpp"
+
+#include "entities/GameConfigurationData.hpp"
 
 void LaunchersSystem::run() {
   printf("%s", "starting...\n");
   printf("%s", "--------re.TESFalkreath--------\n");
 
-  auto *settings_data = new GameSettingsData();
+  auto *settings_data = new GameConfigurationData();
 
   IControl *launcher_scene;
   auto *launcher_map = new ScenesLaunchersManager(settings_data);

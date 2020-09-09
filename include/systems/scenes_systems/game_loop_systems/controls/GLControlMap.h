@@ -27,13 +27,13 @@ class GLControlMap {
   std::map<const char *, IGLControl *> gl_map;
   std::map<const char *, IGLControl *>::iterator gl_iterator;
 
-  GameSettingsData *settings_data = nullptr;
+  GameConfigurationData *settings_data = nullptr;
   IWorldSystem *world_system = nullptr;
   IGLControl *last_control = nullptr;
 
  public:
   explicit GLControlMap(IRenderSystem *input_render_system, IWorldSystem *input_world_system,
-                        ParameterQueryData *input_ending_data, GameSettingsData *input_settings_data) {
+                        ParameterQueryData *input_ending_data, GameConfigurationData *input_settings_data) {
     settings_data = input_settings_data;
     world_system = input_world_system;
 

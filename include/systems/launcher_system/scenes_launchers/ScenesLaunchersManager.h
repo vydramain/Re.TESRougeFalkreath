@@ -7,13 +7,13 @@
 #include <map>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameSettingsData.hpp"
+#include "entities/GameConfigurationData.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/IControl.h"
+#include "systems/launcher_system/scenes_launchers/ConfigurationSceneLauncher.hpp"
 #include "systems/launcher_system/scenes_launchers/ExitSceneLauncher.h"
 #include "systems/launcher_system/scenes_launchers/GameLoopSceneLauncher.h"
 #include "systems/launcher_system/scenes_launchers/MainMenuSceneLauncher.h"
-#include "systems/launcher_system/scenes_launchers/SettingsSceneLauncher.hpp"
 #include "systems/launcher_system/scenes_launchers/StatisticsSceneLauncher.hpp"
 #include "systems/render_systems/BearRenderSystem.h"
 #include "systems/render_systems/IRenderSystem.h"
@@ -23,7 +23,7 @@ class ScenesLaunchersManager {
   ExitSceneLauncher *exit = nullptr;
   GameLoopSceneLauncher *new_game = nullptr;
   MainMenuSceneLauncher *main_menu = nullptr;
-  SettingsSceneLauncher *settings = nullptr;
+  ConfigurationSceneLauncher *settings = nullptr;
   StatisticsSceneLauncher *score_list = nullptr;
 
   std::map<SceneType, IControl *> main_map;
@@ -33,7 +33,7 @@ class ScenesLaunchersManager {
   SceneType *expected_scene = nullptr;
 
  public:
-  explicit ScenesLaunchersManager(GameSettingsData *input_settings_data);
+  explicit ScenesLaunchersManager(GameConfigurationData *input_settings_data);
   ~ScenesLaunchersManager();
 
   SceneType get_expected_scene_type() const;

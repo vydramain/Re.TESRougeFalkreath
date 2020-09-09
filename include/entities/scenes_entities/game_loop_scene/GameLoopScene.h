@@ -8,7 +8,7 @@
 #include <string>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameSettingsData.hpp"
+#include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/render_systems/IRenderSystem.h"
@@ -19,14 +19,14 @@
 
 class GameLoopScene : public IMainScene {
  private:
-  GameSettingsData* settings_data = nullptr;
+  GameConfigurationData * settings_data = nullptr;
   IRenderSystem *render_system = nullptr;
   IWorldSystem *world_system = nullptr;
 
   ParameterQueryData *ending_data;
 
  public:
-  explicit GameLoopScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data);
+  explicit GameLoopScene(IRenderSystem *input_render_system, GameConfigurationData *input_settings_data);
   ~GameLoopScene() override;
 
   void run() override;

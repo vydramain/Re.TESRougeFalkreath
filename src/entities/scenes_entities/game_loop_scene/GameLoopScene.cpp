@@ -6,7 +6,7 @@
 
 #include <string>
 
-GameLoopScene::GameLoopScene(IRenderSystem *input_render_system, GameSettingsData *input_settings_data)
+GameLoopScene::GameLoopScene(IRenderSystem *input_render_system, GameConfigurationData *input_settings_data)
     : IMainScene("MainLoopScene") {
   const char *menu_choice[2] = {"Да", "Нет"};
   ending_data = new ParameterQueryData(new std::string("Сохранить статистику?"),

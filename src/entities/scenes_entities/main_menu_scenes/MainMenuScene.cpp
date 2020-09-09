@@ -7,7 +7,7 @@
 #include <string>
 
 MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("MainMenuScene") {
-  std::string temp_choices[4] = {"Новая игра", "Настройки", "Статистика", "Выход"};
+  std::string temp_choices[4] = {"Новая игра", "Конфигурация", "Статистика", "Выход"};
   data =
       new ParameterQueryData(new std::string("Главное меню:"), ParameterQueryData::create_choices(4, temp_choices));
 
