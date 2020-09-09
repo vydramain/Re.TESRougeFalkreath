@@ -23,17 +23,16 @@ IMapSystem *AutoMapSystem::generate_location() {
   unsigned *room_x = new unsigned(3);
   unsigned *room_y = new unsigned(1);
   unsigned last_random;
-  unsigned seed;
 
-  generate_entrance(*room_x + rand_r(&seed) % 5 + 2, *room_y + rand_r(&seed) % 5 + 2);
-  generate_random_room(room_x, room_y, rand_r(&seed) % 3);
-  unsigned random_count = rand_r(&seed) % 5 + 2;
+  generate_entrance(*room_x + rand() % 5 + 2, *room_y + rand() % 5 + 2);
+  generate_random_room(room_x, room_y, rand() % 3);
+  unsigned random_count = rand() % 5 + 2;
   for (unsigned i = 0; i < random_count; i++) {
-    last_random = generate_random_corridor(room_x, room_y, 1 + rand_r(&seed) % 1);
-    generate_random_room(room_x, room_y, rand_r(&seed) % 3, last_random);
+    last_random = generate_random_corridor(room_x, room_y, 1 + rand() % 1);
+    generate_random_room(room_x, room_y, rand() % 3, last_random);
     generate_coins(*room_x - 2, *room_y - 2);
   }
-  generate_exit(*room_x - rand_r(&seed) % 6 - 2, *room_y - rand_r(&seed) % 6 - 2);
+  generate_exit(*room_x - rand() % 6 - 2, *room_y - rand() % 6 - 2);
 
   return new MapSystem(map_name, size_x, size_y, entities_system);
 }
