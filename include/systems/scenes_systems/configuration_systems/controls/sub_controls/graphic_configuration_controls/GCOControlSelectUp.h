@@ -4,23 +4,26 @@
 
 #pragma once
 
+#include <vector>
+
 #include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "systems/IControl.h"
 
 class GCOControlSelectUp : public IControl {
  private:
-  ParameterQueryData* settings_data;
+  std::vector<ParameterQueryData *> *configuration_data;
 
  public:
-  explicit GCOControlSelectUp(ParameterQueryData* input_settings_data) : IControl("GCOControlSelectUp") {
-    settings_data = input_settings_data;
+  explicit GCOControlSelectUp(std::vector<ParameterQueryData *> *input_configuration_data)
+      : IControl("GCOControlSelectUp") {
+    configuration_data = input_configuration_data;
   }
   ~GCOControlSelectUp() override = default;
 
   void execute() override {
-    if (settings_data->get_highlighted() > 1) {
-      settings_data->set_highlighted(settings_data->get_highlighted() - 1);
+    if (configuration_data->at(0)->get_highlighted() > 1) {
+      configuration_data->at(0)->set_highlighted(configuration_data->at(0)->get_highlighted() - 1);
     }
   }
 };

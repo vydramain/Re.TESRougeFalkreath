@@ -4,17 +4,19 @@
 
 #pragma once
 
+#include <vector>
+
 #include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "systems/IControl.h"
 
 class GCOControlSelectEnter : public IControl {
-  GameConfigurationData* global_configuration_data;
-  ParameterQueryData* configuration_data;
+  std::vector<ParameterQueryData *> *configuration_data = nullptr;
+  GameConfigurationData *global_configuration_data = nullptr;
 
  public:
-  explicit GCOControlSelectEnter(ParameterQueryData* input_configuration_data,
-                                 GameConfigurationData* input_global_configuration_data)
+  explicit GCOControlSelectEnter(std::vector<ParameterQueryData *> *input_configuration_data,
+                                 GameConfigurationData *input_global_configuration_data)
       : IControl("GCOControlSelectEnter") {
     configuration_data = input_configuration_data;
     global_configuration_data = input_global_configuration_data;
@@ -22,9 +24,34 @@ class GCOControlSelectEnter : public IControl {
   ~GCOControlSelectEnter() override = default;
 
   void execute() override {
-    if (configuration_data->get_highlighted() == 1) {
+    if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Выберете новое разрешение:") == 0) {
+      if (configuration_data->at(0)->get_highlighted() == 1) {
+        global_configuration_data->get_resolution()->set_1920x1080();
+      }
+      if (configuration_data->at(0)->get_highlighted() == 2) {
+        global_configuration_data->get_resolution()->set_1280x720();
+      }
     }
-    if (configuration_data->get_highlighted() == 2) {
+    if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Выберете режим отоборажения объектов:") == 0) {
+      if (configuration_data->at(0)->get_highlighted() == 1) {
+        global_configuration_data->set_sprite(false);
+      }
+      if (configuration_data->at(0)->get_highlighted() == 2) {
+        global_configuration_data->set_sprite(true);
+      }
+    }
+    if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Конфигурация графического режима:") == 0) {
+      ParameterQueryData *temp_data_pointer = nullptr;
+      if (configuration_data->at(0)->get_highlighted() == 1) {
+        temp_data_pointer = configuration_data->at(0);
+        configuration_data->at(0) = configuration_data->at(1);
+        configuration_data->at(1) = temp_data_pointer;
+      }
+      if (configuration_data->at(0)->get_highlighted() == 2) {
+        temp_data_pointer = configuration_data->at(0);
+        configuration_data->at(0) = configuration_data->at(2);
+        configuration_data->at(2) = temp_data_pointer;
+      }
     }
   }
 };

@@ -4,11 +4,11 @@
 
 #pragma once
 
-class AbsFIO {
+class AbsNickname {
  protected:
   const unsigned char_counts = 24;
   const char* fio = nullptr;
 
-  explicit AbsFIO() = default;
-  ~AbsFIO() = default;
+  explicit AbsNickname() = default;
+  ~AbsNickname() = default;
 };

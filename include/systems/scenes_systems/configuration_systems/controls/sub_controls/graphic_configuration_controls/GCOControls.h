@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <vector>
+
 #include "./BearLibTerminal.h"
 #include "systems/IControl.h"
 #include "systems/scenes_systems/configuration_systems/controls/sub_controls/graphic_configuration_controls/GCOControlMap.h"
@@ -13,9 +15,10 @@ class GCOControls {
   GCOControlMap *control_map;
 
  public:
-  explicit GCOControls(ParameterQueryData *input_settings_data,
+  explicit GCOControls(std::vector<ParameterQueryData *> *input_configuration_data,
                        GameConfigurationData *input_global_configuration_data) {
-    control_map = new GCOControlMap(input_settings_data, input_global_configuration_data);
+    control_map =
+        new GCOControlMap(input_configuration_data, input_global_configuration_data);
   }
 
   ~GCOControls() {

@@ -2,24 +2,26 @@
 // Created by vydra on 7/31/20.
 //
 
+#include <vector>
+
 #include "entities/GameConfigurationData.hpp"
 #include "entities/ParameterQueryData.hpp"
 #include "systems/IControl.h"
 
 class GCOControlSelectDown : public IControl {
  private:
-  ParameterQueryData* settings_data;
+  std::vector<ParameterQueryData *> *configuration_data;
 
  public:
-  explicit GCOControlSelectDown(ParameterQueryData *input_settings_data)
+  explicit GCOControlSelectDown(std::vector<ParameterQueryData *> *input_configuration_data)
       : IControl("CEControlSelectDown") {
-    settings_data = input_settings_data;
+    configuration_data = input_configuration_data;
   }
   ~GCOControlSelectDown() override = default;
 
   void execute() override {
-    if (settings_data->get_highlighted() < settings_data->get_count_choices()) {
-      settings_data->set_highlighted(settings_data->get_highlighted() + 1);
+    if (configuration_data->at(0)->get_highlighted() < configuration_data->at(0)->get_count_choices()) {
+      configuration_data->at(0)->set_highlighted(configuration_data->at(0)->get_highlighted() + 1);
     }
   }
 };

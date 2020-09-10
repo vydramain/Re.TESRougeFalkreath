@@ -14,7 +14,7 @@
 class GraphicConfigurationScene : public IScene {
  private:
   GameConfigurationData *global_settings_data = nullptr;
-  ParameterQueryData *data = nullptr;
+  std::vector<ParameterQueryData *> *configuration_data = nullptr;
   IRenderSystem *render_system = nullptr;
 
   GCOControls *gco_input = nullptr;

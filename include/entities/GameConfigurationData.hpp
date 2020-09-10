@@ -4,14 +4,24 @@
 
 #pragma once
 
+#include <string>
+
+#include "components/sub_components/SubResolution.hpp"
+
 class GameConfigurationData {
  private:
   bool rouge_set;
+  bool sprite_set;
+  SubResolution *resolution_set;
 
  public:
   explicit GameConfigurationData();
   ~GameConfigurationData();
 
   void set_rouge(bool input_set);
-  bool get_rouge();
+  void set_sprite(bool input_set);
+
+  bool get_rouge() const;
+  bool get_sprite() const;
+  SubResolution *get_resolution() const;
 };

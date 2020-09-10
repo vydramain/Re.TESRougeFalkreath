@@ -5,6 +5,7 @@
 #pragma once
 
 #include <map>
+#include <vector>
 
 #include "./BearLibTerminal.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
@@ -29,13 +30,14 @@ class GCOControlMap {
   std::map<int, IControl *>::iterator c_iterator;
 
  public:
-  explicit GCOControlMap(ParameterQueryData *input_settings_data,
+  explicit GCOControlMap(std::vector<ParameterQueryData *> *input_configuration_data,
                          GameConfigurationData *input_global_configuration_data) {
-    exit = new GCOControlSelectExit();
+    exit = new GCOControlSelectExit(input_configuration_data);
     empty = new GCOControlSelectEmpty();
-    enter = new GCOControlSelectEnter(input_settings_data, input_global_configuration_data);
-    down = new GCOControlSelectDown(input_settings_data);
-    up = new GCOControlSelectUp(input_settings_data);
+    enter = new GCOControlSelectEnter(input_configuration_data,
+                                      input_global_configuration_data);
+    down = new GCOControlSelectDown(input_configuration_data);
+    up = new GCOControlSelectUp(input_configuration_data);
 
     c_map.insert(std::make_pair(TK_CLOSE, exit));
     c_map.insert(std::make_pair(TK_ESCAPE, exit));

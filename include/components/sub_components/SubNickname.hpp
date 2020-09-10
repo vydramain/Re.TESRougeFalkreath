@@ -6,12 +6,12 @@
 
 #include <cstring>
 
-#include "components/abs_components/AbsFIO.hpp"
+#include "components/abs_components/AbsNickname.hpp"
 
-class SubFIO : protected AbsFIO {
+class SubNickname : protected AbsNickname {
  public:
-  explicit SubFIO(const char* input_fio);
-  ~SubFIO();
+  explicit SubNickname(const char* input_fio);
+  ~SubNickname();
 
   unsigned get_chars_counts() const;
   const char* get_fio() const;
