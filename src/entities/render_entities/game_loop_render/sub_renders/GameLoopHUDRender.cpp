@@ -176,11 +176,12 @@ void GameLoopHUDRender::render_nameplate() {
 
 void GameLoopHUDRender::render_inventory() {
   terminal_color(0xffffffff);
-  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
+  terminal_print(passive_zone_out_x + 1, 11, "Карманы:");
+  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 7, "Кошель:");
   char wallet[7];
   snprintf(wallet, (size_t) "%u", "%u",
            world_system->get_current_map()->get_entities_system()->get_player()->get_wallet());
-  terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
+  terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 7, wallet);
 }
 
 void GameLoopHUDRender::render_coordinates() {
