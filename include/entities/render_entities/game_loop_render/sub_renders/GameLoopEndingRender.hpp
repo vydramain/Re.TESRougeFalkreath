@@ -5,21 +5,18 @@
 #pragma once
 
 #include "entities/ParameterQueryData.hpp"
+#include "entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 
 class GameLoopEndingRender : public IRender {
  private:
-  unsigned SCREENMODE_X = 0;
-  unsigned SCREENMODE_Y = 0;
-
+  RenderConfigurationData *data = nullptr;
   ParameterQueryData *ending_data;
 
  public:
-  explicit GameLoopEndingRender(ParameterQueryData *input_ending_data);
+  explicit GameLoopEndingRender(RenderConfigurationData *input_data, ParameterQueryData *input_ending_data);
   ~GameLoopEndingRender() override;
-
-  void update_fields(unsigned input_screen_x, unsigned input_screen_y);
 
   void render() override;
 };

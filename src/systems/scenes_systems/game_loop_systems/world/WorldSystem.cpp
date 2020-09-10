@@ -47,6 +47,14 @@ void WorldSystem::set_current_map(std::string input_name) {
   current_map = nullptr;
 }
 
+void WorldSystem::set_ending_game(bool input_ending) {
+  ending = input_ending;
+}
+
+bool WorldSystem::get_ending_game() const {
+  return ending;
+}
+
 IMapSystem* WorldSystem::get_current_map() {
   return current_map;
 }
@@ -61,11 +69,4 @@ std::vector<std::string>* WorldSystem::get_maps_names() {
     maps_names->push_back(map->get_name());
   }
   return maps_names;
-}
-
-void WorldSystem::set_ending_game(bool input_ending) {
-  ending = input_ending;
-}
-bool WorldSystem::get_ending_game() {
-  return ending;
 }

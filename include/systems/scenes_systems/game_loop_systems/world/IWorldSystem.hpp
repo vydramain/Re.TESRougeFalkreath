@@ -19,7 +19,7 @@ class IWorldSystem {
   virtual void set_current_map(std::string input_name) = 0;
   virtual void set_ending_game(bool input_ending) = 0;
 
-  virtual bool get_ending_game() = 0;
+  virtual bool get_ending_game() const = 0;
   virtual IMapSystem* get_current_map() = 0;
   virtual IMapSystem* get_current_map() const = 0;
   virtual std::vector<std::string>* get_maps_names() = 0;

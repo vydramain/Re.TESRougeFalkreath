@@ -12,7 +12,7 @@
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
-#include "entities/render_entities/game_loop_render/PseudoGameLoopRender.h"
+#include "entities/render_entities/game_loop_render/GameLoopRender.h"
 #include "entities/render_entities/main_menu_render/MainMenuRender.h"
 #include "entities/render_entities/settings_render/SettingsRender.hpp"
 #include "entities/render_entities/statistics_render/StatisticsRender.hpp"

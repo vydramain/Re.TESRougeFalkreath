@@ -99,7 +99,7 @@ void BearRenderSystem::set_pseudo_game_loop_render() {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
   if (is_game_loop) {
-    render_entity = new PseudoGameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, ending_data);
+    render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, ending_data);
   }
 }
 
