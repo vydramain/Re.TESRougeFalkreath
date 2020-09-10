@@ -15,7 +15,7 @@ ConfigurationSceneLauncher::ConfigurationSceneLauncher(IRenderSystem *input_rend
 ConfigurationSceneLauncher::~ConfigurationSceneLauncher() = default;
 
 void ConfigurationSceneLauncher::execute() {
-  PseudoLogSystem::log(get_name(), "Launch settings scene");
+  PseudoLogSystem::log(get_name(), "Launch configuration scene");
   auto *scene = new ConfigurationScene(render_system, settings_data);
   scene->run();
   *scene_type = MAIN_MENU_SCENE;

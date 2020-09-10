@@ -15,7 +15,6 @@ void SubResolution::set_1920x1080() {
 void SubResolution::set_1280x720() {
   current_resolution = R_1280x720;
 }
-
 AbsResolution::resolution SubResolution::get_current_resolution() const {
   return current_resolution;
 }

@@ -8,6 +8,7 @@
 
 #include "./BearLibTerminal.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
+#include "components/sub_components/SubResolution.hpp"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
@@ -42,10 +43,11 @@ class BearRenderSystem : public IRenderSystem {
   ParameterQueryData* ending_data = nullptr;
 
  public:
+  void reset_render() override;
   void set_resolution_1280x720() override;
   void set_resolution_1920x1080() override;
 
-  explicit BearRenderSystem();
+  explicit BearRenderSystem(const SubResolution* input_resolution);
   ~BearRenderSystem() override;
 
   void set_main_menu_data(ParameterQueryData* input_menu_data) override;

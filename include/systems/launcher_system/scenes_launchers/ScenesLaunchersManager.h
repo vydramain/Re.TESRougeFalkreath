@@ -23,7 +23,7 @@ class ScenesLaunchersManager {
   ExitSceneLauncher *exit = nullptr;
   GameLoopSceneLauncher *new_game = nullptr;
   MainMenuSceneLauncher *main_menu = nullptr;
-  ConfigurationSceneLauncher *settings = nullptr;
+  ConfigurationSceneLauncher *configuration = nullptr;
   StatisticsSceneLauncher *score_list = nullptr;
 
   std::map<SceneType, IControl *> main_map;
@@ -33,9 +33,10 @@ class ScenesLaunchersManager {
   SceneType *expected_scene = nullptr;
 
  public:
-  explicit ScenesLaunchersManager(GameConfigurationData *input_settings_data);
+  explicit ScenesLaunchersManager(GameConfigurationData *input_configuration_data);
   ~ScenesLaunchersManager();
 
   SceneType get_expected_scene_type() const;
   IControl *get_control(SceneType input_scene_type);
+  void reconfiguration_systems(GameConfigurationData *input_configuration_data);
 };

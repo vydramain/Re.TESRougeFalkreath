@@ -14,6 +14,7 @@ class IRenderSystem {
  public:
   virtual ~IRenderSystem() = default;
 
+  virtual void reset_render() = 0;
   virtual void set_resolution_1280x720() = 0;
   virtual void set_resolution_1920x1080() = 0;
 

@@ -26,10 +26,10 @@ class GCOControlSelectEnter : public IControl {
   void execute() override {
     if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Выберете новое разрешение:") == 0) {
       if (configuration_data->at(0)->get_highlighted() == 1) {
-        global_configuration_data->get_resolution()->set_1920x1080();
+        global_configuration_data->set_resolution_1920x1080();
       }
       if (configuration_data->at(0)->get_highlighted() == 2) {
-        global_configuration_data->get_resolution()->set_1280x720();
+        global_configuration_data->set_resolution_1280x720();
       }
     }
     if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Выберете режим отоборажения объектов:") == 0) {

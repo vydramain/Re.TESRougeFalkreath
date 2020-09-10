@@ -31,7 +31,7 @@ class COControlMap {
  public:
   explicit COControlMap(IRenderSystem *input_render_system, ParameterQueryData *input_settings_data,
                         GameConfigurationData *input_global_configuration_data) {
-    PseudoLogSystem::log("COControlMap", "Create settings controls");
+    PseudoLogSystem::log("COControlMap", "Create configuration controls");
     down = new COControlSelectDown(input_settings_data);
     up = new COControlSelectUp(input_settings_data);
     exit = new COControlSelectExit();
@@ -46,7 +46,7 @@ class COControlMap {
   }
 
   ~COControlMap() {
-    PseudoLogSystem::log("COControlMap", "Delete settings controls");
+    PseudoLogSystem::log("COControlMap", "Delete configuration controls");
     delete exit;
     delete empty;
     delete enter;

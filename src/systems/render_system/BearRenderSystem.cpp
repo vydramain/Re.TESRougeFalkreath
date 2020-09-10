@@ -6,6 +6,10 @@
 
 #include <string>
 
+void BearRenderSystem::reset_render() {
+  terminal_close();
+}
+
 void BearRenderSystem::set_resolution_1280x720() {
   SCREENMODE_X = 64;
   SCREENMODE_Y = 20;
@@ -32,8 +36,13 @@ void BearRenderSystem::set_resolution_1920x1080() {
   terminal_refresh();
 }
 
-BearRenderSystem::BearRenderSystem() {
-  set_resolution_1280x720();
+BearRenderSystem::BearRenderSystem(const SubResolution *input_resolution) {
+  if (input_resolution->get_current_resolution() == AbsResolution::R_1280x720) {
+    set_resolution_1280x720();
+  }
+  if (input_resolution->get_current_resolution() == AbsResolution::R_1920x1080) {
+    set_resolution_1920x1080();
+  }
 }
 
 BearRenderSystem::~BearRenderSystem() {
