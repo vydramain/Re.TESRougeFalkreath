@@ -17,5 +17,5 @@ Use `make` to compile link and play.
 ####Special features
     
  1. Dynamic resolution. You can play in HD or FullHD mode
- 2. Three big location. You can enable random generation of dungeon
+ 2. Three big location. You can enable random generation of dungeon location
   
