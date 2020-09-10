@@ -2,7 +2,7 @@
 // Created by vydra on 8/20/20.
 //
 
-#include "entities/StringsListData.hpp"
+#include "entities/data_entities/StringsListData.hpp"
 
 #include <string>
 

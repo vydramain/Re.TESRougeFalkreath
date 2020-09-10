@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "entities/GameConfigurationData.hpp"
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/GameConfigurationData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IScene.h"
 #include "systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"

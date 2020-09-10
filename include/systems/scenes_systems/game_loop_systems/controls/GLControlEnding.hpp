@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/EndingScene.hpp"
 #include "systems/scenes_systems/game_loop_systems/controls/IGLControl.h"
 

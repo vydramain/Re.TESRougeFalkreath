@@ -8,8 +8,8 @@
 #include <string>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameConfigurationData.hpp"
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/GameConfigurationData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/controls/GLControlMap.h"

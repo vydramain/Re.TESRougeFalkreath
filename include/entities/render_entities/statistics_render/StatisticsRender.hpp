@@ -5,7 +5,7 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
-#include "entities/StringsListData.hpp"
+#include "entities/data_entities/StringsListData.hpp"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"

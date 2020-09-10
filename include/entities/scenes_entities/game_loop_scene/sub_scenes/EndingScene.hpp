@@ -6,7 +6,7 @@
 
 #include <cstring>
 
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IScene.h"
 #include "systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControls.h"

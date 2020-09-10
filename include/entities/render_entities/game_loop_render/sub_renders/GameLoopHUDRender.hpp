@@ -7,7 +7,7 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
-#include "entities/RenderConfigurationData.hpp"
+#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/location_entities/sentients_entities/Sentient.h"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"

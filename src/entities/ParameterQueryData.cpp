@@ -2,7 +2,7 @@
 // Created by vydra on 8/27/20.
 //
 
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 
 #include <string>
 #include <vector>

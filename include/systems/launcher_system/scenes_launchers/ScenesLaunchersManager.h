@@ -7,7 +7,7 @@
 #include <map>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameConfigurationData.hpp"
+#include "entities/data_entities/GameConfigurationData.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "systems/IControl.h"
 #include "systems/launcher_system/scenes_launchers/ConfigurationSceneLauncher.hpp"

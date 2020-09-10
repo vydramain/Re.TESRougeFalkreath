@@ -7,7 +7,7 @@
 #include <cstring>
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"

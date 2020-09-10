@@ -6,8 +6,8 @@
 
 #include <string>
 
-#include "entities/ParameterQueryData.hpp"
-#include "entities/StringsListData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
+#include "entities/data_entities/StringsListData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class IRenderSystem {

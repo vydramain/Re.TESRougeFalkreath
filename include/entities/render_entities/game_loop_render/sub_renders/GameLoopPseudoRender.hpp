@@ -5,7 +5,7 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
-#include "entities/RenderConfigurationData.hpp"
+#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/IRender.h"
 
 class GameLoopPseudoRender : public IRender {

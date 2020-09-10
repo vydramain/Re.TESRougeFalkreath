@@ -6,7 +6,7 @@
 
 #include "./BearLibTerminal.h"
 #include "SControlMap.hpp"
-#include "entities/StringsListData.hpp"
+#include "entities/data_entities/StringsListData.hpp"
 #include "systems/scenes_systems/statistics_systems/IStatisticsSystem.hpp"
 
 class SControls {

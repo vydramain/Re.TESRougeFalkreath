@@ -8,8 +8,8 @@
 
 #include "./BearLibTerminal.h"
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/GameConfigurationData.hpp"
-#include "entities/ParameterQueryData.hpp"
+#include "entities/data_entities/GameConfigurationData.hpp"
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "systems/IControl.h"
 #include "systems/scenes_systems/configuration_systems/controls/COControlSelectDown.h"
 #include "systems/scenes_systems/configuration_systems/controls/COControlSelectEmpty.h"
