@@ -18,9 +18,10 @@ class GameLoopGraficRender : public IRender {
  public:
   explicit GameLoopGraficRender(RenderConfigurationData *input_data);
 
+  void render_ground();
   void render_ambient();
-  void render_location_creatures();
   void render_location_items();
+  void render_location_creatures();
 
   void render() override;
 };
