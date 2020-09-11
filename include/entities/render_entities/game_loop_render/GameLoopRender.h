@@ -12,6 +12,7 @@
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopEndingRender.hpp"
+#include "entities/render_entities/game_loop_render/sub_renders/GameLoopGraficRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopPseudoRender.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
