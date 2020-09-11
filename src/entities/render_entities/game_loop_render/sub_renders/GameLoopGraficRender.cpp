@@ -97,7 +97,7 @@ void GameLoopGraficRender::render_location_creatures() {
 }
 
 void GameLoopGraficRender::render_location_items() {
-  terminal_layer( 11);
+  terminal_layer(11);
   const Item *item;
   for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_items_size(); i++) {
     item = data->get_world_system()->get_current_map()->get_entities_system()->get_item(i);
@@ -120,5 +120,4 @@ void GameLoopGraficRender::render() {
   render_ambient();
   render_location_items();
   render_location_creatures();
-
 }

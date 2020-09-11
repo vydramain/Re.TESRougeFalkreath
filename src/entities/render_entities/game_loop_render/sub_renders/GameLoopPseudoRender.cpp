@@ -29,7 +29,7 @@ void GameLoopPseudoRender::render_ambient() {
 }
 
 void GameLoopPseudoRender::render_location_creatures() {
-  terminal_layer(2);
+  terminal_layer(6);
   const Sentient *sentient;
   for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
        i++) {
@@ -66,6 +66,7 @@ void GameLoopPseudoRender::render_location_creatures() {
 }
 
 void GameLoopPseudoRender::render_location_items() {
+  terminal_layer(11);
   const Item *item;
   for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_items_size(); i++) {
     item = data->get_world_system()->get_current_map()->get_entities_system()->get_item(i);
