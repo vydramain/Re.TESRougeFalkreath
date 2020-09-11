@@ -73,7 +73,7 @@ class GLControlMap {
       PseudoLogSystem::log("GLControlMap", "Can not start loop");
       return control_exit;
     }
-    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", "K", 0xffEEEEEE, 18, 95));
+    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", 18, 95));
     last_control = control_adventure;
     return control_adventure;
   }

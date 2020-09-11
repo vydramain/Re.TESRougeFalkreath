@@ -11,7 +11,8 @@
 
 class Ambient : public LocationsEntity, public SubLocatable, public SubFloor {
  public:
-  explicit Ambient(const char* input_name, const char* input_tile, unsigned input_color,
+  explicit Ambient(const char* input_name, PseudoRenderData* input_pseudo_data,
+                   GraficRenderData* input_grafic_data,
                    unsigned input_x, unsigned input_y, bool is_floor = false);
   ~Ambient() override;
 

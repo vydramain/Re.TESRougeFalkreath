@@ -4,8 +4,9 @@
 
 #include <entities/location_entities/sentients_entities/beastfolks/Khadjiit.h>
 
-Khadjiit::Khadjiit(const char *input_fio, const char* input_tile, unsigned input_color,
-                   unsigned int input_current_x, unsigned int input_current_y, unsigned int input_pocket)
-    : Sentient(input_fio, "Khadjiit", input_tile, input_color, input_current_x, input_current_y, input_pocket) {}
+Khadjiit::Khadjiit(const char* input_fio, unsigned int input_current_x, unsigned int input_current_y,
+                   unsigned int input_pocket)
+    : Sentient(input_fio, "Khadjiit", new PseudoRenderData("K", 0xffEEEEEE), new GraficRenderData(0), input_current_x,
+               input_current_y, input_pocket) {}
 
 Khadjiit::~Khadjiit() = default;

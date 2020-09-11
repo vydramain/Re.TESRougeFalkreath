@@ -85,10 +85,16 @@ void InteractAbilitySystem::interact_with_nothing() {}
 void InteractAbilitySystem::interact_with_door() {
   if (world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->get_floor()) {
     world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->set_floor(false);
-    world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->set_tile("┼");
+    world_system->get_current_map()
+        ->get_entities_system()
+        ->get_ambient(data->get_ambient_index())
+        ->set_pseudo_tile("┼");
   } else {
     world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->set_floor(true);
-    world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->set_tile("║");
+    world_system->get_current_map()
+        ->get_entities_system()
+        ->get_ambient(data->get_ambient_index())
+        ->set_pseudo_tile("║");
   }
 }
 

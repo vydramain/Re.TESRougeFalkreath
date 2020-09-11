@@ -12,8 +12,8 @@ class GraficRenderData {
   explicit GraficRenderData(unsigned input_tile_number);
   ~GraficRenderData();
 
-  void set_tile_number(unsigned input_tile_number);
+  void set_grafic_tile(unsigned input_tile_number);
 
-  unsigned get_tile_number() const;
+  unsigned get_grafic_tile() const;
 
 };

@@ -5,6 +5,6 @@
 #include "entities/location_entities/ambient_entities/WestGate.hpp"
 
 WestGate::WestGate(unsigned int input_x, unsigned int input_y)
-    : Ambient("WestGate", "┼", 0xFF909090, input_x, input_y) {}
+    : Ambient("WestGate", new PseudoRenderData("┼", 0xFF909090), new GraficRenderData(0xF00A), input_x, input_y) {}
 
 WestGate::~WestGate() = default;

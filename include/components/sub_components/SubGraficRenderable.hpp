@@ -11,7 +11,7 @@ class SubGraficRenderable : protected AbsGraficRenderable {
   explicit SubGraficRenderable(unsigned int input_tile_number);
   ~SubGraficRenderable();
 
-  void set_tile(unsigned input_tile_number);
+  void set_grafic_tile(unsigned input_tile_number);
 
-  unsigned get_tile_number() const;
+  unsigned get_grafic_tile() const;
 };

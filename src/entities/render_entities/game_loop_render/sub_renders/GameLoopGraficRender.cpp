@@ -52,9 +52,9 @@ void GameLoopGraficRender::render_ambient() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(ambient->get_color());
+      terminal_color(ambient->get_pseudo_color());
       terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     ambient->get_tile());
+                     ambient->get_pseudo_tile());
     }
   }
 }
@@ -72,9 +72,9 @@ void GameLoopGraficRender::render_location_creatures() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(sentient->get_color());
+      terminal_color(sentient->get_pseudo_color());
       terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     sentient->get_tile());
+                     sentient->get_pseudo_tile());
     }
   }
 
@@ -89,9 +89,9 @@ void GameLoopGraficRender::render_location_creatures() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(magwehr->get_color());
+      terminal_color(magwehr->get_pseudo_color());
       terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     magwehr->get_tile());
+                     magwehr->get_pseudo_tile());
     }
   }
 }
@@ -109,8 +109,9 @@ void GameLoopGraficRender::render_location_items() {
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
       terminal_layer(4);
-      terminal_color(item->get_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(), item->get_tile());
+      terminal_color(item->get_pseudo_color());
+      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     item->get_pseudo_tile());
     }
   }
 }
