@@ -8,10 +8,10 @@
 
 class SubGraficRenderable : protected AbsGraficRenderable {
  public:
-  explicit SubGraficRenderable(const char* input_tile_address, unsigned int input_tile_number);
+  explicit SubGraficRenderable(unsigned int input_tile_number);
   ~SubGraficRenderable();
 
-  void set_tile(const char* input_tile_address);
+  void set_tile(unsigned input_tile_number);
 
   unsigned get_tile_number() const;
 };

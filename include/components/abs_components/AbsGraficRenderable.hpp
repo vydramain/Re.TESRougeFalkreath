@@ -14,9 +14,8 @@ class AbsGraficRenderable {
   unsigned tile_number;
 
  public:
-  explicit AbsGraficRenderable(const char* input_tile_address, unsigned int input_tile_number) {
+  explicit AbsGraficRenderable(unsigned int input_tile_number) {
     tile_number = input_tile_number;
-    terminal_set(std::to_string(input_tile_number).append(": ").append(input_tile_address).data());
   }
   ~AbsGraficRenderable() = default;
 };

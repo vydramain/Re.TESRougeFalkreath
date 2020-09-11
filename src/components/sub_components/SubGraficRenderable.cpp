@@ -4,13 +4,13 @@
 
 #include "components/sub_components/SubGraficRenderable.hpp"
 
-SubGraficRenderable::SubGraficRenderable(const char *input_tile_address, unsigned int input_tile_number)
-    : AbsGraficRenderable(input_tile_address, input_tile_number) {}
+SubGraficRenderable::SubGraficRenderable(unsigned int input_tile_number)
+    : AbsGraficRenderable(input_tile_number) {}
 
 SubGraficRenderable::~SubGraficRenderable() = default;
 
-void SubGraficRenderable::set_tile(const char *input_tile_address) {
-  terminal_set(std::to_string(tile_number).append(": ").append(input_tile_address).data());
+void SubGraficRenderable::set_tile(unsigned input_tile_number) {
+  tile_number = input_tile_number;
 }
 
 unsigned SubGraficRenderable::get_tile_number() const {
