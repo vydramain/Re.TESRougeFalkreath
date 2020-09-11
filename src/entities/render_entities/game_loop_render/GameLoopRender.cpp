@@ -8,7 +8,7 @@ GameLoopRender::GameLoopRender(unsigned int input_screen_x, unsigned int input_s
                                IWorldSystem *input_world_system, ParameterQueryData *input_ending_data)
     : IRender() {
   data = new RenderConfigurationData(input_screen_x, input_screen_y, input_world_system);
-  world = new GameLoopPseudoRender(data);
+  world = new GameLoopGraficRender(data);
   hud = new GameLoopHUDRender(data);
   ending = new GameLoopEndingRender(data, input_ending_data);
 }

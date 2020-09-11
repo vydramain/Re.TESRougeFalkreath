@@ -22,8 +22,8 @@ GameLoopGraficRender::GameLoopGraficRender(RenderConfigurationData *input_data) 
   tiles_map["../sprites/tiny/ambients/cave_quit.png"] = 0xF00C;
   tiles_map["../sprites/tiny/ambients/door/door_c.png"] = 0xF00D;
   tiles_map["../sprites/tiny/ambients/door/door_o.png"] = 0xF00E;
-  //  tiles_map["../"] = 0xF020;
-  //  tiles_map["../"] = 0xF040;
+  tiles_map["../sprites/tiny/items/coin.png"] = 0xF020;
+  tiles_map["../sprites/tiny/sentients/khajiit/right.png"] = 0xF040;
 
   for (auto &it : tiles_map) {
     terminal_set(std::to_string(it.second).append(": ").append(it.first).data());
@@ -52,9 +52,8 @@ void GameLoopGraficRender::render_ambient() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(ambient->get_pseudo_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     ambient->get_pseudo_tile());
+      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     ambient->get_grafic_tile());
     }
   }
 }
@@ -72,9 +71,8 @@ void GameLoopGraficRender::render_location_creatures() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(sentient->get_pseudo_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     sentient->get_pseudo_tile());
+      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     sentient->get_grafic_tile());
     }
   }
 
@@ -89,9 +87,8 @@ void GameLoopGraficRender::render_location_creatures() {
          race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(magwehr->get_pseudo_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     magwehr->get_pseudo_tile());
+      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     magwehr->get_grafic_tile());
     }
   }
 }
@@ -109,9 +106,8 @@ void GameLoopGraficRender::render_location_items() {
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
       terminal_layer(4);
-      terminal_color(item->get_pseudo_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     item->get_pseudo_tile());
+      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     item->get_grafic_tile());
     }
   }
 }

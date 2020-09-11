@@ -89,12 +89,20 @@ void InteractAbilitySystem::interact_with_door() {
         ->get_entities_system()
         ->get_ambient(data->get_ambient_index())
         ->set_pseudo_tile("┼");
+    world_system->get_current_map()
+        ->get_entities_system()
+        ->get_ambient(data->get_ambient_index())
+        ->set_grafic_tile(0xF00D);
   } else {
     world_system->get_current_map()->get_entities_system()->get_ambient(data->get_ambient_index())->set_floor(true);
     world_system->get_current_map()
         ->get_entities_system()
         ->get_ambient(data->get_ambient_index())
         ->set_pseudo_tile("║");
+    world_system->get_current_map()
+        ->get_entities_system()
+        ->get_ambient(data->get_ambient_index())
+        ->set_grafic_tile(0xF00E);
   }
 }
 
