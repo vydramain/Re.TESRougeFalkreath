@@ -17,6 +17,8 @@ class IRenderSystem {
   virtual void reset_render() = 0;
   virtual void set_resolution_1280x720() = 0;
   virtual void set_resolution_1920x1080() = 0;
+  virtual void set_pseudo_mode() = 0;
+  virtual void set_grafic_mode() = 0;
 
   virtual void set_main_menu_data(ParameterQueryData *input_menu_data) = 0;
   virtual void set_score_list_data(StringsListData *input_score_list_data) = 0;

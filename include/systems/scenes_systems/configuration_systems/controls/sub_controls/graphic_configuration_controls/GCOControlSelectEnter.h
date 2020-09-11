@@ -34,10 +34,10 @@ class GCOControlSelectEnter : public IControl {
     }
     if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Выберете режим отоборажения объектов:") == 0) {
       if (configuration_data->at(0)->get_highlighted() == 1) {
-        global_configuration_data->set_sprite(false);
+        global_configuration_data->set_pseudo(true);
       }
       if (configuration_data->at(0)->get_highlighted() == 2) {
-        global_configuration_data->set_sprite(true);
+        global_configuration_data->set_pseudo(false);
       }
     }
     if (std::strcmp(configuration_data->at(0)->get_title()->data(), "Конфигурация графического режима:") == 0) {

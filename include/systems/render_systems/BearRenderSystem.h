@@ -27,6 +27,7 @@ class BearRenderSystem : public IRenderSystem {
   unsigned SCREENMODE_X = 0;
   unsigned SCREENMODE_Y = 0;
 
+  bool is_pseudo = true;
   IRender* render_entity = nullptr;
 
   bool is_menu = false;
@@ -46,6 +47,8 @@ class BearRenderSystem : public IRenderSystem {
   void reset_render() override;
   void set_resolution_1280x720() override;
   void set_resolution_1920x1080() override;
+  void set_pseudo_mode() override;
+  void set_grafic_mode() override;
 
   explicit BearRenderSystem(const SubResolution* input_resolution);
   ~BearRenderSystem() override;

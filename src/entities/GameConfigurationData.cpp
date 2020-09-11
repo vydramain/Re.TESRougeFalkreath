@@ -7,7 +7,7 @@
 GameConfigurationData::GameConfigurationData() {
   changes = false;
   rouge_set = false;
-  sprite_set = false;
+  pseudo_set = false;
   resolution_set = new SubResolution();
 }
 
@@ -20,9 +20,9 @@ void GameConfigurationData::set_rouge(bool input_set) {
   rouge_set = input_set;
 }
 
-void GameConfigurationData::set_sprite(bool input_set) {
+void GameConfigurationData::set_pseudo(bool input_set) {
   changes = true;
-  sprite_set = input_set;
+  pseudo_set = input_set;
 }
 
 void GameConfigurationData::set_resolution_1280x720() {
@@ -47,8 +47,8 @@ bool GameConfigurationData::get_rouge() const {
   return rouge_set;
 }
 
-bool GameConfigurationData::get_sprite() const {
-  return sprite_set;
+bool GameConfigurationData::get_pseudo() const {
+  return pseudo_set;
 }
 
 const SubResolution *GameConfigurationData::get_resolution() const {

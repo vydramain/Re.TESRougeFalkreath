@@ -7,6 +7,7 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
+#include "entities/data_entities/GameConfigurationData.hpp"
 #include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
@@ -28,8 +29,11 @@ class GameLoopRender : public IRender {
 
  public:
   explicit GameLoopRender(unsigned input_screen_x, unsigned input_screen_y, IWorldSystem *input_world_system,
-                          ParameterQueryData *input_ending_data);
+                          bool is_pseudo, ParameterQueryData *input_ending_data);
   ~GameLoopRender() override;
+
+  void set_pseudo_mode();
+  void set_grafic_mode();
 
   void render_world();
   void render_hud();

@@ -13,7 +13,7 @@ class GameConfigurationData {
   bool changes;
 
   bool rouge_set;
-  bool sprite_set;
+  bool pseudo_set;
   SubResolution *resolution_set;
 
  public:
@@ -21,12 +21,12 @@ class GameConfigurationData {
   ~GameConfigurationData();
 
   void set_rouge(bool input_set);
-  void set_sprite(bool input_set);
+  void set_pseudo(bool input_set);
   void set_resolution_1280x720();
   void set_resolution_1920x1080();
 
   bool has_changes();
   bool get_rouge() const;
-  bool get_sprite() const;
+  bool get_pseudo() const;
   const SubResolution *get_resolution() const;
 };

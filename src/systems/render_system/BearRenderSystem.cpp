@@ -36,6 +36,14 @@ void BearRenderSystem::set_resolution_1920x1080() {
   terminal_refresh();
 }
 
+void BearRenderSystem::set_pseudo_mode() {
+  is_pseudo = true;
+}
+
+void BearRenderSystem::set_grafic_mode() {
+  is_pseudo = false;
+}
+
 BearRenderSystem::BearRenderSystem(const SubResolution *input_resolution) {
   if (input_resolution->get_current_resolution() == AbsResolution::R_1280x720) {
     set_resolution_1280x720();
@@ -99,7 +107,11 @@ void BearRenderSystem::set_pseudo_game_loop_render() {
   printf("%s", "[RenderSystem] - Setting up pseudo game loop render\n");
   delete render_entity;
   if (is_game_loop) {
-    render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, ending_data);
+    if (is_pseudo) {
+      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, true, ending_data);
+    } else {
+      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, false, ending_data);
+    }
   }
 }
 

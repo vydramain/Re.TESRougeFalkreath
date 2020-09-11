@@ -58,5 +58,11 @@ void ScenesLaunchersManager::reconfiguration_systems(GameConfigurationData* inpu
     if (input_configuration_data->get_resolution()->get_current_resolution() == AbsResolution::R_1920x1080) {
       render->set_resolution_1920x1080();
     }
+    if (input_configuration_data->get_pseudo()) {
+      render->set_pseudo_mode();
+    }
+    if (!input_configuration_data->get_pseudo()) {
+      render->set_grafic_mode();
+    }
   }
 }

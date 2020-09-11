@@ -4,11 +4,23 @@
 
 #include "entities/render_entities/game_loop_render/GameLoopRender.h"
 
+void GameLoopRender::set_pseudo_mode() {
+  world = new GameLoopPseudoRender(data);
+}
+
+void GameLoopRender::set_grafic_mode() {
+  world = new GameLoopGraficRender(data);
+}
+
 GameLoopRender::GameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                               IWorldSystem *input_world_system, ParameterQueryData *input_ending_data)
+                               IWorldSystem *input_world_system, bool is_pseudo, ParameterQueryData *input_ending_data)
     : IRender() {
   data = new RenderConfigurationData(input_screen_x, input_screen_y, input_world_system);
-  world = new GameLoopGraficRender(data);
+  if (is_pseudo) {
+    set_pseudo_mode();
+  } else {
+    set_grafic_mode();
+  }
   hud = new GameLoopHUDRender(data);
   ending = new GameLoopEndingRender(data, input_ending_data);
 }
@@ -20,6 +32,11 @@ GameLoopRender::~GameLoopRender() {
 }
 
 void GameLoopRender::render_world() {
+  if (!world) {
+    terminal_layer(20);
+    terminal_print(0, 0, "World render not set up");
+    return;
+  }
   world->render();
 }
 
