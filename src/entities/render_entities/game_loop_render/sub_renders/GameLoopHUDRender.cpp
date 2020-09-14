@@ -2,154 +2,172 @@
 // Created by vydra on 8/17/20.
 //
 
-#include <entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp>
+#include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
 
-GameLoopHUDRender::GameLoopHUDRender(ILocationSystem *input_system, const Sentient *input_target)
-    : location_system(input_system), target(input_target) {}
+#include <string>
+#include <vector>
+
+GameLoopHUDRender::GameLoopHUDRender(RenderConfigurationData *input_data) {
+  data = input_data;
+}
 
 GameLoopHUDRender::~GameLoopHUDRender() {
-  location_system = nullptr;
-  target = nullptr;
+  data = nullptr;
 }
 
-void GameLoopHUDRender::update_fields(unsigned int input_screen_x, unsigned int input_screen_y,
-                                      unsigned int input_passive_zone_out_x, unsigned int input_passive_zone_out_y,
-                                      unsigned int input_active_zone_in_x, unsigned int input_active_zone_in_y,
-                                      unsigned int input_active_zone_out_x, unsigned int input_active_zone_out_y,
-                                      unsigned int input_camera_position_x, unsigned int input_camera_position_y) {
-  SCREENMODE_X = input_screen_x;
-  SCREENMODE_Y = input_screen_y;
-
-  passive_zone_out_x = input_passive_zone_out_x;
-  passive_zone_out_y = input_passive_zone_out_y;
-  active_zone_in_x = input_active_zone_in_x;
-  active_zone_in_y = input_active_zone_in_y;
-  active_zone_out_x = input_active_zone_out_x;
-  active_zone_out_y = input_active_zone_out_y;
-
-  camera_position_x = input_camera_position_x;
-  camera_position_y = input_camera_position_y;
+std::vector<std::string *> *GameLoopHUDRender::prepare_string_message(std::string *input_text) const {
+  unsigned counter_words = 0;
+  unsigned counter_strings = 0;
+  auto return_text = new std::vector<std::string *>;
+  auto words = CCMech::split(input_text);
+  return_text->push_back(new std::string);
+  for (auto &word : words) {
+    counter_words += word->size();
+    if (counter_words > data->get_text_size() * 1.8) {
+      counter_words = word->size();
+      counter_strings++;
+      return_text->push_back(new std::string);
+    }
+    return_text->at(counter_strings)->append(*word);
+  }
+  return return_text;
 }
 
-void GameLoopHUDRender::update_camera(unsigned int input_camera_position_x, unsigned int input_camera_position_y) {
-  camera_position_x = input_camera_position_x;
-  camera_position_y = input_camera_position_y;
+void GameLoopHUDRender::view_string_message(std::vector<std::string *> *input_text) {
+  if (data->get_camera_position_x() + (data->get_passive_zone_out_x() / 2) < data->get_target()->get_current_x()) {
+    CleanerRender::clean_area(1, data->get_passive_zone_out_y() - 5 - input_text->size(),
+                              data->get_message_left_out_x(), data->get_passive_zone_out_y() - 1);
+    TextPanelsRender::view_strings_list(1, data->get_passive_zone_out_y() - 5 - input_text->size(),
+                                        data->get_message_left_out_x(), data->get_passive_zone_out_y() - 2, input_text);
+  } else {
+    CleanerRender::clean_area(data->get_message_right_in_x(), data->get_passive_zone_out_y() - 5 - input_text->size(),
+                              data->get_passive_zone_out_x() - 1, data->get_passive_zone_out_y() - 1);
+    TextPanelsRender::view_strings_list(
+        data->get_message_right_in_x(), data->get_passive_zone_out_y() - 5 - input_text->size(),
+        data->get_passive_zone_out_x() - 2, data->get_passive_zone_out_y() - 2, input_text);
+  }
 }
 
-void GameLoopHUDRender::view_one_string_message(const char **input_text) {
+void GameLoopHUDRender::produce_string_message(std::string *input_text) {
+  auto temp_text = prepare_string_message(input_text);
   terminal_color(0xffffffff);
-  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-    CleanerRender::clean_area(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_text(1, passive_zone_out_y - 6, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                input_text, 1);
-  } else {
-    CleanerRender::clean_area((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 1,
-                              passive_zone_out_y - 1);
-    TextPanelsRender::view_text((passive_zone_out_x / 2) - 2, passive_zone_out_y - 6, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, input_text, 1);
-  }
-}
-
-void GameLoopHUDRender::view_two_string_message(const char **input_text) {
-  if (camera_position_x + (passive_zone_out_x / 2) < target->get_current_x()) {
-    CleanerRender::clean_area(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 2, passive_zone_out_y - 1);
-    TextPanelsRender::view_text(1, passive_zone_out_y - 7, passive_zone_out_x / 2 + 1, passive_zone_out_y - 2,
-                                input_text, 2);
-  } else {
-    CleanerRender::clean_area((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 1,
-                              passive_zone_out_y - 1);
-    TextPanelsRender::view_text((passive_zone_out_x / 2) - 1, passive_zone_out_y - 7, passive_zone_out_x - 2,
-                                passive_zone_out_y - 2, input_text, 2);
-  }
+  view_string_message(temp_text);
+  temp_text->clear();
+  delete temp_text;
 }
 
 void GameLoopHUDRender::check_item_interact(unsigned input_index) {
-  const char *text[1] = {"Нажмите 'E' для взаимодействия"};
-  view_one_string_message(text);
+  produce_string_message(new std::string("Нажмите 'E', для взаимодействия"));
 }
 
 void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   terminal_color(0xffffffff);
-  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "Door") == 0) {
-    if (location_system->get_entities()->get_ambient(input_index)->get_floor()) {
-      const char *text[1] = {"Нажмите 'E' чтобы закрыть"};
-      view_one_string_message(text);
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "Door") == 0) {
+    if (data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_floor()) {
+      produce_string_message(new std::string("Нажмите 'E', чтобы закрыть"));
     } else {
-      const char *text[1] = {"Нажмите 'E' чтобы открыть"};
-      view_one_string_message(text);
+      produce_string_message(new std::string("Нажмите 'E', чтобы открыть"));
     }
   }
 
-  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "SouthGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в дальние земли"};
-    view_two_string_message(text);
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "SouthGate") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в дальние земли"));
   }
 
-  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "EastGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы отправиться", "в восточный лес"};
-    view_two_string_message(text);
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "EastGate") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в восточный лес"));
   }
 
-  if (std::strcmp(location_system->get_entities()->get_ambient(input_index)->get_name(), "WestGate") == 0) {
-    const char *text[2] = {"Нажмите 'E' чтобы вернуться", "в Фолкрит"};
-    view_two_string_message(text);
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "WestGate") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы вернуться в Фолкрит"));
+  }
+
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "UpperHatch") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы спуститься в подземелье Кровавого Трона"));
+  }
+
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "LowerHatch") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы подняться в руины форта Кровавого Трона"));
+  }
+
+  if (std::strcmp(
+          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
+          "CaveQuit") == 0) {
+    produce_string_message(new std::string("Нажмите 'E', чтобы выйти из подземелья"));
   }
 }
 
 void GameLoopHUDRender::render_borders() {
   terminal_layer(10);
   terminal_color(0xffffffff);
-  for (unsigned i = 0; i < passive_zone_out_y; i++) {
-    terminal_print(passive_zone_out_x, i, "│");
+  for (unsigned i = 0; i < data->get_passive_zone_out_y(); i++) {
+    terminal_print(data->get_passive_zone_out_x(), i, "│");
   }
 
-  terminal_print(passive_zone_out_x, 9, "├");
-  terminal_print(passive_zone_out_x, passive_zone_out_y - 5, "├");
-  for (unsigned i = 0; i < SCREENMODE_X - passive_zone_out_x; i++) {
-    terminal_print(passive_zone_out_x + i + 1, 9, "─");
-    terminal_print(passive_zone_out_x + i + 1, passive_zone_out_y - 5, "─");
+  terminal_print(data->get_passive_zone_out_x(), 9, "├");
+  terminal_print(data->get_passive_zone_out_x(), data->get_passive_zone_out_y() - 5, "├");
+  for (unsigned i = 0; i < data->get_screen_mode_x() - data->get_passive_zone_out_x(); i++) {
+    terminal_print(data->get_passive_zone_out_x() + i + 1, 9, "─");
+    terminal_print(data->get_passive_zone_out_x() + i + 1, data->get_passive_zone_out_y() - 5, "─");
   }
 }
 
 void GameLoopHUDRender::render_nameplate() {
   terminal_color(0xffffffff);
-  terminal_print(passive_zone_out_x + 1, 1, "Имя:");
-  terminal_print(passive_zone_out_x + 1, 2, "Раса:");
-  terminal_print(passive_zone_out_x + 1, 3, "Статус:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 1, "Имя:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 2, "Раса:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 3, "Статус:");
 
   terminal_color(0xFFFF4444);
-  terminal_print(passive_zone_out_x + 1, 4, "ОЗ:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 4, "ОЗ:");
   terminal_color(0xFF44ff44);
-  terminal_print(passive_zone_out_x + 1, 5, "ОД:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 5, "ОД:");
   terminal_color(0xFF6666FF);
-  terminal_print(passive_zone_out_x + 1, 6, "OМ:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 6, "OМ:");
 }
 
 void GameLoopHUDRender::render_inventory() {
   terminal_color(0xffffffff);
-  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 6, "Кошель:");
+  terminal_print(data->get_passive_zone_out_x() + 1, 11, "Карманы:");
+  terminal_print(data->get_passive_zone_out_x() + 1, data->get_passive_zone_out_y() - 7, "Кошель:");
   char wallet[7];
-  snprintf(wallet, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_wallet());
-  terminal_print(passive_zone_out_x + 9, passive_zone_out_y - 6, wallet);
+  snprintf(wallet, (size_t) "%u", "%u",
+           data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_wallet());
+  terminal_print(data->get_passive_zone_out_x() + 9, data->get_passive_zone_out_y() - 7, wallet);
 }
 
 void GameLoopHUDRender::render_coordinates() {
   terminal_color(0xffffffff);
-  terminal_print(passive_zone_out_x + 1, passive_zone_out_y - 3, "Координаты:");
+  terminal_print(data->get_passive_zone_out_x() + 1, data->get_passive_zone_out_y() - 3, "Координаты:");
   char x[4], y[4];
-  snprintf(x, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_current_x());
-  snprintf(y, (size_t) "%u", "%u", location_system->get_entities()->get_player()->get_current_y());
-  terminal_print(passive_zone_out_x + 15, passive_zone_out_y - 3, x);
-  terminal_print(passive_zone_out_x + 18, passive_zone_out_y - 3, y);
+  snprintf(x, (size_t) "%u", "%u",
+           data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_x());
+  snprintf(y, (size_t) "%u", "%u",
+           data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_y());
+  terminal_print(data->get_passive_zone_out_x() + 15, data->get_passive_zone_out_y() - 3, x);
+  terminal_print(data->get_passive_zone_out_x() + 20, data->get_passive_zone_out_y() - 3, y);
 }
 
 void GameLoopHUDRender::render_interact_ability() {
   terminal_color(0xffffffff);
-  unsigned new_x = location_system->get_entities()->get_player()->get_sight_x();
-  unsigned new_y = location_system->get_entities()->get_player()->get_sight_y();
+  unsigned new_x = data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_sight_x();
+  unsigned new_y = data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_sight_y();
 
-  int item_index = location_system->get_entities()->get_item_index(new_x, new_y);
-  int ambient_index = location_system->get_entities()->get_ambient_index(new_x, new_y);
+  int item_index = data->get_world_system()->get_current_map()->get_entities_system()->get_item_index(new_x, new_y);
+  int ambient_index =
+      data->get_world_system()->get_current_map()->get_entities_system()->get_ambient_index(new_x, new_y);
 
   if (item_index != -1) {
     check_item_interact(item_index);

@@ -4,10 +4,10 @@
 
 #pragma once
 
-#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
 #include "entities/scenes_entities/IScene.h"
-#include "systems/controls_systems/IControl.h"
-#include "systems/controls_systems/scenes_controls/game_loop_controls/sub_controls/adventure_controls/GLAControls.h"
+#include "systems/IControl.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/adventure_controls/GLAControls.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class AdventureScene : public IScene {
  private:
@@ -15,7 +15,7 @@ class AdventureScene : public IScene {
   IControl *control = nullptr;
 
  public:
-  explicit AdventureScene(LocationSystem *input_location);
+  explicit AdventureScene(IWorldSystem *input_world_system);
   ~AdventureScene() override;
 
   IControl *get_control();

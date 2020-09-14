@@ -24,11 +24,10 @@ class SubWalketh : protected AbsInteroperable, protected AbsStepsCount, public S
   void go_up();
   void go_down(unsigned input_border);
   void go_left();
-
   void go_right(unsigned input_border);
+
   void look_up();
   void look_down();
   void look_left();
-
   void look_right();
 };

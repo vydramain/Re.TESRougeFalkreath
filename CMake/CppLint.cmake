@@ -24,6 +24,7 @@ set(STYLE_FILTER ${STYLE_FILTER}-build/header_guard,)
 #set(STYLE_FILTER ${STYLE_FILTER}-readability/streams,)
 #set(STYLE_FILTER ${STYLE_FILTER}-readability/todo,)
 #set(STYLE_FILTER ${STYLE_FILTER}-readability/namespace,)
+set(STYLE_FILTER ${STYLE_FILTER}-readability/threadsafe,)
 
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/references,)
 #set(STYLE_FILTER ${STYLE_FILTER}-runtime/int,)

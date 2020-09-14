@@ -9,18 +9,18 @@ SubPseudoRenderable::SubPseudoRenderable(const char* input_tile, const unsigned 
 
 SubPseudoRenderable::~SubPseudoRenderable() = default;
 
-void SubPseudoRenderable::set_tile(const char* input_tile) {
+void SubPseudoRenderable::set_pseudo_tile(const char* input_tile) {
   tile = input_tile;
 }
 
-void SubPseudoRenderable::set_color(unsigned int input_color) {
+void SubPseudoRenderable::set_pseudo_color(unsigned int input_color) {
   color = input_color;
 }
 
-const char* SubPseudoRenderable::get_tile() const {
+const char* SubPseudoRenderable::get_pseudo_tile() const {
   return tile;
 }
 
-unsigned int SubPseudoRenderable::get_color() const {
+unsigned int SubPseudoRenderable::get_pseudo_color() const {
   return color;
 }

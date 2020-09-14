@@ -10,7 +10,7 @@
 
 class Item : public LocationsEntity, public SubPickable {
  public:
-  explicit Item(const char* input_name, const char* input_tile, unsigned input_color,
+  explicit Item(const char* input_name, PseudoRenderData* input_pseudo_data, GraficRenderData* input_grafic_data,
                 unsigned input_x, unsigned input_y);
   ~Item() override;
 

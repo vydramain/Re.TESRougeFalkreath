@@ -4,12 +4,13 @@
 
 #pragma once
 
-#include "systems/controls_systems/scenes_controls/game_loop_controls/sub_controls/ending_controls/GLEControls.h"
-#include "systems/scenes_systems/game_loop_systems/location_systems/LocationSystem.h"
-
 #include <cstring>
 
+#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/IScene.h"
+#include "systems/IControl.h"
+#include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControls.h"
+#include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class EndingScene : public IScene {
  private:
@@ -17,7 +18,7 @@ class EndingScene : public IScene {
   IControl *last_control = nullptr;
 
  public:
-  explicit EndingScene(LocationSystem *input_location, unsigned input_count, unsigned *input_highlighted);
+  explicit EndingScene(IWorldSystem *input_location, ParameterQueryData *input_ending_data);
   ~EndingScene() override;
 
   IControl *get_last_control();

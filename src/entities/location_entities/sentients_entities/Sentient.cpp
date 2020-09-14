@@ -4,17 +4,19 @@
 
 #include "entities/location_entities/sentients_entities/Sentient.h"
 
-Sentient::Sentient(const char *input_fio, const char *input_name, const char *input_tile, unsigned input_color,
-                   const unsigned input_current_x, const unsigned input_current_y, const unsigned input_pocket_size,
-                   const unsigned input_wallet)
-    : SubFIO(input_fio),
-      LocationsEntity(input_name, input_tile, input_color),
+Sentient::Sentient(const char *input_fio, const char *input_name, PseudoRenderData *input_pseudo_data,
+                   GraficRenderData *input_grafic_data, const unsigned input_current_x, const unsigned input_current_y,
+                   const unsigned input_pocket_size, const unsigned input_wallet)
+    : SubNickname(input_fio),
+      LocationsEntity(input_name, input_pseudo_data, input_grafic_data),
       SubWalketh(input_current_x, input_current_y),
       SubPockets(input_pocket_size) {}
 
 Sentient::Sentient(const Sentient &input_sentient)
-    : SubFIO(input_sentient.get_fio()),
-      LocationsEntity(input_sentient.get_name(), input_sentient.get_tile(), input_sentient.get_color()),
+    : SubNickname(input_sentient.get_fio()),
+      LocationsEntity(input_sentient.get_name(),
+                      new PseudoRenderData(input_sentient.get_pseudo_tile(), input_sentient.get_pseudo_color()),
+                      new GraficRenderData(input_sentient.get_grafic_tile())),
       SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
       SubPockets(input_sentient.get_pocket_size()) {
   set_sight();
@@ -27,8 +29,10 @@ Sentient::Sentient(const Sentient &input_sentient)
 }
 
 Sentient::Sentient(Sentient &&input_sentient) noexcept
-    : SubFIO(input_sentient.get_fio()),
-      LocationsEntity(input_sentient.get_name(), input_sentient.get_tile(), input_sentient.get_color()),
+    : SubNickname(input_sentient.get_fio()),
+      LocationsEntity(input_sentient.get_name(),
+                      new PseudoRenderData(input_sentient.get_pseudo_tile(), input_sentient.get_pseudo_color()),
+                      new GraficRenderData(input_sentient.get_grafic_tile())),
       SubWalketh(input_sentient.get_current_x(), input_sentient.get_current_y()),
       SubPockets(input_sentient.get_pocket_size()) {
   set_sight();
@@ -42,8 +46,9 @@ Sentient::~Sentient() = default;
 
 Sentient &Sentient::operator=(const Sentient &input_race) {
   set_name(input_race.get_name());
-  set_tile(input_race.get_tile());
-  set_color(input_race.get_color());
+  set_pseudo_tile(input_race.get_pseudo_tile());
+  set_pseudo_color(input_race.get_pseudo_color());
+  set_grafic_tile(input_race.get_grafic_tile());
   set_fio(input_race.get_fio());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
@@ -56,8 +61,9 @@ Sentient &Sentient::operator=(const Sentient &input_race) {
 }
 Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
   set_name(input_race.get_name());
-  set_tile(input_race.get_tile());
-  set_color(input_race.get_color());
+  set_pseudo_tile(input_race.get_pseudo_tile());
+  set_pseudo_color(input_race.get_pseudo_color());
+  set_grafic_tile(input_race.get_grafic_tile());
   set_fio(input_race.get_fio());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
@@ -70,7 +76,8 @@ Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
 }
 
 bool Sentient::operator==(const Sentient &rhs) const {
-  return get_name() == rhs.get_name() && get_tile() == rhs.get_tile() && get_color() == rhs.get_color();
+  return get_name() == rhs.get_name() && get_pseudo_tile() == rhs.get_pseudo_tile() &&
+         get_pseudo_color() == rhs.get_pseudo_color();
 }
 
 bool Sentient::operator!=(const Sentient &rhs) const {

@@ -4,6 +4,9 @@
 
 #include "adds/CCMech.h"
 
+#include <string>
+#include <vector>
+
 int CCMech::strpos(const char *s, const char *c, int n) {
   int i, j;
   int lenC, lenS;
@@ -28,4 +31,19 @@ int CCMech::strpos(const char *s, const char *c, int n) {
     }
   }
   return -1;
+}
+
+std::vector<std::string *> CCMech::split(std::string *input_text) {
+  unsigned input_size = input_text->size();
+  unsigned counter = 0;
+  std::vector<std::string *> return_strings;
+  return_strings.push_back(new std::string());
+  for (unsigned i = 0; i < input_size; i++) {
+    if ((*input_text)[i] == ' ') {
+      return_strings.push_back(new std::string());
+      counter++;
+    }
+    return_strings[counter]->append(sizeof(char), (*input_text)[i]);
+  }
+  return return_strings;
 }
