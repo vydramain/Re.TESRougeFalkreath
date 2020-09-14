@@ -4,6 +4,7 @@
 
 #include "adds/CCMech.h"
 
+#include <cstring>
 #include <string>
 #include <vector>
 
@@ -46,4 +47,8 @@ std::vector<std::string *> CCMech::split(std::string *input_text) {
     return_strings[counter]->append(sizeof(char), (*input_text)[i]);
   }
   return return_strings;
+}
+
+int CCMech::char_to_int(char c) {
+  return c - '0';
 }
