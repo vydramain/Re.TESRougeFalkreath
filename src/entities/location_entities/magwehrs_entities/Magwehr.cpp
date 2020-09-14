@@ -11,7 +11,7 @@ Magwehr::Magwehr(const char *input_name, PseudoRenderData *input_pseudo_data, Gr
 }
 
 Magwehr::Magwehr(const Magwehr &input_magwehr)
-    : LocationsEntity(input_magwehr.get_name(),
+    : LocationsEntity(input_magwehr.get_name()->data(),
                       new PseudoRenderData(input_magwehr.get_pseudo_tile(), input_magwehr.get_pseudo_color()),
                       new GraficRenderData(input_magwehr.get_grafic_tile())),
       SubWalketh(input_magwehr.get_current_x(), input_magwehr.get_current_y()) {
@@ -19,7 +19,7 @@ Magwehr::Magwehr(const Magwehr &input_magwehr)
 }
 
 Magwehr::Magwehr(Magwehr &&input_magwehr) noexcept
-    : LocationsEntity(input_magwehr.get_name(),
+    : LocationsEntity(input_magwehr.get_name()->data(),
                       new PseudoRenderData(input_magwehr.get_pseudo_tile(), input_magwehr.get_pseudo_color()),
                       new GraficRenderData(input_magwehr.get_grafic_tile())),
       SubWalketh(input_magwehr.get_current_x(), input_magwehr.get_current_y()) {
@@ -27,7 +27,7 @@ Magwehr::Magwehr(Magwehr &&input_magwehr) noexcept
 }
 
 Magwehr &Magwehr::operator=(const Magwehr &input_magwehr) {
-  set_name(input_magwehr.get_name());
+  set_name(input_magwehr.get_name()->data());
   set_pseudo_tile(input_magwehr.get_pseudo_tile());
   set_pseudo_color(input_magwehr.get_pseudo_color());
   set_grafic_tile(input_magwehr.get_grafic_tile());
@@ -38,7 +38,7 @@ Magwehr &Magwehr::operator=(const Magwehr &input_magwehr) {
 }
 
 Magwehr &Magwehr::operator=(Magwehr &&input_magwehr) noexcept {
-  set_name(input_magwehr.get_name());
+  set_name(input_magwehr.get_name()->data());
   set_pseudo_tile(input_magwehr.get_pseudo_tile());
   set_pseudo_color(input_magwehr.get_pseudo_color());
   set_grafic_tile(input_magwehr.get_grafic_tile());

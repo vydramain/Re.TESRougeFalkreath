@@ -51,11 +51,12 @@ bool InteractAbilitySystem::try_interact_with(IWorldSystem *input_world_system) 
 void InteractAbilitySystem::interact_with_item(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log(
-        "InteractAbilitySystem", world_system->get_current_map()->get_entities_system()->get_player()->get_name(),
-        "interact with", world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name());
+        "InteractAbilitySystem",
+        world_system->get_current_map()->get_entities_system()->get_player()->get_name()->data(), "interact with",
+        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name()->data());
     world_system->get_current_map()->get_entities_system()->remove_item(input_index);
     interact_iterator = item_interact_map.find(
-        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name());
+        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name()->data());
     if (interact_iterator != item_interact_map.end()) {
       interact_iterator->second();
     }
@@ -70,10 +71,11 @@ void InteractAbilitySystem::interact_with_coin() {
 void InteractAbilitySystem::interact_with_ambient(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log(
-        "InteractAbilitySystem", world_system->get_current_map()->get_entities_system()->get_player()->get_name(),
-        "interact with", world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name());
+        "InteractAbilitySystem",
+        world_system->get_current_map()->get_entities_system()->get_player()->get_name()->data(), "interact with",
+        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name()->data());
     interact_iterator = ambient_interact_map.find(
-        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name());
+        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name()->data());
     if (interact_iterator != ambient_interact_map.end()) {
       interact_iterator->second();
     }

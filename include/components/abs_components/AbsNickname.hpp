@@ -7,7 +7,7 @@
 class AbsNickname {
  protected:
   const unsigned char_counts = 24;
-  const char* fio = nullptr;
+  std::string *nickname = nullptr;
 
   explicit AbsNickname() = default;
   ~AbsNickname() = default;

@@ -36,7 +36,7 @@ void StatisticsScene::update_fields() {
 }
 
 void StatisticsScene::run() {
-  PseudoLogSystem::log(get_name(), "Launch score list");
+  PseudoLogSystem::log(get_name()->data(), "Launch score list");
   do {
     render_system->render();
     last_control = sl_input->update();

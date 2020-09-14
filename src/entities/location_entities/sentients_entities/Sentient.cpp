@@ -12,8 +12,8 @@ Sentient::Sentient(SentientParametersData *input_data)
       SubPockets(input_data->get_pocket_size()) {}
 
 Sentient::Sentient(const Sentient &input_sentient)
-    : SubNickname(input_sentient.get_fio()),
-      LocationsEntity(input_sentient.get_name(),
+    : SubNickname(input_sentient.get_nickname()->data()),
+      LocationsEntity(input_sentient.get_name()->data(),
                       new PseudoRenderData(input_sentient.get_pseudo_tile(), input_sentient.get_pseudo_color()),
                       new GraficRenderData(input_sentient.get_grafic_tile())),
       SubLiveStats(input_sentient.get_hp(), input_sentient.get_mp(), input_sentient.get_ap()),
@@ -29,8 +29,8 @@ Sentient::Sentient(const Sentient &input_sentient)
 }
 
 Sentient::Sentient(Sentient &&input_sentient) noexcept
-    : SubNickname(input_sentient.get_fio()),
-      LocationsEntity(input_sentient.get_name(),
+    : SubNickname(input_sentient.get_nickname()->data()),
+      LocationsEntity(input_sentient.get_name()->data(),
                       new PseudoRenderData(input_sentient.get_pseudo_tile(), input_sentient.get_pseudo_color()),
                       new GraficRenderData(input_sentient.get_grafic_tile())),
       SubLiveStats(input_sentient.get_hp(), input_sentient.get_mp(), input_sentient.get_ap()),
@@ -46,7 +46,7 @@ Sentient::Sentient(Sentient &&input_sentient) noexcept
 Sentient::~Sentient() = default;
 
 Sentient &Sentient::operator=(const Sentient &input_race) {
-  set_name(input_race.get_name());
+  set_name(input_race.get_name()->data());
   set_pseudo_tile(input_race.get_pseudo_tile());
   set_pseudo_color(input_race.get_pseudo_color());
   set_grafic_tile(input_race.get_grafic_tile());
@@ -54,7 +54,7 @@ Sentient &Sentient::operator=(const Sentient &input_race) {
   set_mp(input_race.get_mp());
   set_ap(input_race.get_ap());
   set_status(input_race.get_status());
-  set_fio(input_race.get_fio());
+  set_nickname(input_race.get_nickname());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
   set_sight();
@@ -65,7 +65,7 @@ Sentient &Sentient::operator=(const Sentient &input_race) {
   return *this;
 }
 Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
-  set_name(input_race.get_name());
+  set_name(input_race.get_name()->data());
   set_pseudo_tile(input_race.get_pseudo_tile());
   set_pseudo_color(input_race.get_pseudo_color());
   set_grafic_tile(input_race.get_grafic_tile());
@@ -73,7 +73,7 @@ Sentient &Sentient::operator=(Sentient &&input_race) noexcept {
   set_mp(input_race.get_mp());
   set_ap(input_race.get_ap());
   set_status(input_race.get_status());
-  set_fio(input_race.get_fio());
+  set_nickname(input_race.get_nickname());
   current_x = input_race.get_current_x();
   current_y = input_race.get_current_y();
   set_sight();

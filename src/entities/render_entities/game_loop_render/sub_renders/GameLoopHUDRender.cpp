@@ -62,9 +62,13 @@ void GameLoopHUDRender::check_item_interact(unsigned input_index) {
 
 void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
   terminal_color(0xffffffff);
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "Door") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "Door") == 0) {
     if (data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_floor()) {
       produce_string_message(new std::string("Нажмите 'E', чтобы закрыть"));
     } else {
@@ -72,39 +76,63 @@ void GameLoopHUDRender::check_ambient_interact(unsigned input_index) {
     }
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "SouthGate") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "SouthGate") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в дальние земли"));
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "EastGate") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "EastGate") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы отправиться в восточный лес"));
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "WestGate") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "WestGate") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы вернуться в Фолкрит"));
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "UpperHatch") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "UpperHatch") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы спуститься в подземелье Кровавого Трона"));
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "LowerHatch") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "LowerHatch") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы подняться в руины форта Кровавого Трона"));
   }
 
-  if (std::strcmp(
-          data->get_world_system()->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name(),
-          "CaveQuit") == 0) {
+  if (std::strcmp(data->get_world_system()
+                      ->get_current_map()
+                      ->get_entities_system()
+                      ->get_ambient(input_index)
+                      ->get_name()
+                      ->data(),
+                  "CaveQuit") == 0) {
     produce_string_message(new std::string("Нажмите 'E', чтобы выйти из подземелья"));
   }
 }
@@ -127,25 +155,38 @@ void GameLoopHUDRender::render_borders() {
 void GameLoopHUDRender::render_nameplate() {
   terminal_color(0xffffffff);
   terminal_print(data->get_passive_zone_out_x() + 1, 1, "Имя:");
+  terminal_print(
+      data->get_passive_zone_out_x() + 6, 1,
+      data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_nickname()->data());
   terminal_print(data->get_passive_zone_out_x() + 1, 2, "Раса:");
+  terminal_print(data->get_passive_zone_out_x() + 7, 2,
+                 data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_name()->data());
   terminal_print(data->get_passive_zone_out_x() + 1, 3, "Статус:");
+  //  terminal_print(data->get_passive_zone_out_x() + 10, 3,
+  //  data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_status());
 
   terminal_color(0xFFFF4444);
-  terminal_print(data->get_passive_zone_out_x() + 1, 4, "ОЗ:");
+  render_parameter(std::string("ОЗ:"),
+                   data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_hp(),
+                   data->get_passive_zone_out_x() + 1, 4);
+
   terminal_color(0xFF44ff44);
-  terminal_print(data->get_passive_zone_out_x() + 1, 5, "ОД:");
+  render_parameter(std::string("ОД:"),
+                   data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_ap(),
+                   data->get_passive_zone_out_x() + 1, 5);
+
   terminal_color(0xFF6666FF);
-  terminal_print(data->get_passive_zone_out_x() + 1, 6, "OМ:");
+  render_parameter(std::string("ОM:"),
+                   data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_mp(),
+                   data->get_passive_zone_out_x() + 1, 6);
 }
 
 void GameLoopHUDRender::render_inventory() {
   terminal_color(0xffffffff);
   terminal_print(data->get_passive_zone_out_x() + 1, 11, "Карманы:");
-  terminal_print(data->get_passive_zone_out_x() + 1, data->get_passive_zone_out_y() - 7, "Кошель:");
-  char wallet[7];
-  snprintf(wallet, (size_t) "%u", "%u",
-           data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_wallet());
-  terminal_print(data->get_passive_zone_out_x() + 9, data->get_passive_zone_out_y() - 7, wallet);
+  render_parameter(std::string("Кошель:"),
+                   data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_wallet(),
+                   data->get_passive_zone_out_x() + 1, data->get_passive_zone_out_y() - 7);
 }
 
 void GameLoopHUDRender::render_coordinates() {
@@ -183,4 +224,12 @@ void GameLoopHUDRender::render() {
   render_inventory();
   render_coordinates();
   render_interact_ability();
+}
+
+void GameLoopHUDRender::render_parameter(std::string input_string, unsigned int input_parameter, unsigned input_x,
+                                         unsigned input_y) {
+  char temp_char[7];
+  snprintf(temp_char, (size_t) "%u", "%u", input_parameter);
+  terminal_print(input_x, input_y, input_string.data());
+  terminal_print(input_x + input_string.size(), input_y, temp_char);
 }

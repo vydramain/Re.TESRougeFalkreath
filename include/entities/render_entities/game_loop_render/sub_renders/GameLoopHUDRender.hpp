@@ -18,6 +18,9 @@ class GameLoopHUDRender : public IRender {
  private:
   RenderConfigurationData *data = nullptr;
 
+  void render_parameter(std::string input_string, unsigned int input_parameter, unsigned int input_x,
+                        unsigned int input_y);
+
  public:
   explicit GameLoopHUDRender(RenderConfigurationData *input_data);
   ~GameLoopHUDRender() override;

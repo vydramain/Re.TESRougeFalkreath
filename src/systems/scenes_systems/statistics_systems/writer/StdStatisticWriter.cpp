@@ -80,7 +80,7 @@ void StdStatisticsWriter::add_sentient_score(Sentient *input_sentient) {
 //      fseek(current_file, 0, SEEK_SET);
 //      set_cursor(input_sentient);
 //    }
-    fprintf(current_file, "%s", input_sentient->get_fio());
+    fprintf(current_file, "%s", input_sentient->get_nickname()->data());
     fprintf(current_file, " - Монет: ");
     char wallet[7];
     snprintf(wallet, (size_t) "%u", "%u", input_sentient->get_wallet());
