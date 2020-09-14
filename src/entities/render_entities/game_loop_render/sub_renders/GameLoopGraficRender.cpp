@@ -24,6 +24,7 @@ GameLoopGraficRender::GameLoopGraficRender(RenderConfigurationData *input_data) 
   tiles_map["../sprites/tiny/ambients/door/door_o.png"] = 0xF00E;
   tiles_map["../sprites/tiny/items/coin.png"] = 0xF020;
   tiles_map["../sprites/tiny/sentients/khajiit/right.png"] = 0xF040;
+  tiles_map["../sprites/tiny/sentients/nord/right.png"] = 0xF045;
 
   for (auto &it : tiles_map) {
     terminal_set(std::to_string(it.second).append(": ").append(it.first).data());
