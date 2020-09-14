@@ -4,48 +4,48 @@
 
 #include "components/sub_components/SubLiveStats.hpp"
 
-SubLiveSubStats::SubLiveSubStats(unsigned int input_hp, unsigned int input_mp, unsigned int input_ap) : AbsLiveStats() {
+SubLiveStats::SubLiveStats(unsigned int input_hp, unsigned int input_mp, unsigned int input_ap) : AbsLiveStats() {
   hp = input_hp;
   mp = input_mp;
   ap = input_ap;
   current_status = NORMAL;
 }
 
-SubLiveSubStats::~SubLiveSubStats() = default;
+SubLiveStats::~SubLiveStats() = default;
 
-void SubLiveSubStats::take_damage(unsigned int points) {
+void SubLiveStats::take_damage(unsigned int points) {
   if (points > hp) {
     hp = 0;
     current_status = DEATH;
     return;
   }
   if (current_status == AT_DEATH || current_status == TIRED) {
-    hp - points * 2;
+    hp -= points * 2;
   } else {
-    hp - points;
+    hp -= points;
   }
   if (hp < 30) {
     current_status = AT_DEATH;
   }
 }
 
-void SubLiveSubStats::use_up_magic(unsigned int points) {
+void SubLiveStats::use_up_magic(unsigned int points) {
   if (points > mp) {
     mp = 0;
     current_status = DEATH;
     return;
   }
   if (current_status == AT_DEATH || current_status == TIRED) {
-    mp - points * 2;
+    mp -= points * 2;
   } else {
-    mp - points;
+    mp -= points;
   }
   if (mp < 30) {
     current_status = TIRED;
   }
 }
 
-void SubLiveSubStats::act() {
+void SubLiveStats::act() {
   if (ap-- == 0) {
     current_status = DEATH;
     return;
@@ -58,15 +58,34 @@ void SubLiveSubStats::act() {
   mp += 2;
 }
 
-unsigned SubLiveSubStats::get_hp() const {
+unsigned SubLiveStats::get_hp() const {
   return hp;
 }
-unsigned SubLiveSubStats::get_mp() const {
+
+unsigned SubLiveStats::get_mp() const {
   return mp;
 }
-unsigned SubLiveSubStats::get_ap() const {
+
+unsigned SubLiveStats::get_ap() const {
   return ap;
 }
-AbsLiveStats::status SubLiveSubStats::get_status() const {
+
+AbsLiveStats::status SubLiveStats::get_status() const {
   return current_status;
+}
+
+void SubLiveStats::set_hp(unsigned int input_points) {
+  hp = input_points;
+}
+
+void SubLiveStats::set_mp(unsigned int input_points) {
+  mp = input_points;
+}
+
+void SubLiveStats::set_ap(unsigned int input_points) {
+  ap = input_points;
+}
+
+void SubLiveStats::set_status(AbsLiveStats::status input_status) {
+  current_status = input_status;
 }

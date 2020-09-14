@@ -2,7 +2,7 @@
 // Created by vydra on 9/11/20.
 //
 
-#include "entities/data_entities/PseudoRenderData.hpp"
+#include "entities/location_entities/data/PseudoRenderData.hpp"
 
 PseudoRenderData::PseudoRenderData(const char *input_tile, unsigned input_color) {
   tile = input_tile;

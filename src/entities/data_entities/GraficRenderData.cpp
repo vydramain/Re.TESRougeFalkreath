@@ -2,7 +2,7 @@
 // Created by vydra on 9/11/20.
 //
 
-#include "entities/data_entities/GraficRenderData.hpp"
+#include "entities/location_entities/data/GraficRenderData.hpp"
 
 GraficRenderData::GraficRenderData(unsigned int input_tile_number) {
   tile_number = input_tile_number;

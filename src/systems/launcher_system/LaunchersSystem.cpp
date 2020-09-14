@@ -4,7 +4,7 @@
 
 #include "systems/launcher_system/LaunchersSystem.hpp"
 
-#include "entities/data_entities/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
 
 void LaunchersSystem::run() {
   printf("%s", "starting...\n");

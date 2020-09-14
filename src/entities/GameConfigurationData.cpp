@@ -2,7 +2,7 @@
 // Created by vydra on 9/5/20.
 //
 
-#include "entities/data_entities/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
 
 GameConfigurationData::GameConfigurationData() {
   changes = false;

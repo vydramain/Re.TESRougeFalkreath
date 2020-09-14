@@ -2,7 +2,7 @@
 // Created by vydra on 9/10/20.
 //
 
-#include "entities/data_entities/RenderConfigurationData.hpp"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 
 RenderConfigurationData::RenderConfigurationData(unsigned int input_screen_x, unsigned int input_screen_y,
                                                  IWorldSystem *input_world_system) {

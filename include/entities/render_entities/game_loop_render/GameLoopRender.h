@@ -7,8 +7,6 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
-#include "entities/data_entities/GameConfigurationData.hpp"
-#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
@@ -16,6 +14,8 @@
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopGraficRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopPseudoRender.hpp"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 

@@ -7,8 +7,8 @@
 #include "components/sub_components/SubGraficRenderable.hpp"
 #include "components/sub_components/SubPseudoRenderable.hpp"
 #include "entities/Entity.h"
-#include "entities/data_entities/GraficRenderData.hpp"
-#include "entities/data_entities/PseudoRenderData.hpp"
+#include "entities/location_entities/data/GraficRenderData.hpp"
+#include "entities/location_entities/data/PseudoRenderData.hpp"
 
 class LocationsEntity : public Entity, public SubPseudoRenderable, public SubGraficRenderable {
  public:

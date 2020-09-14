@@ -4,11 +4,11 @@
 
 #pragma once
 
-#include "entities/data_entities/GameConfigurationData.hpp"
-#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/configuration_scene/sub_scenes/GamePlayConfigurationScene.hpp"
 #include "entities/scenes_entities/configuration_scene/sub_scenes/GraphicConfigurationScene.hpp"
 #include "systems/IControl.h"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/ParameterQueryData.hpp"
 
 class COControlSelectEnter : public IControl {
   GameConfigurationData *global_configuration_data;

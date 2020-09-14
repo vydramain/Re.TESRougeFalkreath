@@ -7,11 +7,11 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
-#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/location_entities/sentients_entities/Sentient.h"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class GameLoopHUDRender : public IRender {

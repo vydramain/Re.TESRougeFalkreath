@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "entities/data_entities/GameConfigurationData.hpp"
-#include "entities/data_entities/ParameterQueryData.hpp"
 #include "systems/IControl.h"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/ParameterQueryData.hpp"
 
 class GPCOControlSelectEnter : public IControl {
   GameConfigurationData* global_configuration_data;

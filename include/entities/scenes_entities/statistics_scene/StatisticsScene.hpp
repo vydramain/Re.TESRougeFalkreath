@@ -6,7 +6,7 @@
 
 #include <cstdio>
 
-#include "entities/data_entities/StringsListData.hpp"
+#include "entities/render_entities/data/StringsListData.hpp"
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/IControl.h"
 #include "systems/render_systems/IRenderSystem.h"

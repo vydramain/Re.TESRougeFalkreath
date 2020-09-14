@@ -6,14 +6,19 @@
 
 #include "components/abs_components/AbsLiveStats.hpp"
 
-class SubLiveSubStats : public AbsLiveStats {
+class SubLiveStats : public AbsLiveStats {
  public:
-  explicit SubLiveSubStats(unsigned input_hp, unsigned input_mp, unsigned input_ap);
-  ~SubLiveSubStats();
+  explicit SubLiveStats(unsigned input_hp, unsigned input_mp, unsigned input_ap);
+  ~SubLiveStats();
 
   void take_damage(unsigned points);
   void use_up_magic(unsigned points);
   void act();
+
+  void set_hp(unsigned input_points);
+  void set_mp(unsigned input_points);
+  void set_ap(unsigned input_points);
+  void set_status(status input_status);
 
   unsigned get_hp() const;
   unsigned get_mp() const;
