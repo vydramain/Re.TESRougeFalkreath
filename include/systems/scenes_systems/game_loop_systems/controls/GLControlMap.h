@@ -7,7 +7,7 @@
 #include <map>
 #include <string>
 
-#include "entities/location_entities/sentients_entities/beastfolks/Khadjiit.h"
+#include "entities/location_entities/sentients_entities/beastfolks/Khajiit.h"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/controls/GLControlAdventure.h"
 #include "systems/scenes_systems/game_loop_systems/controls/GLControlEmpty.h"
@@ -61,19 +61,19 @@ class GLControlMap {
 
   IGLControl *get_start_control() {
     PseudoLogSystem::log("GLControlMap", "Creating world");
-    world_system->add_new_map("../maps/falkreath");
-    world_system->add_new_map("../maps/west_forest");
+    world_system->add_new_map(new std::string("../maps/falkreath"));
+    world_system->add_new_map(new std::string("../maps/west_forest"));
     if (settings_data->get_rouge()) {
-      world_system->add_rnd_map("BloodletThrone");
+      world_system->add_rnd_map(new std::string("BloodletThrone"));
     } else {
-      world_system->add_new_map("../maps/bloodlet_throne");
+      world_system->add_new_map(new std::string("../maps/bloodlet_throne"));
     }
-    world_system->set_current_map(std::string("Falkreath"));
+    world_system->set_current_map(new std::string("Falkreath"));
     if (world_system->get_current_map() == nullptr) {
       PseudoLogSystem::log("GLControlMap", "Can not start loop");
       return control_exit;
     }
-    world_system->get_current_map()->get_entities_system()->put_player(new Khadjiit("player", 18, 95));
+    world_system->get_current_map()->get_entities_system()->put_player(new Khajiit("Выдра", 18, 95));
     last_control = control_adventure;
     return control_adventure;
   }

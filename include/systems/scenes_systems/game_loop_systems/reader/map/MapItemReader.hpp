@@ -19,7 +19,7 @@ class MapItemReader : public MapReader {
   void clear_item_data();
 
  public:
-  explicit MapItemReader(std::string input_file_name);
+  explicit MapItemReader(std::string* input_file_name);
   ~MapItemReader() override;
 
   bool open() override;

@@ -4,6 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/actions/InteractAbilitySystem.hpp"
 
+#include <string>
 #include <utility>
 
 InteractAbilitySystem::InteractAbilitySystem() {
@@ -110,7 +111,7 @@ void InteractAbilitySystem::interact_with_door() {
 
 void InteractAbilitySystem::interact_with_east_gate() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(3);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(13);
@@ -123,7 +124,7 @@ void InteractAbilitySystem::interact_with_south_gate() {
 
 void InteractAbilitySystem::interact_with_west_gate() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("Falkreath");
+  world_system->set_current_map(new std::string("Falkreath"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(72);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(13);
@@ -131,7 +132,7 @@ void InteractAbilitySystem::interact_with_west_gate() {
 
 void InteractAbilitySystem::interact_with_upper_hatch() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("BloodletThrone");
+  world_system->set_current_map(new std::string("BloodletThrone"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(5);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(2);
@@ -139,7 +140,7 @@ void InteractAbilitySystem::interact_with_upper_hatch() {
 
 void InteractAbilitySystem::interact_with_lower_hatch() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(181);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(95);
@@ -147,7 +148,7 @@ void InteractAbilitySystem::interact_with_lower_hatch() {
 
 void InteractAbilitySystem::interact_with_cave_quit() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(248);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(96);

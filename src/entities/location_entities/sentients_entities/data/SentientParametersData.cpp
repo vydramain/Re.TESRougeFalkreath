@@ -7,6 +7,20 @@
 #include <string>
 #include <utility>
 
+SentientParametersData::SentientParametersData() {
+  x = 0;
+  y = 0;
+  hp = 0;
+  mp = 0;
+  ap = 0;
+  wallet = 0;
+  pocket_size = 0;
+  name = std::string();
+  nickname = std::string();
+  pseudo_data = new PseudoRenderData("▉", 0xFFffffff);
+  grafic_data = new GraficRenderData(0x0);
+}
+
 SentientParametersData::SentientParametersData(unsigned input_x, unsigned input_y, unsigned input_hp, unsigned input_mp,
                                                unsigned input_ap, unsigned input_wallet, unsigned input_pocket_size,
                                                std::string input_name, std::string input_nickname,

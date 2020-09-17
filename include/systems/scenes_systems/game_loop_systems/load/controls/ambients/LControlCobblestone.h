@@ -10,11 +10,11 @@
 
 class LControlCobblestone : public ILControl {
  public:
-  explicit LControlCobblestone(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlCobblestone", input_x, input_y, input_entities_system) {}
+  explicit LControlCobblestone(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlCobblestone", input_data, input_entities_system) {}
   ~LControlCobblestone() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Cobblestone(*new_x, *new_y));
+    entities_system->put_ambient(new Cobblestone(data->get_x(), data->get_y()));
   }
 };

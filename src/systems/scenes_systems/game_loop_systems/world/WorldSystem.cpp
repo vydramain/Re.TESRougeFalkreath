@@ -14,7 +14,7 @@ WorldSystem::~WorldSystem() {
   current_map = nullptr;
 }
 
-void WorldSystem::add_new_map(std::string input_map_address) {
+void WorldSystem::add_new_map(std::string* input_map_address) {
   auto* load_system = new SectionalLoadSystem(input_map_address);
   load_system->load_new_map();
   auto* map = load_system->get_map_system();
@@ -22,14 +22,14 @@ void WorldSystem::add_new_map(std::string input_map_address) {
   delete load_system;
 }
 
-void WorldSystem::add_rnd_map(std::string input_map_name) {
+void WorldSystem::add_rnd_map(std::string* input_map_name) {
   auto* automap = new AutoMapSystem(input_map_name);
   auto* map = automap->generate_location();
   maps.push_back(map);
   delete automap;
 }
 
-void WorldSystem::add_old_map(std::string input_map_address) {
+void WorldSystem::add_old_map(std::string* input_map_address) {
   auto* load_system = new SectionalLoadSystem(input_map_address);
   load_system->load_old_map();
   auto* map = load_system->get_map_system();
@@ -37,9 +37,9 @@ void WorldSystem::add_old_map(std::string input_map_address) {
   delete load_system;
 }
 
-void WorldSystem::set_current_map(std::string input_name) {
+void WorldSystem::set_current_map(std::string* input_name) {
   for (IMapSystem* map : maps) {
-    if (input_name == map->get_name()) {
+    if (input_name->data() == map->get_name()) {
       current_map = map;
       return;
     }

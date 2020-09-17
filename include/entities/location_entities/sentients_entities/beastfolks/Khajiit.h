@@ -7,9 +7,9 @@
 #include "components/sub_components/SubPseudoRenderable.hpp"
 #include "entities/location_entities/sentients_entities/Sentient.h"
 
-class Khadjiit : public Sentient {
+class Khajiit : public Sentient {
  public:
-  explicit Khadjiit(const char* input_fio, unsigned input_current_x = 0, unsigned input_current_y = 0,
+  explicit Khajiit(const char* input_fio, unsigned input_current_x = 0, unsigned input_current_y = 0,
                     unsigned input_pocket = 10);
-  ~Khadjiit() override;
+  ~Khajiit() override;
 };

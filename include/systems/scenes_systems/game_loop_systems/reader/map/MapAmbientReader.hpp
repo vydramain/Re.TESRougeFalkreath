@@ -11,7 +11,7 @@
 
 class MapAmbientReader : public MapReader {
  public:
-  explicit MapAmbientReader(std::string input_file_name);
+  explicit MapAmbientReader(std::string* input_file_name);
   ~MapAmbientReader() override;
 
   bool open() override;

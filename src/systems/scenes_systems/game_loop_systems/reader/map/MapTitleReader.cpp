@@ -6,13 +6,13 @@
 
 #include <string>
 
-MapTitleReader::MapTitleReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
+MapTitleReader::MapTitleReader(std::string* input_file_name) : MapReader(input_file_name) {}
 
 MapTitleReader::~MapTitleReader() = default;
 
 bool MapTitleReader::open() {
   if (file == nullptr) {
-    file = fopen(file_name.data(), "r");
+    file = fopen(file_name->data(), "r");
     if (file != nullptr) {
       if (!feof(file)) {
         map_name.clear();

@@ -10,11 +10,11 @@
 
 class LControlWall : public ILControl {
  public:
-  explicit LControlWall(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlWall", input_x, input_y, input_entities_system) {}
+  explicit LControlWall(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlWall", input_data, input_entities_system) {}
   ~LControlWall() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Wall(*new_x, *new_y));
+    entities_system->put_ambient(new Wall(data->get_x(), data->get_y()));
   }
 };

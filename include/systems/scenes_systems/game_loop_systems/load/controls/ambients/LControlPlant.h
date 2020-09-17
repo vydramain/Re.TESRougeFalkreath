@@ -10,11 +10,11 @@
 
 class LControlPlant : public ILControl {
  public:
-  explicit LControlPlant(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlPlant", input_x, input_y, input_entities_system) {}
+  explicit LControlPlant(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlPlant", input_data, input_entities_system) {}
   ~LControlPlant() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Plant(*new_x, *new_y));
+    entities_system->put_ambient(new Plant(data->get_x(), data->get_y()));
   }
 };

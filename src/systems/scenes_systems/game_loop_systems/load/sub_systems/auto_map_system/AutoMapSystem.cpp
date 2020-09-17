@@ -6,11 +6,12 @@
 
 #include <string>
 
-AutoMapSystem::AutoMapSystem(std::string input_map_name) {
-  map_name = std::move(input_map_name);
+AutoMapSystem::AutoMapSystem(std::string *input_map_name) {
+  map_name = input_map_name;
 }
 
 AutoMapSystem::~AutoMapSystem() {
+  delete map_name;
   delete entities_system;
 }
 
@@ -20,8 +21,8 @@ IMapSystem *AutoMapSystem::generate_location() {
   size_y = 150;
   entities_system = new EntitiesSystem();
 
-  unsigned *room_x = new unsigned(3);
-  unsigned *room_y = new unsigned(1);
+  auto *room_x = new unsigned(3);
+  auto *room_y = new unsigned(1);
   unsigned last_random;
 
   generate_entrance(*room_x + rand() % 5 + 2, *room_y + rand() % 5 + 2);
@@ -34,7 +35,7 @@ IMapSystem *AutoMapSystem::generate_location() {
   }
   generate_exit(*room_x - rand() % 6 - 2, *room_y - rand() % 6 - 2);
 
-  return new MapSystem(map_name, size_x, size_y, entities_system);
+  return new MapSystem(*map_name, size_x, size_y, entities_system);
 }
 
 void AutoMapSystem::generate_small_room(unsigned input_x, unsigned input_y) {

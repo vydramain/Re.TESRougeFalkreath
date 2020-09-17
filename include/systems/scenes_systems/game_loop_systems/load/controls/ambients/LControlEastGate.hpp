@@ -10,11 +10,11 @@
 
 class LControlEastGate : public ILControl {
  public:
-  explicit LControlEastGate(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlEastGate", input_x, input_y, input_entities_system) {}
+  explicit LControlEastGate(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlEastGate", input_data, input_entities_system) {}
   ~LControlEastGate() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new EastGate(*new_x, *new_y));
+    entities_system->put_ambient(new EastGate(data->get_x(), data->get_y()));
   }
 };

@@ -13,10 +13,10 @@ class IWorldSystem {
  public:
   virtual ~IWorldSystem() = default;
 
-  virtual void add_new_map(std::string input_map_address) = 0;
-  virtual void add_rnd_map(std::string input_map_name) = 0;
-  virtual void add_old_map(std::string input_map_address) = 0;
-  virtual void set_current_map(std::string input_name) = 0;
+  virtual void add_new_map(std::string* input_map_address) = 0;
+  virtual void add_rnd_map(std::string* input_map_name) = 0;
+  virtual void add_old_map(std::string* input_map_address) = 0;
+  virtual void set_current_map(std::string* input_name) = 0;
   virtual void set_ending_game(bool input_ending) = 0;
 
   virtual bool get_ending_game() const = 0;

@@ -10,11 +10,11 @@
 
 class LControlWater : public ILControl {
  public:
-  explicit LControlWater(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlWater", input_x, input_y, input_entities_system) {}
+  explicit LControlWater(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlWater", input_data, input_entities_system) {}
   ~LControlWater() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Water(*new_x, *new_y));
+    entities_system->put_ambient(new Water(data->get_x(), data->get_y()));
   }
 };

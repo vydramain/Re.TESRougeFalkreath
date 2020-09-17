@@ -10,11 +10,11 @@
 
 class LControlCoin : public ILControl {
  public:
-  explicit LControlCoin(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlCoin", input_x, input_y, input_entities_system) {}
+  explicit LControlCoin(LoadControlsEntitysData* input_data, EntitiesSystem *input_entities_system)
+      : ILControl("LControlCoin", input_data, input_entities_system) {}
   ~LControlCoin() override = default;
 
   void execute() override {
-    entities_system->put_item(new Coin(*new_x, *new_y));
+    entities_system->put_item(new Coin(data->get_x(), data->get_y()));
   }
 };

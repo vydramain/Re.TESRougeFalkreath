@@ -10,11 +10,11 @@
 
 class LControlTree : public ILControl {
  public:
-  explicit LControlTree(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlTree", input_x, input_y, input_entities_system) {}
+  explicit LControlTree(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlTree", input_data, input_entities_system) {}
   ~LControlTree() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Tree(*new_x, *new_y));
+    entities_system->put_ambient(new Tree(data->get_x(), data->get_y()));
   }
 };

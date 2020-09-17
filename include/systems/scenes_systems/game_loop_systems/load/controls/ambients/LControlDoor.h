@@ -10,11 +10,11 @@
 
 class LControlDoor : public ILControl {
  public:
-  explicit LControlDoor(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlHedge", input_x, input_y, input_entities_system) {}
+  explicit LControlDoor(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlHedge", input_data, input_entities_system) {}
   ~LControlDoor() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new Door(*new_x, *new_y));
+    entities_system->put_ambient(new Door(data->get_x(), data->get_y()));
   }
 };

@@ -23,6 +23,7 @@ class SentientParametersData {
   GraficRenderData *grafic_data = nullptr;
 
  public:
+  explicit SentientParametersData();
   explicit SentientParametersData(unsigned input_x, unsigned input_y, unsigned input_hp, unsigned input_mp,
                                   unsigned input_ap, unsigned input_wallet, unsigned input_pocket_size,
                                   std::string input_name, std::string input_nickname,

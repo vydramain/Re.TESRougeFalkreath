@@ -10,11 +10,11 @@
 
 class LControlWestGate : public ILControl {
  public:
-  explicit LControlWestGate(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system)
-      : ILControl("LControlWestGate", input_x, input_y, input_entities_system) {}
+  explicit LControlWestGate(LoadControlsEntitysData* input_data, EntitiesSystem* input_entities_system)
+      : ILControl("LControlWestGate", input_data, input_entities_system) {}
   ~LControlWestGate() override = default;
 
   void execute() override {
-    entities_system->put_ambient(new WestGate(*new_x, *new_y));
+    entities_system->put_ambient(new WestGate(data->get_x(), data->get_y()));
   }
 };

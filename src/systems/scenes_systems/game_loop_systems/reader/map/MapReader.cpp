@@ -6,17 +6,18 @@
 
 #include <string>
 
-MapReader::MapReader(std::string input_file_name) {
-  file_name = std::move(input_file_name);
+MapReader::MapReader(std::string* input_file_name) {
+  file_name = input_file_name;
 }
 
 MapReader::~MapReader() {
   if (file != nullptr) {
     fclose(file);
   }
+  delete file_name;
 }
 
-std::string MapReader::get_file_name() {
+std::string* MapReader::get_file_name() {
   return file_name;
 }
 
