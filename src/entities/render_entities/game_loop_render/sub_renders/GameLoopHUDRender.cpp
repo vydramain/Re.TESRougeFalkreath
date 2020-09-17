@@ -206,6 +206,10 @@ void GameLoopHUDRender::render_coordinates() {
            data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_y());
   terminal_print(data->get_passive_zone_out_x() + 15, data->get_passive_zone_out_y() - 3, x);
   terminal_print(data->get_passive_zone_out_x() + 20, data->get_passive_zone_out_y() - 3, y);
+
+  render_parameter(std::string("Шаги:"),
+                   data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_steps_count(),
+                   data->get_passive_zone_out_x() + 1, data->get_passive_zone_out_y() - 2);
 }
 
 void GameLoopHUDRender::render_interact_ability() {
