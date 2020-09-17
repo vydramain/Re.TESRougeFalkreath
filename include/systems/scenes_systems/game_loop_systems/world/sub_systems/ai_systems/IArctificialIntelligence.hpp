@@ -6,8 +6,5 @@
 
 class IArtificialIntelligence {
  public:
-  virtual void look_around() = 0;
-  virtual void fight_player() = 0;
-  virtual void pursue_player() = 0;
-  virtual void walk() = 0;
+  virtual void update() = 0;
 };

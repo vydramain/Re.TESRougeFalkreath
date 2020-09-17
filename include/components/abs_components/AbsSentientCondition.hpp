@@ -5,12 +5,13 @@
 #pragma once
 
 class AbsSentientCondition {
- protected:
+ public:
   enum condition {
     WALK,
     FIGHT,
     PURSUE
   };
 
+ protected:
   condition current_condition = WALK;
 };
