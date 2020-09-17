@@ -6,6 +6,10 @@
 
 SubSentientCondition::SubSentientCondition() : AbsSentientCondition() {}
 
+SubSentientCondition::SubSentientCondition(AbsSentientCondition::condition input_condition) : AbsSentientCondition() {
+  current_condition = input_condition;
+}
+
 SubSentientCondition::~SubSentientCondition() = default;
 
 void SubSentientCondition::set_walk() {
@@ -20,6 +24,10 @@ void SubSentientCondition::set_pursue() {
   current_condition = PURSUE;
 }
 
-AbsSentientCondition::condition SubSentientCondition::get_current_condition() {
+void SubSentientCondition::set_current_condition(AbsSentientCondition::condition input_condition) {
+  current_condition = input_condition;
+}
+
+AbsSentientCondition::condition SubSentientCondition::get_current_condition() const {
   return current_condition;
 }
