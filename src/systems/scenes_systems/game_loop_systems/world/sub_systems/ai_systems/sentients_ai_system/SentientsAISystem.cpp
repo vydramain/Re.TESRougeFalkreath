@@ -41,6 +41,9 @@ void SentientsAISystem::look_around(Sentient* input_sentient) {
 void SentientsAISystem::fight_player(Sentient* input_sentient) {
   srand48(time(nullptr));
   unsigned temp_rand = rand() % 4 + 2;
+  if (current_world_system->get_current_map()->get_entities_system()->get_player()->get_hp() < 10) {
+    current_world_system->get_current_map()->get_entities_system()->get_player()->set_hp(0);
+  }
   current_world_system->get_current_map()->get_entities_system()->get_player()->take_damage(
       current_world_system->get_current_map()->get_entities_system()->get_player()->get_hp() / temp_rand);
 }
