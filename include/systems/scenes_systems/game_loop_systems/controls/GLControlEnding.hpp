@@ -14,7 +14,7 @@ class GLControlEnding : public IGLControl {
   EndingScene *scene = nullptr;
 
  public:
-  explicit GLControlEnding(IWorldSystem *input_location_system, ParameterQueryData *input_ending_data)
+  explicit GLControlEnding(IWorldSystem *input_location_system, ParameterQueryDataSet *input_ending_data)
       : IGLControl("GLControlEnding") {
     scene = new EndingScene(input_location_system, input_ending_data);
   }

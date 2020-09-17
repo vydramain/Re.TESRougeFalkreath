@@ -7,16 +7,23 @@
 #include <string>
 #include <vector>
 
-ParameterQueryData::ParameterQueryData(std::string *input_title, std::vector<std::string *> *input_choices) {
+ParameterQueryData::ParameterQueryData(std::string *input_name, std::string *input_title,
+                                       std::vector<std::string *> *input_choices) {
+  name = input_name;
   title = input_title;
   choices = input_choices;
   highlighted = 1;
 }
 
 ParameterQueryData::~ParameterQueryData() {
+  delete name;
   delete title;
   choices->clear();
   delete choices;
+}
+
+std::string *ParameterQueryData::get_name() const {
+  return name;
 }
 
 std::string *ParameterQueryData::get_title() const {

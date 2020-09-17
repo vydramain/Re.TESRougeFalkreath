@@ -31,15 +31,15 @@ class GLCControlMap {
   std::map<int, IControl *>::iterator glcc_iterator;
 
  public:
-  explicit GLCControlMap(IWorldSystem *input_world_system) {
+  explicit GLCControlMap(IWorldSystem *input_world_system, ParameterQueryDataSet *input_data) {
     PseudoLogSystem::log("GLCControlMap", "Creating game loop combat controls");
-    control_down = new GLCControlSelectDown(input_world_system);
+    control_down = new GLCControlSelectDown(input_world_system, input_data->get_data(new std::string("combat_data")));
     control_empty = new GLCControlSelectEmpty();
-    control_enter = new GLCControlSelectEnter(input_world_system);
+    control_enter = new GLCControlSelectEnter(input_world_system, input_data->get_data(new std::string("combat_data")));
     control_exit = new GLCControlSelectExit(input_world_system);
     control_left = new GLCControlSelectLeft(input_world_system);
     control_right = new GLCControlSelectRight(input_world_system);
-    control_up = new GLCControlSelectUp(input_world_system);
+    control_up = new GLCControlSelectUp(input_world_system, input_data->get_data(new std::string("combat_data")));
 
     glcc_map[TK_DOWN] = control_down;
     glcc_map[TK_ENTER] = control_enter;

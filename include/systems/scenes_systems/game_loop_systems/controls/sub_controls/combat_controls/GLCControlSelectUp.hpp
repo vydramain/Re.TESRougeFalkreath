@@ -10,9 +10,18 @@
 class GLCControlSelectUp : public IControl {
  private:
   IWorldSystem* world_system;
+  ParameterQueryData* data;
 
  public:
-  GLCControlSelectUp(IWorldSystem* input_world_system) : IControl("GLCControlSelectUp") {}
+  GLCControlSelectUp(IWorldSystem* input_world_system, ParameterQueryData* input_data)
+      : IControl("GLCControlSelectUp") {
+    world_system = input_world_system;
+    data = input_data;
+  }
 
-  void execute() override {}
+  void execute() override {
+    if (data->get_highlighted() > 1) {
+      data->set_highlighted(data->get_highlighted() - 1);
+    }
+  }
 };

@@ -7,12 +7,22 @@
 #include <string>
 #include <vector>
 
-GameLoopHUDRender::GameLoopHUDRender(RenderConfigurationData *input_data) {
+void GameLoopHUDRender::render_parameter(std::string input_string, unsigned int input_parameter, unsigned input_x,
+                                         unsigned input_y) {
+  char temp_char[7];
+  snprintf(temp_char, (size_t) "%u", "%u", input_parameter);
+  terminal_print(input_x, input_y, input_string.data());
+  terminal_print(input_x + input_string.size(), input_y, temp_char);
+}
+
+GameLoopHUDRender::GameLoopHUDRender(RenderConfigurationData *input_data, ParameterQueryDataSet *input_query_data_set) {
   data = input_data;
+  query_data_set = input_query_data_set;
 }
 
 GameLoopHUDRender::~GameLoopHUDRender() {
   data = nullptr;
+  query_data_set = nullptr;
 }
 
 std::vector<std::string *> *GameLoopHUDRender::prepare_string_message(std::string *input_text) const {
@@ -35,13 +45,10 @@ std::vector<std::string *> *GameLoopHUDRender::prepare_string_message(std::strin
 
 void GameLoopHUDRender::view_string_message(std::vector<std::string *> *input_text) {
   if (data->get_camera_position_x() + (data->get_passive_zone_out_x() / 2) < data->get_target()->get_current_x()) {
-    CleanerRender::clean_area(1, data->get_passive_zone_out_y() - 5 - input_text->size(),
-                              data->get_message_left_out_x(), data->get_passive_zone_out_y() - 1);
     TextPanelsRender::view_strings_list(1, data->get_passive_zone_out_y() - 5 - input_text->size(),
-                                        data->get_message_left_out_x(), data->get_passive_zone_out_y() - 2, input_text);
+                                        data->get_message_left_out_x() - 2, data->get_passive_zone_out_y() - 2,
+                                        input_text);
   } else {
-    CleanerRender::clean_area(data->get_message_right_in_x(), data->get_passive_zone_out_y() - 5 - input_text->size(),
-                              data->get_passive_zone_out_x() - 1, data->get_passive_zone_out_y() - 1);
     TextPanelsRender::view_strings_list(
         data->get_message_right_in_x(), data->get_passive_zone_out_y() - 5 - input_text->size(),
         data->get_passive_zone_out_x() - 2, data->get_passive_zone_out_y() - 2, input_text);
@@ -218,18 +225,44 @@ void GameLoopHUDRender::render_interact_ability() {
   }
 }
 
+void GameLoopHUDRender::render_fight_condition() {
+  if (data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_condition() ==
+      AbsSentientCondition::FIGHT) {
+    Sentient *opponent = nullptr;
+    for (unsigned i = 1; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
+         i++) {
+      if (data->get_world_system()
+              ->get_current_map()
+              ->get_entities_system()
+              ->get_sentient(i)
+              ->get_current_condition() == AbsSentientCondition::FIGHT) {
+        opponent = data->get_world_system()->get_current_map()->get_entities_system()->get_sentient(i);
+      }
+      break;
+    }
+    auto temp_data = query_data_set->get_data(new std::string("combat_data"));
+    auto temp_strings = new std::vector<std::string *>();
+    temp_strings->push_back(new std::string("Противник:"));
+    temp_strings->push_back(new std::string(*opponent->get_nickname()));
+    TextPanelsRender::view_strings_list(data->get_active_zone_in_x(), data->get_active_zone_in_y(),
+                                        data->get_active_zone_out_x(), data->get_active_zone_out_y() + 3, temp_strings);
+    render_parameter(std::string("ОД:"), opponent->get_hp(), data->get_active_zone_in_x() + 2,
+                     data->get_active_zone_in_y() + 4);
+    temp_strings->clear();
+    temp_strings->push_back(temp_data->get_choice(0));
+    temp_strings->push_back(temp_data->get_choice(1));
+    TextPanelsRender::view_parameter_query(data->get_active_zone_in_x(), data->get_active_zone_in_y() + 6,
+                                           data->get_active_zone_out_x(), data->get_active_zone_out_y() + 3,
+                                           temp_data->get_title(), temp_strings, temp_data->get_highlighted());
+    delete temp_strings;
+  }
+}
+
 void GameLoopHUDRender::render() {
   render_borders();
   render_nameplate();
   render_inventory();
   render_coordinates();
   render_interact_ability();
-}
-
-void GameLoopHUDRender::render_parameter(std::string input_string, unsigned int input_parameter, unsigned input_x,
-                                         unsigned input_y) {
-  char temp_char[7];
-  snprintf(temp_char, (size_t) "%u", "%u", input_parameter);
-  terminal_print(input_x, input_y, input_string.data());
-  terminal_print(input_x + input_string.size(), input_y, temp_char);
+  render_fight_condition();
 }

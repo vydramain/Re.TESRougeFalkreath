@@ -16,6 +16,7 @@
 #include "entities/render_entities/main_menu_render/MainMenuRender.h"
 #include "entities/render_entities/settings_render/SettingsRender.hpp"
 #include "entities/render_entities/statistics_render/StatisticsRender.hpp"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
 #include "systems/render_systems/IRenderSystem.h"
 
 /*
@@ -41,7 +42,7 @@ class BearRenderSystem : public IRenderSystem {
 
   bool is_game_loop = false;
   IWorldSystem* world_system = nullptr;
-  ParameterQueryData* ending_data = nullptr;
+  ParameterQueryDataSet* data = nullptr;
 
  public:
   void reset_render() override;
@@ -56,7 +57,7 @@ class BearRenderSystem : public IRenderSystem {
   void set_main_menu_data(ParameterQueryData* input_menu_data) override;
   void set_score_list_data(StringsListData* input_score_list_data) override;
   void set_settings_data(ParameterQueryData* input_settings_data) override;
-  void set_game_loop_data(IWorldSystem* input_world_system, ParameterQueryData* input_ending_data) override;
+  void set_game_loop_data(IWorldSystem* input_world_system, ParameterQueryDataSet* input_ending_data) override;
 
   void set_main_menu_render() override;
   void set_score_list_render() override;

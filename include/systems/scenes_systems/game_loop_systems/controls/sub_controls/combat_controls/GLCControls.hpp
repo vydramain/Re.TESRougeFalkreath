@@ -13,8 +13,8 @@ class GLCControls {
   GLCControlMap *control_map = nullptr;
 
  public:
-  explicit GLCControls(IWorldSystem *input_world_system) {
-    control_map = new GLCControlMap(input_world_system);
+  explicit GLCControls(IWorldSystem *input_world_system, ParameterQueryDataSet* input_data) {
+    control_map = new GLCControlMap(input_world_system, input_data);
   }
 
   ~GLCControls() {

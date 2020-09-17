@@ -4,7 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
 
-SentientsSystem::SentientsSystem() {}
+SentientsSystem::SentientsSystem() = default;
 
 SentientsSystem::~SentientsSystem() {
   for (auto &sentient : sentients) {

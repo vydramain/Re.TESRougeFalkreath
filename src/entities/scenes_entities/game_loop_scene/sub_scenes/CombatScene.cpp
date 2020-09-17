@@ -4,12 +4,12 @@
 
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/CombatScene.hpp"
 
-CombatScene::CombatScene(IWorldSystem *input_world_system) {
-  glc_input = new GLCControls(input_world_system);
+CombatScene::CombatScene(IWorldSystem* input_world_system, ParameterQueryDataSet* input_data) {
+  glc_input = new GLCControls(input_world_system, input_data);
 }
 
 CombatScene::~CombatScene() {
-    delete glc_input;
+  delete glc_input;
 }
 
 IControl* CombatScene::get_control() {

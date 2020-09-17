@@ -9,11 +9,7 @@
 
 void TextPanelsRender::print_borders(unsigned int in_x, unsigned int in_y, unsigned int out_x, unsigned int out_y) {
   // cleaning up Area for message
-  for (unsigned j = 0; j < out_y - in_y; j++) {
-    for (unsigned i = 0; i < out_x - in_x; i++) {
-      terminal_put(in_x + i, in_y + j, ' ');
-    }
-  }
+  CleanerRender::clean_area(in_x, in_y, out_x, out_y);
 
   // draw borders
   terminal_print(in_x, in_y, "┌");
@@ -21,12 +17,12 @@ void TextPanelsRender::print_borders(unsigned int in_x, unsigned int in_y, unsig
   terminal_print(in_x, out_y, "└");
   terminal_print(out_x, out_y, "┘");
   for (unsigned j = 0; j < out_y - in_y - 1; j++) {
-    terminal_print(in_x, in_y + 1 + j, "│");
-    terminal_print(out_x, in_y + 1 + j, "│");
+    terminal_print(in_x, in_y + j + 1, "│");
+    terminal_print(out_x, in_y + j + 1, "│");
   }
   for (unsigned i = 0; i < out_x - in_x - 1; i++) {
-    terminal_print(in_x + 1 + i, in_y, "─");
-    terminal_print(in_x + 1 + i, out_y, "─");
+    terminal_print(in_x + i + 1, in_y, "─");
+    terminal_print(in_x + i + 1, out_y, "─");
   }
 }
 
@@ -57,7 +53,7 @@ void TextPanelsRender::view_parameter_query(unsigned in_x, unsigned int in_y, un
 std::string *TextPanelsRender::view_input_text(unsigned int in_x, unsigned int in_y, unsigned int out_x,
                                                unsigned int out_y, std::string *title,
                                                unsigned int input_max_count_characters) {
-  char* temp_characters = new char[input_max_count_characters];
+  char *temp_characters = new char[input_max_count_characters];
   print_borders(in_x, in_y, out_x, out_y);
 
   // draw question
@@ -65,6 +61,6 @@ std::string *TextPanelsRender::view_input_text(unsigned int in_x, unsigned int i
   terminal_read_str(in_x + 7, in_y + 2, temp_characters, input_max_count_characters);
 
   auto temp_str = new std::string(temp_characters);
-  delete [] temp_characters;
+  delete[] temp_characters;
   return temp_str;
 }

@@ -15,6 +15,7 @@
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopHUDRender.hpp"
 #include "entities/render_entities/game_loop_render/sub_renders/GameLoopPseudoRender.hpp"
 #include "systems/launcher_system/data/GameConfigurationData.hpp"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
 #include "systems/launcher_system/data/RenderConfigurationData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/sub_systems/SentientsSystem.h"
@@ -29,7 +30,7 @@ class GameLoopRender : public IRender {
 
  public:
   explicit GameLoopRender(unsigned input_screen_x, unsigned input_screen_y, IWorldSystem *input_world_system,
-                          bool is_pseudo, ParameterQueryData *input_ending_data);
+                          bool is_pseudo, ParameterQueryDataSet *input_ending_data);
   ~GameLoopRender() override;
 
   void set_pseudo_mode();

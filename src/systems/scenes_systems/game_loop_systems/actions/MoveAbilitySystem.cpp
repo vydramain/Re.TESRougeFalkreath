@@ -15,6 +15,12 @@ bool MoveAbilitySystem::can_move_to(IWorldSystem *input_world_system, unsigned i
   int ambient_index =
       input_world_system->get_current_map()->get_entities_system()->get_ambient_index(input_new_x, input_new_y);
 
+  if (sentient_index != -1 &&
+      input_world_system->get_current_map()->get_entities_system()->get_sentient(sentient_index)->get_status() ==
+          AbsLiveStats::DEATH) {
+    sentient_index = -1;
+  }
+
   if (ambient_index != -1 &&
       input_world_system->get_current_map()->get_entities_system()->get_ambient(ambient_index)->get_floor()) {
     ambient_index = -1;

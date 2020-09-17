@@ -6,6 +6,7 @@
 
 #include "entities/scenes_entities/IScene.h"
 #include "systems/IControl.h"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
 #include "systems/scenes_systems/game_loop_systems/controls/sub_controls/combat_controls/GLCControls.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
@@ -15,7 +16,7 @@ class CombatScene : public IScene {
   IControl *control = nullptr;
 
  public:
-  explicit CombatScene(IWorldSystem *input_world_system);
+  explicit CombatScene(IWorldSystem *input_world_system, ParameterQueryDataSet *input_data);
   ~CombatScene() override;
 
   IControl *get_control();

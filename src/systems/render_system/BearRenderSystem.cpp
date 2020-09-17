@@ -73,10 +73,10 @@ void BearRenderSystem::set_settings_data(ParameterQueryData *input_settings_data
   settings_data = input_settings_data;
 }
 
-void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system, ParameterQueryData *input_ending_data) {
+void BearRenderSystem::set_game_loop_data(IWorldSystem *input_world_system, ParameterQueryDataSet *input_data) {
   is_game_loop = true;
   world_system = input_world_system;
-  ending_data = input_ending_data;
+  data = input_data;
 }
 
 void BearRenderSystem::set_main_menu_render() {
@@ -108,9 +108,9 @@ void BearRenderSystem::set_pseudo_game_loop_render() {
   delete render_entity;
   if (is_game_loop) {
     if (is_pseudo) {
-      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, true, ending_data);
+      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, true, data);
     } else {
-      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, false, ending_data);
+      render_entity = new GameLoopRender(SCREENMODE_X, SCREENMODE_Y, world_system, false, data);
     }
   }
 }

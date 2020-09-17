@@ -14,7 +14,7 @@ SubLiveStats::SubLiveStats(unsigned int input_hp, unsigned int input_mp, unsigne
 SubLiveStats::~SubLiveStats() = default;
 
 void SubLiveStats::take_damage(unsigned int points) {
-  if (points > hp) {
+  if (points >= hp) {
     hp = 0;
     current_status = DEATH;
     return;

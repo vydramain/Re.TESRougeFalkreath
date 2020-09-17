@@ -5,16 +5,12 @@
 #pragma once
 
 class AbsLiveStats {
- protected:
-  enum status {
-    NORMAL,
-    TIRED,
-    AT_DEATH,
-    DEATH
-  };
+ public:
+  enum status { NORMAL, TIRED, AT_DEATH, DEATH };
 
+ protected:
   unsigned hp;
   unsigned mp;
   unsigned ap;
   status current_status;
-  };
+};

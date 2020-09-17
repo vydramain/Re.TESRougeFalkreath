@@ -4,6 +4,8 @@
 
 #include "entities/render_entities/game_loop_render/GameLoopRender.h"
 
+#include <string>
+
 void GameLoopRender::set_pseudo_mode() {
   world = new GameLoopPseudoRender(data);
 }
@@ -13,7 +15,8 @@ void GameLoopRender::set_grafic_mode() {
 }
 
 GameLoopRender::GameLoopRender(unsigned int input_screen_x, unsigned int input_screen_y,
-                               IWorldSystem *input_world_system, bool is_pseudo, ParameterQueryData *input_ending_data)
+                               IWorldSystem *input_world_system, bool is_pseudo,
+                               ParameterQueryDataSet *input_ending_data)
     : IRender() {
   data = new RenderConfigurationData(input_screen_x, input_screen_y, input_world_system);
   if (is_pseudo) {
@@ -21,8 +24,8 @@ GameLoopRender::GameLoopRender(unsigned int input_screen_x, unsigned int input_s
   } else {
     set_grafic_mode();
   }
-  hud = new GameLoopHUDRender(data);
-  ending = new GameLoopEndingRender(data, input_ending_data);
+  hud = new GameLoopHUDRender(data, input_ending_data);
+  ending = new GameLoopEndingRender(data, input_ending_data->get_data(new std::string("statistic_data")));
 }
 
 GameLoopRender::~GameLoopRender() {

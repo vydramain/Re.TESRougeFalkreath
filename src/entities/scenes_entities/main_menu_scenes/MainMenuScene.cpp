@@ -8,8 +8,8 @@
 
 MainMenuScene::MainMenuScene(IRenderSystem *input_render_system) : IMainScene("MainMenuScene") {
   std::string temp_choices[4] = {"Новая игра", "Конфигурация", "Статистика", "Выход"};
-  data =
-      new ParameterQueryData(new std::string("Главное меню:"), ParameterQueryData::create_choices(4, temp_choices));
+  data = new ParameterQueryData(new std::string("main_menu_data"), new std::string("Главное меню:"),
+                                ParameterQueryData::create_choices(4, temp_choices));
 
   mm_input = new MMControls(data);
 

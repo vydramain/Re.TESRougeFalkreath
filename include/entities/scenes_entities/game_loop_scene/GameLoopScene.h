@@ -11,6 +11,7 @@
 #include "entities/scenes_entities/IMainScene.h"
 #include "systems/launcher_system/data/GameConfigurationData.hpp"
 #include "systems/launcher_system/data/ParameterQueryData.hpp"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
 #include "systems/render_systems/IRenderSystem.h"
 #include "systems/scenes_systems/game_loop_systems/controls/GLControlMap.h"
 #include "systems/scenes_systems/game_loop_systems/controls/IGLControl.h"
@@ -19,11 +20,11 @@
 
 class GameLoopScene : public IMainScene {
  private:
-  GameConfigurationData * settings_data = nullptr;
+  GameConfigurationData *settings_data = nullptr;
   IRenderSystem *render_system = nullptr;
   IWorldSystem *world_system = nullptr;
 
-  ParameterQueryData *ending_data;
+  ParameterQueryDataSet *data;
 
  public:
   explicit GameLoopScene(IRenderSystem *input_render_system, GameConfigurationData *input_settings_data);

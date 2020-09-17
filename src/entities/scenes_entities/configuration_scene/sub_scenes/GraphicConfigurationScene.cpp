@@ -14,19 +14,20 @@ GraphicConfigurationScene::GraphicConfigurationScene(IRenderSystem *input_render
   auto temp_vector = new std::vector<std::string *>();
   temp_vector->push_back(new std::string("Изменить текущее разрешение"));
   temp_vector->push_back(new std::string("Изменить режим отображения объектов"));
-  configuration_data->push_back(
-      new ParameterQueryData(new std::string("Конфигурация графического режима:"), temp_vector));
+  configuration_data->push_back(new ParameterQueryData(
+      new std::string("grafic_data"), new std::string("Конфигурация графического режима:"), temp_vector));
 
   temp_vector = new std::vector<std::string *>();
   temp_vector->push_back(new std::string("1920x1080"));
   temp_vector->push_back(new std::string("1280x720"));
-  configuration_data->push_back(new ParameterQueryData(new std::string("Выберете новое разрешение:"), temp_vector));
+  configuration_data->push_back(new ParameterQueryData(new std::string("resolution_data"),
+                                                       new std::string("Выберете новое разрешение:"), temp_vector));
 
   temp_vector = new std::vector<std::string *>();
   temp_vector->push_back(new std::string("Использовать псевдографический режим"));
   temp_vector->push_back(new std::string("Использовать графический режим"));
-  configuration_data->push_back(
-      new ParameterQueryData(new std::string("Выберете режим отоборажения объектов:"), temp_vector));
+  configuration_data->push_back(new ParameterQueryData(
+      new std::string("grafic_mode_data"), new std::string("Выберете режим отоборажения объектов:"), temp_vector));
 
   global_settings_data = input_configuration_data;
   gco_input = new GCOControls(configuration_data, input_configuration_data);

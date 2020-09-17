@@ -5,8 +5,10 @@
 #pragma once
 
 #include <map>
+#include <string>
 
 #include "./BearLibTerminal.h"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
 #include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectDown.h"
 #include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectEmpty.h"
 #include "systems/scenes_systems/game_loop_systems/controls/sub_controls/ending_controls/GLEControlSelectEnter.h"
@@ -25,10 +27,10 @@ class GLEControlMap {
   std::map<int, IControl *>::iterator gle_iterator;
 
  public:
-  explicit GLEControlMap(IWorldSystem *input_location_system, ParameterQueryData *input_ending_data) {
+  explicit GLEControlMap(IWorldSystem *input_location_system, ParameterQueryDataSet *input_ending_data) {
     printf("%s", "[MMControlMap] - Creating main menu controls\n");
-    select_down = new GLEControlSelectDown(input_ending_data);
-    select_up = new GLEControlSelectUp(input_ending_data);
+    select_down = new GLEControlSelectDown(input_ending_data->get_data(new std::string("statistic_data")));
+    select_up = new GLEControlSelectUp(input_ending_data->get_data(new std::string("statistic_data")));
     select_exit = new GLEControlSelectExit();
     select_empty = new GLEControlSelectEmpty();
     select_enter = new GLEControlSelectEnter(input_location_system);

@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "./BearLibTerminal.h"
+#include "entities/render_entities/CleanerRender.h"
 
 class TextPanelsRender {
  private:

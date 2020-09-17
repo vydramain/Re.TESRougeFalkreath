@@ -47,6 +47,7 @@ bool MapSentientReader::load_sentient() {
     clear_sentient_data();
     return false;
   }
+  getc(file);
   return true;
 }
 
