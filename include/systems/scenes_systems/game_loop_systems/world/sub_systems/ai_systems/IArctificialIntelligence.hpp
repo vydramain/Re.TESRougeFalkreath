@@ -6,5 +6,6 @@
 
 class IArtificialIntelligence {
  public:
+  virtual ~IArtificialIntelligence() {}
   virtual void update() = 0;
 };
