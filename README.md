@@ -19,3 +19,5 @@ Use `make` to compile link and play.
  1. Dynamic resolution. You can play in HD or FullHD mode
  2. Three big location. You can enable random generation of dungeon location
  3. Two render modes. Symbolic and Graphic!
+ 4. JRPG combat-style
+ 5. Your person die if his steps counter have 3000 steps

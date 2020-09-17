@@ -21,6 +21,9 @@ class GLAControlPlayerRight : public IControl {
             world_system->get_current_map()->get_entities_system()->get_player()->get_current_y())) {
       world_system->get_current_map()->get_entities_system()->get_player()->go_right(
           world_system->get_current_map()->get_size_x());
+      if (world_system->get_current_map()->get_entities_system()->get_player()->get_steps_count() > 3000) {
+        world_system->get_current_map()->get_entities_system()->get_player()->set_hp(0);
+      }
     } else {
       world_system->get_current_map()->get_entities_system()->get_player()->look_right();
     }
