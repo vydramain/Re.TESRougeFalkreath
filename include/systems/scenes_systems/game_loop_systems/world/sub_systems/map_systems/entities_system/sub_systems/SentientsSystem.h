@@ -23,7 +23,7 @@ class SentientsSystem {
   Sentient *get_sentient(unsigned input_index);
 
   unsigned get_sentients_size() const;
-  int get_sentient_index(Sentient *input_magwehr);
+  int get_sentient_index(unsigned input_x, unsigned input_y);
   const Sentient *get_sentient(unsigned input_index) const;
 
  protected:
