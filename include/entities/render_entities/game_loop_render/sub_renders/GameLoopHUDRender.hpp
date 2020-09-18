@@ -7,19 +7,24 @@
 #include <cstring>
 
 #include "./BearLibTerminal.h"
-#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/location_entities/sentients_entities/Sentient.h"
 #include "entities/render_entities/CleanerRender.h"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
+#include "systems/launcher_system/data/ParameterQueryDataSet.hpp"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/IWorldSystem.hpp"
 
 class GameLoopHUDRender : public IRender {
  private:
-  RenderConfigurationData *data = nullptr;
+  ParameterQueryDataSet *query_data_set;
+  RenderConfigurationData *data;
+
+  void render_parameter(std::string input_string, unsigned int input_parameter, unsigned int input_x,
+                        unsigned int input_y);
 
  public:
-  explicit GameLoopHUDRender(RenderConfigurationData *input_data);
+  explicit GameLoopHUDRender(RenderConfigurationData *input_data, ParameterQueryDataSet* input_query_data_set);
   ~GameLoopHUDRender() override;
 
   std::vector<std::string *> *prepare_string_message(std::string *input_text) const;
@@ -34,6 +39,8 @@ class GameLoopHUDRender : public IRender {
   void render_inventory();
   void render_coordinates();
   void render_interact_ability();
+
+  void render_fight_condition();
 
   void render() override;
 };

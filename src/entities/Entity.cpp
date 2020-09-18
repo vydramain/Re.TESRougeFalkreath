@@ -4,14 +4,19 @@
 
 #include "entities/Entity.h"
 
+#include <string>
+
 Entity::Entity(const char* input_name) {
-  name = input_name;
+  name = new std::string(input_name);
 }
 
-const char* Entity::get_name() const {
+Entity::~Entity() {}
+
+std::string* Entity::get_name() const {
   return name;
 }
 
 void Entity::set_name(const char* input_name) {
-  name = input_name;
+  delete name;
+  name = new std::string(input_name);
 }

@@ -4,7 +4,7 @@
 
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/EndingScene.hpp"
 
-EndingScene::EndingScene(IWorldSystem* input_location, ParameterQueryData*input_ending_data)
+EndingScene::EndingScene(IWorldSystem* input_location, ParameterQueryDataSet* input_ending_data)
     : IScene("EndingScene") {
   gle_input = new GLEControls(input_location, input_ending_data);
 }

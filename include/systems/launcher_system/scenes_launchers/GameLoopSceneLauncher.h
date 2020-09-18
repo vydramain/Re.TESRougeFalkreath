@@ -5,10 +5,10 @@
 #pragma once
 
 #include "adds/log_systems/PseudoLogSystem.hpp"
-#include "entities/data_entities/GameConfigurationData.hpp"
 #include "entities/scenes_entities/SceneType.hpp"
 #include "entities/scenes_entities/game_loop_scene/GameLoopScene.h"
 #include "systems/IControl.h"
+#include "systems/launcher_system/data/GameConfigurationData.hpp"
 #include "systems/render_systems/IRenderSystem.h"
 
 class GameLoopSceneLauncher : public IControl {

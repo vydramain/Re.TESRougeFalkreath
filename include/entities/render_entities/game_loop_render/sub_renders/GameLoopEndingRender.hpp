@@ -4,10 +4,10 @@
 
 #pragma once
 
-#include "entities/data_entities/ParameterQueryData.hpp"
-#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/IRender.h"
 #include "entities/render_entities/TextPanelsRender.h"
+#include "systems/launcher_system/data/ParameterQueryData.hpp"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 
 class GameLoopEndingRender : public IRender {
  private:

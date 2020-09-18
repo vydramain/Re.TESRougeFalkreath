@@ -51,11 +51,11 @@ const char* StdStatisticsReader::get_string(unsigned int input_index) {
 
     int i = 0;
     int current_character = 0;
-    char* returning_string = new char[char_in_string];
+    char* returning_string = new char[char_in_string]{};
     for (int l = 0; returning_string[l]; l++) {
       returning_string[l] = ' ';
     }
-    while (current_character != '\n' && !feof(current_file)) {
+    while (current_character != '\n' && current_character != -1) {
       current_character = fgetc(current_file);
       returning_string[i] = current_character;
       i++;

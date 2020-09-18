@@ -4,15 +4,17 @@
 
 #pragma once
 
+#include <string>
+
 class Entity {
  private:
   unsigned id = 0;
-  const char* name;
+  std::string* name;
 
  public:
   explicit Entity(const char* input_name);
-  virtual ~Entity() = default;
+  virtual ~Entity();
 
-  const char* get_name() const;
+  std::string* get_name() const;
   void set_name(const char* input_name);
 };

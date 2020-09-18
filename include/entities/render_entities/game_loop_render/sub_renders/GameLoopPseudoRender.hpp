@@ -5,8 +5,8 @@
 #pragma once
 
 #include "./BearLibTerminal.h"
-#include "entities/data_entities/RenderConfigurationData.hpp"
 #include "entities/render_entities/IRender.h"
+#include "systems/launcher_system/data/RenderConfigurationData.hpp"
 
 class GameLoopPseudoRender : public IRender {
  private:

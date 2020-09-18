@@ -41,17 +41,17 @@ Sentient *SentientsSystem::get_player() {
   return sentients[0];
 }
 
-Sentient *SentientsSystem::get_sentient(const unsigned int input_index) {
-  return sentients[input_index];
-}
-
-int SentientsSystem::get_sentient_index(Sentient *input_magwehr) {
+int SentientsSystem::get_sentient_index(unsigned int input_x, unsigned int input_y) {
   for (unsigned int i = 0; i < sentients.size(); i++) {
-    if (*sentients[i] == *input_magwehr) {
+    if (sentients[i]->get_current_x() == input_x && sentients[i]->get_current_y() == input_y) {
       return i;
     }
   }
   return -1;
+}
+
+Sentient *SentientsSystem::get_sentient(const unsigned int input_index) {
+  return sentients[input_index];
 }
 
 const Sentient *SentientsSystem::get_sentient(const unsigned int input_index) const {

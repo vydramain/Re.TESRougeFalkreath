@@ -8,24 +8,26 @@
 
 #include "systems/IControl.h"
 #include "systems/scenes_systems/game_loop_systems/load/controls/ILControl.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlCaveQuit.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlCobblestone.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlCoin.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlDoor.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlEastGate.hpp"
 #include "systems/scenes_systems/game_loop_systems/load/controls/LControlEmpty.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlGlacier.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlHedge.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlLowerHatch.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlPlant.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlRoadbrick.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlSouthGate.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlThrone.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlTree.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlUpperHatch.hpp"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlWall.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlWater.h"
-#include "systems/scenes_systems/game_loop_systems/load/controls/LControlWestGate.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlCaveQuit.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlCobblestone.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlDoor.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlEastGate.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlGlacier.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlHedge.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlLowerHatch.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlPlant.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlRoadbrick.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlSouthGate.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlThrone.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlTree.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlUpperHatch.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlWall.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlWater.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/ambients/LControlWestGate.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/items/LControlCoin.h"
+#include "systems/scenes_systems/game_loop_systems/load/controls/sentients//LControlNord.hpp"
+#include "systems/scenes_systems/game_loop_systems/load/controls/sentients//LControlKhajiit.hpp"
 #include "systems/scenes_systems/game_loop_systems/world/sub_systems/map_systems/entities_system/EntitiesSystem.h"
 
 class LControlMap {
@@ -48,30 +50,34 @@ class LControlMap {
   LControlWall *wall = nullptr;
   LControlWater *water = nullptr;
   LControlWestGate *west_gate = nullptr;
+  LControlKhajiit *khajiit = nullptr;
+  LControlNord *nord = nullptr;
 
   std::map<unsigned, ILControl *> load_map;
   std::map<unsigned, ILControl *>::iterator load_iterator;
 
  public:
-  explicit LControlMap(unsigned *input_x, unsigned *input_y, EntitiesSystem *input_entities_system) {
-    cave_quit = new LControlCaveQuit(input_x, input_y, input_entities_system);
-    cobblestone = new LControlCobblestone(input_x, input_y, input_entities_system);
-    coin = new LControlCoin(input_x, input_y, input_entities_system);
-    door = new LControlDoor(input_x, input_y, input_entities_system);
-    east_gate = new LControlEastGate(input_x, input_y, input_entities_system);
-    glacier = new LControlGlacier(input_x, input_y, input_entities_system);
+  explicit LControlMap(LoadControlsEntitysData *input_data, EntitiesSystem *input_entities_system) {
+    cave_quit = new LControlCaveQuit(input_data, input_entities_system);
+    cobblestone = new LControlCobblestone(input_data, input_entities_system);
+    coin = new LControlCoin(input_data, input_entities_system);
+    door = new LControlDoor(input_data, input_entities_system);
+    east_gate = new LControlEastGate(input_data, input_entities_system);
+    glacier = new LControlGlacier(input_data, input_entities_system);
     empty = new LControlEmpty();
-    hedge = new LControlHedge(input_x, input_y, input_entities_system);
-    lower_hatch = new LControlLowerHatch(input_x, input_y, input_entities_system);
-    plant = new LControlPlant(input_x, input_y, input_entities_system);
-    brick = new LControlRoadbrick(input_x, input_y, input_entities_system);
-    south_gate = new LControlSouthGate(input_x, input_y, input_entities_system);
-    throne = new LControlThrone(input_x, input_y, input_entities_system);
-    tree = new LControlTree(input_x, input_y, input_entities_system);
-    upper_hatch = new LControlUpperHatch(input_x, input_y, input_entities_system);
-    wall = new LControlWall(input_x, input_y, input_entities_system);
-    water = new LControlWater(input_x, input_y, input_entities_system);
-    west_gate = new LControlWestGate(input_x, input_y, input_entities_system);
+    hedge = new LControlHedge(input_data, input_entities_system);
+    lower_hatch = new LControlLowerHatch(input_data, input_entities_system);
+    plant = new LControlPlant(input_data, input_entities_system);
+    brick = new LControlRoadbrick(input_data, input_entities_system);
+    south_gate = new LControlSouthGate(input_data, input_entities_system);
+    throne = new LControlThrone(input_data, input_entities_system);
+    tree = new LControlTree(input_data, input_entities_system);
+    upper_hatch = new LControlUpperHatch(input_data, input_entities_system);
+    wall = new LControlWall(input_data, input_entities_system);
+    water = new LControlWater(input_data, input_entities_system);
+    west_gate = new LControlWestGate(input_data, input_entities_system);
+    nord = new LControlNord(input_data, input_entities_system);
+    khajiit = new LControlKhajiit(input_data, input_entities_system);
 
     load_map['9'] = cave_quit;
     load_map['c'] = cobblestone;
@@ -90,6 +96,8 @@ class LControlMap {
     load_map['#'] = wall;
     load_map['~'] = water;
     load_map['W'] = west_gate;
+    load_map['N'] = nord;
+    load_map['K'] = khajiit;
   }
 
   ~LControlMap() {
@@ -107,6 +115,8 @@ class LControlMap {
     delete wall;
     delete water;
     delete west_gate;
+    delete nord;
+    delete khajiit;
   }
 
   IControl *get_control(unsigned input_symbol) {

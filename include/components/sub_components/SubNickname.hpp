@@ -5,6 +5,7 @@
 #pragma once
 
 #include <cstring>
+#include <string>
 
 #include "components/abs_components/AbsNickname.hpp"
 
@@ -14,6 +15,6 @@ class SubNickname : protected AbsNickname {
   ~SubNickname();
 
   unsigned get_chars_counts() const;
-  const char* get_fio() const;
-  void set_fio(const char* input_fio);
+  std::string* get_nickname() const;
+  void set_nickname(std::string* input_fio);
 };

@@ -20,6 +20,9 @@ class GLAControlPlayerUp : public IControl {
             world_system, world_system->get_current_map()->get_entities_system()->get_player()->get_current_x(),
             world_system->get_current_map()->get_entities_system()->get_player()->get_current_y() - 1)) {
       world_system->get_current_map()->get_entities_system()->get_player()->go_up();
+      if (world_system->get_current_map()->get_entities_system()->get_player()->get_steps_count() > 3000) {
+        world_system->get_current_map()->get_entities_system()->get_player()->set_hp(0);
+      }
     } else {
       world_system->get_current_map()->get_entities_system()->get_player()->look_up();
     }

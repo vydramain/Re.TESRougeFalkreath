@@ -17,7 +17,7 @@ class MapTitleReader : public MapReader {
   unsigned size_y = 0;
 
  public:
-  explicit MapTitleReader(std::string input_file_name);
+  explicit MapTitleReader(std::string* input_file_name);
   ~MapTitleReader() override;
 
   bool open() override;

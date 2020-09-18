@@ -12,12 +12,12 @@ void MapItemReader::clear_item_data() {
   items_location.clear();
 }
 
-MapItemReader::MapItemReader(std::string input_file_name) : MapReader(std::move(input_file_name)) {}
+MapItemReader::MapItemReader(std::string* input_file_name) : MapReader(input_file_name) {}
 
 MapItemReader::~MapItemReader() = default;
 
 bool MapItemReader::open() {
-  file = fopen(file_name.data(), "r");
+  file = fopen(file_name->data(), "r");
   if (file != nullptr) {
     if (!feof(file)) {
       return true;

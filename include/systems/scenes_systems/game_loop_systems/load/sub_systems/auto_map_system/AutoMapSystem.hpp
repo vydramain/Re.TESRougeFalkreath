@@ -27,7 +27,7 @@ class AutoMapSystem {
   unsigned corridor_size_length = 5;
   unsigned corridor_size_width = 3;
 
-  std::string map_name;
+  std::string* map_name = nullptr;
   unsigned size_x = 0;
   unsigned size_y = 0;
   EntitiesSystem *entities_system = nullptr;
@@ -51,7 +51,7 @@ class AutoMapSystem {
   unsigned int generate_random_corridor(unsigned int *input_x, unsigned int *input_y, unsigned int input_random);
 
  public:
-  explicit AutoMapSystem(std::string input_map_name);
+  explicit AutoMapSystem(std::string* input_map_name);
   ~AutoMapSystem();
 
   IMapSystem *generate_location();

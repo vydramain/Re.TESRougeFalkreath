@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include "systems/scenes_systems/game_loop_systems/reader/map/MapSentientReader.hpp"
 #include "adds/log_systems/PseudoLogSystem.hpp"
 #include "systems/IControl.h"
 #include "systems/scenes_systems//game_loop_systems/load/controls/LControlMap.h"
@@ -17,8 +18,10 @@
 
 class SectionalLoadSystem : IMapLoadSystem {
  private:
+  std::string* map_name = nullptr;
   MapTitleReader *map_reader = nullptr;
   MapAmbientReader *ambient_reader = nullptr;
+  MapSentientReader *sentient_reader = nullptr;
   MapItemReader *item_reader = nullptr;
   EntitiesSystem *entities_system = nullptr;
 
@@ -26,12 +29,13 @@ class SectionalLoadSystem : IMapLoadSystem {
   void clear_fields();
   bool find_map();
   void complete_entities_ambient();
+  void complete_entities_sentient();
   void complete_entities_item();
   void complete_entities_random_item();
   void create_entities_system();
 
  public:
-  explicit SectionalLoadSystem(const std::string &input_map_address);
+  explicit SectionalLoadSystem(std::string* input_map_address);
   ~SectionalLoadSystem() override;
 
   void load_new_map() override;

@@ -4,6 +4,7 @@
 
 #include "systems/scenes_systems/game_loop_systems/actions/InteractAbilitySystem.hpp"
 
+#include <string>
 #include <utility>
 
 InteractAbilitySystem::InteractAbilitySystem() {
@@ -51,11 +52,12 @@ bool InteractAbilitySystem::try_interact_with(IWorldSystem *input_world_system) 
 void InteractAbilitySystem::interact_with_item(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log(
-        "InteractAbilitySystem", world_system->get_current_map()->get_entities_system()->get_player()->get_name(),
-        "interact with", world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name());
+        "InteractAbilitySystem",
+        world_system->get_current_map()->get_entities_system()->get_player()->get_name()->data(), "interact with",
+        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name()->data());
     world_system->get_current_map()->get_entities_system()->remove_item(input_index);
     interact_iterator = item_interact_map.find(
-        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name());
+        world_system->get_current_map()->get_entities_system()->get_item(input_index)->get_name()->data());
     if (interact_iterator != item_interact_map.end()) {
       interact_iterator->second();
     }
@@ -70,10 +72,11 @@ void InteractAbilitySystem::interact_with_coin() {
 void InteractAbilitySystem::interact_with_ambient(int input_index) {
   if (input_index != -1) {
     PseudoLogSystem::log(
-        "InteractAbilitySystem", world_system->get_current_map()->get_entities_system()->get_player()->get_name(),
-        "interact with", world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name());
+        "InteractAbilitySystem",
+        world_system->get_current_map()->get_entities_system()->get_player()->get_name()->data(), "interact with",
+        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name()->data());
     interact_iterator = ambient_interact_map.find(
-        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name());
+        world_system->get_current_map()->get_entities_system()->get_ambient(input_index)->get_name()->data());
     if (interact_iterator != ambient_interact_map.end()) {
       interact_iterator->second();
     }
@@ -108,7 +111,7 @@ void InteractAbilitySystem::interact_with_door() {
 
 void InteractAbilitySystem::interact_with_east_gate() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(3);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(13);
@@ -121,7 +124,7 @@ void InteractAbilitySystem::interact_with_south_gate() {
 
 void InteractAbilitySystem::interact_with_west_gate() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("Falkreath");
+  world_system->set_current_map(new std::string("Falkreath"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(72);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(13);
@@ -129,7 +132,7 @@ void InteractAbilitySystem::interact_with_west_gate() {
 
 void InteractAbilitySystem::interact_with_upper_hatch() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("BloodletThrone");
+  world_system->set_current_map(new std::string("BloodletThrone"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(5);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(2);
@@ -137,7 +140,7 @@ void InteractAbilitySystem::interact_with_upper_hatch() {
 
 void InteractAbilitySystem::interact_with_lower_hatch() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(181);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(95);
@@ -145,7 +148,7 @@ void InteractAbilitySystem::interact_with_lower_hatch() {
 
 void InteractAbilitySystem::interact_with_cave_quit() {
   auto *player = world_system->get_current_map()->get_entities_system()->remove_player();
-  world_system->set_current_map("WestForest");
+  world_system->set_current_map(new std::string("WestForest"));
   world_system->get_current_map()->get_entities_system()->put_player(player);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_x(248);
   world_system->get_current_map()->get_entities_system()->get_player()->set_current_y(96);

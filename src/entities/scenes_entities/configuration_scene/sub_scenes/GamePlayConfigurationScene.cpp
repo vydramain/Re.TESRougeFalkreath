@@ -10,7 +10,8 @@ GamePlayConfigurationScene::GamePlayConfigurationScene(IRenderSystem *input_rend
                                                        GameConfigurationData *input_configuration_data)
     : IScene("GamePlayConfigurationScene") {
   std::string temp_choices[2] = {"Включить рандомную генерацию подемелий", "Выключить рандомную генерацию подемелий"};
-  data = new ParameterQueryData(new std::string("Конфигурация особенностей игрового процесса:"),
+  data = new ParameterQueryData(new std::string("auto_map_data"),
+                                new std::string("Конфигурация особенностей игрового процесса:"),
                                 ParameterQueryData::create_choices(2, temp_choices));
   gpco_input = new GPCOControls(data, input_configuration_data);
 

@@ -9,7 +9,8 @@
 ConfigurationScene::ConfigurationScene(IRenderSystem* input_render_system,
                                        GameConfigurationData* input_configuration_data) {
   std::string temp_choices[2] = {"Конфигурация особенностей игрового процесса", "Конфигурация графического режима"};
-  data = new ParameterQueryData(new std::string("Конфигурация:"), ParameterQueryData::create_choices(2, temp_choices));
+  data = new ParameterQueryData(new std::string("configuration_data"), new std::string("Конфигурация:"),
+                                ParameterQueryData::create_choices(2, temp_choices));
   co_input = new COControls(input_render_system, data, input_configuration_data);
 
   global_configuration_data = input_configuration_data;

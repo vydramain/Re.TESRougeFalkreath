@@ -11,48 +11,58 @@ bool SectionalLoadSystem::check_files() {
 }
 
 void SectionalLoadSystem::clear_fields() {
+  delete map_name;
   delete map_reader;
   delete ambient_reader;
+  delete sentient_reader;
   delete item_reader;
   delete entities_system;
 }
 
 bool SectionalLoadSystem::find_map() {
-  if (map_reader && ambient_reader && item_reader) {
-    if (map_reader->open() && ambient_reader->open() && item_reader->open()) {
-      PseudoLogSystem::log("SectionalLoadSystem", "Map", map_reader->get_file_name().data(), "found");
+  if (map_reader && ambient_reader && item_reader && sentient_reader) {
+    if (map_reader->open() && ambient_reader->open() && item_reader->open() && sentient_reader->open()) {
+      PseudoLogSystem::log("SectionalLoadSystem", "Map", map_name->data(), "found");
       return true;
     }
   }
-  PseudoLogSystem::log("SectionalLoadSystem", "Map", map_reader->get_file_name().data(), "not found");
+  PseudoLogSystem::log("SectionalLoadSystem", "Map", map_name->data(), "not found");
   return false;
 }
 
 void SectionalLoadSystem::complete_entities_ambient() {
   if (entities_system != nullptr) {
-    auto *i = new unsigned(0);
-    auto *j = new unsigned(0);
+    auto *data = new LoadControlsEntitysData();
     IControl *control;
-    auto *map = new LControlMap(i, j, entities_system);
+    auto *map = new LControlMap(data, entities_system);
 
-    for (*j = 0; *j < map_reader->get_map_size_y(); *j = *j + 1) {
-      for (*i = 0; *i < map_reader->get_map_size_x(); *i = *i + 1) {
+    for (data->set_y(0); data->get_y() < map_reader->get_map_size_y(); data->set_y(data->get_y() + 1)) {
+      for (data->set_x(0); data->get_x() < map_reader->get_map_size_x(); data->set_x(data->get_x() + 1)) {
         control = map->get_control(ambient_reader->get_char());
         control->execute();
         if (check_files()) {
           clear_fields();
           delete entities_system;
           entities_system = nullptr;
-          delete i;
-          delete j;
           delete map;
           return;
         }
       }
     }
-    delete i;
-    delete j;
     delete map;
+  }
+}
+
+void SectionalLoadSystem::complete_entities_sentient() {
+  while (sentient_reader->has_sentient() && sentient_reader->load_sentient()) {
+    if (sentient_reader->get_sentient_name() == "Nord") {
+      entities_system->put_sentient(new Nord(sentient_reader->get_sentient_nickname().data(),
+                                             sentient_reader->get_sentient_x(), sentient_reader->get_sentient_y()));
+    }
+    if (sentient_reader->get_sentient_name() == "Khajiit") {
+      entities_system->put_sentient(new Khajiit(sentient_reader->get_sentient_nickname().data(),
+                                                sentient_reader->get_sentient_x(), sentient_reader->get_sentient_y()));
+    }
   }
 }
 
@@ -85,10 +95,22 @@ void SectionalLoadSystem::create_entities_system() {
   entities_system = new EntitiesSystem();
 }
 
-SectionalLoadSystem::SectionalLoadSystem(const std::string& input_map_address) {
-  map_reader = new MapTitleReader(std::string(input_map_address).append("/Title.bin"));
-  ambient_reader = new MapAmbientReader(std::string(input_map_address).append("/Ambient.bin"));
-  item_reader = new MapItemReader(std::string(input_map_address).append("/Item.bin"));
+SectionalLoadSystem::SectionalLoadSystem(std::string *input_map_address) {
+  map_name = input_map_address;
+  auto title = new std::string(*input_map_address);
+  auto sentients = new std::string(*input_map_address);
+  auto ambients = new std::string(*input_map_address);
+  auto items = new std::string(*input_map_address);
+
+  title->append("/Title.bin");
+  sentients->append("/Sentients.bin");
+  ambients->append("/Ambients.bin");
+  items->append("/Items.bin");
+
+  map_reader = new MapTitleReader(title);
+  sentient_reader = new MapSentientReader(sentients);
+  ambient_reader = new MapAmbientReader(ambients);
+  item_reader = new MapItemReader(items);
 }
 
 SectionalLoadSystem::~SectionalLoadSystem() {
@@ -99,6 +121,7 @@ void SectionalLoadSystem::load_new_map() {
   if (find_map()) {
     create_entities_system();
     complete_entities_ambient();
+    complete_entities_sentient();
     complete_entities_random_item();
     return;
   }
@@ -110,6 +133,7 @@ void SectionalLoadSystem::load_old_map() {
   if (find_map()) {
     create_entities_system();
     complete_entities_ambient();
+    complete_entities_sentient();
     complete_entities_item();
     return;
   }

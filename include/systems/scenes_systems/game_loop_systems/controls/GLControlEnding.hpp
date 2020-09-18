@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "entities/data_entities/ParameterQueryData.hpp"
 #include "entities/scenes_entities/game_loop_scene/sub_scenes/EndingScene.hpp"
+#include "systems/launcher_system/data/ParameterQueryData.hpp"
 #include "systems/scenes_systems/game_loop_systems/controls/IGLControl.h"
 
 class GLControlEnding : public IGLControl {
@@ -14,7 +14,7 @@ class GLControlEnding : public IGLControl {
   EndingScene *scene = nullptr;
 
  public:
-  explicit GLControlEnding(IWorldSystem *input_location_system, ParameterQueryData *input_ending_data)
+  explicit GLControlEnding(IWorldSystem *input_location_system, ParameterQueryDataSet *input_ending_data)
       : IGLControl("GLControlEnding") {
     scene = new EndingScene(input_location_system, input_ending_data);
   }

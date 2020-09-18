@@ -4,16 +4,22 @@
 
 #pragma once
 
+#include "components/sub_components/SubLiveStats.hpp"
 #include "components/sub_components/SubNickname.hpp"
 #include "components/sub_components/SubPockets.hpp"
+#include "components/sub_components/SubSentientCondition.hpp"
 #include "components/sub_components/SubWalketh.hpp"
 #include "entities/location_entities/LocationsEntity.h"
+#include "entities/location_entities/sentients_entities/data/SentientParametersData.hpp"
 
-class Sentient : public SubNickname, public LocationsEntity, public SubWalketh, public SubPockets {
+class Sentient : public SubNickname,
+                 public LocationsEntity,
+                 public SubLiveStats,
+                 public SubWalketh,
+                 public SubPockets,
+                 public SubSentientCondition {
  public:
-  explicit Sentient(const char *input_fio, const char *input_name, PseudoRenderData *input_pseudo_data,
-                    GraficRenderData *input_grafic_data, unsigned input_current_x = 0, unsigned input_current_y = 0,
-                    unsigned input_pocket_size = 10, unsigned input_wallet = 0);
+  explicit Sentient(SentientParametersData *input_data);
   Sentient(const Sentient &input_sentient);
   Sentient(Sentient &&input_sentient) noexcept;
   Sentient &operator=(const Sentient &input_sentient);

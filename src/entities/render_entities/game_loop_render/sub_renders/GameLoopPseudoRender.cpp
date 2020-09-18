@@ -30,23 +30,6 @@ void GameLoopPseudoRender::render_ambient() {
 
 void GameLoopPseudoRender::render_location_creatures() {
   terminal_layer(6);
-  const Sentient *sentient;
-  for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
-       i++) {
-    sentient = data->get_world_system()->get_current_map()->get_entities_system()->get_sentient(i);
-    unsigned race_x = sentient->get_current_x();
-    unsigned race_y = sentient->get_current_y();
-
-    if ((race_x >= data->get_camera_position_x() &&
-         race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
-        (race_y >= data->get_camera_position_y() &&
-         race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_color(sentient->get_pseudo_color());
-      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     sentient->get_pseudo_tile());
-    }
-  }
-
   const Magwehr *magwehr;
   for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_magwehrs_size();
        i++) {
@@ -63,6 +46,31 @@ void GameLoopPseudoRender::render_location_creatures() {
                      magwehr->get_pseudo_tile());
     }
   }
+
+  terminal_layer(7);
+  const Sentient *sentient;
+  for (unsigned i = 1; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
+       i++) {
+    sentient = data->get_world_system()->get_current_map()->get_entities_system()->get_sentient(i);
+    unsigned race_x = sentient->get_current_x();
+    unsigned race_y = sentient->get_current_y();
+
+    if ((race_x >= data->get_camera_position_x() &&
+         race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
+        (race_y >= data->get_camera_position_y() &&
+         race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
+      terminal_color(sentient->get_pseudo_color());
+      terminal_print(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                     sentient->get_pseudo_tile());
+    }
+  }
+  terminal_layer(8);
+  terminal_color(data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_pseudo_color());
+  terminal_print(data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_x() -
+                     data->get_camera_position_x(),
+                 data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_y() -
+                     data->get_camera_position_y(),
+                 data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_pseudo_tile());
 }
 
 void GameLoopPseudoRender::render_location_items() {

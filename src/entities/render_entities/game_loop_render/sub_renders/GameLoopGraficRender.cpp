@@ -24,6 +24,7 @@ GameLoopGraficRender::GameLoopGraficRender(RenderConfigurationData *input_data) 
   tiles_map["../sprites/tiny/ambients/door/door_o.png"] = 0xF00E;
   tiles_map["../sprites/tiny/items/coin.png"] = 0xF020;
   tiles_map["../sprites/tiny/sentients/khajiit/right.png"] = 0xF040;
+  tiles_map["../sprites/tiny/sentients/nord/right.png"] = 0xF045;
 
   for (auto &it : tiles_map) {
     terminal_set(std::to_string(it.second).append(": ").append(it.first).data());
@@ -53,29 +54,13 @@ void GameLoopGraficRender::render_ambient() {
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
       terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     ambient->get_grafic_tile());
+                   ambient->get_grafic_tile());
     }
   }
 }
 
 void GameLoopGraficRender::render_location_creatures() {
   terminal_layer(6);
-  const Sentient *sentient;
-  for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
-       i++) {
-    sentient = data->get_world_system()->get_current_map()->get_entities_system()->get_sentient(i);
-    unsigned race_x = sentient->get_current_x();
-    unsigned race_y = sentient->get_current_y();
-
-    if ((race_x >= data->get_camera_position_x() &&
-         race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
-        (race_y >= data->get_camera_position_y() &&
-         race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
-      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     sentient->get_grafic_tile());
-    }
-  }
-
   const Magwehr *magwehr;
   for (unsigned i = 0; i < data->get_world_system()->get_current_map()->get_entities_system()->get_magwehrs_size();
        i++) {
@@ -88,9 +73,32 @@ void GameLoopGraficRender::render_location_creatures() {
         (race_y >= data->get_camera_position_y() &&
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
       terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     magwehr->get_grafic_tile());
+                   magwehr->get_grafic_tile());
     }
   }
+
+  terminal_layer(7);
+  const Sentient *sentient;
+  for (unsigned i = 1; i < data->get_world_system()->get_current_map()->get_entities_system()->get_sentients_size();
+       i++) {
+    sentient = data->get_world_system()->get_current_map()->get_entities_system()->get_sentient(i);
+    unsigned race_x = sentient->get_current_x();
+    unsigned race_y = sentient->get_current_y();
+
+    if ((race_x >= data->get_camera_position_x() &&
+         race_x < data->get_camera_position_x() + data->get_passive_zone_out_x()) &&
+        (race_y >= data->get_camera_position_y() &&
+         race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
+      terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
+                   sentient->get_grafic_tile());
+    }
+  }
+  terminal_layer(8);
+  terminal_put(data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_x() -
+                   data->get_camera_position_x(),
+               data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_current_y() -
+                   data->get_camera_position_y(),
+               data->get_world_system()->get_current_map()->get_entities_system()->get_player()->get_grafic_tile());
 }
 
 void GameLoopGraficRender::render_location_items() {
@@ -107,7 +115,7 @@ void GameLoopGraficRender::render_location_items() {
          race_y < data->get_camera_position_y() + data->get_passive_zone_out_y())) {
       terminal_layer(4);
       terminal_put(race_x - data->get_camera_position_x(), race_y - data->get_camera_position_y(),
-                     item->get_grafic_tile());
+                   item->get_grafic_tile());
     }
   }
 }

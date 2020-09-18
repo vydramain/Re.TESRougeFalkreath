@@ -4,25 +4,25 @@
 
 #include "components/sub_components/SubNickname.hpp"
 
+#include <string>
+
 SubNickname::SubNickname(const char *input_fio) {
   if (strlen(input_fio) > 24) {
     return;
   }
-  fio = input_fio;
+  nickname = new std::string(input_fio);
 }
 
 SubNickname::~SubNickname() = default;
 
 unsigned SubNickname::get_chars_counts() const {
-  return char_counts;
+  return nickname->size();
 }
 
-const char *SubNickname::get_fio() const {
-  return fio;
+std::string *SubNickname::get_nickname() const {
+  return nickname;
 }
-void SubNickname::set_fio(const char *input_fio) {
-  if (strlen(input_fio) > 24) {
-    return;
-  }
-  fio = input_fio;
+
+void SubNickname::set_nickname(std::string *input_fio) {
+  nickname = input_fio;
 }
