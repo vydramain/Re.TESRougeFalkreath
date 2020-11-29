@@ -1,4 +1,4 @@
-# README #
+# README
 
 Program wrote by C++ and required 14 version.
 For start program you must use CMake, version 3.10 or high.
@@ -14,7 +14,7 @@ Use `make` to compile link and play.
  You must found answer!
 
 
-####Special features
+### Special features
     
  1. Dynamic resolution. You can play in HD or FullHD mode
  2. Three big location. You can enable random generation of dungeon location
